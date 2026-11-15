@@ -2,7 +2,7 @@
 
 **15 November 2026. The unconditional mass gap is not proved.** Three parallel audits examined the current 170-page manuscript, the Lean project, and the published continuum-construction interfaces. This directory records the deductions and the remaining model estimate.
 
-The source baseline is main commit `2e36be0f89e50aeabeb3844418cf9ad58b1e7fd9` and paper commit `50095e99694feea0d72a9cd1495ea4d88efddb4e`. Older, longer manuscript branches were not treated as the current paper. Existing dense-core gap transfer, spectral tuning, and the zero-error ascent were identified as existing results and are not claimed again as new work.
+The source baseline is main commit `2e36be0f89e50aeabeb3844418cf9ad58b1e7fd9` and paper commit `50095e99694feea0d72a9cd1495ea4d88efddb4e`. Older, longer manuscript branches were not treated as the current paper. Existing dense-core gap transfer, spectral tuning, and the zero-error ascent were identified as existing results and are not claimed again as new work. The complete Lean build, all six new dependency audits, and exact arithmetic checks [passed](FORMAL-VERIFICATION.md).
 
 ## What changed
 
@@ -12,7 +12,7 @@ The source baseline is main commit `2e36be0f89e50aeabeb3844418cf9ad58b1e7fd9` an
 | [Scalar thermal-defect transport](rg/RG_THERMAL_DEFECT_AND_ERROR_BUDGET.md) | Written proof and exact arithmetic checks | Bulk vacuum terms cancel in a two-time partition-function ratio. A scalar remainder bound can suffice for base-scale transport without transporting every observable. The actual weak-coupling comparison is still missing. |
 | [Continuum-construction interface](literature/construction-to-theorem-f-interface.md) | Pinned primary-source statements and written mathematical adapters | Full support, phase continuity, adjoints, and reciprocal integer spacings have explicit source chains. Real-token and RP/Fubini adapters address particular interface differences. The external full proof was not rebuilt here. |
 | [General spacing and moving tests](os/continuum-interface-and-spectral-retention.md) | Written proofs | Sparse integer denominators do not require an arithmetic-progression subsequence. Full distributional ultraviolet convergence also controls smoothly moving tests on a common separated compact set. |
-| [Finite-energy retention](os/continuum-interface-and-spectral-retention.md#3-exact-finite-energy-retention-criterion-for-a-prescribed-observable) | Written proof, exact counterexample bounds, illustrative numerical values | A two-time correlation lower bound prevents a prescribed observable from losing all finite-energy spectral weight. A gap upper estimate alone does not ensure that nontriviality. |
+| [Finite-energy retention](os/continuum-interface-and-spectral-retention.md#3-exact-finite-energy-retention-criterion-for-a-prescribed-observable) | Written proof, exact counterexample bounds, illustrative numerical values | A two-time correlation lower bound prevents a prescribed observable from losing all finite-energy spectral weight. A spectral-gap lower bound or a thermal upper bound alone does not ensure that nontriviality. |
 
 Only the six ascent declarations are new Lean formalizations in this update. The interface and spectral lemmas are written mathematical proofs, not additional machine-checked construction theorems. The finite examples are not measurements of the Wilson model.
 
@@ -38,7 +38,7 @@ The exponential-recurrence version uses the existing bound `16(exp(y)-1)^2 <= A 
 epsilon_i <= (3/561) (187/200)^(2^(i+1)).
 ```
 
-When the same trace-to-spectrum estimates hold, the resulting physical gap lower bound is `-log(q)/t0`. Errors exponential in `2^i` are exponential in physical time because that time doubles at each step. A constant or merely geometric tolerance in the step index does not guarantee this decay; the companion note supplies explicit scalar counterexamples.
+When the same trace-to-spectrum estimates hold uniformly on the required tori and `T0/d_k<=t0`, the resulting physical gap lower bound is `-log(q)/t0`. Errors exponential in `2^i` are exponential in physical time because that time doubles at each step. A constant or merely geometric tolerance in the step index does not guarantee this decay; the companion note supplies explicit scalar counterexamples.
 
 For a fixed normalized initial value `u=A y_0` and an envelope touching it, `c=u/q`. Its first-step reserve is exactly `u(q-u)` in normalized units, or `y_0(q-u)` in the original error. This is the sharp reserve within that specific family of touching envelopes: the saturated first recurrence attains it. It is not an optimality theorem for every possible ascent argument.
 
