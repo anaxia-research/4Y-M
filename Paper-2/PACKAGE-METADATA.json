@@ -1,0 +1,21 @@
+{
+  "title": "Thermal Purity Bounds for Yang–Mills Theory at Weak Coupling",
+  "authors": [
+    "Deep Bhattacharjee",
+    "Ushashi Bhattacharya",
+    "James Montgomery Lockwood",
+    "Tristan Romanov",
+    "Ikailo John Sessford",
+    "Sanjeevan Singha Roy"
+  ],
+  "date": "2026-11-15",
+  "status": "unpublished research draft; not a Clay mass-gap solution",
+  "pages": 22,
+  "first_paper_doi": "10.20944/preprints202611.1282.v1",
+  "pdf_sha256": "fda26944b19dee540b9fd57d835bbe6d4b641a92318ed1fccc1fe79595f94d0a",
+  "tex_zip_sha256": "d1ed4bd20238612785f7f0abb3dd4d95d6e4d074b78da5798875b9e8628b7e6c",
+  "anaxia_record": "verification/anaxia-run-summary.json",
+  "full_weak_coupling_Wilson_bound_proved": false,
+  "new_release_or_DOI_created": false,
+  "target_repository_folder": "https://github.com/creelie/4Y-M/tree/main/Paper-2"
+}

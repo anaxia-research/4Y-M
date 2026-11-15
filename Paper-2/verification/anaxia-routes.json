@@ -1,0 +1,44 @@
+[
+  {
+    "id": "cube-response",
+    "name": "Rare-event boundary-response transfer",
+    "tags": [
+      "Yang-Mills",
+      "cube",
+      "contraction",
+      "renormalization"
+    ],
+    "inputs": "Full and restricted block laws with a uniform response estimate.",
+    "outputs": "A two-sided error budget between their boundary influence coefficients.",
+    "obligations": [
+      "Bound derivatives or transport responses, not only bad-event probability.",
+      "Prove a retained contraction margin uniformly along the physical tuning."
+    ],
+    "failure_check": "A rare event can have a large derivative; deterministic gauge isometries preserve Wasserstein influence coefficients.",
+    "sources": [
+      "https://github.com/creelie/4Y-M"
+    ],
+    "executable_certificate": false
+  },
+  {
+    "id": "continuum-tightness",
+    "name": "Tightness with non-escaping observables",
+    "tags": [
+      "continuum",
+      "Yang-Mills",
+      "mass gap",
+      "compactness"
+    ],
+    "inputs": "Renormalized observables and a common state space at every cutoff.",
+    "outputs": "A candidate subsequential law with precisely stated moment transfers.",
+    "obligations": [
+      "Prove uniform moment/tree bounds and a nonzero fixed-distance observable.",
+      "Establish uniqueness, locality, rotational invariance and the required positive physical gap."
+    ],
+    "failure_check": "Unit normalization does not prevent mass from escaping to infinite physical energy.",
+    "sources": [
+      "https://github.com/creelie/4Y-M"
+    ],
+    "executable_certificate": false
+  }
+]
