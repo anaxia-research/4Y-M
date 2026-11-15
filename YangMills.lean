@@ -20,3 +20,4 @@ import YangMills.OneScale
 import YangMills.GapFree
 import YangMills.BoundEquiv
 import YangMills.CountSectors
+import YangMills.ErrorStableAscent
