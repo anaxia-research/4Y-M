@@ -63,7 +63,6 @@ theorem error_stable_ascent
   apply variable_budget_ascent z ε (fun _ => c) (fun _ => c * (1 - c)) q
     hz (fun _ => hc0) hq0 hbase hrec herr
   intro n
-  dsimp
   nlinarith
 
 /-- Rescaling a recurrence with coefficient `A` gives the normalized recurrence.
