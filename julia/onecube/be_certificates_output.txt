@@ -1,0 +1,7 @@
+
+== Section 9: exact line-field checks (Rational{BigInt}) ==
+BE-a  PASS  active links 48; M(a+√17 b) = (9+√17)(a+√17 b) exactly
+BE-a  PASS  alternating vector: quotient 304 / 24
+BE-b  PASS  R₊ = 13.972331300852 ≥ 1397/100 (exact comparison)
+BE-b  PASS  R₋ = 13.947195817625 ≥ 1394/100 (exact comparison)
+BE-b  PASS  max|X_e|²/Σ|X_e|² = 525483//16378696, 543521//16161106; 1728× these < 56, < 59

@@ -48,3 +48,5 @@ L12 checks the combinatorial part. The pairing rules (R1)–(R4), which are Schu
 | J10 | The flux constants |
 | J11 | The universal steps and the one-directionality witness |
 | J12 | The exponential form of L4 and the comparisons of 8.9 |
+
+`be_certificates.jl` (run: `julia julia/onecube/be_certificates.jl`; output in `be_certificates_output.txt`) checks the line-field computation of Section 9 in exact `Rational{BigInt}` quaternion arithmetic: the eigenvalue `9 + √17` of the period-cell operator on the 48 active links, the quotient `304/24` of the alternating field, and the exact Rayleigh quotients `R₊ ≥ 1397/100`, `R₋ ≥ 1394/100` of the two test fields in `certificates/` (the same data as the tables at the end of Appendix A).
