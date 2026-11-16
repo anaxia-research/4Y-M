@@ -24,6 +24,10 @@
 | [`YangMills/`](YangMills) | Lean 4 project over Mathlib | `lake exe cache get && lake build` |
 | [`scripts/`](scripts) | axiom audit | `lake env lean scripts/Axioms.lean` |
 | [`julia/`](julia) | constants of the paper | `julia julia/constants.jl` |
+| [`YangMills/OneCube/`](YangMills/OneCube) | Lean checks L1–L16 and J1–J12 of the one-cube criteria (no `sorry`, no new axioms) | `lake build YangMills.OneCube` |
+| [`julia/onecube/`](julia/onecube) | interval checks J1–J12 and numerical sanity checks; see its [README](julia/onecube/README.md) | `julia -t 4 julia/onecube/run_all.jl` |
 | [`research/2026-11-15/`](research/2026-11-15) | proof progress and explicit remaining assumptions | `python scripts/check_closure_progress.py` |
+
+The one-cube checks verify finite identities, constants and numerical tables only. None of them proves the continuum limit, the one-cube bound or the mass gap.
 
 The [external construction assessment](https://github.com/yang-mills-group/YM) reports a Wilson scaling-limit Wightman theory and explicitly leaves the mass gap unproved. Our source audit addresses particular compatibility conditions; it does not claim to have rebuilt that entire construction.
