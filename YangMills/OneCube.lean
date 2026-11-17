@@ -9,11 +9,12 @@ import YangMills.OneCube.Tables
 import YangMills.OneCube.Enclosures
 import YangMills.OneCube.LineField
 import YangMills.OneCube.Casimir
+import YangMills.OneCube.StepScaling
 
 /-!
 # One-cube criteria: verification of constants and finite computations
 
-L1–L18 and J1–J15 of the paper "The Yang–Mills Mass Gap Reduces to One Cube at Weak Coupling".
+L1–L19 and J1–J16 of the paper "The Yang–Mills Mass Gap Reduces to One Cube at Weak Coupling".
 None of these statements proves the existence of the continuum limit, the one-cube
 bound or the mass gap.
 -/

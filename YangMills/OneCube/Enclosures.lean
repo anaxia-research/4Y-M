@@ -787,4 +787,37 @@ theorem J14_14 : ((26701) / 1000 : ℚ) < ((2671) / 100 : ℚ) := by norm_num
 /-- J14: (π/2)·1.44 < 2.27. Julia enclosure: quantity ≤ the left side. -/
 theorem J14_15 : ((1131) / 500 : ℚ) < ((227) / 100 : ℚ) := by norm_num
 
+/-- J16: Lemma 5.7: Γ ≤ 2.3e-15 at β' = 4, T = 3. Julia enclosure: quantity ≤ the left side. -/
+theorem J16_1 : ((7) / 3125000000000000 : ℚ) ≤ ((23) / 10000000000000000 : ℚ) := by norm_num
+
+/-- J16: Lemma 5.7: log 8 - log(1 + 7Γ) > 2.07. Julia enclosure: quantity ≥ the left side. -/
+theorem J16_2 : ((2079) / 1000 : ℚ) > ((207) / 100 : ℚ) := by norm_num
+
+/-- J16: κ_AF(SU(2)) = 11/(3π²) > 0.37151. Julia enclosure: quantity ≥ the left side. -/
+theorem J16_3 : ((371511) / 1000000 : ℚ) > ((37151) / 100000 : ℚ) := by norm_num
+
+/-- J16: κ_AF(SU(2)) = 11/(3π²) < 0.371531. Julia enclosure: quantity ≤ the left side. -/
+theorem J16_4 : ((1161) / 3125 : ℚ) < ((371531) / 1000000 : ℚ) := by norm_num
+
+/-- J16: κ_AF(SU(3)) = 33/(4π²) > 0.835899. Julia enclosure: quantity ≥ the left side. -/
+theorem J16_5 : ((8358997) / 10000000 : ℚ) > ((835899) / 1000000 : ℚ) := by norm_num
+
+/-- J16: κ_AF(SU(3)) = 33/(4π²) < 0.835945. Julia enclosure: quantity ≤ the left side. -/
+theorem J16_6 : ((8359) / 10000 : ℚ) < ((167189) / 200000 : ℚ) := by norm_num
+
+/-- J16: seed tolerance 1/2225664 < 1/4097 (exact). -/
+theorem J16_7 : ((1) / 2225664 : ℚ) < ((1) / 4097 : ℚ) := by norm_num
+
+/-- J16: 2D SU(2), β = 1, L = T = 3: ψ > 0 (truncated at n = 60). Julia enclosure: quantity ≥ the left side. -/
+theorem J16_8 : ((133) / 25000000 : ℚ) > (0 : ℚ) := by norm_num
+
+/-- J16: 2D SU(2), β = 2, L = T = 3: ψ > 0 (truncated at n = 60). Julia enclosure: quantity ≥ the left side. -/
+theorem J16_9 : ((107) / 100000 : ℚ) > (0 : ℚ) := by norm_num
+
+/-- J16: 2D SU(2), β = 4, L = T = 3: ψ > 0 (truncated at n = 60). Julia enclosure: quantity ≥ the left side. -/
+theorem J16_10 : ((453) / 10000 : ℚ) > (0 : ℚ) := by norm_num
+
+/-- J16: 2D SU(2), β = 8, L = T = 3: ψ > 0 (truncated at n = 60). Julia enclosure: quantity ≥ the left side. -/
+theorem J16_11 : ((59) / 200 : ℚ) > (0 : ℚ) := by norm_num
+
 end YangMills.OneCube.Enclosures

@@ -1,4 +1,4 @@
-# J13, J14: the two numerical rows of Section 9; J15: the adjoint Casimir behind the slope of Section 5.
+# J13, J14: the two numerical rows of Section 9; J15: the adjoint Casimir behind the slope of Section 5; J16: Section 5 step-scaling and Z/2 constants.
 #   J13  thm:finite-rank-obstruction(d): two-dimensional SU(2), Tr R^T - 1 at seven couplings.
 #   J14  thm:no-convexity(d),(e): Taylor coefficients and majorant of G, and the constants of the proof.
 # Exact rationals where no transcendental function occurs; otherwise the interval type of intervals.jl.
@@ -169,5 +169,51 @@ function J15()
     for N in 2:5
         closed, c = sun_casimir(N)
         check("J15", "su($N): basis closed under brackets and C_A = $(2N^2)", closed && c == 2N^2, "C_A = $c")
+    end
+end
+
+# ---------------------------------------------------------------------------------------
+# J16. Section 5: the ℤ/2 lemma constants, the asymptotic-freedom slopes, the step-scaling choice
+# of the odd integer q along a sweep of couplings, and strict positivity of the defect
+# (two-dimensional SU(2) analogue of prop:psi-positive).
+function J16()
+    println("\n== J16: Section 5 constants (lem:z2-violation, prop:step-scaling, prop:psi-positive) ==")
+    E = exp(iv(-8))
+    q = 400 * E
+    Γ = 48 * 3^4 * E * q^17 / (1 - q)
+    claim("J16", "Lemma 5.7: Γ ≤ 2.3e-15 at β' = 4, T = 3", Γ, :le, 23 // 10^16)
+    claim("J16", "Lemma 5.7: log 8 - log(1 + 7Γ) > 2.07", log(iv(8)) - log(1 + 7 * Γ), :gt, 207 // 100)
+    claim("J16", "κ_AF(SU(2)) = 11/(3π²) > 0.37151", iv(11) / (3 * PI^2), :gt, 37151 // 100000)
+    claim("J16", "κ_AF(SU(2)) = 11/(3π²) < 0.371531", iv(11) / (3 * PI^2), :lt, 371531 // 1000000)
+    claim("J16", "κ_AF(SU(3)) = 33/(4π²) > 0.835899", iv(33) / (4 * PI^2), :gt, 835899 // 1000000)
+    claim("J16", "κ_AF(SU(3)) = 33/(4π²) < 0.835945", iv(33) / (4 * PI^2), :lt, 835945 // 1000000)
+    claimq("J16", "seed tolerance 1/2225664 < 1/4097", 1 // 2225664, :lt, 1 // 4097)
+    # Step-scaling sweep: κ = 11/(3π²) (interval), β₁ = 1/10, δ = 1/10, β_N = 5, 6, ..., 60.
+    κ = iv(11) / (3 * PI^2)
+    β1 = iv(1 // 10); δ = 1 // 10
+    ok = true; nsw = 0
+    for βN in 5:60
+        x = exp((iv(βN) - β1) / κ)
+        x.lo * (1 - exp(-(iv(δ) / κ)).hi) >= 4 || continue
+        qq = floor(BigInt, x.lo); iseven(qq) && (qq -= 1)
+        floor(BigInt, x.hi) - floor(BigInt, x.lo) <= 0 || (ok = false; continue)  # q determined
+        βp = iv(βN) - κ * log(iv(qq))
+        ok &= qq >= 3 && βp.lo >= 1 // 10 && βp.hi <= 1 // 5 && 342 * qq <= 342 * x.lo
+        nsw += 1
+    end
+    check("J16", "step scaling: q odd ≥ 3, β' ∈ [1/10, 1/5], T0 = 342q ≤ 342x for $nsw couplings β_N ∈ [5, 60]", ok && nsw > 40, "")
+    # prop:psi-positive, two-dimensional SU(2): ψ = 2 log(1+a) - log(1+Σ r^{2T}) with r_n = α_n^L,
+    # α_n = I_{n+1}/I_1, L = T = 3; check ψ ≥ log((1+a)²/(1+a²)) > 0.
+    for β in (1, 2, 4, 8)
+        I1 = besselI_iv(1, β)
+        a = iv(0); b = iv(0)
+        for n in 1:60
+            r = (besselI_iv(n + 1, β) / I1)^3
+            a = a + r^3; b = b + r^6
+        end
+        ψ = 2 * log(1 + a) - log(1 + b)
+        lower = log((1 + a)^2 / (1 + a^2))
+        claim("J16", "2D SU(2), β = $β, L = T = 3: ψ > 0 (truncated at n = 60)", ψ, :gt, 0 // 1)
+        check("J16", "2D SU(2), β = $β: ψ ≥ log((1+a)²/(1+a²))", ψ.lo >= lower.hi * (1 - big(2.0)^-100), "")
     end
 end

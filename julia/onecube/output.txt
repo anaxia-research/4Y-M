@@ -342,19 +342,37 @@ J15  PASS  su(3): basis closed under brackets and C_A = 18   C_A = 18//1
 J15  PASS  su(4): basis closed under brackets and C_A = 32   C_A = 32//1
 J15  PASS  su(5): basis closed under brackets and C_A = 50   C_A = 50//1
 
-Rigorous checks: 304 PASS, 0 FAIL
-Exported 258 rational inequalities to YangMills/OneCube/Enclosures.lean
+== J16: Section 5 constants (lem:z2-violation, prop:step-scaling, prop:psi-positive) ==
+J16  PASS  Lemma 5.7: Γ ≤ 2.3e-15 at β' = 4, T = 3   enclosure [2.2331383758517948e-15, 2.2331383758517948e-15]  exported ≤ 2.24e-15 = 7//3125000000000000
+J16  PASS  Lemma 5.7: log 8 - log(1 + 7Γ) > 2.07   enclosure [2.07944154167982, 2.07944154167982]  exported ≥ 2.079 = 2079//1000
+J16  PASS  κ_AF(SU(2)) = 11/(3π²) > 0.37151   enclosure [0.37151100668857184, 0.37151100668857184]  exported ≥ 0.371511 = 371511//1000000
+J16  PASS  κ_AF(SU(2)) = 11/(3π²) < 0.371531   enclosure [0.37151100668857184, 0.37151100668857184]  exported ≤ 0.37152 = 1161//3125
+J16  PASS  κ_AF(SU(3)) = 33/(4π²) > 0.835899   enclosure [0.8358997650492868, 0.8358997650492868]  exported ≥ 0.8358997 = 8358997//10000000
+J16  PASS  κ_AF(SU(3)) = 33/(4π²) < 0.835945   enclosure [0.8358997650492868, 0.8358997650492868]  exported ≤ 0.8359 = 8359//10000
+J16  PASS  seed tolerance 1/2225664 < 1/4097   exact value 4.4930411778237864e-7 < 0.000244081034903588
+J16  PASS  step scaling: q odd ≥ 3, β' ∈ [1/10, 1/5], T0 = 342q ≤ 342x for 56 couplings β_N ∈ [5, 60]   
+J16  PASS  2D SU(2), β = 1, L = T = 3: ψ > 0 (truncated at n = 60)   enclosure [5.322109110153049e-6, 5.322109110153049e-6]  exported ≥ 5.32e-6 = 133//25000000
+J16  PASS  2D SU(2), β = 1: ψ ≥ log((1+a)²/(1+a²))   
+J16  PASS  2D SU(2), β = 2, L = T = 3: ψ > 0 (truncated at n = 60)   enclosure [0.0010723813273850757, 0.0010723813273850757]  exported ≥ 0.00107 = 107//100000
+J16  PASS  2D SU(2), β = 2: ψ ≥ log((1+a)²/(1+a²))   
+J16  PASS  2D SU(2), β = 4, L = T = 3: ψ > 0 (truncated at n = 60)   enclosure [0.04533731932282516, 0.04533731932282516]  exported ≥ 0.0453 = 453//10000
+J16  PASS  2D SU(2), β = 4: ψ ≥ log((1+a)²/(1+a²))   
+J16  PASS  2D SU(2), β = 8, L = T = 3: ψ > 0 (truncated at n = 60)   enclosure [0.29538642275343957, 0.29538642275343957]  exported ≥ 0.295 = 59//200
+J16  PASS  2D SU(2), β = 8: ψ ≥ log((1+a)²/(1+a²))   
+
+Rigorous checks: 320 PASS, 0 FAIL
+Exported 269 rational inequalities to YangMills/OneCube/Enclosures.lean
 
 == Numerical sanity checks (floating point; not proofs) ==
   threads: 1
   [sanity] Lemma W   min Φ over 20000 random points = 1.005764; after 400 local searches = 0.9999999999999993 (source value ≈ 1.000000005; exact infimum 1)
-    (sanity_phi: 2.3 s)
+    (sanity_phi: 2.4 s)
   [sanity] X_G       T=3: 2.2063, T=4: 1.652, T=6: 1.2187, T=8: 1.1015 (source 2.2063, 1.6520, 1.2187, 1.1015); limit 0.984703 (source 0.984703), per N²-1
     (sanity_XG: 0.1 s)
   [sanity] W3 R4     2×2×2×2, twist eater k=(1, 0, 0): S=2.1e-14, Hessian rank 144 (expected 144), smallest positive eigenvalue 2.0, |kernel| ≤ 8.5e-8
   [sanity] W3 R4     2×2×2×2, twist eater k=(1, 1, 1): S=2.0e-14, Hessian rank 144 (expected 144), smallest positive eigenvalue 2.0, |kernel| ≤ 1.1e-7
   [sanity] W3 R4     2×2×2×2, untwisted abelian flat point: S=1.1e-14, Hessian rank 141 (expected 141), smallest positive eigenvalue 4.0, |kernel| ≤ 1.0e-7
-    (sanity_hessian: 7.5 s)
+    (sanity_hessian: 7.3 s)
   [sanity] Model A   site-reflection Gram matrices [C(ϑx-y)] on 4⁴ and 6⁴, c₀ ∈ {√2, 1/2}, ma = 1/2, all four directions: smallest eigenvalue -1.5776143404557711e-15 (source: ≥ -1.1e-15)
   [sanity] X1 sum    s=10: partial sum to |k|_∞ = 2·10⁴ is 15065.402 (source 15065, 280.8, 37.69, 9.993 for s = 10..13)
   [sanity] X1 sum    s=11: partial sum to |k|_∞ = 2·10⁴ is 280.845 (source 15065, 280.8, 37.69, 9.993 for s = 10..13)
@@ -364,12 +382,12 @@ Exported 258 rational inequalities to YangMills/OneCube/Enclosures.lean
   [sanity] Model A   L_p = 1, N = 8: log Z - e_N n⁴ = 4.528 (source 5.28, 4.53, 4.39, 4.37 for N = 4, 8, 16, 24)
   [sanity] Model A   L_p = 1, N = 16: log Z - e_N n⁴ = 4.39 (source 5.28, 4.53, 4.39, 4.37 for N = 4, 8, 16, 24)
   [sanity] Model A   L_p = 1, N = 24: log Z - e_N n⁴ = 4.369 (source 5.28, 4.53, 4.39, 4.37 for N = 4, 8, 16, 24)
-    (sanity_modelA: 7.8 s)
+    (sanity_modelA: 8.4 s)
   [sanity] W7 P6     N=10, T=⌊N⌋: two-state X = 0.371101 (→ log 2 = 0.693147 > x_c ≈ 0.0002404), rings X = 2506.09 (→ ∞)
   [sanity] W7 P6     N=100, T=⌊N⌋: two-state X = 0.653947 (→ log 2 = 0.693147 > x_c ≈ 0.0002404), rings X = 2.50609e6 (→ ∞)
   [sanity] W7 P6     N=1000, T=⌊N⌋: two-state X = 0.689155 (→ log 2 = 0.693147 > x_c ≈ 0.0002404), rings X = 2.50609e9 (→ ∞)
   [sanity] W7 P6     two-state system: Z = Tr diag(1, q^V)^M = 1 + q^{VM} and D(2M) ≤ D(M)² for M = 2..20: true
-    (sanity_W7: 0.2 s)
+    (sanity_W7: 0.1 s)
   [sanity] L Thm A   β=1.0: MC Tr K = 2.776 ± 0.002 (exact-matrix value 2.778247), Tr K² = 2.525 ± 0.0037 (2.525462); 2000000 samples
   [sanity] L Thm A   β=2.0: MC Tr K = 10.01 ± 0.0138 (exact-matrix value 10.01709), Tr K² = 13.892 ± 0.0814 (13.8185); 2000000 samples
-    (sanity_LThmA: 19.2 s)
+    (sanity_LThmA: 18.9 s)
