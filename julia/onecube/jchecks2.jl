@@ -237,6 +237,11 @@ function J17()
     claim("J17", "κ_AF(SU(2)) log 3 > 0.408", iv(11) / (3 * PI^2) * log(iv(3)), :gt, 408 // 1000)
     claimq("J17", "2/9 < 0.408", 2 // 9, :lt, 408 // 1000)
     # two-loop exponent b₁/(2b₀²) = 51/121, independent of N
+    # thm:box-disorder(d): constants at q = 1 and the concavity constant
+    claim("J17", "1 - e^{-9.0107} > 0.99987", 1 - exp(iv(-90107 // 10000)), :gt, 99987 // 100000)
+    claimq("J17", "56/0.99987 < 56.01", 56 // 1 * 100000 // 99987, :lt, 5601 // 100)
+    claimq("J17", "224/0.99987 < 224.03", 224 // 1 * 100000 // 99987, :lt, 22403 // 100)
+    claim("J17", "1 - e^{-1} > 0.632", 1 - exp(iv(-1)), :gt, 632 // 1000)
     ok2 = all((big(34) * N^2 // 3 // 256) / (2 * (big(11) * N // 48)^2) == 51 // 121 for N in 2:10)
     check("J17", "two-loop exponent b₁/(2b₀²) = 51/121 for SU(N), N = 2..10 (π powers cancel)", ok2, "")
 end

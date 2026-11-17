@@ -829,4 +829,16 @@ theorem J17_2 : ((4081) / 10000 : ℚ) > ((51) / 125 : ℚ) := by norm_num
 /-- J17: 2/9 < 0.408 (exact). -/
 theorem J17_3 : ((2) / 9 : ℚ) < ((51) / 125 : ℚ) := by norm_num
 
+/-- J17: 1 - e^{-9.0107} > 0.99987. Julia enclosure: quantity ≥ the left side. -/
+theorem J17_4 : ((999877) / 1000000 : ℚ) > ((99987) / 100000 : ℚ) := by norm_num
+
+/-- J17: 56/0.99987 < 56.01 (exact). -/
+theorem J17_5 : ((5600000) / 99987 : ℚ) < ((5601) / 100 : ℚ) := by norm_num
+
+/-- J17: 224/0.99987 < 224.03 (exact). -/
+theorem J17_6 : ((22400000) / 99987 : ℚ) < ((22403) / 100 : ℚ) := by norm_num
+
+/-- J17: 1 - e^{-1} > 0.632. Julia enclosure: quantity ≥ the left side. -/
+theorem J17_7 : ((6321) / 10000 : ℚ) > ((79) / 125 : ℚ) := by norm_num
+
 end YangMills.OneCube.Enclosures
