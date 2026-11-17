@@ -937,4 +937,64 @@ theorem J21_3 : ((977341) / 5000 : ℚ) > ((48867) / 250 : ℚ) := by norm_num
 /-- J21: 3L_0 = log(2^243·8194³) < 195.4683. Julia enclosure: quantity ≤ the left side. -/
 theorem J21_4 : ((2443353) / 12500 : ℚ) < ((1954683) / 10000 : ℚ) := by norm_num
 
+/-- J22: 8.8·8 = 70.4 (exact). -/
+theorem J22_1 : ((352) / 5 : ℚ) ≤ ((352) / 5 : ℚ) := by norm_num
+
+/-- J22: 70.4·3.169·10^{-3} ≤ 0.2231 (exact). -/
+theorem J22_2 : ((34859) / 156250 : ℚ) ≤ ((2231) / 10000 : ℚ) := by norm_num
+
+/-- J22: log(5/4) > 0.2231. Julia enclosure: quantity ≥ the left side. -/
+theorem J22_3 : ((11157) / 50000 : ℚ) > ((2231) / 10000 : ℚ) := by norm_num
+
+/-- J22: e^{0.2231} - 1 < 1/4 (so ε < 1/4). Julia enclosure: quantity ≤ the left side. -/
+theorem J22_4 : ((4999) / 20000 : ℚ) < ((1) / 4 : ℚ) := by norm_num
+
+/-- J22: 12e^{-π} > 0.5185. Julia enclosure: quantity ≥ the left side. -/
+theorem J22_5 : ((3241) / 6250 : ℚ) > ((1037) / 2000 : ℚ) := by norm_num
+
+/-- J22: 36e^{-π} > 1.5557 (SU(2)). Julia enclosure: quantity ≥ the left side. -/
+theorem J22_6 : ((1555701) / 1000000 : ℚ) > ((15557) / 10000 : ℚ) := by norm_num
+
+/-- J22: (2^488·8194^6)^{-1} > 4.134·10^{-171} (exact). -/
+theorem J22_7 : ((1) / 241887620184076204911041842366062338702711189044460310550835008194983681516491159587815708594605092253667433276929615850676229144952521996013162933562920061324195356737536 : ℚ) > ((2067) / 500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 : ℚ) := by norm_num
+
+/-- J22: (2^488·8194^6)^{-1} < 4.135·10^{-171} (exact). -/
+theorem J22_8 : ((1) / 241887620184076204911041842366062338702711189044460310550835008194983681516491159587815708594605092253667433276929615850676229144952521996013162933562920061324195356737536 : ℚ) < ((827) / 200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 : ℚ) := by norm_num
+
+/-- J22: 6L_0 + log 4 > 392.3227. Julia enclosure: quantity ≥ the left side. -/
+theorem J22_9 : ((9808069) / 25000 : ℚ) > ((3923227) / 10000 : ℚ) := by norm_num
+
+/-- J22: 6L_0 + log 4 < 392.3228. Julia enclosure: quantity ≤ the left side. -/
+theorem J22_10 : ((39232277) / 100000 : ℚ) < ((980807) / 2500 : ℚ) := by norm_num
+
+/-- J22: 1/(32 log 2) > 0.045084. Julia enclosure: quantity ≥ the left side. -/
+theorem J22_11 : ((225421) / 5000000 : ℚ) > ((11271) / 250000 : ℚ) := by norm_num
+
+/-- J22: 1/(32 log 2) < 0.045085. Julia enclosure: quantity ≤ the left side. -/
+theorem J22_12 : ((450843) / 10000000 : ℚ) < ((9017) / 200000 : ℚ) := by norm_num
+
+/-- J22: 11/(24π²) > 0.046438. Julia enclosure: quantity ≥ the left side. -/
+theorem J22_13 : ((116097) / 2500000 : ℚ) > ((23219) / 500000 : ℚ) := by norm_num
+
+/-- J22: 11/(24π²) < 0.046439. Julia enclosure: quantity ≤ the left side. -/
+theorem J22_14 : ((464389) / 10000000 : ℚ) < ((46439) / 1000000 : ℚ) := by norm_num
+
+/-- J22: 1/(4 log 2) > 0.360673. Julia enclosure: quantity ≥ the left side. -/
+theorem J22_15 : ((3606737) / 10000000 : ℚ) > ((360673) / 1000000 : ℚ) := by norm_num
+
+/-- J22: 1/(4 log 2) < 0.360674. Julia enclosure: quantity ≤ the left side. -/
+theorem J22_16 : ((1803369) / 5000000 : ℚ) < ((180337) / 500000 : ℚ) := by norm_num
+
+/-- J22: 11/(3π²) > 0.371511. Julia enclosure: quantity ≥ the left side. -/
+theorem J22_17 : ((185755503) / 500000000 : ℚ) > ((371511) / 1000000 : ℚ) := by norm_num
+
+/-- J22: 11/(3π²) < 0.371512. Julia enclosure: quantity ≤ the left side. -/
+theorem J22_18 : ((3715111) / 10000000 : ℚ) < ((46439) / 125000 : ℚ) := by norm_num
+
+/-- J22: 2 - 2κ/κ_MK = 2 - 88 log 2/(3π²) > -0.060095. Julia enclosure: quantity ≥ the left side. -/
+theorem J22_19 : ((-120189) / 2000000 : ℚ) > ((-12019) / 200000 : ℚ) := by norm_num
+
+/-- J22: 2 - 2κ/κ_MK = 2 - 88 log 2/(3π²) < -0.060094. Julia enclosure: quantity ≤ the left side. -/
+theorem J22_20 : ((-37559) / 625000 : ℚ) < ((-30047) / 500000 : ℚ) := by norm_num
+
 end YangMills.OneCube.Enclosures

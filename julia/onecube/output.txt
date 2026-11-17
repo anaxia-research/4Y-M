@@ -419,19 +419,43 @@ J21  PASS  3L_0 = log(2^243·8194³) > 195.468   enclosure [195.46823725038715, 
 J21  PASS  3L_0 = log(2^243·8194³) < 195.4683   enclosure [195.46823725038715, 195.46823725038715]  exported ≤ 195.46824 = 2443353//12500
 J21  PASS  2⌊N(1+ε)t/2⌋ ≥ ⌊Nt⌋ whenever Nεt ≥ 2 (grid)   
 
-Rigorous checks: 369 PASS, 0 FAIL
-Exported 308 rational inequalities to YangMills/OneCube/Enclosures.lean
+== J22: prop:abelian-neutral, rem:free-gluon-neutral, cor:hypercube-vortex, rem:vortex-routes ==
+J22  PASS  8.8·8 = 70.4   exact value 70.4 ≤ 70.4
+J22  PASS  70.4·3.169·10^{-3} ≤ 0.2231   exact value 0.2230976 ≤ 0.2231
+J22  PASS  log(5/4) > 0.2231   enclosure [0.22314355131420976, 0.22314355131420976]  exported ≥ 0.22314 = 11157//50000
+J22  PASS  e^{0.2231} - 1 < 1/4 (so ε < 1/4)   enclosure [0.2499455620426687, 0.2499455620426687]  exported ≤ 0.24995 = 4999//20000
+J22  PASS  12e^{-π} > 0.5185   enclosure [0.518567019165267, 0.518567019165267]  exported ≥ 0.51856 = 3241//6250
+J22  PASS  36e^{-π} > 1.5557 (SU(2))   enclosure [1.555701057495801, 1.555701057495801]  exported ≥ 1.555701 = 1555701//1000000
+J22  PASS  6·81 + 2 = 488   
+J22  PASS  (2^488·8194^6)^{-1} > 4.134·10^{-171}   exact value 4.134151219640762e-171 > 4.134e-171
+J22  PASS  (2^488·8194^6)^{-1} < 4.135·10^{-171}   exact value 4.134151219640762e-171 < 4.135e-171
+J22  PASS  6L_0 + log 4 > 392.3227   enclosure [392.32276886189413, 392.32276886189413]  exported ≥ 392.32276 = 9808069//25000
+J22  PASS  6L_0 + log 4 < 392.3228   enclosure [392.32276886189413, 392.32276886189413]  exported ≤ 392.32277 = 39232277//100000
+J22  PASS  (1 - 1/4)/24 = 1/32 and 8/32 = 1/4   
+J22  PASS  1/(32 log 2) > 0.045084   enclosure [0.045084220027780106, 0.045084220027780106]  exported ≥ 0.0450842 = 225421//5000000
+J22  PASS  1/(32 log 2) < 0.045085   enclosure [0.045084220027780106, 0.045084220027780106]  exported ≤ 0.0450843 = 450843//10000000
+J22  PASS  11/(24π²) > 0.046438   enclosure [0.04643887583607148, 0.04643887583607148]  exported ≥ 0.0464388 = 116097//2500000
+J22  PASS  11/(24π²) < 0.046439   enclosure [0.04643887583607148, 0.04643887583607148]  exported ≤ 0.0464389 = 464389//10000000
+J22  PASS  1/(4 log 2) > 0.360673   enclosure [0.3606737602222409, 0.3606737602222409]  exported ≥ 0.3606737 = 3606737//10000000
+J22  PASS  1/(4 log 2) < 0.360674   enclosure [0.3606737602222409, 0.3606737602222409]  exported ≤ 0.3606738 = 1803369//5000000
+J22  PASS  11/(3π²) > 0.371511   enclosure [0.37151100668857184, 0.37151100668857184]  exported ≥ 0.371511006 = 185755503//500000000
+J22  PASS  11/(3π²) < 0.371512   enclosure [0.37151100668857184, 0.37151100668857184]  exported ≤ 0.3715111 = 3715111//10000000
+J22  PASS  2 - 2κ/κ_MK = 2 - 88 log 2/(3π²) > -0.060095   enclosure [-0.06009445466536437, -0.06009445466536437]  exported ≥ -0.0600945 = -120189//2000000
+J22  PASS  2 - 2κ/κ_MK = 2 - 88 log 2/(3π²) < -0.060094   enclosure [-0.06009445466536437, -0.06009445466536437]  exported ≤ -0.0600944 = -37559//625000
+
+Rigorous checks: 391 PASS, 0 FAIL
+Exported 328 rational inequalities to YangMills/OneCube/Enclosures.lean
 
 == Numerical sanity checks (floating point; not proofs) ==
   threads: 1
   [sanity] Lemma W   min Φ over 20000 random points = 1.005764; after 400 local searches = 0.9999999999999993 (source value ≈ 1.000000005; exact infimum 1)
-    (sanity_phi: 2.2 s)
+    (sanity_phi: 3.3 s)
   [sanity] X_G       T=3: 2.2063, T=4: 1.652, T=6: 1.2187, T=8: 1.1015 (source 2.2063, 1.6520, 1.2187, 1.1015); limit 0.984703 (source 0.984703), per N²-1
     (sanity_XG: 0.1 s)
   [sanity] W3 R4     2×2×2×2, twist eater k=(1, 0, 0): S=2.1e-14, Hessian rank 144 (expected 144), smallest positive eigenvalue 2.0, |kernel| ≤ 8.5e-8
   [sanity] W3 R4     2×2×2×2, twist eater k=(1, 1, 1): S=2.0e-14, Hessian rank 144 (expected 144), smallest positive eigenvalue 2.0, |kernel| ≤ 1.1e-7
   [sanity] W3 R4     2×2×2×2, untwisted abelian flat point: S=1.1e-14, Hessian rank 141 (expected 141), smallest positive eigenvalue 4.0, |kernel| ≤ 1.0e-7
-    (sanity_hessian: 6.9 s)
+    (sanity_hessian: 9.6 s)
   [sanity] Model A   site-reflection Gram matrices [C(ϑx-y)] on 4⁴ and 6⁴, c₀ ∈ {√2, 1/2}, ma = 1/2, all four directions: smallest eigenvalue -1.5776143404557711e-15 (source: ≥ -1.1e-15)
   [sanity] X1 sum    s=10: partial sum to |k|_∞ = 2·10⁴ is 15065.402 (source 15065, 280.8, 37.69, 9.993 for s = 10..13)
   [sanity] X1 sum    s=11: partial sum to |k|_∞ = 2·10⁴ is 280.845 (source 15065, 280.8, 37.69, 9.993 for s = 10..13)
@@ -441,12 +465,12 @@ Exported 308 rational inequalities to YangMills/OneCube/Enclosures.lean
   [sanity] Model A   L_p = 1, N = 8: log Z - e_N n⁴ = 4.528 (source 5.28, 4.53, 4.39, 4.37 for N = 4, 8, 16, 24)
   [sanity] Model A   L_p = 1, N = 16: log Z - e_N n⁴ = 4.39 (source 5.28, 4.53, 4.39, 4.37 for N = 4, 8, 16, 24)
   [sanity] Model A   L_p = 1, N = 24: log Z - e_N n⁴ = 4.369 (source 5.28, 4.53, 4.39, 4.37 for N = 4, 8, 16, 24)
-    (sanity_modelA: 7.8 s)
+    (sanity_modelA: 10.5 s)
   [sanity] W7 P6     N=10, T=⌊N⌋: two-state X = 0.371101 (→ log 2 = 0.693147 > x_c ≈ 0.0002404), rings X = 2506.09 (→ ∞)
   [sanity] W7 P6     N=100, T=⌊N⌋: two-state X = 0.653947 (→ log 2 = 0.693147 > x_c ≈ 0.0002404), rings X = 2.50609e6 (→ ∞)
   [sanity] W7 P6     N=1000, T=⌊N⌋: two-state X = 0.689155 (→ log 2 = 0.693147 > x_c ≈ 0.0002404), rings X = 2.50609e9 (→ ∞)
   [sanity] W7 P6     two-state system: Z = Tr diag(1, q^V)^M = 1 + q^{VM} and D(2M) ≤ D(M)² for M = 2..20: true
-    (sanity_W7: 0.1 s)
+    (sanity_W7: 0.2 s)
   [sanity] L Thm A   β=1.0: MC Tr K = 2.776 ± 0.002 (exact-matrix value 2.778247), Tr K² = 2.525 ± 0.0037 (2.525462); 2000000 samples
   [sanity] L Thm A   β=2.0: MC Tr K = 10.01 ± 0.0138 (exact-matrix value 10.01709), Tr K² = 13.892 ± 0.0814 (13.8185); 2000000 samples
-    (sanity_LThmA: 19.2 s)
+    (sanity_LThmA: 34.4 s)

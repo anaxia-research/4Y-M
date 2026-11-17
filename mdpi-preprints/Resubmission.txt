@@ -4,7 +4,7 @@ Title: The Yang-Mills Mass Gap Reduces to One Cube at Weak Coupling
 Authors: Deep Bhattacharjee (corresponding), Ushashi Bhattacharya,
 James Montgomery Lockwood, Tristan Romanov, Ikailo John Sessford,
 Sanjeevan Singha Roy
-Pages: 181 (13 sections, appendices A-I, 17 figures)
+Pages: 193 (13 sections, appendices A-I, 17 figures)
 MSC 2020: Primary 81T25; Secondary 81T13, 82B20, 81T08, 47B65
 Keywords: Yang-Mills theory, mass gap, lattice gauge theory
 
@@ -47,7 +47,9 @@ crossed versions of this criterion, shows that each gap is the exponential
 decay rate of the corresponding free energy, reduces the thresholds to the
 critical value of the zero-one law (the flux weight either keeps a limit
 inferior above 8 x 10^{-5} or decays exponentially), and shows that the flux
-weight is not monotone in the time extent (Z/2 at beta = 10).
+weight is not monotone in the time extent (Z/2 at beta = 10). The neutral
+condition holds if and only if the neutral gap is uniform and
+liminf y^0(t)/t is below 1/54 of it.
 
 Section 9 shows that on a fixed lattice the flux part of the defect exceeds
 1.744 near the free point for every SU(N); that the vortex-rate route fails
@@ -56,9 +58,18 @@ theory; gives a timed Cheeger bound for charged decorrelation at physical
 times; and proves that for centre {+1,-1} and a vanishing neutral free energy
 the datum is equivalent to the vanishing of the averaged overlap defect of two
 slices, one of them flipped by the centre, at every ratio above 1/2 of their
-time separation to half the side of the box. Section 12 adds the truncation
-of certified data, an ascent lemma with errors, and a gapless generalized free
-field that has the ultraviolet trace coefficient of the free gluon. The paper
+time separation to half the side of the box. Section 9 also shows that
+twists in one coordinate direction suffice, bounds the overlap defect by
+Polyakov-loop correlators, expresses the flux gap through vortex weights in
+physical units, and proves that for centre {+1,-1} the datum is equivalent
+to a vanishing neutral free energy together with a bound
+(2^488 * 8194^6)^{-1} on 't Hooft's vortex weight of the hypercube of
+physical side 2t at arbitrarily large t. It proves the inequality of
+Tomboulis and Yaffe in the slice limit, and shows that a heat-kernel U(1)
+family at logarithmic coupling violates both halves of the neutral
+condition. Section 12 adds the truncation of certified data, an ascent lemma
+with errors, and a gapless generalized free field that has the ultraviolet
+trace coefficient of the free gluon. The paper
 also proves equivalent forms of the datum, the datum in two dimensions and in
 a strong-coupling range uniform in N, and necessary conditions and
 obstructions at weak coupling.
@@ -67,11 +78,11 @@ What it does not prove. The four-dimensional Yang-Mills mass gap is not
 proved. The one-cube datum is not proved at any weak coupling along the
 continuum tuning. Every continuum conclusion is conditional on it, and the
 paper says so in each statement. The neutral-sector and vortex conditions of
-Section 7 and the overlap condition of Section 9 are not proved at weak
-coupling.
+Section 7, the overlap condition of Section 9 and the bound on the vortex
+weight of the hypercube are not proved at weak coupling.
 
 Verification. Every finite computation and exact constant is checked in
-Lean 4 and Julia (exact rational arithmetic): 369 rigorous checks and 308
+Lean 4 and Julia (exact rational arithmetic): 391 rigorous checks and 328
 exported rational enclosures, recorded in Appendix H; the code is at
 https://github.com/anaxia-research/4Y-M.
 
