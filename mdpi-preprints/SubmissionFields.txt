@@ -1,0 +1,46 @@
+Submission fields
+
+Author details
+
+1. Deep Bhattacharjee (corresponding author)
+   Formerly EGSPL, Bhubaneswar, Odisha 751030, India;
+   formerly University of Calcutta (Heramba Chandra College),
+   23/49 Gariahat Road, Golpark, Kolkata 700029, India
+   Email: itsdeep@live.com, d.bhattacharjee@erl-forschung.de, egspl@proton.me
+   ORCID: 0000-0003-0466-750X
+
+2. Ushashi Bhattacharya
+   Formerly National Taiwan University, Taipei 106319, Taiwan
+   Email: rai.bhattacharya.in@gmail.com
+   ORCID: 0009-0002-2254-3914
+
+3. James Montgomery Lockwood
+   Independent Researcher, San Antonio, USA
+   Email: spectralityworkinggroup@gmail.com
+
+4. Tristan Romanov
+   Independent Researcher, San Francisco, CA, USA
+   Email: romanov360@gmail.com
+
+5. Ikailo John Sessford
+   Ikailo Inc., Whitby, Ontario, Canada
+   Email: john@ikailo.com
+   ORCID: 0009-0002-0150-4027
+
+6. Sanjeevan Singha Roy
+   Department of Physics, Birla Institute of Technology, Mesra,
+   Ranchi, Jharkhand 835215, India
+   Email: sanjeevan9905@gmail.com
+   ORCID: 0000-0002-6148-1421
+
+Title, abstract, keywords (LaTeX)
+
+\title{The Yang--Mills Mass Gap Reduces to One Cube at Weak Coupling}
+
+\begin{abstract}
+If one inequality on one lattice cube of physical side $2t_0$ holds at weak coupling, the constructed four-dimensional Yang--Mills theory has a unique vacuum and mass gap at least $\Delta=t_0^{-1}\log\frac{63}{32}$. We prove the inequality at strong coupling: for every compact gauge group at Wilson coupling $\beta_W\le10^{-3}$ it gives the lattice theory a gap of at least $\frac1{12}\log\frac{63}{32}$ in lattice units.
+\end{abstract}
+
+\keywords{Yang--Mills theory, mass gap, lattice gauge theory}
+
+\subjclass[2020]{Primary 81T25; Secondary 81T13, 82B20, 81T08, 47B65}
