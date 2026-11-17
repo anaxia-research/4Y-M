@@ -217,3 +217,26 @@ function J16()
         check("J16", "2D SU(2), β = $β: ψ ≥ log((1+a)²/(1+a²))", ψ.lo >= lower.hi * (1 - big(2.0)^-100), "")
     end
 end
+
+function J17()
+    println("\n== J17: prop:flux-saturation-N and rem:step-general ==")
+    # Σ_p p^{-3} ≤ Σ_{p ≤ P} p^{-3} + 1/(2P²), exact rationals, P = 2000.
+    P = 2000
+    isp(n) = n >= 2 && all(n % d != 0 for d in 2:isqrt(n))
+    S = sum(big(1) // big(p)^3 for p in 2:P if isp(p)) + big(1) // (2 * big(P)^2)
+    claim("J17", "log(1/Σ_p p^{-3}) > 1.744 (primes ≤ 2000, tail ≤ 1/(2·2000²))", -log(iv(S)), :gt, 1744 // 1000)
+    # J₃(N) by direct count against N³ ∏_{p|N}(1 - p^{-3}), and the bound for N = 2..40.
+    ok = true
+    for N in 2:40
+        J = count(k -> gcd(gcd(k[1], k[2]), gcd(k[3], N)) == 1, Iterators.product(0:N-1, 0:N-1, 0:N-1))
+        f = big(N)^3 * prod((1 - big(1) // big(p)^3) for p in 2:N if isp(p) && N % p == 0)
+        ok &= (J == f) && (-log(iv(1 - big(J) // big(N)^3))).lo > 1744 // 1000
+        isp(N) && (ok &= J == N^3 - 1)
+    end
+    check("J17", "J₃(N) = N³∏(1-p⁻³), = N³-1 for prime N, and log(N³/(N³-J₃)) > 1.744 for N = 2..40", ok, "")
+    claim("J17", "κ_AF(SU(2)) log 3 > 0.408", iv(11) / (3 * PI^2) * log(iv(3)), :gt, 408 // 1000)
+    claimq("J17", "2/9 < 0.408", 2 // 9, :lt, 408 // 1000)
+    # two-loop exponent b₁/(2b₀²) = 51/121, independent of N
+    ok2 = all((big(34) * N^2 // 3 // 256) / (2 * (big(11) * N // 48)^2) == 51 // 121 for N in 2:10)
+    check("J17", "two-loop exponent b₁/(2b₀²) = 51/121 for SU(N), N = 2..10 (π powers cancel)", ok2, "")
+end

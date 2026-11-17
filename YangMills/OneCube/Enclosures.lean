@@ -820,4 +820,13 @@ theorem J16_10 : ((453) / 10000 : ℚ) > (0 : ℚ) := by norm_num
 /-- J16: 2D SU(2), β = 8, L = T = 3: ψ > 0 (truncated at n = 60). Julia enclosure: quantity ≥ the left side. -/
 theorem J16_11 : ((59) / 200 : ℚ) > (0 : ℚ) := by norm_num
 
+/-- J17: log(1/Σ_p p^{-3}) > 1.744 (primes ≤ 2000, tail ≤ 1/(2·2000²)). Julia enclosure: quantity ≥ the left side. -/
+theorem J17_1 : ((17443) / 10000 : ℚ) > ((218) / 125 : ℚ) := by norm_num
+
+/-- J17: κ_AF(SU(2)) log 3 > 0.408. Julia enclosure: quantity ≥ the left side. -/
+theorem J17_2 : ((4081) / 10000 : ℚ) > ((51) / 125 : ℚ) := by norm_num
+
+/-- J17: 2/9 < 0.408 (exact). -/
+theorem J17_3 : ((2) / 9 : ℚ) < ((51) / 125 : ℚ) := by norm_num
+
 end YangMills.OneCube.Enclosures

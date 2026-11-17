@@ -360,19 +360,26 @@ J16  PASS  2D SU(2), β = 4: ψ ≥ log((1+a)²/(1+a²))
 J16  PASS  2D SU(2), β = 8, L = T = 3: ψ > 0 (truncated at n = 60)   enclosure [0.29538642275343957, 0.29538642275343957]  exported ≥ 0.295 = 59//200
 J16  PASS  2D SU(2), β = 8: ψ ≥ log((1+a)²/(1+a²))   
 
-Rigorous checks: 320 PASS, 0 FAIL
-Exported 269 rational inequalities to YangMills/OneCube/Enclosures.lean
+== J17: prop:flux-saturation-N and rem:step-general ==
+J17  PASS  log(1/Σ_p p^{-3}) > 1.744 (primes ≤ 2000, tail ≤ 1/(2·2000²))   enclosure [1.744325945115445, 1.744325945115445]  exported ≥ 1.7443 = 17443//10000
+J17  PASS  J₃(N) = N³∏(1-p⁻³), = N³-1 for prime N, and log(N³/(N³-J₃)) > 1.744 for N = 2..40   
+J17  PASS  κ_AF(SU(2)) log 3 > 0.408   enclosure [0.4081465573235253, 0.4081465573235253]  exported ≥ 0.4081 = 4081//10000
+J17  PASS  2/9 < 0.408   exact value 0.2222222222222222 < 0.408
+J17  PASS  two-loop exponent b₁/(2b₀²) = 51/121 for SU(N), N = 2..10 (π powers cancel)   
+
+Rigorous checks: 325 PASS, 0 FAIL
+Exported 272 rational inequalities to YangMills/OneCube/Enclosures.lean
 
 == Numerical sanity checks (floating point; not proofs) ==
   threads: 1
   [sanity] Lemma W   min Φ over 20000 random points = 1.005764; after 400 local searches = 0.9999999999999993 (source value ≈ 1.000000005; exact infimum 1)
-    (sanity_phi: 2.4 s)
+    (sanity_phi: 2.2 s)
   [sanity] X_G       T=3: 2.2063, T=4: 1.652, T=6: 1.2187, T=8: 1.1015 (source 2.2063, 1.6520, 1.2187, 1.1015); limit 0.984703 (source 0.984703), per N²-1
     (sanity_XG: 0.1 s)
   [sanity] W3 R4     2×2×2×2, twist eater k=(1, 0, 0): S=2.1e-14, Hessian rank 144 (expected 144), smallest positive eigenvalue 2.0, |kernel| ≤ 8.5e-8
   [sanity] W3 R4     2×2×2×2, twist eater k=(1, 1, 1): S=2.0e-14, Hessian rank 144 (expected 144), smallest positive eigenvalue 2.0, |kernel| ≤ 1.1e-7
   [sanity] W3 R4     2×2×2×2, untwisted abelian flat point: S=1.1e-14, Hessian rank 141 (expected 141), smallest positive eigenvalue 4.0, |kernel| ≤ 1.0e-7
-    (sanity_hessian: 7.3 s)
+    (sanity_hessian: 7.0 s)
   [sanity] Model A   site-reflection Gram matrices [C(ϑx-y)] on 4⁴ and 6⁴, c₀ ∈ {√2, 1/2}, ma = 1/2, all four directions: smallest eigenvalue -1.5776143404557711e-15 (source: ≥ -1.1e-15)
   [sanity] X1 sum    s=10: partial sum to |k|_∞ = 2·10⁴ is 15065.402 (source 15065, 280.8, 37.69, 9.993 for s = 10..13)
   [sanity] X1 sum    s=11: partial sum to |k|_∞ = 2·10⁴ is 280.845 (source 15065, 280.8, 37.69, 9.993 for s = 10..13)
@@ -382,7 +389,7 @@ Exported 269 rational inequalities to YangMills/OneCube/Enclosures.lean
   [sanity] Model A   L_p = 1, N = 8: log Z - e_N n⁴ = 4.528 (source 5.28, 4.53, 4.39, 4.37 for N = 4, 8, 16, 24)
   [sanity] Model A   L_p = 1, N = 16: log Z - e_N n⁴ = 4.39 (source 5.28, 4.53, 4.39, 4.37 for N = 4, 8, 16, 24)
   [sanity] Model A   L_p = 1, N = 24: log Z - e_N n⁴ = 4.369 (source 5.28, 4.53, 4.39, 4.37 for N = 4, 8, 16, 24)
-    (sanity_modelA: 8.4 s)
+    (sanity_modelA: 7.9 s)
   [sanity] W7 P6     N=10, T=⌊N⌋: two-state X = 0.371101 (→ log 2 = 0.693147 > x_c ≈ 0.0002404), rings X = 2506.09 (→ ∞)
   [sanity] W7 P6     N=100, T=⌊N⌋: two-state X = 0.653947 (→ log 2 = 0.693147 > x_c ≈ 0.0002404), rings X = 2.50609e6 (→ ∞)
   [sanity] W7 P6     N=1000, T=⌊N⌋: two-state X = 0.689155 (→ log 2 = 0.693147 > x_c ≈ 0.0002404), rings X = 2.50609e9 (→ ∞)
@@ -390,4 +397,4 @@ Exported 269 rational inequalities to YangMills/OneCube/Enclosures.lean
     (sanity_W7: 0.1 s)
   [sanity] L Thm A   β=1.0: MC Tr K = 2.776 ± 0.002 (exact-matrix value 2.778247), Tr K² = 2.525 ± 0.0037 (2.525462); 2000000 samples
   [sanity] L Thm A   β=2.0: MC Tr K = 10.01 ± 0.0138 (exact-matrix value 10.01709), Tr K² = 13.892 ± 0.0814 (13.8185); 2000000 samples
-    (sanity_LThmA: 18.9 s)
+    (sanity_LThmA: 18.8 s)
