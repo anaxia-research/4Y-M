@@ -8,11 +8,12 @@ import YangMills.OneCube.Transcendental
 import YangMills.OneCube.Tables
 import YangMills.OneCube.Enclosures
 import YangMills.OneCube.LineField
+import YangMills.OneCube.Casimir
 
 /-!
 # One-cube criteria: verification of constants and finite computations
 
-L1–L16 and J1–J12 of the paper "One-Cube Criteria for the Yang–Mills Mass Gap".
+L1–L18 and J1–J15 of the paper "The Yang–Mills Mass Gap Reduces to One Cube at Weak Coupling".
 None of these statements proves the existence of the continuum limit, the one-cube
 bound or the mass gap.
 -/

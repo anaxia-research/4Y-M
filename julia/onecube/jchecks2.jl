@@ -1,4 +1,4 @@
-# J13, J14: the two numerical rows of Section 9 that were computed outside the repository.
+# J13, J14: the two numerical rows of Section 9; J15: the adjoint Casimir behind the slope of Section 5.
 #   J13  thm:finite-rank-obstruction(d): two-dimensional SU(2), Tr R^T - 1 at seven couplings.
 #   J14  thm:no-convexity(d),(e): Taylor coefficients and majorant of G, and the constants of the proof.
 # Exact rationals where no transcendental function occurs; otherwise the interval type of intervals.jl.
@@ -128,4 +128,46 @@ function J14()
     claim("J14", "2π(16 + 0.72 log 1500)/1500 ≤ 1/10", 2 * PI * (16 + d"0.72" * log(iv(1500))) / 1500, :le, big(1) // 10)
     claim("J14", "(π/2)(16 + 0.72 log 4) < 26.71", PI / 2 * (16 + d"0.72" * log(iv(4))), :lt, d"26.71")
     claim("J14", "(π/2)·1.44 < 2.27", PI / 2 * d"1.44", :lt, d"2.27")
+end
+
+# ---------------------------------------------------------------------------------------
+# J15. Adjoint Casimir of su(N) for <X,Y> = -(1/N) Re Tr XY, as in the OpenAI construction:
+# C_A = -(1/dim) Σ_{a,b} g^{ab} tr(ad_a ad_b) in the rational basis E_jk-E_kj, i(E_jk+E_kj), i(E_jj-E_j+1,j+1).
+# Exact arithmetic over Q(i). C_A = 2N^2 gives the slope 11 C_A/(24π^2) = 11N^2/(12π^2).
+function sun_basis(N)
+    B = Matrix{Complex{Rational{BigInt}}}[]
+    E(j, k) = (M = zeros(Complex{Rational{BigInt}}, N, N); M[j, k] = 1; M)
+    for j in 1:N, k in j+1:N
+        push!(B, E(j, k) - E(k, j)); push!(B, im * (E(j, k) + E(k, j)))
+    end
+    for j in 1:N-1; push!(B, im * (E(j, j) - E(j + 1, j + 1))); end
+    B
+end
+function sun_casimir(N)
+    B = sun_basis(N); d = length(B)
+    ipr(X, Y) = -real(sum(X[i, j] * Y[j, i] for i in 1:N, j in 1:N)) // N
+    G = [ipr(B[a], B[b]) for a in 1:d, b in 1:d]
+    Gi = inv(G)
+    coord(Z) = Gi * [ipr(B[a], Z) for a in 1:d]
+    closed = true
+    ad = Vector{Matrix{Rational{BigInt}}}(undef, d)
+    for a in 1:d
+        cols = Vector{Vector{Rational{BigInt}}}()
+        for b in 1:d
+            C = B[a] * B[b] - B[b] * B[a]; c = coord(C)
+            closed &= sum(c[i] * B[i] for i in 1:d) == C
+            push!(cols, c)
+        end
+        ad[a] = hcat(cols...)
+    end
+    tr2(M) = sum(M[i, i] for i in 1:size(M, 1))
+    closed, -sum(Gi[a, b] * tr2(ad[a] * ad[b]) for a in 1:d, b in 1:d) // d
+end
+
+function J15()
+    println("\n== J15: adjoint Casimir C_A = 2N^2 for <X,Y> = -(1/N) Re Tr XY ==")
+    for N in 2:5
+        closed, c = sun_casimir(N)
+        check("J15", "su($N): basis closed under brackets and C_A = $(2N^2)", closed && c == 2N^2, "C_A = $c")
+    end
 end

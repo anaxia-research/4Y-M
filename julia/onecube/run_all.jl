@@ -1,4 +1,4 @@
-# Run all one-cube checks: the rigorous enclosures J1–J14 (and the unlabelled
+# Run all one-cube checks: the rigorous enclosures J1–J15 (and the unlabelled
 # certificate rows), export the rational enclosures to Lean, then run the
 # numerical sanity checks (floating point, not proofs).
 #   julia julia/onecube/run_all.jl            (all)
@@ -12,7 +12,7 @@ include(joinpath(@__DIR__, "jchecks2.jl"))
 println("One-cube checks. Julia ", VERSION, ", BigFloat precision ", precision(BigFloat), " bits")
 println("None of these checks proves the continuum limit, the one-cube bound or the mass gap.")
 run_jchecks()
-J13(); J14()
+J13(); J14(); J15()
 lean_path = normpath(joinpath(@__DIR__, "..", "..", "YangMills", "OneCube", "Enclosures.lean"))
 write_lean(lean_path)
 npass = count(r -> r.pass, RESULTS); nfail = length(RESULTS) - npass
