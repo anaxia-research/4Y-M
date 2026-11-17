@@ -258,3 +258,32 @@ function J18()
           (iv(81 * 11136 // 1000000) + 3 * log(iv(8194))) / log(iv(63 // 32)), :lt, 4124 // 100)
     claim("J18", "2(e^{2^{-13}} - 1) < 1/4095", 2 * (exp(iv(1 // 8192)) - 1), :lt, 1 // 4095)
 end
+
+function J19()
+    println("\n== J19: prop:abelian-vortex, thm:crossed-criteria, cor:sb-scale-invariant, rem:volume-bounds ==")
+    # prop:abelian-vortex
+    claim("J19", "2 arsinh(√3)/√3 ≥ 1.5206", 2 * asinh(sqrt(iv(3))) / sqrt(iv(3)), :ge, d"1.5206")
+    θq = iv(1) + 2 * sum(exp(-iv(big(n)^2 // 4)) for n in 1:60) + 2 * exp(-iv(big(61)^2 // 4)) / (1 - exp(-iv(big(61) // 4)))
+    claim("J19", "ϑ(1/4) = Σ_m e^{-m²/4} < 3.5450", θq, :lt, d"3.5450")
+    claim("J19", "3 log(1 + 3e^{-π²}) < 3·10^{-3}", 3 * log(1 + 3 * exp(-PI^2)), :lt, d"0.003")
+    c = iv(d"1.5206"); a = exp(-c / sqrt(iv(3)))
+    claim("J19", "2/(1-e^{-c})·[((1+e^{-c/√3})/(1-e^{-c/√3}))³ - 1] < 33.84 at c = 1.5206",
+          2 / (1 - exp(-c)) * (((1 + a) / (1 - a))^3 - 1), :lt, d"33.84")
+    claimq("J19", "8.8·8·2 = 140.8", d"8.8" * 16, :le, d"140.8")
+    claim("J19", "140.8·2·7.9·10^{-4} ≤ log(5/4)", iv(d"140.8" * 2 * d"0.00079"), :le, d"0.22314")
+    claim("J19", "log(5/4) > 0.22314", log(iv(5 // 4)), :gt, d"0.22314")
+    claim("J19", "(96/140.8) log(5/4) < 0.1522", (96 / iv(d"140.8")) * log(iv(5 // 4)), :lt, d"0.1522")
+    claim("J19", "3 log 3.5450 + 33.84 + 0.003 + 0.1522 + log 2 < 38.49",
+          3 * log(iv(d"3.5450")) + iv(d"33.84" + d"0.003" + d"0.1522") + log(iv(2)), :lt, d"38.49")
+    claimq("J19", "1/4 + 38.49 < 39", 1 // 4 + d"38.49", :lt, big(39) // 1)
+    # thm:crossed-criteria: the threshold eta_C satisfies 82 eta_C < 1 (|C| ≥ 1)
+    claim("J19", "82/(e·8194³) < 1", 82 / (exp(iv(1)) * iv(big(8194)^3)), :lt, big(1) // 1)
+    claimq("J19", "8(3/2)³ = 27", 8 * (3 // 2)^3, :le, big(27) // 1)
+    claimq("J19", "(108 - 27)/3 = 27 (thm:crossed-criteria (ii))", big(108 - 27) // 3, :le, big(27) // 1)
+    # cor:sb-scale-invariant: K x^{3/4} - x/2 ≤ 27K⁴/32, equality at x = (3K/2)⁴ (checked at K = 1 on a grid via x = y⁴)
+    ok = all(27 // 32 - (y^3 - y^4 // 2) == (y - 3 // 2)^2 * (4y^2 + 4y + 3) // 8 for y in (big(0) .+ (0:400) .// 100))
+    check("J19", "27/32 - (y³ - y⁴/2) = (y - 3/2)²(4y² + 4y + 3)/8 on y = 0..4 (max of Kx^{3/4} - x/2 is 27K⁴/32)", ok, "")
+    # rem:volume-bounds: 27/216 = 1/8 and 27/(216·512) = 1/4096
+    claimq("J19", "27/(216·512) = 1/4096", big(27) // (216 * 512), :le, big(1) // 4096)
+    claimq("J19", "27/216 - 1/2 = -3/8", big(27) // 216 - 1 // 2, :le, -3 // 8)
+end

@@ -14,7 +14,7 @@ import YangMills.OneCube.StepScaling
 /-!
 # One-cube criteria: verification of constants and finite computations
 
-L1–L19 and J1–J18 of the paper "The Yang–Mills Mass Gap Reduces to One Cube at Weak Coupling".
+L1–L19 and J1–J19 of the paper "The Yang–Mills Mass Gap Reduces to One Cube at Weak Coupling".
 None of these statements proves the existence of the continuum limit, the one-cube
 bound or the mass gap.
 -/

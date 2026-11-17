@@ -853,4 +853,49 @@ theorem J18_3 : ((206197) / 5000 : ℚ) < ((1031) / 25 : ℚ) := by norm_num
 /-- J18: 2(e^{2^{-13}} - 1) < 1/4095. Julia enclosure: quantity ≤ the left side. -/
 theorem J18_4 : ((1221) / 5000000 : ℚ) < ((1) / 4095 : ℚ) := by norm_num
 
+/-- J19: 2 arsinh(√3)/√3 ≥ 1.5206. Julia enclosure: quantity ≥ the left side. -/
+theorem J19_1 : ((7603) / 5000 : ℚ) ≥ ((7603) / 5000 : ℚ) := by norm_num
+
+/-- J19: ϑ(1/4) = Σ_m e^{-m²/4} < 3.5450. Julia enclosure: quantity ≤ the left side. -/
+theorem J19_2 : ((354491) / 100000 : ℚ) < ((709) / 200 : ℚ) := by norm_num
+
+/-- J19: 3 log(1 + 3e^{-π²}) < 3·10^{-3}. Julia enclosure: quantity ≤ the left side. -/
+theorem J19_3 : ((233) / 500000 : ℚ) < ((3) / 1000 : ℚ) := by norm_num
+
+/-- J19: 2/(1-e^{-c})·[((1+e^{-c/√3})/(1-e^{-c/√3}))³ - 1] < 33.84 at c = 1.5206. Julia enclosure: quantity ≤ the left side. -/
+theorem J19_4 : ((33831) / 1000 : ℚ) < ((846) / 25 : ℚ) := by norm_num
+
+/-- J19: 8.8·8·2 = 140.8 (exact). -/
+theorem J19_5 : ((704) / 5 : ℚ) ≤ ((704) / 5 : ℚ) := by norm_num
+
+/-- J19: 140.8·2·7.9·10^{-4} ≤ log(5/4). Julia enclosure: quantity ≤ the left side. -/
+theorem J19_6 : ((223) / 1000 : ℚ) ≤ ((11157) / 50000 : ℚ) := by norm_num
+
+/-- J19: log(5/4) > 0.22314. Julia enclosure: quantity ≥ the left side. -/
+theorem J19_7 : ((223143) / 1000000 : ℚ) > ((11157) / 50000 : ℚ) := by norm_num
+
+/-- J19: (96/140.8) log(5/4) < 0.1522. Julia enclosure: quantity ≤ the left side. -/
+theorem J19_8 : ((3043) / 20000 : ℚ) < ((761) / 5000 : ℚ) := by norm_num
+
+/-- J19: 3 log 3.5450 + 33.84 + 0.003 + 0.1522 + log 2 < 38.49. Julia enclosure: quantity ≤ the left side. -/
+theorem J19_9 : ((7697) / 200 : ℚ) < ((3849) / 100 : ℚ) := by norm_num
+
+/-- J19: 1/4 + 38.49 < 39 (exact). -/
+theorem J19_10 : ((1937) / 50 : ℚ) < (39 : ℚ) := by norm_num
+
+/-- J19: 82/(e·8194³) < 1. Julia enclosure: quantity ≤ the left side. -/
+theorem J19_11 : ((549) / 10000000000000 : ℚ) < (1 : ℚ) := by norm_num
+
+/-- J19: 8(3/2)³ = 27 (exact). -/
+theorem J19_12 : (27 : ℚ) ≤ (27 : ℚ) := by norm_num
+
+/-- J19: (108 - 27)/3 = 27 (thm:crossed-criteria (ii)) (exact). -/
+theorem J19_13 : (27 : ℚ) ≤ (27 : ℚ) := by norm_num
+
+/-- J19: 27/(216·512) = 1/4096 (exact). -/
+theorem J19_14 : ((1) / 4096 : ℚ) ≤ ((1) / 4096 : ℚ) := by norm_num
+
+/-- J19: 27/216 - 1/2 = -3/8 (exact). -/
+theorem J19_15 : ((-3) / 8 : ℚ) ≤ ((-3) / 8 : ℚ) := by norm_num
+
 end YangMills.OneCube.Enclosures
