@@ -1,4 +1,4 @@
-# The interval / transcendental constants J1–J12 (J13 is not used by the paper).
+# The interval / transcendental constants J1–J12; J13 and J14 are in jchecks2.jl.
 # Decimal numbers d"..." are the exact rationals they spell.
 
 E(x) = exp(iv(x))
@@ -154,8 +154,8 @@ function J5()
         hm = h(m)
         if hm.hi < 0; lo = m elseif hm.lo > 0; hi = m else break end
     end
-    claim("J5", "β = 10^9 source sentence: root T_0 of T^3 = (1-7.65/T)β/(21.97(log 2β+5.42)) ≥ 116.7",
-        iv(hi), :ge, d"116.7")
+    claim("J5", "β = 10^9: root T_0 of T^3 = (1-7.65/T)β/(21.97(log 2β+5.42)) > 116.58", iv(lo), :gt, d"116.58")
+    claim("J5", "β = 10^9: root T_0 < 116.6 (an earlier draft sentence said ≥ 116.7, which is false)", iv(hi), :lt, d"116.6")
     println("      root T_0 ∈ [$(Float64(lo)), $(Float64(hi))]")
     # thm:SUN-gap row (no identifier)
     claimq("J5x", "(1 - 0.58^2/6)^2 > 0.94^2", (1 - d"0.58"^2 / 6)^2, :gt, d"0.94"^2)

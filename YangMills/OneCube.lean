@@ -7,6 +7,7 @@ import YangMills.OneCube.Chebyshev
 import YangMills.OneCube.Transcendental
 import YangMills.OneCube.Tables
 import YangMills.OneCube.Enclosures
+import YangMills.OneCube.LineField
 
 /-!
 # One-cube criteria: verification of constants and finite computations
