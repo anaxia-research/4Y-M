@@ -841,4 +841,16 @@ theorem J17_6 : ((22400000) / 99987 : ℚ) < ((22403) / 100 : ℚ) := by norm_nu
 /-- J17: 1 - e^{-1} > 0.632. Julia enclosure: quantity ≥ the left side. -/
 theorem J17_7 : ((6321) / 10000 : ℚ) > ((79) / 125 : ℚ) := by norm_num
 
+/-- J18: 8(3/2)³/(1/2) = 54 (exact). -/
+theorem J18_1 : (54 : ℚ) ≤ (54 : ℚ) := by norm_num
+
+/-- J18: (32/63)^{1/2}/64 < 0.011136. Julia enclosure: quantity ≤ the left side. -/
+theorem J18_2 : ((111359) / 10000000 : ℚ) < ((174) / 15625 : ℚ) := by norm_num
+
+/-- J18: (81·0.011136 + 3 log 8194)/log(63/32) < 41.24. Julia enclosure: quantity ≤ the left side. -/
+theorem J18_3 : ((206197) / 5000 : ℚ) < ((1031) / 25 : ℚ) := by norm_num
+
+/-- J18: 2(e^{2^{-13}} - 1) < 1/4095. Julia enclosure: quantity ≤ the left side. -/
+theorem J18_4 : ((1221) / 5000000 : ℚ) < ((1) / 4095 : ℚ) := by norm_num
+
 end YangMills.OneCube.Enclosures

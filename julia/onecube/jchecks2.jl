@@ -245,3 +245,16 @@ function J17()
     ok2 = all((big(34) * N^2 // 3 // 256) / (2 * (big(11) * N // 48)^2) == 51 // 121 for N in 2:10)
     check("J17", "two-loop exponent b₁/(2b₀²) = 51/121 for SU(N), N = 2..10 (π powers cancel)", ok2, "")
 end
+
+
+function J18()
+    println("\n== J18: thm:two-number, cor:gap-sb, prop:no-vortex-comparison ==")
+    # 8k³/(k-1) - 54 = 2(2k-3)²(k+3)/(k-1): the minimum 54 over k > 1 is attained at k = 3/2.
+    ok = all(8 * k^3 // (k - 1) - 54 == 2 * (2k - 3)^2 * (k + 3) // (k - 1) for k in (big(1) .+ (1:400) .// 100))
+    check("J18", "8k³/(k-1) - 54 = 2(2k-3)²(k+3)/(k-1) on k = 1.01..5 (so min_{k>1} 8k³/(k-1) = 54 at k = 3/2)", ok, "")
+    claimq("J18", "8(3/2)³/(1/2) = 54", 8 * (3 // 2)^3 / (1 // 2), :le, 54 // 1)
+    claim("J18", "(32/63)^{1/2}/64 < 0.011136", sqrt(iv(32 // 63)) / 64, :lt, 11136 // 1000000)
+    claim("J18", "(81·0.011136 + 3 log 8194)/log(63/32) < 41.24",
+          (iv(81 * 11136 // 1000000) + 3 * log(iv(8194))) / log(iv(63 // 32)), :lt, 4124 // 100)
+    claim("J18", "2(e^{2^{-13}} - 1) < 1/4095", 2 * (exp(iv(1 // 8192)) - 1), :lt, 1 // 4095)
+end
