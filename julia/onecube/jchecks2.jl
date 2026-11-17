@@ -311,3 +311,18 @@ function J20()
     claim("J20", "3888 e^{-20}/(1-q) < 10^{-5}", 3888 * exp(-iv(20)) / (1 - q), :lt, d"0.00001")
     claim("J20", "log 18 - 720 - 10^{-5} > -717.12 (log ρ_3)", log(iv(18)) - 720 - iv(d"0.00001"), :gt, d"-717.12")
 end
+
+function J21()
+    println("\n== J21: thm:overlap-criteria, rem:overlap-obstructions ==")
+    # L_0 = 81 log 2 + log 8194, with 81 = 27·3 (27 y(t_1) and y ≤ y^0 + 3 log 2)
+    check("J21", "27·3 = 81 and 3·81 = 243", 27 * 3 == 81 && 3 * 81 == 243, "")
+    L0 = 81 * log(iv(2)) + log(iv(8194))
+    claim("J21", "L_0 = 81 log 2 + log 8194 > 65.156", L0, :gt, d"65.156")
+    claim("J21", "L_0 = 81 log 2 + log 8194 < 65.1561", L0, :lt, d"65.1561")
+    claim("J21", "3L_0 = log(2^243·8194³) > 195.468", log(iv(big(2)^243 * big(8194)^3)), :gt, d"195.468")
+    claim("J21", "3L_0 = log(2^243·8194³) < 195.4683", 3 * L0, :lt, d"195.4683")
+    # 2⌊Nα⌋ ≥ (1+ε)Nt - 2 ≥ ⌊Nt⌋ when Nεt ≥ 2 (checked on a grid of rationals)
+    ok = all(2 * floor(Int, N * (1 + e) * t // 2) >= floor(Int, N * t)
+             for N in 1:60, e in (big(1) // 10, big(1) // 3, big(1) // 2), t in (big(1) // 2, big(1), big(3) // 2, big(7) // 3) if N * e * t >= 2)
+    check("J21", "2⌊N(1+ε)t/2⌋ ≥ ⌊Nt⌋ whenever Nεt ≥ 2 (grid)", ok, "")
+end

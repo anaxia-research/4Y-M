@@ -925,4 +925,16 @@ theorem J20_8 : ((401) / 50000000 : ℚ) < ((1) / 100000 : ℚ) := by norm_num
 /-- J20: log 18 - 720 - 10^{-5} > -717.12 (log ρ_3). Julia enclosure: quantity ≥ the left side. -/
 theorem J20_9 : ((-71711) / 100 : ℚ) > ((-17928) / 25 : ℚ) := by norm_num
 
+/-- J21: L_0 = 81 log 2 + log 8194 > 65.156. Julia enclosure: quantity ≥ the left side. -/
+theorem J21_1 : ((6515607) / 100000 : ℚ) > ((16289) / 250 : ℚ) := by norm_num
+
+/-- J21: L_0 = 81 log 2 + log 8194 < 65.1561. Julia enclosure: quantity ≤ the left side. -/
+theorem J21_2 : ((814451) / 12500 : ℚ) < ((651561) / 10000 : ℚ) := by norm_num
+
+/-- J21: 3L_0 = log(2^243·8194³) > 195.468. Julia enclosure: quantity ≥ the left side. -/
+theorem J21_3 : ((977341) / 5000 : ℚ) > ((48867) / 250 : ℚ) := by norm_num
+
+/-- J21: 3L_0 = log(2^243·8194³) < 195.4683. Julia enclosure: quantity ≤ the left side. -/
+theorem J21_4 : ((2443353) / 12500 : ℚ) < ((1954683) / 10000 : ℚ) := by norm_num
+
 end YangMills.OneCube.Enclosures
