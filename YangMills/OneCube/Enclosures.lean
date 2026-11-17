@@ -898,4 +898,31 @@ theorem J19_14 : ((1) / 4096 : ℚ) ≤ ((1) / 4096 : ℚ) := by norm_num
 /-- J19: 27/216 - 1/2 = -3/8 (exact). -/
 theorem J19_15 : ((-3) / 8 : ℚ) ≤ ((-3) / 8 : ℚ) := by norm_num
 
+/-- J20: 1/4160 - 1/(2·4160²) ≥ 8319/34611200 (exact). -/
+theorem J20_1 : ((8319) / 34611200 : ℚ) ≥ ((8319) / 34611200 : ℚ) := by norm_num
+
+/-- J20: 8319·12500 > 3·34611200 (exact). -/
+theorem J20_2 : (103987500 : ℚ) > (103833600 : ℚ) := by norm_num
+
+/-- J20: 1/12500 ≥ 8·10^{-5} (so c_* > 8·10^{-5}) (exact). -/
+theorem J20_3 : ((1) / 12500 : ℚ) ≥ ((1) / 12500 : ℚ) := by norm_num
+
+/-- J20: log(1 + 1/16388) ≤ 1/16388. Julia enclosure: quantity ≤ the left side. -/
+theorem J20_4 : ((3051) / 50000000 : ℚ) ≤ ((1) / 16388 : ℚ) := by norm_num
+
+/-- J20: 8·3³ = 216 (exact). -/
+theorem J20_5 : (216 : ℚ) ≤ (216 : ℚ) := by norm_num
+
+/-- J20: log q = log 400 - 20 < -14.0085. Julia enclosure: quantity ≤ the left side. -/
+theorem J20_6 : ((-1400853) / 100000 : ℚ) < ((-28017) / 2000 : ℚ) := by norm_num
+
+/-- J20: log(48·6⁴) - 20 + 71 log q - log(1-q) < -1003.5 (log ρ_6). Julia enclosure: quantity ≤ the left side. -/
+theorem J20_7 : ((-25089) / 25 : ℚ) < ((-2007) / 2 : ℚ) := by norm_num
+
+/-- J20: 3888 e^{-20}/(1-q) < 10^{-5}. Julia enclosure: quantity ≤ the left side. -/
+theorem J20_8 : ((401) / 50000000 : ℚ) < ((1) / 100000 : ℚ) := by norm_num
+
+/-- J20: log 18 - 720 - 10^{-5} > -717.12 (log ρ_3). Julia enclosure: quantity ≥ the left side. -/
+theorem J20_9 : ((-71711) / 100 : ℚ) > ((-17928) / 25 : ℚ) := by norm_num
+
 end YangMills.OneCube.Enclosures
