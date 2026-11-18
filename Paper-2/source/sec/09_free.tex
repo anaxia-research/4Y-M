@@ -1,0 +1,617 @@
+\section{Free massive fields}\label{sec:free}
+
+Here $d\ge1$, $n\ge2$, $L\ge n+1$, $\mathbb T=(\Z/L\Z)^d$, $\mu>0$ is a lattice
+mass, $-\Delta$ is the lattice Laplacian and $Q=-\Delta+\mu^2$. For a positive
+definite $Q$ on $\R^N$ let $\gamma_Q$ be the centred Gaussian law with
+covariance $C=Q^{-1}$, and for $V\subset\{1,\dots,N\}$ let $\mathcal P_V$ be the
+conditional expectation given the coordinates outside $V$. For the cubes
+$V_x=x+\{0,\dots,n-1\}^d$, $x\in\mathbb T$, put
+\begin{equation}\label{eq:ffvarpi}
+\varpi(Q)=\inf_f\frac{n^{-d}\sum_x\|f-\mathcal P_{V_x}f\|^2}{\Var_{\gamma_Q}(f)},
+\end{equation}
+the infimum over nonconstant $f\in L^2(\gamma_Q)$, the best constant in
+$\BP(n,\cdot)$. With $s=n\mu$ and $\mu=ma$, $n=\ell/a$, the parameter $s=m\ell$
+is the mass times the physical size of the cube.
+
+\begin{lemma}[linear functions suffice]\label{lem:chaos}
+For a positive definite $Q$ and any family of coordinate sets $(V_x)$, the
+infimum in~\eqref{eq:ffvarpi} equals its infimum over the linear functions
+$\ell_h(\phi)=\ip h\phi$, and
+\[
+\|\ell_h-\mathcal P_V\ell_h\|^2=\ip{h_V}{Q_{VV}^{-1}h_V},\qquad
+\Var(\ell_h)=\ip h{Q^{-1}h},
+\]
+with $h_V$ the restriction of $h$ to $V$ and $Q_{VV}$ the block of $Q$ on $V$.
+\end{lemma}
+
+\begin{proof}
+The conditional law of $\phi_V$ given $\phi_{V^c}$ is Gaussian with covariance
+$Q_{VV}^{-1}$, which gives the formula for $\ell_h$. Write $\phi=Q^{-1/2}\xi$ with
+$\xi$ standard Gaussian. Conditioning on $\phi_{V^c}$ is conditioning on the
+Gaussian subspace $K_V=\{\ip u\xi:u\in Q^{-1/2}\R^{V^c}\}$, and on the $m$-th
+Wiener chaos, identified with the symmetric tensors $\mathrm{Sym}^m(\R^N)$, it
+acts as $\pi_V^{\otimes m}$, with $\pi_V$ the orthogonal projection onto $Q^{-1/2}
+\R^{V^c}$~\cite[Ch.~4]{Jan97}. The chaoses are orthogonal and invariant under
+every $\mathcal P_V$, so it suffices to treat one chaos $m\ge1$. The projection
+$I-\pi_V^{\otimes m}$ dominates $(I-\pi_V)\otimes I^{\otimes(m-1)}$, as both are
+projections that commute and the range of the second lies in that of the
+first. For a symmetric tensor $F$, therefore,
+\[
+\sum_x\|F-\pi_{V_x}^{\otimes m}F\|^2\ge\Bigl\langle F,\Bigl(\sum_x(I-\pi_{V_x})\Bigr)
+\otimes I^{\otimes(m-1)}F\Bigr\rangle\ge\lambda\|F\|^2,
+\]
+where $\lambda$ is the least eigenvalue of $\sum_x(I-\pi_{V_x})$ on $\R^N$, which is
+the infimum of the quotient over linear functions ($m=1$).
+\end{proof}
+
+\begin{theorem}[the exact constant]\label{thm:free}
+Let $V=\{0,\dots,n-1\}^d$, $-\Delta_D$ its Dirichlet Laplacian and $\mathbf 1$ its
+constant function. Then
+\[
+\varpi(-\Delta+\mu^2)=\frac{\mu^2}{n^d}\ip{\mathbf 1}{(-\Delta_D+\mu^2)^{-1}\mathbf 1},
+\]
+attained only at multiples of $\ell_{\mathbf 1}$ among linear functions, and
+\[
+\Bigl(\frac56\Bigr)^d\frac{s^2}{s^2+10d}\le\varpi(-\Delta+\mu^2)\le\frac{s^2}
+{s^2+4dn^2\sin^2\frac\pi{2n+2}}\le\frac{s^2}{s^2+16d/9}.
+\]
+\end{theorem}
+
+\begin{proof}
+Since $L\ge n+1$, the block $Q_{V_xV_x}$ is the translate of $Q_{VV}=-\Delta_D+
+\mu^2$; put $G_V=Q_{VV}^{-1}$. By Lemma~\ref{lem:chaos}, $n^d\varpi$ is the least
+value of $\ip h{Sh}/\ip h{Q^{-1}h}$ with $S=\sum_xR_{V_x}^{\mathsf T}Q_{V_xV_x}^{-1}
+R_{V_x}$, that is, the least eigenvalue of $Q^{1/2}SQ^{1/2}$. Translations commute
+with $Q$ and $S$, so the plane waves $e_k(y)=e^{ik\cdot y}$ diagonalise it with
+eigenvalues $\lambda_k=\hat q(k)\ip{e_k^V}{G_Ve_k^V}$, where $\hat q(k)=\mu^2+
+\sum_i(2-2\cos k_i)$ and $e_k^V$ is the restriction to $V$.
+
+Let $B$ map $f$ to the function $u\mapsto\sum_{w\sim u,\,w\notin V}f(w)$ on $V$.
+Then $Q_{VV}R_Vf=R_VQf+Bf$, so $Q_{VV}e_k^V=\hat q(k)e_k^V+Be_k$, and pairing
+$G_V$ of this with $e_k^V$ gives
+\[
+\lambda_k=n^d-\sum_{u,u'\in V}\sum_{w\sim u',\,w\notin V}G_V(u,u')\cos\bigl(k\cdot
+(w-u)\bigr).
+\]
+Write $Q_{VV}=(2d+\mu^2)(I-K)$ with $K$ entrywise nonnegative and $\|K\|\le
+2d/(2d+\mu^2)<1$; the Neumann series shows that $G_V$ has positive entries.
+Hence $\lambda_k-\lambda_0=\sum G_V(u,u')(1-\cos(k\cdot(w-u)))\ge0$, with equality only
+at $k=0$ (take $u=u'$ on a face and $w=u+e_i$). Since $Q\mathbf 1=\mu^2\mathbf 1$,
+$\lambda_0=\mu^2\ip{\mathbf 1}{G_V\mathbf 1}$, which is the formula.
+
+\emph{Upper bound.} $G_V\le(\lambda_1+\mu^2)^{-1}$ with $\lambda_1=4d\sin^2\frac\pi
+{2n+2}$ the least eigenvalue of $-\Delta_D$, and $\|\mathbf 1\|^2=n^d$; then
+$\sin t\ge2t/\pi$ gives $n^2\lambda_1\ge4dn^2/(n+1)^2\ge16d/9$.
+
+\emph{Lower bound.} By the variational formula $\ip{\mathbf 1}{G_V\mathbf 1}\ge
+\ip{\mathbf 1}w^2/\ip w{Q_{VV}w}$, take $w(u)=\prod_i\tau(u_i)$ with the parabolic
+profile $\tau(s)=6(s+1)(n-s)/(n(n+1)(n+2))$ on $\{0,\dots,n-1\}$, zero
+outside. Then $\sum\tau=1$, $S_2=\sum\tau^2=\alpha_n/n$ and $D_2=\sum_{s\in\Z}
+(\tau(s+1)-\tau(s))^2=\beta_n/n^3$ with
+\[
+\alpha_n=\frac{6(n^2+2n+2)}{5(n+1)(n+2)}\le\frac65,\qquad
+\beta_n=\frac{12n^2}{(n+1)(n+2)}=10\rho_n\alpha_n,\quad
+\rho_n=\frac{n^2}{n^2+2n+2}<1,
+\]
+by the power sums $\sum_{u=1}^nu(n+1-u)=n(n+1)(n+2)/6$, $\sum_{u=1}^nu^2(n+1-u)^2=
+n(n+1)(n+2)(n^2+2n+2)/30$ and $\sum_{u=0}^n(n-2u)^2=n(n+1)(n+2)/3$. The Dirichlet
+form of the product is $\ip w{-\Delta_Dw}=dS_2^{d-1}D_2$ and $\ip{\mathbf 1}w=1$, so
+\[
+\varpi\ge\frac{\mu^2}{n^d(\mu^2S_2^d+dS_2^{d-1}D_2)}=\frac1{\alpha_n^d+d\alpha_n^{d-1}
+\beta_ns^{-2}}=\alpha_n^{-d}\frac{s^2}{s^2+10d\rho_n}\ge\Bigl(\frac56\Bigr)^d
+\frac{s^2}{s^2+10d}.\qedhere
+\]
+\end{proof}
+
+At $n=2$ the two bounds coincide with $s^2/(s^2+4d)$. For $d=4$ the lower
+bound is $0.0118$ at $s=1$ and $0.0438$ at $s=2$; the upper bound vanishes as
+$s\to0$, so a massless free field satisfies no cube condition uniform in the
+lattice spacing. The same computation applies, with the Hodge decomposition of the
+torus, to the free massive vector field on gauge-invariant functions; it is
+not used here.
+
+
+\subsection{The Casimir defect of the free field}\label{ssec:freecasimir}
+
+The Casimir condition (C) of Proposition~\ref{prop:Zonescale} asks that the
+physical side of a spatial torus times its Casimir defect under halving be
+at most $\frac1{70}$ at one scale and tend to zero at large scales. For the
+free field both quantities can be computed exactly in the continuum limit,
+and the computation calibrates the condition: it fails for a massless field
+at every scale, and it holds for a field of mass $\mu$ exactly beyond the
+scale $17.7/\mu$. Throughout this subsection the spatial torus is
+$\Lambda_{\vec\ell}=\prod_{i=1}^3\Z/\ell_i\Z$ with all $\ell_i\ge2$, $V=
+\ell_1\ell_2\ell_3$, its dual momenta are $k\in\prod_i\frac{2\pi}{\ell_i}
+\Z/\ell_i\Z$, $\hat k^2=\sum_i4\sin^2(k_i/2)$, and $\mu_0\ge0$ is a lattice
+mass. The transfer matrix of the free field of mass $\mu_0>0$ is the
+operator $\mathbb T_{\vec\ell}$ on $L^2(\R^{\Lambda_{\vec\ell}})$ with the
+kernel
+\begin{equation}\label{eq:freekernel}
+\mathbb T_{\vec\ell}(\varphi,\varphi')=\exp\Bigl(-\tfrac12|\varphi'-\varphi|^2
+-\tfrac14\ip\varphi{Q\varphi}-\tfrac14\ip{\varphi'}{Q\varphi'}\Bigr),\qquad
+Q=-\Delta+\mu_0^2,
+\end{equation}
+the spatial part of the action being split symmetrically between the two
+slices as in Lemma~\ref{lem:transfer}; $\Tr\mathbb T_{\vec\ell}^M$ is the
+partition function $Z(\vec\ell,M)$ of the free field on $\Lambda_{\vec\ell}
+\times\Z/M\Z$ for every $M\ge1$, which is symmetric in its four arguments.
+Put
+\[
+\omega(k)=\operatorname{arccosh}\Bigl(1+\frac{\mu_0^2+\hat k^2}2\Bigr),
+\qquad E_0(\vec\ell)=-\log\lambda_0(\mathbb T_{\vec\ell}),
+\]
+and define $\kappa(\vec\ell)=E_0(\vec\ell)-\sum_{s\in\mathcal S}E_0(s)$ and
+$\eta(N;s)$ as in Section~\ref{ssec:onescale}, with the eight halves $s\in
+\mathcal S$ of sides $\lfloor\ell_i/2\rfloor$ and $\lceil\ell_i/2\rceil$;
+there is no coupling and hence no index $p$. Let $p_t(x)=\frac1{2\pi}
+\int_{-\pi}^{\pi}e^{iqx-4t\sin^2(q/2)}\,dq=e^{-2t}I_{|x|}(2t)$, $x\in\Z$, be
+the heat kernel of the Laplacian of $\Z$, and $h_L(t)=\sum_{j\in\Z/L\Z}
+e^{-4t\sin^2(\pi j/L)}=\Tr e^{t\Delta_{\Z/L\Z}}$.
+
+\begin{lemma}[the free vacuum energy]\label{lem:freevacuum}
+Let $\mu_0>0$. Then $\mathbb T_{\vec\ell}$ is a positive Hilbert--Schmidt
+operator with a continuous strictly positive kernel, its largest eigenvalue
+is simple, and
+\begin{gather*}
+E_0(\vec\ell)=\frac12\sum_k\omega(k)-\frac V2\log2\pi,\\
+\kappa(\vec\ell)=\frac12\int_0^\infty\frac{dt}t\,e^{-\mu_0^2t}p_t(0)\Bigl[
+\prod_{j=1}^3\bigl(h_{\lfloor\ell_j/2\rfloor}(t)+h_{\lceil\ell_j/2\rceil}(t)
+\bigr)-\prod_{j=1}^3h_{\ell_j}(t)\Bigr]\ge0 .
+\end{gather*}
+The integral converges absolutely also at $\mu_0=0$, and $\kappa_0(\vec\ell)
+:=\lim_{\mu_0\downarrow0}\kappa(\vec\ell)$ exists, equals that integral at
+$\mu_0=0$, and equals $\frac12\sum_{k\ne0}\omega_0(k)-\frac12\sum_s\sum_{k\ne
+0}\omega_0(k)$ with $\omega_0(k)=\operatorname{arccosh}(1+\hat k^2/2)$.
+\end{lemma}
+
+\begin{proof}
+The kernel~\eqref{eq:freekernel} is $e^{-\ip\varphi{Q\varphi}/4}G(\varphi-
+\varphi')e^{-\ip{\varphi'}{Q\varphi'}/4}$ with $G$ a Gaussian, a positive
+definite function, so $\mathbb T_{\vec\ell}$ is a positive operator; its
+kernel is continuous, strictly positive and square integrable because $Q>0$,
+so it is Hilbert--Schmidt and, by Jentzsch's theorem, its largest eigenvalue
+is simple with a positive eigenfunction. In the orthonormal basis of
+real Fourier modes the quadratic forms $|\varphi'-\varphi|^2$ and
+$\ip\varphi{Q\varphi}$ are diagonal, so $\mathbb T_{\vec\ell}$ is the tensor
+product over the modes of the one-dimensional operators with kernel
+$K_a(x,y)=\exp(-\frac12(x-y)^2-\frac a4(x^2+y^2))$, $a=\mu_0^2+\hat k^2>0$. For
+$c>0$ and $b=c-1-a/2$,
+\[
+\int_\R K_a(x,y)e^{-by^2/2}dy=\sqrt{\frac{2\pi}c}\exp\Bigl(-\frac{x^2}2+
+\frac{x^2}{2c}-\frac a4x^2\Bigr),
+\]
+which equals $\sqrt{2\pi/c}\,e^{-bx^2/2}$ exactly when $c^2-(2+a)c+1=0$, that
+is $c=e^{\omega}$ with $\cosh\omega=1+a/2$, and then $b=e^{\omega}-\cosh\omega=\sinh\omega>0$. The positive function $e^{-bx^2/2}$ is therefore an
+eigenfunction of the positive kernel $K_a$, hence its Perron eigenfunction,
+with eigenvalue $\sqrt{2\pi}\,e^{-\omega/2}$; the largest eigenvalue of the
+tensor product is the product, which is the formula for $E_0$.
+
+For the integral representation, $\frac1{2\pi}\int_{-\pi}^\pi\log(A-2\cos q)
+\,dq=\log\frac{A+\sqrt{A^2-4}}2$ for $A\ge2$ (write $A-2\cos q=c|1-e^{iq}/c|^2$
+with $c+1/c=A$, $c\ge1$, and use $\int_{-\pi}^{\pi}\log|1-e^{iq}/c|\,dq=0$), so with
+$A=2+a$,
+$\omega(k)=\frac1{2\pi}\int_{-\pi}^{\pi}\log\bigl(a+4\sin^2\tfrac q2\bigr)dq$.
+By Frullani's formula $\log\lambda=\int_0^\infty(e^{-t}-e^{-\lambda t})\frac
+{dt}t$, applied with $\lambda=a+4\sin^2\frac q2\in[a,a+4]$ and the two
+integrals exchanged, which is legitimate because $\lambda$ ranges over a
+compact subset of $(0,\infty)$,
+\[
+\omega(k)=\int_0^\infty\frac{dt}t\Bigl[e^{-t}-e^{-\mu_0^2t}p_t(0)\prod_{j=1}^3
+e^{-4t\sin^2(k_j/2)}\Bigr].
+\]
+Summing over $k$ gives $\sum_k\omega(k)=\int\frac{dt}t[Ve^{-t}-e^{-\mu_0^2t}
+p_t(0)\prod_jh_{\ell_j}(t)]$, each bracket being $O(t)$ at $0$ and $O(e^{-t}+
+e^{-\mu_0^2t})$ at infinity. The extensive terms cancel in $\kappa$ because
+$\sum_sV(s)=V$, and $\sum_s\prod_jh_{s_j}=\prod_j(h_{\lfloor\ell_j/2\rfloor}+
+h_{\lceil\ell_j/2\rceil})$, which is the formula. Positivity of $\kappa$ is
+the proof of Proposition~\ref{prop:halving}: Lemma~\ref{lem:cutside}, which
+uses only the positivity and the Hilbert--Schmidt property of the transfer
+matrices in the three spatial directions and the symmetry of $Z$, gives
+$Z(\vec\ell,M)\le\prod_sZ(s,M)$, and the $M$-th root gives $\lambda_0(\vec
+\ell)\le\prod_s\lambda_0(s)$.
+
+At $\mu_0=0$ the integrand is still absolutely integrable: as $t\to0$, $h_L(t)=
+L-2Lt+O(t^2)$ for $L\ge2$ because $\sum_{j}\sin^2(\pi j/L)=L/2$, so the bracket
+is $O(t^2)$; as $t\to\infty$ the bracket is bounded by $9\max_j\ell_j^3$ and
+$p_t(0)\le(4\pi t)^{-1/2}$ (the bound of Lemma~\ref{lem:freelimit}(ii) below).
+Dominated convergence as $\mu_0\downarrow0$ identifies the limit of the
+integral with its value at $\mu_0=0$. On the other side, $\omega(0)=
+\operatorname{arccosh}(1+\mu_0^2/2)\to0$ and the other $\omega(k)$ are
+continuous in $\mu_0$, which gives the mode sum.
+\end{proof}
+
+For $v>0$ put $\vartheta(v)=\sum_{j\in\Z}e^{-4\pi^2j^2v}$, $\beta(v)=8
+\vartheta(v)^3-\vartheta(v/4)^3$, and for $x\ge0$
+\begin{equation}\label{eq:cdef}
+c(x)=\frac1{\sqrt{4\pi}}\int_0^\infty v^{-3/2}e^{-x^2v/4}\beta(v)\,dv .
+\end{equation}
+
+\begin{proposition}[the continuum Casimir function]\label{prop:cfunction}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\beta$ is positive, with the Poisson form
+\[
+\beta(v)=8(4\pi v)^{-3/2}\sum_{w\in\Z^3\setminus0}\bigl(e^{-|w|^2/4v}-
+e^{-|w|^2/v}\bigr),
+\]
+and $c$ is finite, strictly decreasing on $[0,\infty)$ and tends to $0$ at
+infinity.
+\item For $x>0$, with $K_2$ the modified Bessel function of the second kind,
+\begin{gather*}
+c(x)=\frac{x^2}{4\pi^2}\sum_{w\in\Z^3\setminus0}\frac{4K_2(x|w|/2)-K_2(x|w|)}
+{|w|^2},\\
+c(0)=\frac{15}{2\pi^2}\sum_{w\in\Z^3\setminus0}|w|^{-4}>6.8,\qquad c(0)=12.5630\ldots
+\end{gather*}
+\item For $x>0$, with $\varepsilon(x)=\sum_{|w|>1}|w|^{-5/2}e^{-x(|w|-1)/2}$,
+\[
+\frac9{2\pi^{3/2}}\,x^{3/2}e^{-x/2}\Bigl(1+\frac2x\Bigr)\le c(x)\le
+\frac6{\pi^{3/2}}\,x^{3/2}e^{-x/2}\Bigl(1+\frac6x+\frac{12}{x^2}\Bigr)\Bigl(1+
+\frac{\varepsilon(x)}6\Bigr).
+\]
+\item The equation $c(x)=\frac1{70}$ has exactly one root $X_*$, and
+$16.75\le X_*\le17.99$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Poisson summation gives $\vartheta(u)=(4\pi u)^{-1/2}\sum_{j}e^{-j^2/4u}$,
+so that $\vartheta(v)^3=(4\pi v)^{-3/2}\sum_{w\in\Z^3}e^{-|w|^2/4v}$ and
+$\vartheta(v/4)^3=8(4\pi v)^{-3/2}\sum_{w\in\Z^3}e^{-|w|^2/v}$; the terms
+$w=0$ cancel in $\beta$ and every other term is positive. The integrand
+of~\eqref{eq:cdef} is positive and strictly decreasing in $x$; it is
+integrable because $\beta(v)=O(v^{-3/2}e^{-1/4v})$ at $0$ and $\beta(v)\to7$
+at infinity, and dominated convergence gives $c(x)\to0$.
+
+(ii) For $p,q>0$, $\int_0^\infty v^{-3}e^{-pv-q/v}dv=2(p/q)K_2(2\sqrt{pq})$
+\cite[\S6.22]{Wat44}, and at $p=0$ the integral is $q^{-2}$. Inserting the
+Poisson form of $\beta$ into~\eqref{eq:cdef}, the prefactor is $(4\pi)^{-1/2}
+\cdot8(4\pi)^{-3/2}=1/(2\pi^2)$, and the terms $p=x^2/4$, $q=|w|^2/4$ and $q=
+|w|^2$ give the series; at $x=0$ each $w$ contributes $(16-1)|w|^{-4}$. The
+sum $Z_4=\sum_{w\ne0}|w|^{-4}$ exceeds the six terms $|w|=1$ and the twelve
+terms $|w|^2=2$, so $Z_4>9$ and $c(0)>135/(2\pi^2)>6.8$; the value
+$Z_4=16.5323\ldots$ gives $c(0)=12.5630\ldots$.\footnote{$Z_4=\int_0^\infty t
+\bigl(\theta(t)^3-1\bigr)dt$ with $\theta(t)=\sum_je^{-tj^2}$, by $\int_0^
+\infty te^{-t|w|^2}dt=|w|^{-4}$; the integral is computed with the Poisson
+form of $\theta$ for $t<1$. Values of $c$ from the Bessel series: $c(8)=
+0.787$, $c(12)=0.158$, $c(16)=0.0297$, $c(18)=0.0126$, $c(20)=0.0053$, and
+the root of $c=\frac1{70}$ is $X_*=17.7106$. Nothing below rests on these
+numbers; the bracket in (iv) is proved from the bounds (iii).}
+
+(iii) From $K_\nu(z)=\int_0^\infty e^{-z\cosh u}\cosh\nu u\,du$, $K_\nu(z)$ is
+decreasing in $z>0$ and increasing in $\nu\ge0$, and $K_{3/2}(z)=\sqrt{\pi/2z}
+\,e^{-z}(1+1/z)$, $K_{5/2}(z)=\sqrt{\pi/2z}\,e^{-z}(1+3/z+3/z^2)$. For the
+lower bound keep the six terms $|w|=1$ of the series, where $4K_2(x/2)-
+K_2(x)\ge3K_2(x/2)\ge3K_{3/2}(x/2)$. For the upper bound drop the negative
+terms, replace $K_2$ by $K_{5/2}$ and use, for $r=|w|\ge1$ and $z=x/2$,
+$K_{5/2}(rz)\le r^{-1/2}e^{-(r-1)z}K_{5/2}(z)$, which is read off from the
+closed form; the terms $|w|=1$ give the factor $6$ and the others give
+$\varepsilon(x)$.
+
+(iv) Uniqueness is (i). The lower bound of (iii) is $\frac9{2\pi^{3/2}}(x^{3/2}+
+2x^{1/2})e^{-x/2}$, decreasing for $x>2$ since $(x^{3/2}+2x^{1/2})'-\frac12
+(x^{3/2}+2x^{1/2})=x^{-1/2}(1+\frac x2-\frac{x^2}2)$; its value at $x=16.75$
+exceeds $\frac1{70}$ (it is $\frac1{70}$ at $16.7521$), so $c>\frac1{70}$ on
+$[0,16.75]$. The upper bound of (iii) is a product of decreasing functions of
+$x$ (the factor $(x^{3/2}+6x^{1/2}+12x^{-1/2})e^{-x/2}$ has logarithmic
+derivative $-\frac12\,\frac{x^3+3x^2+6x+12}{x^3+6x^2+12x}<0$, and
+$\varepsilon$ is decreasing); it equals $\frac1{70}$ at $x=17.9870$, where
+$\varepsilon=0.1246$, so $c<\frac1{70}$ on $[17.99,\infty)$.
+\end{proof}
+
+\begin{lemma}[two bounds on the heat kernel]\label{lem:freelimit}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $0\le t\le2$ and $x\in\Z$, $p_t(x)\le t^{|x|}/|x|!$, and $p_t(0)\le1$
+for all $t$.
+\item For $t>0$, $p_t(0)\le(\pi/16t)^{1/2}$ and $p_t(x)\le(\pi/16t)^{1/2}
+\exp\bigl(-x^2/(4t+2|x|)\bigr)$.
+\item $\sqrt{4\pi t}\,p_t(0)\to1$ as $t\to\infty$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) $p_t(x)=e^{-2t}\sum_{j\ge0}t^{2j+|x|}/(j!(j+|x|)!)\le e^{-2t}e^{t^2}t^{|x|}/
+|x|!$, and $t^2\le2t$ for $t\le2$; $p_t(0)\le1$ because $I_0(z)\le e^z$.
+(ii) The integrand of $p_t(x)$ is entire and $2\pi$-periodic in $q$, so the
+contour may be shifted to $q+i\eta$, $\eta\ge0$, which gives for $x\ge0$
+$p_t(x)\le e^{-\eta x}\frac1{2\pi}\int e^{-2t(1-\cos q\cosh\eta)}dq=e^{-\eta x}
+e^{2t(\cosh\eta-1)}\,e^{-z}I_0(z)$ with $z=2t\cosh\eta$. Since $\sin(\theta/2)
+\ge\theta/\pi$ on $[0,\pi]$,
+\[
+e^{-z}I_0(z)=\frac1\pi\int_0^\pi e^{-2z\sin^2(\theta/2)}d\theta\le\frac1\pi
+\int_0^\infty e^{-2z\theta^2/\pi^2}d\theta=\sqrt{\frac\pi{8z}}\le\sqrt{\frac
+\pi{16t}} .
+\]
+With $\sinh\eta=y:=x/2t$ the exponent is $-2t\Psi(y)$, $\Psi(y)=y\operatorname{
+arcsinh}y-\sqrt{1+y^2}+1$, and $\Psi(y)\ge y^2/(2(1+y))$ because both vanish at
+$0$ and $\Psi'(y)=\operatorname{arcsinh}y\ge\log(1+y)\ge\frac12(1-(1+y)^{-2})=
+\frac d{dy}\frac{y^2}{2(1+y)}$; and $2t\cdot\frac{y^2}{2(1+y)}=\frac{x^2}{4t+2x}$.
+(iii) is $I_0(z)\sim e^z/\sqrt{2\pi z}$ \cite[\S7.23]{Wat44}.
+\end{proof}
+
+\begin{theorem}[the exact Casimir limit of the free field]\label{thm:freelimit}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Let $m\to\infty$, $\ell_i\in\{m,m+1\}$ and $\mu_0m\to x\in[0,\infty]$.
+Then $(m+1)\kappa(\vec\ell)\to c(x)$, with $c(\infty)=0$.
+\item For the free field of physical mass $\mu\ge0$, lattice mass $\mu_0=
+\mu/N$, and every $s>0$: $\lim_{N\to\infty}\eta(N;s)=c(\mu s)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Substitute $t=m^2\tau$ in Lemma~\ref{lem:freevacuum}:
+\begin{gather*}
+m\kappa(\vec\ell)=\frac12\int_0^\infty\frac{d\tau}\tau\,e^{-\mu_0^2m^2\tau}
+\bigl(m\,p_{m^2\tau}(0)\bigr)\,\mathcal B_m(\tau),\\
+\mathcal B_m(\tau)=
+\prod_j\bigl(h_{s_j'}+h_{s_j''}\bigr)(m^2\tau)-\prod_jh_{\ell_j}(m^2\tau),
+\end{gather*}
+with $s_j'=\lfloor\ell_j/2\rfloor$, $s_j''=\lceil\ell_j/2\rceil$. For fixed
+$\tau>0$, $m\,p_{m^2\tau}(0)\to(4\pi\tau)^{-1/2}$ by Lemma~\ref{lem:freelimit}
+(iii). If $L/m\to\lambda>0$, then, taking the representatives $|j|\le L/2$,
+$h_L(m^2\tau)=\sum_{|j|\le L/2}e^{-4m^2\tau\sin^2(\pi j/L)}\to\sum_je^{-4\pi^2
+j^2\tau/\lambda^2}=\vartheta(\tau/\lambda^2)$, by dominated convergence in $j$
+with the dominating sequence $e^{-16j^2m^2\tau/L^2}\le e^{-4j^2\tau}$, from
+$\sin(\pi j/L)\ge2|j|/L$ and $m/L\ge\frac12$. Here $\lambda=1$ for the sides
+and $\lambda=\frac12$ for the halves, so $\mathcal B_m(\tau)\to8\vartheta(4\tau)
+^3-\vartheta(\tau)^3$, and $e^{-\mu_0^2m^2\tau}\to e^{-x^2\tau}$ (which is $0$
+for $x=\infty$). The substitution $\tau=v/4$ turns the limiting integral into
+$c(x)$. It remains to dominate the integrand by a function of $\tau$ alone.
+By the Poisson identity $h_L(t)=L\sum_{w\in\Z}p_t(Lw)$, the discrete Fourier
+inversion of $\sum_wp_t(x+Lw)=\frac1L\sum_ke^{ikx-4t\sin^2(k/2)}$ at $x=0$,
+the terms $w=0$ cancel in $\mathcal B_m$ and
+\[
+|\mathcal B_m(\tau)|\le\sum_{s\in\mathcal S}V(s)\sum_{w\ne0}\prod_jp_t(s_jw_j)+V
+\sum_{w\ne0}\prod_jp_t(\ell_jw_j),\qquad t=m^2\tau,
+\]
+where every side involved lies in $[m/3,m+1]$. Write $r=\lceil m/3\rceil$ for
+the least of them. \emph{Region $t\le1$.} By Lemma~\ref{lem:freelimit}(i),
+for a side $L\ge r$ and $k\ge1$, $p_t(Lk)\le t^{Lk}/(Lk)!\le(t^{L}/L!)^k\le\delta
+^k$ with $\delta=t^r/r!\le\frac12$, so $\sum_{k\ge1}p_t(Lk)\le2\delta$, and
+$\sum_{w\ne0}\prod_jp_t(L_jw_j)\le(p_t(0)+4\delta)^3-p_t(0)^3\le108\,\delta$.
+The region contributes at most $m\cdot9(m+1)^3\cdot108\int_0^1t^r\frac{dt}{t\,
+r!}=\frac{972\,m(m+1)^3}{r\cdot r!}\to0$. \emph{Region $1\le t\le m^2$, that
+is $m^{-2}\le\tau\le1$.} Put $A=(\pi/16\tau)^{1/2}$, so that $m\,p_t(0)\le A$
+and $p_t(0)\le A/m$. For a side $L\ge m/3$ and $k\ge1$, Lemma~\ref
+{lem:freelimit}(ii) and $a/(b+c)\ge\frac12\min(a/b,a/c)$ give
+\[
+\frac{L^2k^2}{4t+2Lk}\ge\frac12\min\Bigl(\frac{k^2}{36\tau},\frac{mk}6\Bigr)
+\ge\frac k{72\sqrt\tau},
+\]
+using $m\ge\tau^{-1/2}$ and $\tau\le1$, so $\sum_{k\ge1}p_t(Lk)\le\frac Am
+\sum_{k\ge1}e^{-k/72\sqrt\tau}\le\frac Am\,B(\tau)$ with $B(\tau)=\frac{e^{-1/72
+\sqrt\tau}}{1-e^{-1/72}}$, and $\sum_{w\ne0}\prod_jp_t(L_jw_j)\le\bigl(\tfrac Am
+\bigr)^3\bigl[(1+2B)^3-1\bigr]\le\bigl(\tfrac Am\bigr)^3\,6B(1+2B)^2$. The
+integrand is therefore at most $\frac12\cdot A\cdot9\cdot8m^3\cdot(A/m)^3\cdot
+6B(1+2B)^2=216\,A^4B(\tau)(1+2B(\tau))^2$, a function of $\tau$ alone which is
+integrable against $d\tau/\tau$ on $(0,1]$, since $A^4=(\pi/16\tau)^2$ and
+$B(\tau)\le73\,e^{-1/72\sqrt\tau}$. \emph{Region $\tau\ge1$.} For a side
+$L\le m+1\le2m$, $h_L(m^2\tau)\le1+2\sum_{j\ge1}e^{-4j^2\tau}\le1+\frac{2e^{-4}}
+{1-e^{-4}}\le1.04$, so $|\mathcal B_m|\le9\cdot1.04^3\le10.2$ and the integrand
+is at most $5.1\,A\le5.1(\pi/16)^{1/2}\tau^{-1/2}$, integrable against
+$d\tau/\tau$ on $[1,\infty)$. Dominated convergence proves (i), as $(m+1)/m
+\to1$.
+
+(ii) Lower bound: the supremum defining $\eta(N;s)$ contains the cube of side
+$m=2\lceil Ns/2\rceil$, whose halves are cubes, and $\mu_0m=\mu m/N\to\mu s$
+as $N\to\infty$, so $\liminf_N\eta(N;s)\ge\lim(m+1)\kappa=c(\mu s)$ by (i). Upper bound: if $\limsup_N\eta(N;s)>c(\mu s)+\epsilon$,
+there are $N_k\to\infty$, $m_k\ge N_ks$ and admissible $\vec\ell_k$ with
+$(m_k+1)\kappa(\vec\ell_k)\ge c(\mu s)+\epsilon$; along a subsequence $\mu m_k/
+N_k\to x\in[\mu s,\infty]$, and (i) gives the limit $c(x)\le c(\mu s)$ because
+$c$ is decreasing, a contradiction.
+\end{proof}
+
+\begin{corollary}[the Casimir condition for the free field]\label{cor:freeC}
+For the free field of physical mass $\mu\ge0$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item if $\mu=0$, then $\eta(N;s)\ge c(0)>6.8$ (numerically $12.56$) for every
+$N$ and every $s$,
+so both clauses of \textup{(C)} fail at every scale $s_0$;
+\item if $\mu>0$, then \textup{(C)} holds at the scale $s_0$ when $\mu s_0>
+X_*$ and fails when $\mu s_0<X_*$; in particular \textup{(C)} requires $\mu s_0
+\ge16.75$, that is, a torus of at least $16.75$ Compton wavelengths;
+\item the rate $e^{-m_*s/2}$ of Proposition~\ref{prop:FSC} is attained: for
+the free field $\lim_N\eta(N;s)=c(\mu s)\ge\frac9{2\pi^{3/2}}(\mu s)^{3/2}
+e^{-\mu s/2}$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) The supremum defining $\eta(N;s)$ contains the even cubes of every side
+$m\ge Ns$, along which $(m+1)\kappa_0\to c(0)$ by Theorem~\ref{thm:freelimit}
+(i) at $x=0$. (ii) By Theorem~\ref{thm:freelimit}(ii) and the monotonicity
+of $c$, $\lim_N\eta(N;s_0)=c(\mu s_0)$ is below $\frac1{70}$ exactly when
+$\mu s_0>X_*$, and $\lim_s\lim_N\eta(N;s)=\lim_sc(\mu s)=0$. (iii) is
+Proposition~\ref{prop:cfunction}(iii).
+\end{proof}
+
+The free gluons of the weak-coupling limit give the same function with a
+multiplicity. Consider $\dim G$ independent copies of the Gaussian lattice
+Maxwell field: real link variables $A_{x,i}$ on the spatial links, the
+transfer kernel $\exp(-\frac12\sum_{x,i}(A'_{x,i}-A_{x,i})^2-\frac14S(A)-
+\frac14S(A'))$ with $S(A)=\sum_{x,i<j}F_{ij}(x)^2$, $F_{ij}=\partial_iA_j-
+\partial_jA_i$ the lattice curl, acting on functions invariant under the gauge
+transformations $A_{x,i}\mapsto A_{x,i}+\chi_{x+e_i}-\chi_x$; the three
+constant modes $\sum_xA_{x,i}$ of each colour, which the curl does not see, are
+taken on the circle $\R/2\pi\Z$, as they are for the gauge field.
+
+\begin{proposition}[free gluons]\label{prop:freegluons}
+In this model $E_0(\vec\ell)=\dim G\bigl[\sum_{k\ne0}\omega_0(k)-\frac{3V}2
+\log2\pi\bigr]$, hence $\kappa^{\mathrm{Max}}(\vec\ell)=2\dim G\cdot\kappa_0(
+\vec\ell)$ and
+\[
+\lim_{N\to\infty}\eta^{\mathrm{Max}}(N;s)=2\dim G\cdot c(0)=
+\begin{cases}75.38\ldots&G=\SU(2),\\201.00\ldots&G=\SU(3),\end{cases}
+\]
+at every scale $s$. The free gluons violate \textup{(C)} at every scale.
+\end{proposition}
+
+\begin{proof}
+In momentum space $F_{ij}(k)=q_iA_j(k)-q_jA_i(k)$ with $q_i=e^{ik_i}-1$, $|q_i|^2
+=4\sin^2(k_i/2)$, and Lagrange's identity gives $\sum_{i<j}|q_iA_j-q_jA_i|^2=
+|q|^2|A|^2-|\ip qA|^2$. So for $k\ne0$ the form $S$ has the eigenvalue
+$\hat k^2$ on the two-dimensional orthogonal complement of $q$ and $0$ on $A
+\propto q$, which is the Fourier transform of a gradient, that is, a gauge
+direction; the Fourier change of variables is orthogonal. A gauge-invariant
+function depends only on the transverse coordinates and the three constant
+modes, and the kinetic form $\frac12\sum(A'-A)^2$ is the sum of the kinetic
+forms of these orthogonal coordinates, so the transfer operator is the tensor
+product of the one-dimensional operators $K_{\hat k^2}$ of Lemma~\ref
+{lem:freevacuum} over the two transverse modes of each $k\ne0$, with largest
+eigenvalue $\sqrt{2\pi}e^{-\omega_0(k)/2}$ each, and of the three wrapped
+Gaussian kernels on the circle, whose Perron eigenfunction is the constant with
+eigenvalue $\sqrt{2\pi}$, the mass of the wrapped normalised Gaussian. The
+constants are proportional to $V$ and cancel in $\kappa$; the two transverse
+modes give $2\kappa_0$ per colour; and Theorem~\ref{thm:freelimit} at $\mu=0$
+gives the limit.
+\end{proof}
+
+The pressure bound~\eqref{eq:pressureX} of Section~\ref{ssec:pressure}
+is also explicit for the free field. It needs the whole spectrum of the
+one-mode kernel, not only its Perron eigenvalue.
+
+\begin{lemma}[the spectrum of the one-mode kernel]\label{lem:freemodes}
+Let $a>0$, $\cosh\omega=1+a/2$ with $\omega>0$, and $K_a(x,y)=\exp(-\frac12
+(x-y)^2-\frac a4(x^2+y^2))$ on $L^2(\R)$. The eigenvalues of $K_a$ are
+$\sqrt{2\pi}\,e^{-\omega/2}e^{-j\omega}$, $j=0,1,2,\dots$, each simple, with
+eigenfunctions $q_j(x)e^{-bx^2/2}$, $q_j$ a polynomial of degree $j$ and
+$b=\sinh\omega$. Hence $K_a$ is trace class and $\Tr K_a^M=(2\pi)^{M/2}e^{-M
+\omega/2}/(1-e^{-M\omega})$ for $M\ge1$, and for the transfer
+matrix~\eqref{eq:freekernel} of the free field of mass $\mu_0>0$ on
+$\Lambda_{\vec\ell}$,
+\[
+\log\mathcal Z_{\vec\ell}(M)=-\sum_k\log\bigl(1-e^{-M\omega(k)}\bigr),\qquad
+M\ge1 ,
+\]
+and every eigenvalue $\lambda\ne\lambda_0$ of $\mathbb T_{\vec\ell}$
+satisfies $\lambda\le e^{-\omega(0)}\lambda_0$, with equality for the one-mode
+excitation of the constant mode.
+\end{lemma}
+
+\begin{proof}
+Put $c=e^\omega$, so that $b=c-1-a/2$ as in Lemma~\ref{lem:freevacuum}. For a
+polynomial $q$, completing the square in $y$,
+\[
+\int_\R K_a(x,y)\,q(y)e^{-by^2/2}dy=e^{-bx^2/2}\int_\R e^{-\frac c2(y-x/c)^2}
+q(y)\,dy=\sqrt{\frac{2\pi}c}\,e^{-bx^2/2}\,\mathbb E\bigl[q(x/c+\xi/\sqrt c)
+\bigr],
+\]
+$\xi$ a standard Gaussian variable, because $-\frac12(x-y)^2-\frac a4(x^2+y^2)
+-\frac b2y^2=-\frac c2(y-x/c)^2-\frac b2x^2$ when $c=1+a/2+b$ and $c^2-(2+a)c
++1=0$, which is the case for $c=e^\omega$, $b=\sinh\omega$. For $q(y)=y^j$
+the right side is $\sqrt{2\pi/c}\,e^{-bx^2/2}$ times a polynomial of degree
+$j$ with leading coefficient $c^{-j}$. So the finite-dimensional space of
+polynomials of degree at most $j$ times $e^{-bx^2/2}$ is invariant, and $K_a$
+acts on it by a triangular matrix with the diagonal entries $\sqrt{2\pi/c}\,
+c^{-i}=\sqrt{2\pi}e^{-\omega/2}e^{-i\omega}$, $0\le i\le j$, which are distinct;
+hence there are eigenfunctions $q_je^{-bx^2/2}$ with $\deg q_j=j$ and these
+eigenvalues. Since $K_a$ is self-adjoint, eigenfunctions of distinct
+eigenvalues are orthogonal, and the $q_je^{-bx^2/2}$ span the polynomials
+times $e^{-bx^2/2}$, which are dense in $L^2(\R)$; so they form an orthogonal
+basis of eigenfunctions, every eigenvalue is simple, and there are no others.
+The trace is the geometric series. The transfer matrix is the tensor product
+over the $V$ real Fourier modes of the $K_{a(k)}$, $a(k)=\mu_0^2+\hat k^2$, so
+its eigenvalues are $\prod_k\sqrt{2\pi}e^{-\omega(k)/2}e^{-j_k\omega(k)}$ over
+all $(j_k)\in\N_0^V$, the largest being $j\equiv0$ and the second $j=1$ at the
+$k$ with the least $\omega(k)$, which is $k=0$; dividing by $\lambda_0^M$ and
+taking the trace gives the mode sum.
+\end{proof}
+
+For $\vartheta>0$ and $x>0$ put
+\begin{equation}\label{eq:Fdef}
+F_\vartheta(x)=\sum_{n\in\Z^3}-\log\Bigl(1-\exp\bigl(-\vartheta\sqrt{x^2+4\pi^2
+|n|^2}\bigr)\Bigr),\qquad F=F_{1/2},
+\end{equation}
+a convergent series of positive terms, strictly decreasing in $x$ and in
+$\vartheta$.
+
+\begin{theorem}[the pressure bound of the free field]\label{thm:pressfree}
+Let $\mu>0$ and $s>0$, put $x=\mu s$, and for $N$ with $c=Ns$ an even integer
+let the free field of mass $\mu_0=\mu/N$ live on the cube of side $c$; let
+$X_N=\log\mathcal Z_{(c,c,c)}(c/2)$ and $D_N=D_{(c,c,c)}(c)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $X_N=\sum_{n\in(-c/2,c/2]^3}-\log\bigl(1-e^{-\frac c2\omega(2\pi n/c)}
+\bigr)$, and $\log(1+D_N)$ is the same sum with $\frac c2$ replaced by $c$.
+\item If $N\ge\mu/2$, then $X_N\le F_{0.2297}(x)$ and $\log(1+D_N)\le
+F_{0.4595}(x)$.
+\item $\lim_{N\to\infty}X_N=F(x)$ and $\lim_{N\to\infty}D_N=e^{F_1(x)}-1$; and
+$F(x)=\log(2/x)+O(1)$ as $x\downarrow0$.
+\item On every spatial torus the second eigenvalue of the time transfer
+matrix is $e^{-\Delta_N/N}\lambda_0$ with $\Delta_N=2N\operatorname{arsinh}
+(\mu/2N)$, which increases to $\mu$.
+\end{enumerate}
+Consequently the pressure bound~\eqref{eq:pressureX} holds at every scale and
+every mass, with $c_b=\sup_NX_N<\infty$; the clause $\Delta_Ns\ge2(X_N+\log
+10)$ of Corollary~\ref{cor:gapbridge}\textup{(ii)}, with the actual gap in
+place of $\Delta_E$, holds for all large $N$ if $x>x_*$ and fails for all
+large $N$ if $x<x_*$, where $x_*=5.2063\ldots$ is the root of $x/2=F(x)+\log
+10$; and \textup{(Z$_0^{\rm dy}$)}, $D_N\le\frac1{10}$, holds for all large
+$N$ if $x>x_1$ and fails for all large $N$ if $x<x_1$, where $x_1=2.4851\ldots$
+is the root of $F_1(x)=\log1.1$.
+\end{theorem}
+
+\begin{proof}
+(i) is Lemma~\ref{lem:freemodes} with $M=c/2$ and $M=c$, the dual momenta of
+the cube being $2\pi n/c$ with $n\in(-c/2,c/2]^3$.
+
+(ii) For $|k_i|\le\pi$, $\sin^2(k_i/2)\ge k_i^2/\pi^2$, so $\mu_0^2+\hat k^2\ge
+(4/\pi^2)(\mu_0^2+|k|^2)$. Put $u=\frac12\sqrt{\mu_0^2+\hat k^2}$; as $\mu_0\le
+2$ when $N\ge\mu/2$, $u\le\frac12\sqrt{4+12}=2$, and the concavity of
+$\operatorname{arsinh}$ on $[0,\infty)$ with $\operatorname{arsinh}0=0$ gives
+$\operatorname{arsinh}u\ge\frac u2\operatorname{arsinh}2$. Since $\omega=
+\operatorname{arccosh}(1+2u^2)=2\operatorname{arsinh}u$,
+\[
+\omega(k)\ge\operatorname{arsinh}(2)\,u\ge\frac{\operatorname{arsinh}2}{\pi}
+\sqrt{\mu_0^2+|k|^2}\ge0.4595\sqrt{\mu_0^2+|k|^2},
+\]
+and with $c\mu_0=x$, $c|k|=2\pi|n|$ this gives $\frac c2\omega\ge0.2297\sqrt{
+x^2+4\pi^2|n|^2}$ and $c\,\omega\ge0.4595\sqrt{x^2+4\pi^2|n|^2}$. As $y\mapsto
+-\log(1-e^{-y})$ is decreasing and the sums in (i) run over part of $\Z^3$,
+(ii) follows.
+
+(iii) For fixed $n$, $c^2\bigl(\mu_0^2+\hat k^2\bigr)\to x^2+4\pi^2|n|^2$ with
+$k=2\pi n/c$, and $\omega=2\operatorname{arsinh}(\frac12\sqrt a)=\sqrt a\,(1+
+O(a))$, so $\frac c2\omega\to\frac12\sqrt{x^2+4\pi^2|n|^2}$ and $c\,\omega\to
+\sqrt{x^2+4\pi^2|n|^2}$. Dominated convergence, with the termwise bounds of
+(ii), gives the limits. The term $n=0$ of $F$ is $-\log(1-e^{-x/2})=\log(2/x)+
+O(x)$, and the others are bounded uniformly for $x\le1$.
+
+(iv) By Lemma~\ref{lem:freemodes} the second eigenvalue is $e^{-\omega(0)}
+\lambda_0$ with $\omega(0)=2\operatorname{arsinh}(\mu_0/2)$, so $\Delta_N=N
+\omega(0)$; and $y^{-1}\operatorname{arsinh}y$ decreases on $(0,\infty)$ to
+the limit $1$ at $0$, so $\Delta_N=\mu\,y^{-1}\operatorname{arsinh}y$ with $y=
+\mu/2N$ increases to $\mu$.
+
+For the consequences: by (ii), $\sup_{N\ge\mu/2}X_N\le F_{0.2297}(x)$, and the
+finitely many smaller $N$ give finite values, so $c_b<\infty$. Next, $\Delta_N
+s-2(X_N+\log10)\to x-2F(x)-2\log10$, which is strictly increasing in $x$, since
+$F$ decreases, tends to $-\infty$ at $0$ and to $+\infty$ at $\infty$; so it
+has one root $x_*$ and the sign of the limit decides for all large $N$. In
+the same way $D_N\to e^{F_1(x)}-1$ is strictly decreasing in $x$, from
+$+\infty$ to $0$, and crosses $\frac1{10}$ once, at $x_1$.
+\end{proof}
+
+The same three thresholds, $17.71$ for (C) by Corollary~\ref{cor:freeC},
+$5.21$ for the clause of Corollary~\ref{cor:gapbridge}(ii) and $2.49$ for
+(Z$_0^{\rm dy}$) itself, measure the slack of the three routes on the one
+model where everything is explicit: the Casimir route pays for its
+generality in the scale it needs, the dyadic route with a pressure bound
+pays a factor of two, and (Z$_0^{\rm dy}$) is what the free field actually
+provides beyond two and a half correlation lengths.
+
+For the gauge theory itself nothing of this is proved. At weak coupling the
+analysis of L\"uscher~\cite{Lus83} (see also~\cite{KvB87}) writes the vacuum
+energy of a torus of side $\ell$, for $\ell\Lambda\ll1$, as the sum of the free
+gluon energies and a zero-mode energy $\varepsilon_0g^{2/3}/\ell+O(g^{4/3}/
+\ell)$ with $\varepsilon_0>0$, the ground energy of the quartic Hamiltonian of
+the constant modes; the latter enters $(m+1)\kappa$ with the coefficient $1-
+8\cdot2=-15$, so that in this regime $\eta$ is $2\dim G\,c(0)$ decreased by a
+term of order $g^{2/3}$, far above $\frac1{70}$. We do not control the
+exchange of the weak-coupling and large-volume limits on the lattice, and
+the statement is recorded as a heuristic only. Its consequence is a
+delimitation. For a theory whose lightest states have masses $m_i$ and
+multiplicities $n_i$, the free-field picture gives $\eta\approx\sum_in_i\,c(m_i
+s)$, so that (C) at the scale $s_0$ needs $m_{\mathrm{gap}}s_0\gtrsim17.7$: the
+Casimir condition is a statement about tori of about eighteen correlation
+lengths, beyond perturbation theory and of the same strength as a finite-size
+bound on the gap itself. This is consistent with Theorem~\ref{thm:gapcasimir},
+where the condition is derived from the gap on the tori of the halving chain,
+and with Corollary~\ref{cor:freeC}(iii), where its rate is that of the gap.

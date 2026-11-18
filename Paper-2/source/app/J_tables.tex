@@ -1,0 +1,171 @@
+\section{Summary tables}
+\label{app:tables}
+
+The four tables of this appendix collect what is spread over the text: the
+hypotheses with their status, the constants, and the contents of the two
+supporting checks.
+
+The source declarations and arithmetic checks cover specified finite,
+algebraic and conditional statements. They do not formalise the entire
+analytic paper or prove its weak-coupling and continuum inputs.
+The single-cube constants are derived in Appendix~\ref{app:sc-certificates}
+and reproduced by \texttt{anc/single\_cube\_constants.py}. The accompanying
+verification record distinguishes source coverage, executed builds and
+complete-project dependency audits.
+With Lean~4.33.0 and the pinned Mathlib dependency, all $34$ project modules
+compiled successfully. The complete imported-environment audit checked
+$1192$ theorem declarations, including generated and private declarations;
+their dependency sets contained only \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. This audit does not
+discharge the hypotheses of the conditional theorems.
+
+{
+\small
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.09\textwidth}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.43\textwidth}@{}}
+\caption{The hypotheses of the paper and their status. ``Strong coupling''
+refers to the ranges of Theorems~\ref{thm:A} and~\ref{thm:C}.}\label{tab:hyp}\\
+\toprule
+Name & Statement & Status\\
+\midrule
+\endfirsthead
+\toprule
+Name & Statement & Status\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+(W) & the torus construction has a limit that is a mixture of Wightman theories with unique vacua & input from~\cite{OAI26,YMG26}, unrefereed; not proved here\\
+(D) & cube condition $\BP(n_k,\varpi)$ with $n_ka_k\le\ell$ along the tuning & proved at strong coupling and for massive free fields; open at weak coupling\\
+(D$_\ell$) & the same on cylinders & follows from (M) (Proposition~\ref{prop:bridgeM}); open at weak coupling\\
+(M) & slab decorrelation below $\frac12$, uniform in the boundary condition & proved at strong coupling and in two dimensions for fat boxes; open in four dimensions at weak coupling\\
+(U), (U$_w$) & the two orders of the volume limit agree & follow from (Z) (Corollary~\ref{cor:Z})\\
+(Z) & $\mathcal Z_{N,p}\to1$ & proved at strong coupling and in two dimensions; follows from (B$^{*}$) (Theorem~F)\\
+(G$_{24}$), (B$_{24}$) & gap and pressure bound on elongated tori & imply (Z) (Theorem~\ref{thm:ascentZ}); both follow from (B$^{*}$) (Theorem~\ref{thm:ascentfree})\\
+(B$^{*}$), (B$^{**}$) & $\log\mathcal Z_s(T_0)\le\gamma V(s)$ at one time extent; $Z(s,T_0)^2\le e^{\gamma V(s)}Z(s,2T_0)$ & equivalent up to a factor two in $\gamma$ (Proposition~\ref{prop:Bfinite}); open at weak coupling\\
+(E) & a nontrivial continuum limit exists & open\\
+\end{longtable}
+}
+
+{
+\small
+\renewcommand{\arraystretch}{1.25}
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.44\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}@{}}
+\caption{The principal constants.}\label{tab:const}\\
+\toprule
+Constant & Meaning & Where\\
+\midrule
+\endfirsthead
+\toprule
+Constant & Meaning & Where\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+$m_G(\beta)$ & lattice gap $\operatorname{arccosh}\bigl(1+\frac1{12}(\frac{\kappa_G}{N|\beta|}-\frac{29}2)\bigr)$, $N|\beta|<\frac2{29}\kappa_G$ & Theorem~\ref{thm:A}\\
+$-\log(3\beta_W)$ & lattice gap of $\SU(2)$, $0\le\beta_W<\frac13$ & Theorem~\ref{thm:A}\\
+$16\varpi/(625e^2\ell)$ & continuum gap from the cube condition & Theorems~\ref{thm:B}, \ref{thm:E}\\
+$\frac12$ & sharp threshold of the slab decorrelation & Theorem~\ref{thm:D}\\
+$y_0\le\frac1{20}$, $y_c=0.0589\ldots$ & normalised pressure at the base scale and the fixed point of $y\mapsto16(e^y-1)^2$ & Theorem~\ref{thm:ascentfree}\\
+$u_0=16.83\,y_0\le0.8415$ & contraction per base time & Theorem~\ref{thm:ascentfree}\\
+$0.172/t_0$ & lower bound of the gap $\log(1/u_0)/t_0$ & Theorem~F\\
+$1.9\cdot10^{-11}$ & prefactor of $\mathcal Z_n(n)-1$ & Theorem~\ref{thm:ascentfree}(c)\\
+$\varepsilon(c)=12(\log c+5.42)/c$ & mean plaquette action of $\SU(2)$ at $c=2\beta$ & Theorem~\ref{thm:gapcloses}\\
+$c_\pi/\max(1,6N^2\beta)^2$ & loss per link of a straight segment & Proposition~\ref{prop:segments}\\
+\end{longtable}
+}
+
+{
+\footnotesize
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}r>{\raggedright\arraybackslash}p{0.45\textwidth}@{}}
+\caption{The Lean~4 sources: $741$ theorem and lemma declarations, grouped by module. Source counts describe coverage, not a completed verification of the analytic paper.}\label{tab:lean}\\
+\toprule
+File & Theorems & Contents\\
+\midrule
+\endfirsthead
+\toprule
+File & Theorems & Contents\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\texttt{AveragedCondition} & 38 & counting of cubes and translates, $\SU(2)$ trace identity, constants of $\BP(n,\varpi)$\\
+\texttt{BoundEquiv} & 14 & equivalent finite trace and pressure criteria\\
+\texttt{CountSectors} & 43 & spectral state counts and centre-sector identities\\
+\texttt{CumulantCounterexample} & 3 & bounded local terms give no volume-uniform cumulant bound\\
+\texttt{ErrorStableAscent} & 6 & ascent with an explicitly assumed error budget\\
+\texttt{GapFree} & 11 & chord bound, the recursion $16(e^y-1)^2$, constants of Theorem~F, Haar ball, base scale\\
+\texttt{HolleyStroock} & 11 & perturbation lemma on a finite state space\\
+\texttt{LimitRatio} & 1 & the critical scaling of the lattice gap\\
+\texttt{OneScale} & 88 & one-scale reduction, doubling, rings, Casimir defect, pressure bound, ascent\\
+\texttt{OneCube/*} & 413 & exact constants, finite identities, transcendental bounds and rational endpoint comparisons\\
+\texttt{RunningCoupling} & 5 & one-loop running coupling and the intermediate window\\
+\texttt{SpectralNoGo} & 9 & no gap uniform in lattice units along a continuum limit\\
+\texttt{WilsonAction} & 9 & bounds on the Wilson action and its oscillation\\
+\texttt{StrongCoupling/BlockGauge} & 5 & block-rooted axial gauge on blocks of side two\\
+\texttt{StrongCoupling/CouplingMinimality} & 4 & discrepancy recurrence from minimality\\
+\texttt{StrongCoupling/CouplingMinimizer} & 5 & a continuous cost attains its minimum on a compact space\\
+\texttt{StrongCoupling/CubeOpen} & 11 & arithmetic of perturbations of the cube condition\\
+\texttt{StrongCoupling/DobrushinComparison} & 4 & arithmetic core of the Wasserstein comparison\\
+\texttt{StrongCoupling/GaugeFix} & 7 & one fixed link in every plaquette, twelve partners\\
+\texttt{StrongCoupling/IslandLayer} & 14 & layer bound and block-map growth\\
+\texttt{StrongCoupling/QxCoefficients} & 9 & coefficient positivity for the sharp quarter\\
+\texttt{StrongCoupling/Thresholds} & 7 & Dobrushin threshold of $\SU(2)$\\
+\texttt{StrongCoupling/WassersteinBridge} & 15 & resolvent comparison and coupling interface\\
+\texttt{StrongCoupling/ZonalBound} & 9 & Riccati comparison for the zonal bound\\
+\texttt{YangMills (root)} & 0 & imports the complete project\\
+\end{longtable}
+}
+
+{
+\footnotesize
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.78\textwidth}r@{}}
+\caption{Julia verification on 18 November 2026. The legacy script passes $273$ checks; the additional interval, regression and exact-certificate groups are listed separately. Floating-point sanity experiments are not counted as proofs.}\label{tab:julia}\\
+\toprule
+Group & Checks\\
+\midrule
+\endfirsthead
+\toprule
+Group & Checks\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+Theorem A: the lattice gap $m_G(\beta)$ for $\SU(N)$, $\kappa_G=N/2$ & 3\\
+Theorem B: the constant 16/625 & 3\\
+Theorem C(i): $\SU(2)$ weighted count and $\SU(3)$ range & 2\\
+Appendix H: the single-link law of $\SU(3)$ & 23\\
+Theorem D and its cylinder form & 7\\
+Thermal discrepancy lemma: the sharp two-state example & 4\\
+Theorem E: the cylinder gap and $m_nN\ge\Delta$ & 1\\
+Closed polymers, the strong-coupling range and the one-scale reduction & 35\\
+Doubling defects, symmetrised rings and the finite-size bound & 22\\
+The gap against the Casimir defect & 22\\
+The pinned two-state chain and the field rings & 11\\
+The Casimir defect of the free field & 17\\
+The pressure bound at one scale & 33\\
+Extensivity and the ascent in time & 12\\
+The field rings with an arbitrary field & 12\\
+Strong coupling, uniform in the boundary condition & 5\\
+The ascent without a gap hypothesis (Theorem F) & 14\\
+The gap closes at a fixed lattice size ($\SU(2)$) & 5\\
+Equivalent pressure criteria and the twist defect & 11\\
+State counts and centre sectors & 14\\
+Finite groups, Maxwell theory, twist cost and two dimensions & 14\\
+Appendix: the one-link constant & 3\\
+One-cube constants with directed-rounding intervals & 282\\
+Exact regression tests of rational interval operations & 75\\
+Exact rational line-field certificates & 5\\
+\end{longtable}
+}

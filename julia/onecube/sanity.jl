@@ -225,14 +225,17 @@ function sanity_modelA()
                 M = 30N; h = M ÷ 2
                 wt(j) = (j == 0 || j == h) ? 1.0 : 2.0
                 sv = [(2sin(π * j / M))^2 for j in 0:h]
-                part = zeros(Threads.nthreads())
+                # A loop iteration owns its output slot. Thread IDs need not
+                # be 1:nthreads() when Julia has multiple thread pools, and
+                # tasks may migrate; indexing by threadid() is unsafe here.
+                part = zeros(h + 1)
                 Threads.@threads for j1 in 0:h
                     acc = 0.0
                     for j2 in 0:h, j3 in 0:h
                         A = ma^2 + ci[1]^2 * sv[j1+1] + ci[2]^2 * sv[j2+1] + ci[3]^2 * sv[j3+1]
                         acc += wt(j1) * wt(j2) * wt(j3) * 2asinh(sqrt(A) / (2c0))
                     end
-                    part[Threads.threadid()] += acc
+                    part[j1 + 1] = acc
                 end
                 sum(part) / M^3
             end

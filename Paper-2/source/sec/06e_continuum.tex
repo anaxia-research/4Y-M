@@ -1,0 +1,196 @@
+\section{The continuum gap from the single-cube datum}\label{sc:sec:continuum}
+
+We now apply the single-cube ascent to the continuum family of
+Definition~\ref{def:family}. The phase hypothesis \textup{(W)} is precisely
+that of Definition~\ref{def:WUD}; no particular proposed construction is
+used. Its fixed-stencil insertions may have divergent normalisations.
+The cube datum controls the thermal trace, so these normalisations do not
+enter the partition-function estimate. They enter only separated smears,
+whose convergence is already part of \textup{(W)}.
+
+\begin{theorem}[the single-cube continuum criterion]\label{sc:thm:continuum}
+Let a continuum family satisfy \textup{(W)}. Suppose there is $t_0>0$ such
+that for every sufficiently large $p$ there is $N_0(p)$ such that, for every
+$N\ge N_0(p)$ on the family's mesh sequence, the Wilson system at
+$\beta_{N,p}$ satisfies \Mcirc{} at an integer $T_0$ with
+$3\le T_0\le Nt_0$. Set
+\[
+\Delta=t_0^{-1}\log\frac{63}{32}>\frac{0.677}{t_0}.
+\]
+For $L_p\ge2t_0$ and $N\ge N_0(p)$, write
+$\mathcal Z_{N,p}=\mathcal Z_{(NL_p)^3}(NL_p)$. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\mathcal Z_{N,p}-1\le4096^{-1}e^{-\Delta L_p/2}$;
+\item every eigenvalue $\lambda\ne\lambda_0$ of the cylinder transfer matrix
+of spatial side $NL_p$ satisfies $0\le\lambda\le e^{-\Delta/N}\lambda_0$;
+\item all phase Schwinger functions of \textup{(W)} coincide, and the
+Hamiltonian of that Wightman theory satisfies
+$\sigma(H)\subset\{0\}\cup[\Delta,\infty)$ and $\ker H=\mathbb C\Omega$.
+\end{enumerate}
+The theorem does not establish \Mcirc{} along a weak-coupling tuning,
+\textup{(W)}, or the nontriviality of the resulting theory.
+\end{theorem}
+
+\begin{proof}
+Put $n=NL_p$ and $u=32/63$. Since $n\ge2Nt_0\ge2T_0$, purity conversion
+and Theorem~\ref{sc:thm:ascent} apply at the actual coupling $\beta_{N,p}$.
+They give
+\[
+\mathcal Z_{N,p}-1\le\frac{u^{n/(2T_0)}}{4096}
+\le\frac{u^{L_p/(2t_0)}}{4096}
+=\frac{e^{-\Delta L_p/2}}{4096},
+\qquad
+r_1(n^3)\le u^{1/T_0}\le u^{1/(Nt_0)}=e^{-\Delta/N}.
+\]
+The strict bound $r_1<1$ also proves simplicity of the top eigenvalue.
+This proves (i) and (ii). It remains to identify a physical spectral gap
+rather than a statement in lattice units.
+
+\emph{Thermal states and renormalised insertions.}
+Let $c$ be a fixed cluster. Translate it in physical time, by an integer
+amount independent of $N,p$, so that all its time coordinates are positive;
+call the translated cluster $c_0$. At large $N$, its lattice function $G$ is
+bounded and lies in a slab $[0,w]$, with $w\le CN$ for a constant depending
+only on this fixed cluster and its finite stencils. At large $p$, the
+symmetric torus has $M=NL_p\ge2w+2$. Lemma~\ref{lem:thermaldiscrepancy}
+gives
+\begin{equation}\label{sc:eq:thermal-transfer}
+\bigl|S_{N,p}(c)-S^0_{N,p}(c)\bigr|^2
+\le(\mathcal Z_{N,p}-1)
+\left(S_{N,p}(c_0^\vartheta c_0)-|S_{N,p}(c)|^2\right).
+\end{equation}
+The bracket is nonnegative. Reflection separates the two sets of insertion
+times, so $c_0^\vartheta c_0$ is a legitimate separated cluster. Under
+\textup{(W)} the bracket has a finite iterated limit, first in $N$ and then
+in $p$. Part (i) tends to zero uniformly in $N$ at large $p$. Thus the
+zero-temperature and symmetric-torus smears have the same iterated limit,
+in the precise upper-limit sense of Proposition~\ref{prop:ZgivesU}.
+This is the weak order-of-limits conclusion \textup{(U$_w$)} used in
+Corollary~\ref{cor:Z}; it is not a claim of convergence of the cylinder
+smears at each fixed $p$.
+
+\emph{The limiting decay inequality.}
+For two clusters $c,d$ whose tests have strictly ordered positive time support, let $F,G$ be their
+lattice functions. Their fixed stencils fit in slabs once $N$ is large.
+By (ii) and Lemma~\ref{lem:gaptodecay}, for integers
+$\sigma\ge\sigma_1\ge1$,
+\[
+\bigl|S^0_{N,p}(c^\vartheta\tau_\sigma d)
+-\overline{S^0_{N,p}(c)}S^0_{N,p}(d)\bigr|
+\le e^{-\Delta(\sigma-\sigma_1)}
+\sqrt{S^{0,c}_{N,p}(c;\sigma_1)S^{0,c}_{N,p}(d;\sigma_1)},
+\]
+where $S^{0,c}_{N,p}(c;s)=S^0_{N,p}(c^\vartheta\tau_s c)
+-|S^0_{N,p}(c)|^2\ge0$.
+Every smear in this inequality is separated. Applying
+\eqref{sc:eq:thermal-transfer} to its finitely many clusters, and using
+convergence in \textup{(W)}, passes the inequality to their common limit
+exactly as in the proof of Corollary~\ref{cor:Z}. With
+$\bar S(c)=\int_XS^\chi(c)\,d\nu(\chi)$, it reads
+\begin{equation}\label{sc:eq:limit-decay}
+\left|\bar S(c^\vartheta\tau_\sigma d)
+-\overline{\bar S(c)}\bar S(d)\right|
+\le e^{-\Delta(\sigma-\sigma_1)}
+\sqrt{\bar S^c(c;\sigma_1)\bar S^c(d;\sigma_1)}.
+\end{equation}
+For example, the passage does not interchange two uncontrolled limits:
+\eqref{sc:eq:thermal-transfer} bounds each replacement error in upper
+limit by a constant times $e^{-\Delta L_p/4}$, and that constant remains
+bounded as $p\to\infty$ by \textup{(W)}.
+
+\emph{Phases.}
+For each such ordered-time cluster $c$ and almost every $\chi$, Lemma~\ref{lem:wightman} identifies
+$S^{\chi,c}(c;\sigma)$ with
+$\|e^{-\sigma H_\chi/2}\psi'_\chi(c)\|^2\ge0$.
+Consequently
+\[
+\bar S^c(c;\sigma)
+=\int_X S^{\chi,c}(c;\sigma)\,d\nu(\chi)
++\operatorname{Var}_\nu(S^\chi(c))
+\ge\operatorname{Var}_\nu(S^\chi(c)).
+\]
+The variance is finite, since its second moment is bounded by the
+integrable reflected two-cluster function supplied by \textup{(W)}.
+Equation~\eqref{sc:eq:limit-decay}, with $d=c$ and $\sigma_1=1$, makes the
+left side tend to zero as $\sigma\to\infty$. Thus $S^\chi(c)$ is almost
+surely independent of $\chi$. Use the countability of the tokens and a
+countable dense set of tests on each ordered-time configuration space to
+choose one null set for all these tests. Smoothness in the configuration
+variables, time translation and permutation symmetry then identify the
+phase kernels on every separated configuration. Continuity in $\chi$
+and full support of $\nu$ extend equality from almost every phase to
+every phase, as in Step~3 of Section~\ref{ssec:assembly}.
+
+\emph{Spectrum.}
+The common Schwinger functions are those of the Wightman theory in
+\textup{(W)}. For a positive-time Euclidean cluster vector put
+$\psi'=\psi(c)-\langle\Omega,\psi(c)\rangle\Omega$. By
+Lemma~\ref{lem:wightman}, \eqref{sc:eq:limit-decay} gives
+\[
+\langle\psi',e^{-\sigma H}\psi'\rangle
+\le e^{-\Delta(\sigma-1)}\|\psi'\|^2
+\quad(\sigma\ge1\text{ an integer}).
+\]
+If its spectral measure is $\kappa$, then for $0<\eta<\Delta$,
+\[
+\kappa([0,\Delta-\eta])
+\le e^\Delta\|\psi'\|^2e^{-\eta\sigma}\longrightarrow0.
+\]
+Hence the spectral projection of $[0,\Delta)$ annihilates every such
+$\psi'$. These vectors together with $\Omega$ span a dense subspace by
+Lemma~\ref{lem:wightman}(iii). The projection is therefore precisely the
+projection onto $\mathbb C\Omega$. This proves (iii), including vacuum
+uniqueness. The conversion in (ii) is $m_{\rm phys}=Nm_{\rm lat}$, because
+$a_N=1/N$; it is this conversion that preserves the positive constant
+$\Delta$.
+\end{proof}
+
+\subsection{What remains for the Clay statement}\label{sc:ssec:clay}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=9mm, every node/.style={align=center,font=\small},
+ box/.style={draw,rounded corners,text width=.77\textwidth,inner sep=6pt}]
+\node[box] (datum) {Actual Wilson measures along $\beta\to\infty$:\\
+$\psi_{(2T_0)^3}(T_0)\le1/4097$, $T_0\le Nt_0$\\
+\textbf{Unproved input}};
+\node[box,below=of datum] (ascent) {Purity conversion $\longrightarrow$ box comparison $\longrightarrow$ ascent\\
+$\mathcal Z_{N,p}-1\le4096^{-1}e^{-\Delta L_p/2}$,
+$r_1\le e^{-\Delta/N}$\\\textbf{Proved implication}};
+\node[box,below=of ascent] (limit) {A compatible nontrivial Wightman continuum theory\\
+\textbf{Existence input, not supplied by the ascent}};
+\node[box,below=of limit] (gap) {$\sigma(H)\subset\{0\}\cup[\Delta,\infty)$,
+$\ker H=\mathbb C\Omega$, $\Delta=t_0^{-1}\log(63/32)$\\
+\textbf{Conditional continuum conclusion}};
+\draw[->,thick] (datum)--(ascent);
+\draw[->,thick] (ascent)--(limit);
+\draw[->,thick] (limit)--(gap);
+\end{tikzpicture}
+\caption{The exact logical role of the single-cube criterion. The two
+boxes marked as inputs are independent obligations. Finite arithmetic
+checks and proofs of the arrows do not verify these inputs.}
+\label{sc:fig:clay-map}
+\end{figure}
+
+The Clay problem asks for a nontrivial theory on $\mathbb R^4$ for every
+compact simple gauge group, with the required axioms and a positive mass
+gap. The preceding theorem proves an implication for each such group;
+it does not prove its antecedents. In particular:
+\begin{enumerate}[leftmargin=*]
+\item The datum must hold for the full Wilson thermal trace at the
+actual weak couplings and with a physical scale bounded independently
+of the cutoff. A selected charged sector or a fixed finite lattice
+certificate is insufficient.
+\item A nontrivial renormalised continuum theory must be constructed and
+identified with the scaling limit. Reflection positivity and compactness
+of some separated smears do not, by themselves, prove full rotation
+invariance, the reconstruction growth bounds, or nontriviality.
+\item These two obligations must be discharged for every compact simple
+group, including the relevant quotient groups and their flux sectors.
+The fact that Proposition~\ref{sc:prop:wilson} covers a group does not
+prove the one-cube datum for it.
+\end{enumerate}
+There is no proof here that the first or second obligation holds along a
+four-dimensional weak-coupling tuning. The strengthened criterion and
+its verified constants therefore do not constitute an unconditional
+solution of the Millennium Prize problem.

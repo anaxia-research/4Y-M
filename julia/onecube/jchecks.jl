@@ -143,19 +143,35 @@ function J5()
     claimq("J5", "0.405465/70.4 > 0.0057594", d"0.405465" / d"70.4", :gt, d"0.0057594")
     claimq("J5", "0.2754^4 < 0.0057525", d"0.2754"^4, :lt, d"0.0057525")
     claimq("J5", "0.405465/70.4 > 0.2754^4", d"0.405465" / d"70.4", :gt, d"0.2754"^4)
-    # β = 10^9 sentence of the source (no consumer in the paper): root of
-    # T^3 = (1 - 7.65/T) β / (21.97 (log 2β + 5.42))
+    # Correct the former source sentence T_0 >= 116.7 (no consumer in the
+    # paper). It is false. Certify the unique root on [100,130] instead;
+    # see CORRECTIONS.md. Here K > 0 and h'(T)=3T^2-7.65K/T^2.
     β = 10^9
     K = iv(β) / (d"21.97" * (log(iv(2β)) + d"5.42"))
     h(T) = iv(T)^3 - (1 - d"7.65" / iv(T)) * K
+    claim("J5", "K > 0 (root equation coefficient)", K, :gt, big(0)//1)
+    claim("J5", "h(100) < 0 (left root bracket)", h(100), :lt, big(0)//1)
+    claim("J5", "h(130) > 0 (right root bracket)", h(130), :gt, big(0)//1)
+    # For every T in [100,130], T^2 >= 100^2, so this is a lower bound on h'(T).
+    derivative_floor = 3 * iv(100)^2 - d"7.65" * K / iv(100)^2
+    claim("J5", "h'(T) >= 3*100^2 - 7.65K/100^2 > 0 on [100,130]",
+        derivative_floor, :gt, big(0)//1)
+    claim("J5", "h(116.5888) < 0 (corrected strict lower bracket)",
+        h(d"116.5888"), :lt, big(0)//1)
+    claim("J5", "h(116.5889) > 0 (corrected strict upper bracket)",
+        h(d"116.5889"), :gt, big(0)//1)
     lo, hi = big(100) // 1, big(130) // 1
     for _ in 1:60
         m = (lo + hi) / 2
         hm = h(m)
         if hm.hi < 0; lo = m elseif hm.lo > 0; hi = m else break end
     end
-    claim("J5", "β = 10^9 source sentence: root T_0 of T^3 = (1-7.65/T)β/(21.97(log 2β+5.42)) ≥ 116.7",
-        iv(hi), :ge, d"116.7")
+    # The root lies between lo and hi, not in the single-point interval iv(hi).
+    root = Iv(iv(lo).lo, iv(hi).hi)
+    claim("J5", "corrected beta=10^9 root: T_0 > 116.5888", root, :gt, d"116.5888")
+    claim("J5", "corrected beta=10^9 root: T_0 < 116.5889", root, :lt, d"116.5889")
+    claim("J5", "counterexample to former T_0 >= 116.7: T_0 < 116.7",
+        root, :lt, d"116.7")
     println("      root T_0 ∈ [$(Float64(lo)), $(Float64(hi))]")
     # thm:SUN-gap row (no identifier)
     claimq("J5x", "(1 - 0.58^2/6)^2 > 0.94^2", (1 - d"0.58"^2 / 6)^2, :gt, d"0.94"^2)

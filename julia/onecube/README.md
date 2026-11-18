@@ -1,10 +1,17 @@
 # One-cube criteria: checks L1–L16 and J1–J12
 
-Checks of the constants and finite computations in "One-Cube Criteria for the Yang–Mills Mass Gap".
+Checks supporting "The Yang–Mills Mass Gap from a Single-Cube Bound at Weak Coupling".
 **None of these checks proves the existence of the continuum limit, the one-cube bound or the mass gap.**
 They check numbers and finite identities that the paper uses.
 
 Run: `lake build` (Lean) and `julia -t 4 julia/onecube/run_all.jl` (Julia; the output is in `output.txt`).
+
+The 18 November 2026 run under Julia 1.13.4 passed 282 rigorous checks, 75
+interval-regression assertions and all numerical sanity routines. The separate
+exact line-field program passed five certificates. `CORRECTIONS.md` records the
+former false root assertion, rational-rounding defect and failure-handling
+repairs. The sanity routines use floating point and Monte Carlo; they are not
+parts of the analytical proof.
 
 ## Lean (`YangMills/OneCube/`)
 
@@ -40,7 +47,7 @@ L12 checks the combinatorial part. The pairing rules (R1)–(R4), which are Schu
 | J2 | `v_i ≤ θ⁻¹u^{2^i}/64`; `log(63/32) > 0.677` |
 | J3 | `13 log 2`, `14 log 2`, `−log(e^{1/8192} − 1)`, `−log(e^{2⁻¹⁴} − 1)` |
 | J4 | The `e^{−π}` constants, `log(1 + e^{−2π}) > 15/8192`, the counting constant `< 34` |
-| J5 | `D`, `log(1/D) ≥ 15.3024`, `ε(6·10⁶)`, and the `β = 10⁹` root |
+| J5 | `D`, `log(1/D) ≥ 15.3024`, `ε(6·10⁶)`, and the corrected `β = 10⁹` root bracket `116.5888 < T₀ < 116.5889` |
 | J6 | `4/g_c² > 0.09497` |
 | J7 | `κ_c`, the 2D thresholds, `log(1/q)` |
 | J8 | The strong-coupling table (`θ`, `T_*`, minimality) and `artanh(1/18)` |

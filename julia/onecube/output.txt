@@ -1,4 +1,8 @@
-One-cube checks. Julia 1.11.7, BigFloat precision 256 bits
+Test Summary:                           | Pass  Total  Time
+Directed rational interval construction |   10     10  0.4s
+Test Summary:                                    | Pass  Total  Time
+Interval arithmetic with rounded rational inputs |   65     65  0.1s
+One-cube checks. Julia 1.13.4, BigFloat precision 256 bits
 None of these checks proves the continuum limit, the one-cube bound or the mass gap.
 
 == J1: fixed point of f(x) = (e^{64x} - 1)^2 ==
@@ -111,7 +115,15 @@ J5   PASS  d/(1.5-d) < 9.677e-8, d = 1.4515e-7   exact value 9.676667603045535e-
 J5   PASS  0.405465/70.4 > 0.0057594   exact value 0.005759446022727273 > 0.0057594
 J5   PASS  0.2754^4 < 0.0057525   exact value 0.0057524882954256 < 0.0057525
 J5   PASS  0.405465/70.4 > 0.2754^4   exact value 0.005759446022727273 > 0.0057524882954256
-J5   FAIL  β = 10^9 source sentence: root T_0 of T^3 = (1-7.65/T)β/(21.97(log 2β+5.42)) ≥ 116.7   enclosure [116.5888672343048, 116.5888672343048]
+J5   PASS  K > 0 (root equation coefficient)   enclosure [1.6960766528022476e6, 1.6960766528022476e6]  exported ≥ 1.69e6 = 1690000//1
+J5   PASS  h(100) < 0 (left root bracket)   enclosure [-566326.7888628755, -566326.7888628755]  exported ≤ -566000.0 = -566000//1
+J5   PASS  h(130) > 0 (right root bracket)   enclosure [600730.9348434233, 600730.9348434233]  exported ≥ 600000.0 = 600000//1
+J5   PASS  h'(T) >= 3*100^2 - 7.65K/100^2 > 0 on [100,130]   enclosure [28702.501360606286, 28702.501360606286]  exported ≥ 28700.0 = 28700//1
+J5   PASS  h(116.5888) < 0 (corrected strict lower bracket)   enclosure [-2.677561200025281, -2.677561200025281]  exported ≤ -2.67 = -267//100
+J5   PASS  h(116.5889) > 0 (corrected strict upper bracket)   enclosure [1.3048730598215958, 1.3048730598215958]  exported ≥ 1.3 = 13//10
+J5   PASS  corrected beta=10^9 root: T_0 > 116.5888   enclosure [116.5888672343048, 116.5888672343048]  exported ≥ 116.58886 = 5829443//50000
+J5   PASS  corrected beta=10^9 root: T_0 < 116.5889   enclosure [116.5888672343048, 116.5888672343048]  exported ≤ 116.58887 = 11658887//100000
+J5   PASS  counterexample to former T_0 >= 116.7: T_0 < 116.7   enclosure [116.5888672343048, 116.5888672343048]  exported ≤ 116.6 = 583//5
       root T_0 ∈ [116.5888672343048, 116.5888672343048]
 J5x  PASS  (1 - 0.58^2/6)^2 > 0.94^2   exact value 0.8910101377777778 > 0.8836
 J5x  PASS  1/c_2 = 3√2 π/0.94^3 < 16.0475   enclosure [16.0473219017885, 16.0473219017885]  exported ≤ 16.0474 = 80237//5000
@@ -305,21 +317,20 @@ A    PASS  ε_8(18085) < 1/99   enclosure [0.010100860256158938, 0.0101008602561
 A    PASS  ε_8(18084) > 1/99   enclosure [0.010101382115736229, 0.010101382115736229]  exported ≥ 0.0101013 = 101013//10000000
 A    PASS  window failure: log 4 < 2   enclosure [1.3862943611198906, 1.3862943611198906]  exported ≤ 1.39 = 139//100
 
-Rigorous checks: 273 PASS, 1 FAIL
-  FAIL  J5  β = 10^9 source sentence: root T_0 of T^3 = (1-7.65/T)β/(21.97(log 2β+5.42)) ≥ 116.7
-Exported 234 rational inequalities to YangMills/OneCube/Enclosures.lean
+Rigorous checks: 282 PASS, 0 FAIL
+Exported 243 rational inequalities to YangMills/OneCube/Enclosures.lean
 
 == Numerical sanity checks (floating point; not proofs) ==
   threads: 4
-  [sanity] Lemma W   min Φ over 20000 random points = 1.005764; after 400 local searches = 0.9999999999999993 (source value ≈ 1.000000005; exact infimum 1)
-    (sanity_phi: 2.3 s)
+  [sanity] Lemma W   min Φ over 20000 random points = 1.005764; after 400 local searches = 0.9999999999999991 (source value ≈ 1.000000005; exact infimum 1)
+    (sanity_phi: 1.7 s)
   [sanity] X_G       T=3: 2.2063, T=4: 1.652, T=6: 1.2187, T=8: 1.1015 (source 2.2063, 1.6520, 1.2187, 1.1015); limit 0.984703 (source 0.984703), per N²-1
     (sanity_XG: 0.1 s)
   [sanity] W3 R4     2×2×2×2, twist eater k=(1, 0, 0): S=2.1e-14, Hessian rank 144 (expected 144), smallest positive eigenvalue 2.0, |kernel| ≤ 8.5e-8
   [sanity] W3 R4     2×2×2×2, twist eater k=(1, 1, 1): S=2.0e-14, Hessian rank 144 (expected 144), smallest positive eigenvalue 2.0, |kernel| ≤ 1.1e-7
   [sanity] W3 R4     2×2×2×2, untwisted abelian flat point: S=1.1e-14, Hessian rank 141 (expected 141), smallest positive eigenvalue 4.0, |kernel| ≤ 1.0e-7
-    (sanity_hessian: 7.2 s)
-  [sanity] Model A   site-reflection Gram matrices [C(ϑx-y)] on 4⁴ and 6⁴, c₀ ∈ {√2, 1/2}, ma = 1/2, all four directions: smallest eigenvalue -1.5776143404557711e-15 (source: ≥ -1.1e-15)
+    (sanity_hessian: 5.5 s)
+  [sanity] Model A   site-reflection Gram matrices [C(ϑx-y)] on 4⁴ and 6⁴, c₀ ∈ {√2, 1/2}, ma = 1/2, all four directions: smallest eigenvalue -1.5335523310751892e-15 (source: ≥ -1.1e-15)
   [sanity] X1 sum    s=10: partial sum to |k|_∞ = 2·10⁴ is 15065.402 (source 15065, 280.8, 37.69, 9.993 for s = 10..13)
   [sanity] X1 sum    s=11: partial sum to |k|_∞ = 2·10⁴ is 280.845 (source 15065, 280.8, 37.69, 9.993 for s = 10..13)
   [sanity] X1 sum    s=12: partial sum to |k|_∞ = 2·10⁴ is 37.691 (source 15065, 280.8, 37.69, 9.993 for s = 10..13)
@@ -336,5 +347,4 @@ Exported 234 rational inequalities to YangMills/OneCube/Enclosures.lean
     (sanity_W7: 0.2 s)
   [sanity] L Thm A   β=1.0: MC Tr K = 2.7799 ± 0.002 (exact-matrix value 2.778247), Tr K² = 2.5291 ± 0.0037 (2.525462); 2000000 samples
   [sanity] L Thm A   β=2.0: MC Tr K = 10.0353 ± 0.0138 (exact-matrix value 10.01709), Tr K² = 13.8986 ± 0.0817 (13.8185); 2000000 samples
-    (sanity_LThmA: 17.7 s)
-EXIT 0
+    (sanity_LThmA: 6.9 s)

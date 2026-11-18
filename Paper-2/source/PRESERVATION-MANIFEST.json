@@ -1,0 +1,264 @@
+{
+  "baseline": "Supplied preprints-243579-manuscript (2).zip / 4Y-MTeX",
+  "baseline_preprint_doi": "10.20944/preprints202611.1282.v1",
+  "draft_input": "Supplied preprints-244356-manuscript.zip; audited reductions adapted into the preserved base",
+  "date": "2026-11-18",
+  "title": "Weak Coupling and the Yang–Mills Mass Gap",
+  "author_list": "All six v1 authors retained",
+  "changes": {
+    "YangMills.tex": "Current title, short abstract, date, common notation and diagrams; integrate the additional analytical sections and an exact-constant appendix; no software DOI.",
+    "sec/01_intro.tex": "Integrate the single-cube and exact Wilson constructions; correct physical gap conversion and the nonnegative-coupling transfer branch; preserve the original theorem statements and proofs with these documented corrections.",
+    "sec/12_conclusion.tex": "Consolidate the strengthened reduction, replica response, kernel obstruction and retention criteria with the original conclusions; state unresolved model estimates.",
+    "sec/13_decl.tex": "Data and Code Availability links the project and the verified Anaxia repository; retain the six-author declarations.",
+    "app/J_tables.tex": "Correct current source-declaration and executed Julia-check counts; distinguish source coverage from a full formal audit.",
+    "bib.tex": "Correct van Baal--Koller author order and the exact von Renesse--Sturm title punctuation after bibliographic checks.",
+    "anc/constants.jl": "Replace the older ancillary constants script with the current repository script that passed all 273 checks."
+  },
+  "added_mathematics": [
+    "PSTS and single-cube comparison",
+    "purity conversion and nonlinear ascent",
+    "pressure zero–one law",
+    "conditional continuum spectral transfer",
+    "exact replica and tilted-conditional identities",
+    "explicit finite-volume Wilson gaps for every positive coupling and compact simple group",
+    "actual Wilson large-field cross-ratio witness",
+    "spectral retention and the exact Wilson Dirichlet form",
+    "volume-independent one-link conditional Wilson Poincare inequalities",
+    "tilted Fisher budget and bounded-energy spectral-mass criterion",
+    "support-preserving flow and reflected approximation bounds"
+  ],
+  "publication": "No GitHub release or Zenodo deposit; no new DOI requested",
+  "scope": "The uniform tuned Wilson bound and unconditional Clay theorem remain unproved",
+  "baseline_files": [
+    {
+      "path": "anc/constants.jl",
+      "baseline_sha256": "a3a79894caacd800932653d9702690f5964876b56d30c880a964c3ad3d75c9e5",
+      "revision_sha256": "aaff0633a6704f095f064cde01c1d45b0b7e739717f5d069cb7c1ccfef79a342",
+      "status": "modified as documented"
+    },
+    {
+      "path": "anc/make_figures.py",
+      "baseline_sha256": "5975e8bf0b59ceab323ed271599b364d27c95d79a61a7435d4f643bdd48c9c5f",
+      "revision_sha256": "5975e8bf0b59ceab323ed271599b364d27c95d79a61a7435d4f643bdd48c9c5f",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/A_table.tex",
+      "baseline_sha256": "84cbadea252a03c29eab17812f6e431b17b07031157fc38711335a2551dc717a",
+      "revision_sha256": "84cbadea252a03c29eab17812f6e431b17b07031157fc38711335a2551dc717a",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/B_blocks.tex",
+      "baseline_sha256": "7770b0bade56291609a818240a69481d46672b9d8d8d3919122833543fc2dd86",
+      "revision_sha256": "7770b0bade56291609a818240a69481d46672b9d8d8d3919122833543fc2dd86",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/C_sharp.tex",
+      "baseline_sha256": "66dd4219a7d18d2635413fb2de57d0a2101a61825205e989560bea89f3ca8d7d",
+      "revision_sha256": "66dd4219a7d18d2635413fb2de57d0a2101a61825205e989560bea89f3ca8d7d",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/F_finite.tex",
+      "baseline_sha256": "e417be35ab0762c93aada829be38662daf19bf8ccc736d21dff30a13c250c7be",
+      "revision_sha256": "e417be35ab0762c93aada829be38662daf19bf8ccc736d21dff30a13c250c7be",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/G_obstructions.tex",
+      "baseline_sha256": "3e519e817592244992c8e48d6d3aa88b5fcca8cb996d230d3c62130354ac45c8",
+      "revision_sha256": "3e519e817592244992c8e48d6d3aa88b5fcca8cb996d230d3c62130354ac45c8",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/H_su3.tex",
+      "baseline_sha256": "90175a2f3315949e776ecc3caca9450ac41bc4b738c5d319bd06e3443e11499c",
+      "revision_sha256": "90175a2f3315949e776ecc3caca9450ac41bc4b738c5d319bd06e3443e11499c",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/I_degenerate.tex",
+      "baseline_sha256": "5ad9573e11686d7afe1e089874adc2cae1799b426b74a4d17a81a15c4f85acde",
+      "revision_sha256": "5ad9573e11686d7afe1e089874adc2cae1799b426b74a4d17a81a15c4f85acde",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/J_tables.tex",
+      "baseline_sha256": "8933cc3016dddbba528f10bda9d64843d53cf6d95ccdd6d3d6964e9931c49eb0",
+      "revision_sha256": "3fc713533d40f725f023c0fabe2f894eab7951531182b5158b3fe02bf0b7f9ca",
+      "status": "modified as documented"
+    },
+    {
+      "path": "bib.tex",
+      "baseline_sha256": "9501b51e8d9b2ba0e2312491f17b1ffce2c7fff75605d63798cbc60f0439d8f4",
+      "revision_sha256": "9a73609061f8ab5651230e6091fbde9b097384864d1300d9181a677aa1f57c13",
+      "status": "modified as documented"
+    },
+    {
+      "path": "figures/fig_ascent.png",
+      "baseline_sha256": "fda85c1d7f112defefdcca1e5b0b1b1a423c91b5f6e09130f3d3bc76726ef935",
+      "revision_sha256": "fda85c1d7f112defefdcca1e5b0b1b1a423c91b5f6e09130f3d3bc76726ef935",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_couplings.png",
+      "baseline_sha256": "3c0edf5e20020cc9d999167e7ca9de467f16ee07f3100956e419210a63b1b327",
+      "revision_sha256": "3c0edf5e20020cc9d999167e7ca9de467f16ee07f3100956e419210a63b1b327",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_cube.png",
+      "baseline_sha256": "6234cfbdbad12b39205cc186565f15033abb02ba2d2f4cb395f7ed418249e4ad",
+      "revision_sha256": "6234cfbdbad12b39205cc186565f15033abb02ba2d2f4cb395f7ed418249e4ad",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_limits.png",
+      "baseline_sha256": "3c7a569ddf648142665cb3b9bb05790b454ee142b47abc4fa8a408de639c22f2",
+      "revision_sha256": "3c7a569ddf648142665cb3b9bb05790b454ee142b47abc4fa8a408de639c22f2",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_linefield.png",
+      "baseline_sha256": "9585477f114058ee21a97fb21de9eafb8cc3a919d29694270b4b2f57a1688c23",
+      "revision_sha256": "9585477f114058ee21a97fb21de9eafb8cc3a919d29694270b4b2f57a1688c23",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_roadmap.png",
+      "baseline_sha256": "ebd12d4e2b6b0fc0de93403034e37f3213eefdcbda3730abe6617cccd66d4d06",
+      "revision_sha256": "ebd12d4e2b6b0fc0de93403034e37f3213eefdcbda3730abe6617cccd66d4d06",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_slab.png",
+      "baseline_sha256": "265934da0ff12bd53d6e0ebebecd328c43dd7089e534aeb31e670721687e050a",
+      "revision_sha256": "265934da0ff12bd53d6e0ebebecd328c43dd7089e534aeb31e670721687e050a",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_spectrum.png",
+      "baseline_sha256": "5bcdae6f63b1e275bc0931099da07f6cc1dc7c430b6f9f9351af9731ccd1bbbf",
+      "revision_sha256": "5bcdae6f63b1e275bc0931099da07f6cc1dc7c430b6f9f9351af9731ccd1bbbf",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_star.png",
+      "baseline_sha256": "33302883bc6f57463c97003e30ebeefbf33769fd2237d0c3adad7ef6b07b2ee5",
+      "revision_sha256": "33302883bc6f57463c97003e30ebeefbf33769fd2237d0c3adad7ef6b07b2ee5",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_thermal.png",
+      "baseline_sha256": "ba3da5e569d98f418f4f23b4df1bd3277ed27ed71aceef05a7566e2fe4ab88ee",
+      "revision_sha256": "ba3da5e569d98f418f4f23b4df1bd3277ed27ed71aceef05a7566e2fe4ab88ee",
+      "status": "unchanged"
+    },
+    {
+      "path": "figures/fig_transfer.png",
+      "baseline_sha256": "c2e17648bd33fa193a09f65de1d7f0dfd720291c2e3eb4bd5e7714c2bdfd7844",
+      "revision_sha256": "c2e17648bd33fa193a09f65de1d7f0dfd720291c2e3eb4bd5e7714c2bdfd7844",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/01_intro.tex",
+      "baseline_sha256": "2baf424b3a2fee55a76c8b74142328e96bfbcde5c2efeb1472d06555159cae53",
+      "revision_sha256": "875af53dfb5abcc92387fbafe9fb12340cb49b7d50c2e050aea682b9f43b11df",
+      "status": "modified as documented"
+    },
+    {
+      "path": "sec/02_lattice.tex",
+      "baseline_sha256": "de8b7d54473d78e2a69fdedba6bce87367d81440d7328e2c8593f0d8de852601",
+      "revision_sha256": "de8b7d54473d78e2a69fdedba6bce87367d81440d7328e2c8593f0d8de852601",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/03_linefield.tex",
+      "baseline_sha256": "6745816476d9ed8b66040c300173d8ad9c86b01dcfa1637d8b40d7247c53b1b4",
+      "revision_sha256": "6745816476d9ed8b66040c300173d8ad9c86b01dcfa1637d8b40d7247c53b1b4",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/04_state.tex",
+      "baseline_sha256": "1e8c9ea5550fd532950facf596f407332fa0c40a0c137a67980df4921a9bdb6b",
+      "revision_sha256": "1e8c9ea5550fd532950facf596f407332fa0c40a0c137a67980df4921a9bdb6b",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/05_curvature.tex",
+      "baseline_sha256": "5c37e236fbf760fe40bb4da16937db6d166d9ce4ead678af3bc0ba45cfbb2778",
+      "revision_sha256": "5c37e236fbf760fe40bb4da16937db6d166d9ce4ead678af3bc0ba45cfbb2778",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/06_cube.tex",
+      "baseline_sha256": "0afc7fdc7a3bed160d7967534eec312d21171f375f47149bfb96a24513e512ed",
+      "revision_sha256": "0afc7fdc7a3bed160d7967534eec312d21171f375f47149bfb96a24513e512ed",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/06b_bridge.tex",
+      "baseline_sha256": "affeee9c784b1be321e1882bc0ea522370b7dc5ed80493fad4cc24c225e206b5",
+      "revision_sha256": "affeee9c784b1be321e1882bc0ea522370b7dc5ed80493fad4cc24c225e206b5",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/06c_onescale.tex",
+      "baseline_sha256": "9e69399e27f87fc6dd3cef738ad3d8387f297be162a26b1e632d31a1a421c3f7",
+      "revision_sha256": "9e69399e27f87fc6dd3cef738ad3d8387f297be162a26b1e632d31a1a421c3f7",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/07_strong.tex",
+      "baseline_sha256": "a44fd34fe41784da1ab8175fab283777d59e3ce86bf5343924712dc0fd77e61b",
+      "revision_sha256": "a44fd34fe41784da1ab8175fab283777d59e3ce86bf5343924712dc0fd77e61b",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/08_stars.tex",
+      "baseline_sha256": "27e2bb3583d9aeeea0acdf617f9b8bc50441a4550eb4423a88560bb4324078b8",
+      "revision_sha256": "27e2bb3583d9aeeea0acdf617f9b8bc50441a4550eb4423a88560bb4324078b8",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/09_free.tex",
+      "baseline_sha256": "3a6c5973bd8340184a0308f119d915ce01f1d00b2cad6bda8be442ad006e1c84",
+      "revision_sha256": "3a6c5973bd8340184a0308f119d915ce01f1d00b2cad6bda8be442ad006e1c84",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/10_massgen.tex",
+      "baseline_sha256": "e19ce23496b7793537e7d60ff1bda893b660c49c0af262b2ded23e4a928a7d03",
+      "revision_sha256": "e19ce23496b7793537e7d60ff1bda893b660c49c0af262b2ded23e4a928a7d03",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/11_weak.tex",
+      "baseline_sha256": "2e73b18064b61dc9169a6eb23394e4c9fd13d616f8acac286a6904805aeaacf1",
+      "revision_sha256": "2e73b18064b61dc9169a6eb23394e4c9fd13d616f8acac286a6904805aeaacf1",
+      "status": "unchanged"
+    },
+    {
+      "path": "sec/12_conclusion.tex",
+      "baseline_sha256": "25e4ea5609767e0ef393a10cbb45cd18fd508753246321e69182b790bdfb033e",
+      "revision_sha256": "ee2aa4368c2b2d067fa5189a6b7d149acbafc94e5c785c96ac10d12f9a6adf77",
+      "status": "modified as documented"
+    },
+    {
+      "path": "sec/13_decl.tex",
+      "baseline_sha256": "7aa0dac780ff67fee1eeaa918ff64a88bea2251bc177cb8bb1d528d6161a06da",
+      "revision_sha256": "a1ab5353b25dfef303e2f67fc1464d88aa83f36ba631f16f64114ed7d7831b93",
+      "status": "modified as documented"
+    },
+    {
+      "path": "YangMills.tex",
+      "baseline_sha256": "6c87419d4ce1480a026df62ff287450a51eb4e570192c9fecb8a80ce2d96a394",
+      "revision_sha256": "034f6660568216373378c2a153e06cf834c63b493bd2e753aeed130b0566cebe",
+      "status": "modified as documented"
+    }
+  ],
+  "authoritative_main_zip_sha256": "d0b2b99c0205abde4f00e207b4c49982da58c3585ffd53cfe8f415b67226e6c5",
+  "authoritative_main_zip": "inputs/main-source-18-November.zip"
+}

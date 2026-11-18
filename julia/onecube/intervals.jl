@@ -18,8 +18,10 @@ dn(f) = setrounding(f, BigFloat, RoundDown)
 up(f) = setrounding(f, BigFloat, RoundUp)
 
 Iv(x::Integer) = Iv(dn(() -> BigFloat(x)), up(() -> BigFloat(x)))
-Iv(x::Rational) = Iv(dn(() -> BigFloat(numerator(x)) / BigFloat(denominator(x))),
-                     up(() -> BigFloat(numerator(x)) / BigFloat(denominator(x))))
+# Enclose both integers before dividing. Rounding numerator and denominator in
+# the same direction does not enclose their quotient when either integer needs
+# rounding (for example, (2^300 + 1)//(2^300 + 2) at 256-bit precision).
+Iv(x::Rational) = Iv(numerator(x)) / Iv(denominator(x))
 Iv(x::Iv) = x
 const Num = Union{Integer,Rational,Iv}
 iv(x) = Iv(x)

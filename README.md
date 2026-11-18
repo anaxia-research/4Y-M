@@ -1,33 +1,77 @@
-<p align="center"><img src="assets/banner.svg" alt="The Yang–Mills Mass Gap from One Bound at One Scale" width="100%"></p>
+# Weak Coupling and the Yang–Mills Mass Gap
 
-<p align="center">
-  <a href="https://github.com/anaxia-research/4Y-M/blob/paper/papers/4Y-MPaper.pdf"><img src="https://img.shields.io/badge/paper-PDF-f472b6?style=for-the-badge" alt="paper"></a>
-  <img src="https://img.shields.io/badge/Lean_4-formal_proofs-7c5cff?style=for-the-badge" alt="Lean 4">
-  <img src="https://img.shields.io/badge/Julia-273_checks-34d399?style=for-the-badge" alt="Julia">
-  <img src="https://img.shields.io/badge/license-MIT-f59e0b?style=for-the-badge" alt="MIT">
-</p>
+Current research revision: 18 November 2026. The published-preprint v1 content
+is retained and corrected where documented in the preservation manifest.
 
-**Deep Bhattacharjee** (corresponding author, head of the project), Ushashi Bhattacharya, James Montgomery Lockwood, Tristan Romanov, Ikailo John Sessford, Sanjeevan Singha Roy.
+**The uniform weak-coupling Wilson bound and the Clay theorem remain unproved.**
+This repository contains rigorous finite-volume results, conditional continuum
+gap theorems and the supporting formal and exact-arithmetic checks.
 
-**15 November progress:** [error-stable ascent, continuum-interface audit, and precise remaining estimate](research/2026-11-15/README.md). Six new Lean declarations extend the ascent to quantified approximation errors. Written interface lemmas accommodate the external construction's sparse mesh sequence and phase decomposition. The unconditional weak-coupling mass gap remains open.
+## Current manuscript
 
-| Proved | Open |
-| :--- | :--- |
-| Mass gap of 4D lattice Yang–Mills theory at strong coupling, every compact simple group, explicit bounds | The one-scale bound at weak coupling |
-| **Theorem F**: a compatible Wightman limit on tori and one bound on partition functions at one scale give the continuum mass gap and a unique vacuum | A complete checked adapter to the selected construction, and the bound at its actual couplings |
-| The one bound is a lattice gap plus a Stefan–Boltzmann bound on the thermal free energy, and it forces a vanishing centre-vortex free energy | The lattice gap at weak coupling |
-| The gap alone does not give the count of states; the centre vortex controls only the charged states | The glueball gap and the count of states at weak coupling |
-| The unrenormalised loop variables have a trivial limit | The Clay problem |
+- [PDF — 178 pages](Paper-2/YangMills.pdf)
+- [Submission TeX ZIP](Paper-2/ymmdpitex.zip): select `YangMills.tex`.
+- [Unpacked source](Paper-2/source/YangMills.tex)
+- [Analytical progress and open estimates](Paper-2/PROGRESS.md)
+- [Resubmission notes](Paper-2/RESUBMISSION-NOTES.md)
+- [Verification scope](Paper-2/VERIFICATION.md)
+- [Bibliography audit](Paper-2/BIBLIOGRAPHY-AUDIT.md)
 
-| Folder | Contents | Run |
-| :--- | :--- | :--- |
-| [`YangMills/`](YangMills) | Lean 4 project over Mathlib | `lake exe cache get && lake build` |
-| [`scripts/`](scripts) | axiom audit | `lake env lean scripts/Axioms.lean` |
-| [`julia/`](julia) | constants of the paper | `julia julia/constants.jl` |
-| [`YangMills/OneCube/`](YangMills/OneCube) | Lean checks L1–L16 and J1–J12 of the one-cube criteria (no `sorry`, no new axioms) | `lake build YangMills.OneCube` |
-| [`julia/onecube/`](julia/onecube) | interval checks J1–J12 and numerical sanity checks; see its [README](julia/onecube/README.md) | `julia -t 4 julia/onecube/run_all.jl` |
-| [`research/2026-11-15/`](research/2026-11-15) | proof progress and explicit remaining assumptions | `python scripts/check_closure_progress.py` |
+The active Paper-2 folder contains the integrated v2, replacing the earlier
+22-page draft. Earlier finite test records are retained under the dated
+research folder; superseded PDF and source ZIP copies are removed from the
+active branch. Git history preserves prior versions.
 
-The one-cube checks verify finite identities, constants and numerical tables only. None of them proves the continuum limit, the one-cube bound or the mass gap.
+## Proved analytical results
 
-The [external construction assessment](https://github.com/yang-mills-group/YM) reports a Wilson scaling-limit Wightman theory and explicitly leaves the mass gap unproved. Our source audit addresses particular compatibility conditions; it does not claim to have rebuilt that entire construction.
+The manuscript proves explicit finite-volume Wilson gaps at every finite
+positive coupling for compact simple gauge groups; a single-cube datum gives
+a physical gap `log(63/32)/t0` in compatible Wightman limits. Exact replica
+and tilted-conditional identities isolate the required Wilson estimate.
+
+For the actual SU(2) vacuum, every one-link prefix conditional has Poincare
+constant at most `exp(12b)/3` in the unit-round S3 metric, independently of
+volume and history. A tilted Fisher budget suffices for the thermal trace
+criterion. The comparison is proved; the time-dependent score budget along
+the tuning is not. Further proofs characterise retention by finite physical
+energy spectral mass and preserve reflection positivity under spatial flow.
+
+## Code and checks
+
+Lean: `YangMills/`, `YangMills.lean`, `lean-toolchain`, `lake-manifest.json`.
+Julia: `julia/`. Python: `scripts/`. Exact audit records: `verification/`.
+
+The pinned compiler checked all 34 project modules. The imported-environment
+audit checked 1,192 theorem declarations with only `propext`,
+`Classical.choice` and `Quot.sound`. These checks concern the formal library's
+actual finite and conditional statements. The new analytical Poincare,
+Fisher-budget and flow arguments are not Lean-formalised, and the audit does
+not establish the missing Wilson estimate or the full manuscript.
+
+Julia runs passed 273 legacy checks, 282 directed-rounding checks, 75 rational
+interval regressions and five rational certificates. Numerical sanity and
+Monte Carlo routines are experiments, not analytical proofs. See the
+verification report for corrections and exact scope.
+
+```text
+lake exe cache get
+lake build
+python scripts/run_all_axioms.py
+python -m unittest discover -s scripts -p "test_*.py"
+python scripts/run_julia_constants.py
+julia -t 4 julia/onecube/run_all.jl
+julia julia/onecube/be_certificates.jl
+python scripts/check_closure_progress.py
+python scripts/single_cube_constants.py
+python scripts/wilson_construction_checks.py
+python scripts/check_conditional_fisher.py
+python scripts/package_manuscript.py --compile
+```
+
+## Related construction workspace
+
+[Anaxia](https://github.com/anaxia-research/anaxia), formerly Open Gluon,
+is the supporting construction workspace. Its proposals and finite checks
+do not substitute for a proof of a missing model-dependent estimate.
+
+No release, tag or Zenodo DOI is created for this revision.

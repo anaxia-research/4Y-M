@@ -72,16 +72,16 @@ SU(2) range beta <= 1.405e-3                               0.0014057826651048585
 beta_W <= 5.62e-3 is inside the range 4 beta_max (rounded down) 0.005623130660419434   OK
 against beta <= 5.75e-5 of the first range: ratio          24.44839417573667   OK
 e^x - 1 <= 2x on [0,1]                                     true   OK
-sum lambda^(a+b) <= sum lambda^a sum lambda^b (random, a = 2, b = 3) (210.1982125236377, 2511.947097758897)   OK
-D(M'+M'') <= D(M') D(M'') (random spectrum, 2 + 3)         (3.5165371289537655, 39.009190488792456)   OK
-log(1+D) <= M kappa + sum D_s(M') D_s(M'') on random spectra (0.1509687882695923, 0.6257997948841019)   OK
+sum lambda^(a+b) <= sum lambda^a sum lambda^b (random, a = 2, b = 3) (332.64575838442767, 3249.6453965303385)   OK
+D(M'+M'') <= D(M') D(M'') (random spectrum, 2 + 3)         (3.281016495317694, 38.394425647569896)   OK
+log(1+D) <= M kappa + sum D_s(M') D_s(M'') on random spectra (0.15549138067755716, 0.6923870157767299)   OK
 y_max = 1/70 + 8/100 < 0.0943                              0.09428571428571429   OK
 e^{0.0943} - 1 = 0.0989 <= 1/10                            0.09888936328108144   OK
 (e^{0.0943} - 1)/0.0943 <= 1.049                           1.0486676912097714   OK
 exp(eta + 8d^2) - 1 <= min(1/10, 0.84 d + 1.05 eta) on the grid d <= 1/10, eta <= 1/70 true   OK
 iterated recursion stays below the geometric bound (J = 12, eta = 1/70) (0.016858216363135003, 0.09452131441885796)   OK
 1.05/0.16 <= 6.6 and 1.05/(70 0.16) <= 1/10 and 6.6 + 1/10 <= 6.7 (6.5625, 0.09375)   OK
-1 <= Z(l')Z(l'')/Z(l'+l'') <= Z(l')Z(l'')                  8.44193778603861   OK
+1 <= Z(l')Z(l'')/Z(l'+l'') <= Z(l')Z(l'')                  9.984997169011992   OK
 exp(c - Delta s_0/2) <= 1/10 at c = 0.0, Delta = 1.0       0.09999999999999998   OK
 exp(c - Delta s_0/2) <= 1/10 at c = 1.0, Delta = 0.5       0.09999999999999998   OK
 exp(c - Delta s_0/2) <= 1/10 at c = 3.0, Delta = 2.0       0.09999999999999998   OK
@@ -147,7 +147,7 @@ pinned chain: brute force = Q(Q+t)/((1+Q)(Q^2+t)) at (J,h,d) = (2.0,0.5,3) 0.852
 pinned chain: brute force = Q(Q+t)/((1+Q)(Q^2+t)) at (J,h,d) = (1.5,0.2,4) 0.6445539295720941   OK
 C(t,Q) decreasing in t, from 1/(1+Q) to Q/(1+Q) (Q = 0.3)  0.7692307692247862   OK
 C(t,Q) > 1/2 iff t < Q^2 (grid)                            true   OK
-field rings: vacuum value theta_N^d -> e^{-Delta/K_0} = 1/20 (N = 10, 160, 2560) 0.04999999997862381   OK
+field rings: vacuum value theta_N^d -> e^{-Delta/K_0} = 1/20 (N = 10, 160, 2560) 0.0499999999786238   OK
 field rings: t_N -> (sqrt(1+r^2) - r)^2 = 6.24e-4 < Q_0^2  0.0006242199685709801   OK
 field rings: rho -> C(t_inf, Q_0) = 0.7716 > 1/2 (N = 10, 160, 2560) 0.7716092866736168   OK
 (sqrt(1+r^2) - r)(sqrt(1+r^2) + r) = 1 and 148/0.9^4 = 225.6 < 226 225.57536960829142   OK
@@ -188,9 +188,9 @@ X_64(x=5) = 0.3242                                         0.3241628488809021   
 X_N <= F_0.2297 (N=16,x=1)                                 9.604445681547848   OK
 arsinh(2)/pi >= 0.4595                                     0.45952344379504967   OK
 Jordan: sin^2(k/2) >= k^2/pi^2 on [0,pi]                   true   OK
-K_a: lambda_1/lambda_0 = e^{-omega}                        0.4430821426391471   OK
-K_a: lambda_2/lambda_0 = e^{-2 omega}                      0.19632178512569742   OK
-K_a: lambda_0 = sqrt(2pi) e^{-omega/2}                     1.6685224626908508   OK
+K_a: lambda_1/lambda_0 = e^{-omega}                        0.4430821426391472   OK
+K_a: lambda_2/lambda_0 = e^{-2 omega}                      0.19632178512569734   OK
+K_a: lambda_0 = sqrt(2pi) e^{-omega/2}                     1.6685224626908504   OK
 X = 1.0763577391 at (8, 0.3)                               1.0763577390570476   OK
 exchange identity X = Y + h delta_1                        2.80153678033912e-12   OK
 h zeta <= h delta_1 <= 2 h zeta                            (0.5056355339957008, 0.9726939546540052, 1.0112710679914017)   OK

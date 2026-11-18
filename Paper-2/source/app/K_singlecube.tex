@@ -1,0 +1,44 @@
+\section{Exact constants for the single-cube criterion}\label{app:sc-certificates}
+
+The estimates below certify only the finite constants used in
+Sections~\ref{sc:sec:psts}--\ref{sc:sec:continuum}. They do not estimate a
+Wilson partition function at weak coupling. The accompanying
+\texttt{anc/single\_cube\_constants.py} uses rational arithmetic to
+reproduce every comparison in this appendix.
+
+For $y\ge0$, let $S_m(y)=\sum_{k=0}^m y^k/k!$. If $y<m+2$, the exponential
+series and the geometric bound on its tail give
+\begin{equation}\label{sc:eq:exp-certificate}
+S_m(y)\le e^y\le U_m(y):=S_m(y)+
+\frac{y^{m+1}}{(m+1)!}\left(1-\frac{y}{m+2}\right)^{-1}.
+\end{equation}
+Indeed the ratio of any two consecutive tail terms is at most $y/(m+2)$.
+Also $e^y-1\le y/(1-y)$ for $0\le y<1$, because $e^{-y}\ge1-y$.
+These facts reduce the needed comparisons to the following finite
+rational inequalities:
+\begin{align*}
+&\frac{2}{8192}-\frac{3}{8192^2}-\frac1{4097}
+=\frac{4093}{274945015808}>0;\\
+&64\cdot252=16128<16129=127^2,
+\qquad \frac{252}{251}\le\frac{127}{126};\\
+&4160\left(U_4\left(\frac{64}{4160}\right)-1\right)^2
+<\frac{99991}{100000}<1;\\
+&4159\left(S_4\left(\frac{64}{4159}\right)-1\right)^2
+>\frac{50007}{50000}>1;\\
+&U_8\left(\frac{677}{1000}\right)<\frac{246}{125}<\frac{63}{32}.
+\end{align*}
+All denominators in these expressions are positive; clearing them gives
+integer comparisons. The first two lines justify purity conversion and
+the inductive envelope. The next two bracket the unique positive fixed
+point of $f(x)=(e^{64x}-1)^2$ by $1/4160$ and $1/4159$.
+The last line implies $e^{0.677}<63/32$, hence
+$\log(63/32)>0.677$. No rounded floating-point output is used in any of
+these deductions.
+
+\begin{remark}[zero eigenvalues]
+Every gap statement in these sections uses $-\log0=+\infty$.
+When all excited eigenvalues vanish, $\mathcal Z_s(T)=1$ for all $T\ge2$.
+The resulting finite-temperature estimates remain valid, but this
+rank-one example is a reminder that an arbitrarily large spectral gap
+alone does not prove that a continuum theory has any nonvacuum states.
+\end{remark}

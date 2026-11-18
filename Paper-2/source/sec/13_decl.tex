@@ -1,0 +1,75 @@
+\section*{Acknowledgements}
+
+The constructive framework is that of Osterwalder, Schrader and Seiler, the
+curvature criterion that of Bakry and \'Emery, and the uniqueness criterion
+that of Dobrushin. The maximal correlation of Gaussian variables is
+Gebelein's, the finite-size criterion follows Knabe and Gosset--Mozgunov, the
+two-dimensional analysis rests on the heat kernel of the continuum measure of
+Driver, Gross, King, Sengupta and L\'evy, and the twisted boundary conditions
+are 't~Hooft's; the transfer matrix of a cylinder is built as in L\"uscher's
+construction, and the positivity argument for its leading eigenvector is
+Jentzsch's. The Lean~4 formalisation of the strong-coupling analysis
+described in the introduction is the work of I.~J.~Sessford, and Lean files
+for the lattice part of the project were written by J.~M.~Lockwood.
+
+\section*{Author contributions}
+
+Deep Bhattacharjee, who leads the project, posed the problem in the form
+treated here, carried out the research and wrote the paper. The proofs are
+his: the lattice gap and its constants, the cube condition and Theorems~B
+to~E, the transfer matrix of the cylinder, the reduction to one scale, the
+ascent and Theorem~F, and the appendices. He made all the computations: the
+Lean~4 project of Table~\ref{tab:lean}, the Julia script of
+Table~\ref{tab:julia} with its exact rational evaluations, the
+numerical checks of the constants, and the figures; and he brought the work
+to its present state. James Montgomery Lockwood wrote Lean developments for
+the lattice part and proposed the block-projection metrics examined in
+earlier versions. Tristan Romanov contributed to the strong-coupling
+analysis, in particular the layer bound and the block responses, ran
+numerical experiments on the cube gap of $\SU(2)$, and supplied computing
+tools. Ikailo John Sessford formalised the strong-coupling analysis on
+periodic lattices in Lean~4, in the separate development described in the
+introduction. Ushashi Bhattacharya read the manuscript and verified its
+arguments and references. Sanjeevan Singha Roy read the manuscript.
+
+\section*{Open Gluon and Anaxia}
+
+Two tools built by D.~B. stand behind the way this project was organised.
+The workspace formerly named Open Gluon is now maintained as Anaxia at
+\url{https://github.com/anaxia-research/anaxia}. It keeps pinned
+copies of the mathematical libraries, the source record of the project and
+the checks in one reproducible place. Anaxia, the engine of the eBLLM
+project, is his construction engine: it stores each construction as a route
+with its input, its output, the obligations that must be discharged and a
+test that makes the route fail when an obligation is skipped, and it
+certifies finite statements in exact rational arithmetic. He wrote both and
+developed them from the constructions of his earlier papers. Three of their
+constructions were used here. The first is exact certification: the Julia script recomputes the
+constants of this paper, in exact rational arithmetic wherever the value is
+rational. The second is the transfer of a boundary response
+between a block law and its restriction to the complement of a rare event,
+which was developed inside this project in its earlier versions, where the
+cube condition of Section~\ref{sec:cube} originated. The third is tightness with observables that do not
+escape to infinite energy, the route whose failure test, that a unit
+normalisation does not prevent the mass from escaping, is illustrated by
+Theorem~\ref{thm:haarlimit}. The engine proposes routes and tests them;
+every statement of this paper is proved in the text.
+
+\section*{Declarations}
+
+\emph{Data and code availability.} The supporting Lean~4, Julia and Python
+source, manuscript source and verification records are available at
+\url{https://github.com/anaxia-research/4Y-M}.
+Anaxia, the construction workspace formerly named Open Gluon, is available at
+\url{https://github.com/anaxia-research/anaxia}.
+
+\emph{Funding.} No funding of any kind, internal or external, was received
+for this work. The authors met its costs themselves; U.~B. and S.~S.~R. took
+part in their own time and with their own means.
+
+\emph{Competing interests.} None of the authors has a competing interest,
+and neither do the institutions with which they are or were affiliated,
+which had no part in the work.
+
+\emph{Ethics.} The work raises no ethical question; it involves no human
+participants, no animals and no personal data.

@@ -1,0 +1,37 @@
+# Weak Coupling and the Yang–Mills Mass Gap
+
+Research revision v2, 18 November 2026. Six-author list retained from the published preprint v1.
+
+## Current files
+
+- `YangMills.tex`: sole manuscript entry point; compile with pdfLaTeX.
+- `sec/06d_singlecube.tex`: positive torus systems, one-cube comparison, ascent and zero–one law.
+- `sec/06e_continuum.tex`: physical-gap transfer theorem and explicit Clay obligations.
+- `sec/06f_replica.tex`: the exact Wilson replica response and tilted conditional trace factorisation.
+- `sec/06g_kernel.tex`: an explicit finite-volume gap at every positive coupling and a gauge-invariant large-field witness for deterioration of a global kernel certificate.
+- `sec/06h_retention.tex`: spectral retention and the exact Wilson Dirichlet form.
+- `sec/06i_fisher.tex`: volume-independent one-link conditional Wilson comparison and the tilted score criterion.
+- `app/L_flow.tex`: support-preserving regularisation and reflection-positivity error bounds.
+- `app/K_singlecube.tex`: exact rational constants and the zero-eigenvalue convention.
+- `anc/single_cube_constants.py`: standalone exact rational certificates.
+- `PRESERVATION-MANIFEST.json`: baseline hashes and the complete modification list.
+- `RESUBMISSION-NOTES.md`: version notes for the published-preprint revision.
+
+## Mathematical scope
+
+The single-cube theorem derives a continuum gap of at least `log(63/32)/t0` from a bound at the actual tuned Wilson couplings and a compatible Wightman limit. The replica construction identifies the precise signed covariance estimate required for that bound. The kernel witness explains the failure of a global pointwise contraction shortcut. The retention results separate a nonvacuum continuum excitation from a lower spectral gap. The actual uniform Wilson estimates and a nontrivial continuum construction for every compact simple group remain unproved. This revision is not an unconditional Clay solution.
+
+## Data and code availability
+
+The manuscript links the project repository, https://github.com/anaxia-research/4Y-M, and the former Open Gluon workspace now at https://github.com/anaxia-research/anaxia, for supporting code and verification records. No release or Zenodo deposit is requested for this revision.
+
+## Compilation
+
+From this directory run `pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error YangMills.tex` at least twice until cross-references settle. There is no table of contents and no line numbering. The six new diagrams are drawn with TikZ.
+
+
+
+
+
+
+The current compiled manuscript has 178 pages. VERIFICATION.md records executed checks and formal verification status. BIBLIOGRAPHY-AUDIT.md records reference evidence. No release or DOI was created. The upload record identifies the final repository commit when the authorised push completes.

@@ -1,0 +1,10 @@
+{
+  "schema": "yang-mills-axiom-audit-v1",
+  "theorem_count": 1192,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,210 @@
+{
+  "modules": [
+    {
+      "path": "YangMills/AveragedCondition.lean",
+      "audited_source_sha256": "706865487073ce6abead07bb1d2536ff026291c5a006ff08099106029b17b96c",
+      "committed_source_sha256": "5fe30b44b8b93416819cbb97accb752064cc90c049dbc664483df61a57e6345a",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/BoundEquiv.lean",
+      "audited_source_sha256": "0b845fd3d809c7f7a5a5d1b4812cf994baf92c7df3a00e63b3157df7e740c705",
+      "committed_source_sha256": "574bc2099a26fbf894b5cce7d38f6bec513f6192ca2f3d76899e56879c761bac",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/CountSectors.lean",
+      "audited_source_sha256": "9260d55340b6ce7a46de032b4638c329bc670147b66a4b67964048e0e91220db",
+      "committed_source_sha256": "425830f813969eeff7eb0e8d7aaf11658433f0b4f1cfacde0d66402ecf446f01",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/CumulantCounterexample.lean",
+      "audited_source_sha256": "f208829d6d1d44fce86a105c3fd4833c0782305378526bfb3edb3f0155ad3ea8",
+      "committed_source_sha256": "df4dd259fe148dcaecea906f4310b12e7846a673f939f0f75d0d9e81c279e015",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/ErrorStableAscent.lean",
+      "audited_source_sha256": "3a1422153b58eb94a76f1fb51cb70b2eb79eb7810008d66e573ae32de53afaf9",
+      "committed_source_sha256": "0dcfd38b3c44d82067fed702b1c2db6c7bb682bae422f2bf09f56ed52c199fff",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/GapFree.lean",
+      "audited_source_sha256": "072b45a90de14acc341a59a625dcaae329cf1ba8dd60aa96944e2fbaa49fab24",
+      "committed_source_sha256": "01f7e20c6a9cce6e8fc35075e22df4d510dd9510509fb2e4a57149f8a262f2d2",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/HolleyStroock.lean",
+      "audited_source_sha256": "c3029d3f8d737f359fbb7cb21a9d847c5abed866a01c71610e1283fb663ab67f",
+      "committed_source_sha256": "af4d443a8d647310796fd08c7b6451a676ab3587994c996cabe8d86b24ea7776",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/LimitRatio.lean",
+      "audited_source_sha256": "4d4db441ddb2f241fbb1bbe965a188570009286f3d3c0f3ceb398d522d669205",
+      "committed_source_sha256": "f55a5d842588eb86c7518b31c6c7ef013f099749b6c8f0201de04eaf890704ad",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneCube.lean",
+      "audited_source_sha256": "b47c3cfc46efcebdd66494bef7b1680eeb32d3fd0056aef89750b849f36caf84",
+      "committed_source_sha256": "f0fa8d786d6a129c7d1a8a618f50475503bb7f16c2fda0e3d00985081a5e6124",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneScale.lean",
+      "audited_source_sha256": "937606ec12231db227578bad29c8850e9b9cff3e05b499b3eccb5608a86605e3",
+      "committed_source_sha256": "e5e6b4a3727f5054cd49b10672959d4940a68cef6f7d1ae79111c31e1b78f85b",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/RunningCoupling.lean",
+      "audited_source_sha256": "82f0823ecdcac7c1d16c4d7465147e19326d71885e801949506a4ec5c0b9a8f2",
+      "committed_source_sha256": "418047eafc51f217cdb31ffa99190b17549d2af00494ae5efedd44a532894224",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/SpectralNoGo.lean",
+      "audited_source_sha256": "4587e88ea6fba93ee9d130c029a3273b952d61aadbe56b3178705d5f0d9fe6ba",
+      "committed_source_sha256": "6c34ed4acc736d1392711eff37ebfe57f5d19a343d73ba6418ced9ee9ba15264",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/WilsonAction.lean",
+      "audited_source_sha256": "93a1d81d93d09e5142e88a15b9d1576dacbc0e9492285707988725bb10c6a18e",
+      "committed_source_sha256": "742dd57421f38cc0ec13077de595bfc1a77161ed3a5d328910ee4eec0a5f007f",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneCube/Chebyshev.lean",
+      "audited_source_sha256": "8f5f658ba60e168d5f6baa094e12f53f935106adeb9c45d6d9c717c3f37fef0d",
+      "committed_source_sha256": "91085e088aac898477fe0be2492cc905dde11451d4ff820c5ae52d441fe08c96",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneCube/Constants.lean",
+      "audited_source_sha256": "a584d0ce0d837048c338d875cd247b6eb518876ea67167b405e73296938741e9",
+      "committed_source_sha256": "6b3c23a2fdcc8bf4ea827aea335c11b8479a5b12ac23a0ad9c3536d5b67bd298",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneCube/Counting.lean",
+      "audited_source_sha256": "222e24d39e07493a3437fbf6fe9e332db96e733d1161f23283ec7bf46825f1ef",
+      "committed_source_sha256": "75bd454333574a4360d8d94c167237f1a8f8b74f4370dd78bed9cea457da3617",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneCube/Enclosures.lean",
+      "audited_source_sha256": "84d5c80da36508fac524f0ba0184e1c696250a7e3db5e08be539dfe737c58840",
+      "committed_source_sha256": "84d5c80da36508fac524f0ba0184e1c696250a7e3db5e08be539dfe737c58840",
+      "difference": "none"
+    },
+    {
+      "path": "YangMills/OneCube/Fourier.lean",
+      "audited_source_sha256": "35dc09af074ad3fda0e9b7e8e1def50c371b04f16fbeaa68eb7fccfec2690068",
+      "committed_source_sha256": "4a703041ebec84daf4b6207ad247c46c78c96aa58753f164554b9a38b7376345",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneCube/Haar.lean",
+      "audited_source_sha256": "eccf1d194cc28364bcd11968dffca1f202e5c0ed0251ae5f254a9efae014cf87",
+      "committed_source_sha256": "23187bcf97ac00d9e0f1a45522527c4b41d046c351c4aa521ac7dc389013ce1a",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneCube/LemmaW.lean",
+      "audited_source_sha256": "a2535318cac78d79e540b9832b45e919e6d0e74b4e91158eab5910d502c097c3",
+      "committed_source_sha256": "db6c6bddfc07f0787e11fb839dd7e117e0079dc6f318503469785047b8c8f1c3",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneCube/Tables.lean",
+      "audited_source_sha256": "eac783202a60a860af862776abe0390476cb9180f7a266b7743254673248332f",
+      "committed_source_sha256": "a26ad79a7b7056434af8a45ba62e3d0d6bf3d67781a29a8bacefb72b2af2742f",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/OneCube/Transcendental.lean",
+      "audited_source_sha256": "8f1002517455f2a1b8527d9df376d7eb3cb0dcfa9f4c98938e6b33a5070f1014",
+      "committed_source_sha256": "efaebabffced1420c6c91f0dea4218218860f10a169d1ce23e52e5cc8cb2ab92",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/BlockGauge.lean",
+      "audited_source_sha256": "a9937ccff8d702cb75d54396d587b84f5f89f1a09fa76bc01d7c7159254f1663",
+      "committed_source_sha256": "a373439abe33323b50a22ec6a4b03923ed532d76badc6801397d504602fdf372",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/CouplingMinimality.lean",
+      "audited_source_sha256": "a20829b9136aef18227d4989a304f63c23c8c4f2c06609d0d3fa91bd3f85ddd1",
+      "committed_source_sha256": "60875644dd9bcb1b9b2f625c3c6459238f30e5e3f6e7f30d1401ed955bb017f1",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/CouplingMinimizer.lean",
+      "audited_source_sha256": "ec15778de6541082a26c959058c235a68408e9e3a5ad3765db1e233fc5f996a6",
+      "committed_source_sha256": "ea37f96056984cc5922f07bc362e30f81342a7d7b4143eeb91ff9107ce32e9f1",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/CubeOpen.lean",
+      "audited_source_sha256": "583718fb717282e2d6e5c0da17336fed1f9781ea49fd021f2ce5f280dad6aa0b",
+      "committed_source_sha256": "dac91a8b8f2b568f22c22a122cf0af910e982ba665b2e2807f3d7fdec9513b8a",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/DobrushinComparison.lean",
+      "audited_source_sha256": "65d0cd07a16c60bdfea06b80a28d2f01170360fa069358732e22e914e2508577",
+      "committed_source_sha256": "1ff17d1e0bf7271837bff93df2f6afc43eb8192eae7782356a666000b8f97820",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/GaugeFix.lean",
+      "audited_source_sha256": "7d710e9ef396a708553ec78b82056a3d180a74f01a928f70ea2a581e136dd3c3",
+      "committed_source_sha256": "6791f785527c327b549f2881b9643fce00f8dbfdb602ff3f5af9b6bf9015ea80",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/IslandLayer.lean",
+      "audited_source_sha256": "97146092be3bad08535df9739ca7c7b5e1cf682509c588f703789cb811faef50",
+      "committed_source_sha256": "143780447980bab10249417620cd7c34310b733f0de9dd3d72b2fe3d9b9d011f",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/QxCoefficients.lean",
+      "audited_source_sha256": "8562d9c2ce3a2c1ef48f9ba339908dc339bcdefa58e505b14f9e0f4fc5c2134f",
+      "committed_source_sha256": "1e92edb75a49bcf6685cf28a36c4e4f54890411eb3d42f184e73a2bb8ca2719e",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/Thresholds.lean",
+      "audited_source_sha256": "7c068f151511c4b92dd3f244e9a7b94c00124e4f065d016a44f3e888d72d80fd",
+      "committed_source_sha256": "5e7360fc9ca05c7ef0437310cbd837087f6014d6ceea7b18fce76948b60abde4",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/WassersteinBridge.lean",
+      "audited_source_sha256": "1f409c2f4e9a15fc54854d6a636dc484732059abb6b0d323012466b401d60c19",
+      "committed_source_sha256": "0600c83108baa1532eb136923222b87d818c12a8d462735167b51e4483f51d00",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills/StrongCoupling/ZonalBound.lean",
+      "audited_source_sha256": "15aad8bca1347c8752ebfb4c84d151d12c4ae401575cd570c1b60f5ee3314143",
+      "committed_source_sha256": "53b1e142a90a9916906579c65fd60bbff50491f1e761d9f0f2479db543a2f701",
+      "difference": "CRLF-to-LF only"
+    },
+    {
+      "path": "YangMills.lean",
+      "audited_source_sha256": "455852cf0360848a336695aa383244e558e93a540de2f39e8d610ed000155531",
+      "committed_source_sha256": "525707c2b8960ee7b9f43e10b4bf219067d9f8a9056eee2c4caf52555848aaf3",
+      "difference": "CRLF-to-LF only"
+    }
+  ],
+  "status": "all sources match previously compiled code up to line endings; new analytical proofs are not Lean formalised",
+  "module_count": 34
+}

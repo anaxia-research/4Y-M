@@ -1,0 +1,277 @@
+\section{Positive torus systems and a single-cube datum}\label{sc:sec:psts}
+
+The one-scale criterion of Theorem~\ref{thm:F} asks for a window of box shapes.
+We now replace that window by one cube and improve the physical gap constant.
+Every argument in this section and the next is a theorem about positive transfer
+operators and permutation symmetry. These properties do not supply the
+weak-coupling datum; their role is to propagate it once it has been proved.
+The new notation is local to these sections: $N_c$ is the dimension of a faithful
+unitary representation, while $N=1/a_N$ is the inverse lattice spacing.
+
+\subsection{The positive torus system}
+For $n=(n_1,n_2,n_3,n_4)\in\Z^4$ with all $n_\mu\ge3$ let $\Lambda(n)=\prod_{\mu=1}^4\Z/n_\mu\Z$ and $|n|=n_1n_2n_3n_4$. A \emph{spatial torus} is a triple $s=(s_1,s_2,s_3)$ of integers $s_j\ge3$, with volume $\Vol{s}=s_1s_2s_3$. We write $(s,M)$ for $(s_1,s_2,s_3,M)$ and call its last entry time; $L^3$ stands for $(L,L,L)$ and $L^4$ for $(L^3,L)$, so that $\cube{T}$ is the spatial cube of side $2T$.
+
+A \emph{positive symmetric torus system} (\PSTS) is a function $n\mapsto Z(n)$ on $\{n\in\Z^4:n_\mu\ge3\}$ with the following two properties.
+\begin{enumerate}[label=(P\arabic*),leftmargin=3em]
+\item $Z(n)\ge1$, and $Z(\pi n)=Z(n)$ for every permutation $\pi$ of the four entries of $n$.
+\item For every spatial torus $s$ there is a nonzero self-adjoint Hilbert--Schmidt operator $\TT_s\ge0$ on a separable Hilbert space $\Kspace_s$ such that $\Zpart{s}{M}=\Tr\TT_s^M$ for all $M\ge3$.
+\end{enumerate}
+The system is \emph{simple} if the largest eigenvalue of every $\TT_s$ is simple. Simplicity is not part of the definition. The proofs below use the eigenvalue list with multiplicity; Theorem~\ref{sc:thm:ascent} subsequently proves simplicity on the large cubes covered by the datum.
+
+Let $\lzero(s)=\norm{\TT_s}>0$; it is an eigenvalue of finite multiplicity, and $E_0(s)=-\log\lzero(s)$. The operator $R_s=\TT_s/\lzero(s)$ has eigenvalues $1=r_0(s)\ge r_1(s)\ge r_2(s)\ge\dots\ge0$, listed with multiplicity, and $\sum_ir_i(s)^2<\infty$. If there is only one nonzero eigenvalue, append zeros to the eigenvalue list. We use $-\log0=+\infty$, so a rank-one transfer operator has no finite-energy excited state. Thus $r_1(s)=1$ exactly when $\lzero(s)$ is degenerate, and $-\log r_1(s)$ is the spectral gap of $\TT_s$ in lattice units. For $T\ge2$ the operator $R_s^T$ is trace class, and we set
+\begin{equation}\label{sc:eq:normalised}
+\Zs{s}{T}=\Tr R_s^T=\sum_{i\ge0}r_i(s)^T,\qquad \XT{s}{T}=\log\Zs{s}{T},\qquad \Dexc{s}{T}=\Zs{s}{T}-1 .
+\end{equation}
+For $T\ge3$ one has $\Zs{s}{T}=\Zpart{s}{T}/\lzero(s)^T$, and the purity defect is
+\begin{equation}\label{sc:eq:psi-def}
+\psiT{s}{T}=2\log\Zpart{s}{T}-\log\Zpart{s}{2T}=2\XT{s}{T}-\XT{s}{2T}.
+\end{equation}
+Multiplying $Z(n)$ by $e^{a|n|}$, $a\in\R$, replaces $\TT_s$ by $e^{a\Vol{s}}\TT_s$ and changes neither $R_s$ nor any of the quantities in \eqref{sc:eq:normalised} and \eqref{sc:eq:psi-def}.
+
+\smallskip
+\noindent\emph{The datum.} Let $\Tzero\ge3$ be an integer. The system satisfies \Mcirc{} at $\Tzero$ if
+\begin{equation}\label{sc:eq:datum-M}
+\psiT{\cube{T_0}}{T_0}\le\dconst,\qquad\text{equivalently}\qquad \Zpart{\cube{T_0}}{T_0}^2\le e^{\dconstinl}\,Z\bigl((2T_0)^4\bigr),
+\end{equation}
+and it satisfies \Bcirc{} at $\Tzero$ if
+\begin{equation}\label{sc:eq:datum-B}
+\XT{\cube{T_0}}{T_0}\le\xconst .
+\end{equation}
+By \cref{sc:lem:purity-conversion}, \Mcirc{} at $T_0$ implies \Bcirc{} at $T_0$, which in turn implies $\psiT{\cube{T_0}}{T_0}\le1/4096$. For the continuum family of Definition~\ref{def:family} we say that \Mcirc{} holds \emph{along the tuning} with $\tzero>0$ if for every sufficiently large $p$ there is $N_0(p)$ such that for every $N\ge N_0(p)$ of the family the Wilson system at coupling $\betaNp$ satisfies \Mcirc{} at some integer $\Tzero$ with $3\le\Tzero\le N\tzero$; the same convention is used for \Bcirc{}. The strong-coupling and two-dimensional results retained above do not establish this datum along a four-dimensional weak-coupling tuning.
+
+\subsection{Wilson systems and the scope in the gauge group}
+\begin{proposition}[Wilson positivity]\label{sc:prop:wilson}
+For every closed subgroup $G\subset\U(N_c)$ and $\beta\ge0$, the Wilson
+partition functions with weight
+$\exp(N_c\beta\sum_p\ReTr Q_p)$ form a simple positive symmetric torus system.
+The criterion therefore applies to each compact simple gauge group whenever
+its single-cube datum holds; it does not assert that datum for any group.
+\end{proposition}
+\begin{proof}
+Use the transfer kernel of Lemma~\ref{lem:transfer} on a spatial torus $s$.
+Its proof uses only compactness, Haar measure and the faithful unitary
+representation; the argument does not use simplicity or connectedness of $G$.
+For clarity, positivity follows from $\mathbb T_s=D\Pi K\Pi D$, where $D$ is
+multiplication by the positive square root of the spatial weight, $\Pi$ is
+Haar averaging over gauge transformations, and
+$K(Q,Q')=\exp(N_c\beta\sum_e\ReTr(Q_eQ_e'^*))$. Identify matrix entries with
+real coordinates. Expanding the exponential makes $K$ a uniformly convergent
+nonnegative sum of tensor inner-product kernels, hence $K\ge0$ and
+$\mathbb T_s\ge0$. The transfer kernel is continuous, symmetric and strictly
+positive on the compact configuration space. It is Hilbert--Schmidt and its
+top eigenvalue is simple by the positivity argument in
+Lemma~\ref{lem:transfer}. Splitting the spatial plaquette action equally
+between adjacent slices and integrating the temporal links gives
+$Z(s,M)=\operatorname{Tr}\mathbb T_s^M$. Permuting the four lattice directions
+preserves Haar measure and the real plaquette trace, so $Z$ is symmetric.
+Finally Jensen's inequality gives $Z(n)\ge1$: each plaquette is Haar distributed
+under the product Haar law, and $\int_G g\,dg$ is the orthogonal projection
+onto invariant vectors, whose real trace is nonnegative. This proves (P1)
+and (P2), including simplicity.
+\end{proof}
+
+The conclusion is conditional even for a connected simply connected group.
+For a quotient group, or a theory with extra flux sectors, the entire thermal
+trace must satisfy the datum; it is insufficient to check only one selected
+sector. Thus the generality of the transfer argument is not a proof of its
+weak-coupling hypothesis for every compact simple group.
+
+\subsection{Trace inequalities}
+\begin{lemma}[elementary trace bounds]\label{sc:lem:E1-E3}
+Let $Z$ be a \PSTS{} and $s$ a spatial torus.
+\begin{enumerate}[label=(E\arabic*),leftmargin=3em]
+\item $\lzero(s)=\lim_{M\to\infty}\Zpart{s}{M}^{1/M}\ge1$, so $E_0(s)\le0$; $\lzero(s)$ and $\Zs{s}{M}$, $M\ge3$, are invariant under permutations of $s_1,s_2,s_3$.
+\item $1\le\Zs{s}{M}\le\Zs{s}{2}<\infty$, and $M\mapsto\Zs{s}{M}$ is nonincreasing on $M\ge2$. For $M',M''\ge2$, $\Dexc{s}{M'+M''}\le\Dexc{s}{M'}\Dexc{s}{M''}$. If $r_1(s)\le e^{-\delta}$ with $\delta\ge0$, then $\Dexc{s}{M}\le e^{-\delta(M-M')}\Dexc{s}{M'}$ for $M\ge M'\ge2$.
+\item For $T\ge3$ let $p_i=r_i(s)^T/\Zs{s}{T}$. Then $e^{-\psiT{s}{T}}=\sum_ip_i^2$, $p_0\ge p_i$ for all $i$, and
+\begin{equation}\label{sc:eq:X-psi}
+\XT{s}{T}\le\psiT{s}{T}\le2\,\XT{s}{T}.
+\end{equation}
+The constants $1$ and $2$ cannot be improved.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(E1) By (P2), $\Zpart{s}{M}=\sum_i\lambda_i^M$ over the eigenvalues $\lambda_i\ge0$ of $\TT_s$, with multiplicity. For $M\ge3$, $\lzero^M\le\Zpart{s}{M}\le\lzero^{M-2}\sum_i\lambda_i^2$, so $\Zpart{s}{M}^{1/M}\to\lzero(s)$, and $\lzero(s)\ge1$ because $Z\ge1$. By (P1), $\Zpart{s}{M}$ is invariant under permutations of $s$ at fixed $M$, hence so are $\lzero(s)$ and $\Zs{s}{M}=\Zpart{s}{M}/\lzero(s)^M$.
+
+(E2) $\Zs{s}{M}=\sum_ir_i^M$ with $r_0=1$ and $0\le r_i\le1$ gives the first two claims. Next, $\Dexc{s}{M'+M''}=\sum_{i\ge1}r_i^{M'}r_i^{M''}\le\sum_{i\ge1}r_i^{M'}\sum_{k\ge1}r_k^{M''}$, the omitted cross terms being nonnegative. If $r_i\le e^{-\delta}$ for $i\ge1$, then $\Dexc{s}{M}=\sum_{i\ge1}r_i^{M'}r_i^{M-M'}\le e^{-\delta(M-M')}\Dexc{s}{M'}$.
+
+(E3) By \eqref{sc:eq:psi-def}, $e^{-\psiT{s}{T}}=\Zs{s}{2T}/\Zs{s}{T}^2=\sum_ip_i^2$, and $p_0=1/\Zs{s}{T}\ge p_i$ since $r_i\le1$. Hence $p_0^2\le\sum_ip_i^2\le p_0\sum_ip_i=p_0=e^{-\XT{s}{T}}$, which is \eqref{sc:eq:X-psi}. For sharpness take $Z(n)=1+q\rho^{|n|}$ with an integer $q\ge1$ and $0<\rho<1$. It is a \PSTS{} with $\TT_s=\mathrm{diag}(1,\rho^{\Vol{s}},\dots,\rho^{\Vol{s}})$ on $\C^{1+q}$. With $a=\rho^{\Vol{s}T}$ one has $\XT{s}{T}=\log(1+qa)$ and $\psiT{s}{T}=2\log(1+qa)-\log(1+qa^2)$. As $\rho\uparrow1$ at fixed $q$ both tend to $\log(1+q)$, so $\psi/X\to1$; as $\rho\downarrow0$ with $q=1$, $\psi/X\to2$.
+\end{proof}
+\subsection{Exchange of directions and elongation}
+
+Permutation symmetry lets one read the same torus with a spatial direction as time. For fixed transverse sides this turns the thermal trace of a long box into that of a short box, at the price of a free energy per unit length. The exchange identity follows directly from the two readings of the same partition function.
+
+\begin{lemma}[exchange of directions]\label{sc:lem:exchange}
+Let $Z$ be a \PSTS{}, fix integers $b,c\ge3$, and put $g(\ell)=\log\lzero(\ell,b,c)$ for $\ell\ge3$.
+\begin{enumerate}[label=(\alph*)]
+\item The limit $\bar e=\lim_{M\to\infty}g(M)/M$ exists and equals $\inf_{\ell\ge3}g(\ell)/\ell\in[0,g(3)/3]$. The function $\zeta(\ell)=g(\ell)-\ell\bar e$ satisfies $\zeta(\ell)=\lim_{M\to\infty}M^{-1}\log\Zs{(M,b,c)}{\ell}$, and it is nonnegative and nonincreasing on $\ell\ge3$.
+\item For all integers $m,T\ge3$,
+\begin{equation}\label{sc:eq:exchange}
+\log\Zs{(m,b,c)}{T}=m\,\zeta(T)-T\,\zeta(m)+\log\Zs{(T,b,c)}{m}.
+\end{equation}
+\item For every integer $T\ge3$, $\log\Zs{(2T,b,c)}{T}=\log\Zs{(T,b,c)}{2T}+T\delta_T$ with $\delta_T=2\zeta(T)-\zeta(2T)\in[\zeta(T),2\zeta(T)]$.
+\end{enumerate}
+By (E1) the same holds with the varying side in any of the three spatial positions.
+\end{lemma}
+
+\begin{proof}
+By (P1), $Z((\ell,b,c),M)=Z((M,b,c),\ell)$ for $\ell,M\ge3$, that is,
+\begin{equation}\label{sc:eq:exchange-basic}
+M\,g(\ell)+\log\Zs{(\ell,b,c)}{M}=\ell\,g(M)+\log\Zs{(M,b,c)}{\ell}.
+\end{equation}
+Divide by $\ell M$. Since $\log\Zs{(M,b,c)}{\ell}\ge0$ and $0\le\log\Zs{(\ell,b,c)}{M}\le\log\Zs{(\ell,b,c)}{2}<\infty$ by (E2), $g(M)/M\le g(\ell)/\ell+\log\Zs{(\ell,b,c)}{2}/(\ell M)$. Hence $\limsup_Mg(M)/M\le\inf_\ell g(\ell)/\ell\le\liminf_Mg(M)/M$, which gives $\bar e$ and the formula for it; $\bar e\ge0$ because $g\ge0$ by (E1). Dividing \eqref{sc:eq:exchange-basic} by $M$ and letting $M\to\infty$ gives $g(\ell)=\ell\bar e+\lim_MM^{-1}\log\Zs{(M,b,c)}{\ell}$, the formula for $\zeta$. Then $\zeta\ge0$ since $\Zs{(M,b,c)}{\ell}\ge1$, and $\zeta$ is nonincreasing because $\ell\mapsto\Zs{(M,b,c)}{\ell}$ is, by (E2). Substituting $g(\ell)=\zeta(\ell)+\ell\bar e$ and $g(M)=\zeta(M)+M\bar e$ in \eqref{sc:eq:exchange-basic}, the terms $\ell M\bar e$ cancel, and renaming $(M,\ell)$ as $(m,T)$ gives \eqref{sc:eq:exchange}. Part (c) is \eqref{sc:eq:exchange} at $m=2T$, and $\zeta(T)\le\delta_T\le2\zeta(T)$ follows from $0\le\zeta(2T)\le\zeta(T)$.
+\end{proof}
+
+Since $\zeta(m)\ge0$ and the last term of \eqref{sc:eq:exchange} does not increase with $m$, one side of a box can be made long at a cost proportional to its length.
+
+\begin{lemma}[elongation]\label{sc:lem:elongation}
+Let $Z$ be a \PSTS{}, $b,c\ge3$, and let $m\ge m_0>T\ge3$ be integers. Put $L_0=\log\Zs{(m_0,b,c)}{T}$ and $Y_0=\log\Zs{(T,b,c)}{m_0}$. Then $0\le Y_0\le L_0$, $(m_0-T)\,\zeta(T)\le L_0-Y_0$, and
+\begin{equation}\label{sc:eq:elongation}
+\log\Zs{(m,b,c)}{T}\le\frac{m}{m_0-T}\,(L_0-Y_0)+Y_0\le\frac{m}{m_0-T}\,\log\Zs{(m_0,b,c)}{T}.
+\end{equation}
+Consequently $\psiT{(m,b,c)}{T}\le\frac{2m}{m_0-T}\,\psiT{(m_0,b,c)}{T}$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{sc:eq:exchange} at $m_0$, $L_0-Y_0=m_0\zeta(T)-T\zeta(m_0)\ge(m_0-T)\zeta(T)\ge0$, because $0\le\zeta(m_0)\le\zeta(T)$; and $Y_0\ge0$ by (E2). By \eqref{sc:eq:exchange} at $m$, with $\zeta(m)\ge0$ and $\Zs{(T,b,c)}{m}\le\Zs{(T,b,c)}{m_0}$ from (E2),
+\[
+\log\Zs{(m,b,c)}{T}\le m\,\zeta(T)+Y_0\le\frac{m}{m_0-T}(L_0-Y_0)+Y_0 .
+\]
+As $m/(m_0-T)\ge1$, the right-hand side is at most $\frac{m}{m_0-T}L_0$. The last claim follows from \eqref{sc:eq:X-psi}: $\psiT{(m,b,c)}{T}\le2\log\Zs{(m,b,c)}{T}\le\frac{2m}{m_0-T}L_0\le\frac{2m}{m_0-T}\psiT{(m_0,b,c)}{T}$.
+\end{proof}
+
+
+\subsection{From purity to thermal pressure}
+\begin{lemma}[purity conversion]\label{sc:lem:purity-conversion}
+Let $Z$ be a \PSTS{}, $s$ a spatial torus, $T\ge3$ and $0<x\le1/8$. If $\psiT{s}{T}\le2x-3x^2$, then $\XT{s}{T}\le x$. In particular \Mcirc{} at $T_0$ implies \Bcirc{} at $T_0$, and \Bcirc{} at $T_0$ implies $\psiT{\cube{T_0}}{T_0}\le1/4096$.
+\end{lemma}
+
+\begin{proof}
+Let $P=e^{-\psiT{s}{T}}=\sum_ip_i^2$ and $q=p_0=e^{-\XT{s}{T}}$, with $p_i$ as in (E3). Then $P\le q$ by (E3), and $P\le q^2+\bigl(\sum_{i\ge1}p_i\bigr)^2=h(q)$ with $h(y)=y^2+(1-y)^2$. Since $\psiT{s}{T}\le2x\le1/4$, $q\ge P\ge1-\psiT{s}{T}\ge3/4$. Suppose $\XT{s}{T}>x$, that is, $q<e^{-x}$. Now $e^{-x}\le q_U=1-x+\frac12x^2\le1$ and $h$ is strictly increasing on $[\frac12,1]$, so
+\[
+P\le h(q)<h(q_U)=1-2x+3x^2-2x^3+\tfrac12x^4\le1-2x+3x^2 .
+\]
+On the other hand $P=e^{-\psiT{s}{T}}\ge1-\psiT{s}{T}\ge1-2x+3x^2$, a contradiction. For $x=\xconstinl$, $2x-3x^2=16381/2^{26}$, and $\dconstinl\le16381/2^{26}$ because $16381\cdot4097=67\,112\,957\ge2^{26}=67\,108\,864$. So \Mcirc{} at $T_0$ implies \Bcirc{} at $T_0$.\footnote{The converse fails at the same $T_0$. For the \PSTS{} $Z(n)=1+\rho^{|n|}$ with $\rho^{8T_0^4}=a=e^{\xconstinl}-1$ one has $\XT{\cube{T_0}}{T_0}=\xconstinl$ and $\psiT{\cube{T_0}}{T_0}=1/4096-\log(1+a^2)>\dconstinl$, since $a=e^{1/8192}-1<1/8191$ (from $e^y-1\le y/(1-y)$ for $0\le y<1$), so $\log(1+a^2)\le a^2<1/8191^2<1/(4096\cdot4097)$.} The last claim is \eqref{sc:eq:X-psi}.
+\end{proof}
+\section{A single cube controls all larger scales}\label{sc:sec:ascent}
+Throughout this section $Z$ is a positive symmetric torus system; simplicity
+of its largest eigenvalue is not assumed. Write
+$X(T)=\XT{\cube T}{T}$ for $T\ge3$. The trace bounds give
+\begin{equation}\label{sc:eq:gap-step}
+\Dexc{s}{M'+M''}\le\Dexc{s}{M'}\Dexc{s}{M''},\qquad
+\Dexc{s}{M}\le r_1(s)^{M-M'}\Dexc{s}{M'}\quad(M\ge M'\ge2).
+\end{equation}
+Indeed $\Dexc{s}{M}=\sum_{i\ge1}r_i^{M}$ and $0\le r_i\le r_1\le1$.
+Also $r_1(s)^T\le\Dexc{s}{T}$ and
+$\XT{s}{T}=\log(1+\Dexc{s}{T})\le\Dexc{s}{T}$.
+
+\subsection{The comparison of boxes}
+\begin{theorem}[one box controls all larger boxes]\label{sc:thm:cube-control}
+Let $T\ge3$, and let $a=(a_1,a_2,a_3)$ and $t=(t_1,t_2,t_3)$ be spatial tori with $t_j\ge a_j>T$ for $j=1,2,3$. Then
+\begin{equation}\label{sc:eq:box-control}
+\log\Zs{t}{T}\le\prod_{j=1}^3\frac{t_j}{a_j-T}\cdot\log\Zs{a}{T}.
+\end{equation}
+In particular every spatial torus $t$ with all sides at least $2T$ satisfies
+\begin{equation}\label{sc:eq:cube-control}
+\log\Zs{t}{T}\le\frac{\Vol{t}}{T^3}\,X(T).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By \cref{sc:lem:elongation} with $(m,m_0,b,c)=(t_1,a_1,t_2,t_3)$, $\log\Zs{(t_1,t_2,t_3)}{T}\le\frac{t_1}{a_1-T}\log\Zs{(a_1,t_2,t_3)}{T}$. By (E1), $\Zs{(a_1,t_2,t_3)}{T}=\Zs{(t_2,a_1,t_3)}{T}$, and the lemma with $(m,m_0,b,c)=(t_2,a_2,a_1,t_3)$ gives the factor $t_2/(a_2-T)$ and the box $(a_2,a_1,t_3)$. A third application, with $(m,m_0,b,c)=(t_3,a_3,a_1,a_2)$ after a permutation, gives the factor $t_3/(a_3-T)$ and a permutation of $a$. All sides that occur are at least $T+1\ge4$, all factors are at least $1$ and all logarithms are nonnegative, so the three bounds compose to \eqref{sc:eq:box-control}. For $a=(2T,2T,2T)$ the product is $\prod_jt_j/T=\Vol{t}/T^3$.
+\end{proof}
+\subsection{The ascent and the improved gap constant}
+Put $f(x)=(e^{64x}-1)^2$, $u=32/63$ and $\theta=127/126$.
+The proof below derives a superexponentially decreasing envelope from one
+small datum; it does not estimate the value of that datum at weak coupling.
+\begin{theorem}[ascent from one cube]\label{sc:thm:ascent}
+Let $T_0\ge3$, $T_i=2^iT_0$, and suppose \Bcirc{} at $T_0$, that is $X(T_0)\le\xconstinl$. Put $x_0=\xconstinl$, $x_{i+1}=f(x_i)$ and $v_i=e^{64x_i}-1$. Then the following hold.
+\begin{enumerate}[label=(\alph*)]
+\item $X(T_i)\le x_i$ and $v_i\le u^{2^i}/64$ for every $i\ge0$, and every spatial torus $t$ with all sides at least $2T_i$ satisfies $\log\Zs{t}{T_i}\le x_i\Vol{t}/T_i^3$.
+\item If all sides of $t$ lie in $[2T_i,4T_i)$ for some $i\ge0$, in particular if $t=n^3$ with $n\ge2T_0$, then $r_1(t)\le u^{1/T_0}$. So $\lzero(t)$ is simple and the spectral gap $-\log r_1(t)$ is at least $T_0^{-1}\log\frac{63}{32}>0.677/T_0$.
+\item Every cube of side $n\ge2T_0$ satisfies $\Zs{n^3}{n}-1\le u^{n/(2T_0)}/4096$.
+\end{enumerate}
+Moreover \Bcirc{} at $T_0$ follows from \Mcirc{} at $T_0$, that is from $\Zpart{\cube{T_0}}{T_0}^2\le e^{\dconstinl}\Zpart{\cube{T_0}}{2T_0}$.
+\end{theorem}
+
+\begin{proof}
+(a) We prove $X(T_i)\le x_i$ by induction on $i$; given it, the last claim of (a) is \eqref{sc:eq:cube-control} at $T=T_i$. The case $i=0$ is \Bcirc{}. Let $s=(4T_i,4T_i,4T_i)=\cube{T_{i+1}}$. Its sides are at least $2T_i$ and $\Vol{s}/T_i^3=64$, so $\log\Zs{s}{T_i}\le64x_i$ and $\Dexc{s}{T_i}\le e^{64x_i}-1=v_i$. By \eqref{sc:eq:gap-step},
+\[
+X(T_{i+1})=\log\Zs{s}{2T_i}\le\Dexc{s}{2T_i}\le\Dexc{s}{T_i}^2\le v_i^2=x_{i+1}.
+\]
+For the numbers we show $v_i\le\theta^{-1}u^{2^i}/64$, which is stronger than the claim. We use $e^y-1\le y/(1-y)$ for $0\le y<1$. For $i=0$, $v_0=e^{1/128}-1\le1/127=\theta^{-1}u/64$. Suppose $v_i\le\theta^{-1}u^{2^i}/64$; then $v_i\le1/127$, and $y=64x_{i+1}=64v_i^2\le64/16\,129<1/252$, because $64\cdot252=16\,128$. Hence
+\[
+v_{i+1}=e^y-1\le\frac{252}{251}\,y\le\theta\cdot64v_i^2\le\theta\cdot64\,\theta^{-2}\frac{u^{2^{i+1}}}{4096}=\theta^{-1}\frac{u^{2^{i+1}}}{64},
+\]
+using $252/251\le127/126$, that is $252\cdot126=31\,752\le31\,877=251\cdot127$.
+
+(b) Since every side of $t$ is less than $4T_i$, $\Vol{t}<64T_i^3$, and (a) gives $\log\Zs{t}{T_i}\le64x_i$. Hence $r_1(t)^{T_i}\le\Dexc{t}{T_i}\le v_i\le u^{2^i}$ and $r_1(t)\le u^{2^i/T_i}=u^{1/T_0}<1=r_0(t)$, so $\lzero(t)$ is simple. For a cube of side $n\ge2T_0$ let $i$ be the largest index with $2T_i\le n$; then $n<4T_i$. The bound $\log\frac{63}{32}>0.677$ is among the certificates of \cref{app:sc-certificates}.
+
+(c) With this $i$ and $t=n^3$, the monotonicity in the time, $n\ge2T_i$, \eqref{sc:eq:gap-step} and the proof of (b) give
+\[
+\Dexc{t}{n}\le\Dexc{t}{2T_i}\le\Dexc{t}{T_i}^2\le v_i^2\le\frac{u^{2^{i+1}}}{4096}\le\frac{u^{n/(2T_0)}}{4096},
+\]
+because $n/(2T_0)<4T_i/(2T_0)=2^{i+1}$ and $u<1$.
+
+For the last sentence, \Mcirc{} at $T_0$ implies \Bcirc{} at $T_0$ by \cref{sc:lem:purity-conversion}, since $\dconstinl\le2x-3x^2$ at $x=\xconstinl$.
+\end{proof}
+\subsection{The zero--one law}
+
+Two one-step bounds hold in every \PSTS{}: for integers $T'\ge T\ge3$,
+\begin{equation}\label{sc:eq:one-step}
+X(T')\le8\Bigl(\frac{T'}{T}\Bigr)^3X(T),\qquad X(2T)\le f\bigl(X(T)\bigr).
+\end{equation}
+For the first, the cube $\cube{T'}$ has sides at least $2T$, so \eqref{sc:eq:cube-control} gives $\log\Zs{\cube{T'}}{T}\le8(T'/T)^3X(T)$, and $\Zs{\cube{T'}}{T'}\le\Zs{\cube{T'}}{T}$ because $T'\ge T$. The second is the induction step in the proof of \cref{sc:thm:ascent}(a) with $X(T)$ in place of $x_i$: for $s=(4T)^3$, $\Dexc{s}{T}\le e^{64X(T)}-1$, and $X(2T)=\log\Zs{s}{2T}\le\Dexc{s}{2T}\le\Dexc{s}{T}^2$.
+
+Let $(Z_{N,p})$ be a family of \PSTS{} indexed by integers $N,p\ge1$,\footnote{$N$ may run through an infinite set of positive integers, such as the arithmetic progression of Definition~\ref{def:family}; the proofs below are pointwise in $(N,p)$ and do not change.} and let $X_{N,p}(T)$ be $X(T)$ computed in $Z_{N,p}$. As in \cref{sc:sec:psts}, \Mcirc{} holds \emph{along the family} with $\tzero>0$ if for every sufficiently large $p$ there is $N_0(p)$ such that for every $N\ge N_0(p)$ the system $Z_{N,p}$ satisfies \Mcirc{} at some integer $T_0$ with $3\le T_0\le N\tzero$; the same convention is used for \Bcirc{}. For the continuum family of Definition~\ref{def:family}, $Z_{N,p}$ is the Wilson system at $\betaNp$, and this is \Mcirc{} along the tuning. The cube datum involves no $\Lp$; if $Z_{N,p}$ does not depend on $p$, the quantifier over $p$ is void. For $t>0$ put
+\[
+y(t)=\limsup_{p\to\infty}\,\limsup_{N\to\infty}\,X_{N,p}(\lfloor Nt\rfloor)\in[0,\infty],
+\]
+the free energy of the cube of physical side $2t$ at the temperature $1/t$, measured along the family.
+
+\begin{theorem}[zero--one law]\label{sc:thm:zero-one}
+The map $f$ has exactly one fixed point $x_c$ in $(0,\infty)$, and $x_c\in(1/4160,1/4159)$; moreover $f(x)<x$ on $(0,x_c)$ and $f(x)>x$ on $(x_c,\infty)$.
+\begin{enumerate}[label=(\alph*)]
+\item In every \PSTS{}, if $X(T_0)\le\xconstinl$ for an integer $T_0\ge3$, then $X(T)<u^{T/(2T_0)}/64$ for every integer $T\ge T_0$.
+\item For every $c\in(0,x_c)$ there is an integer $i_0(c)\ge0$ with $f^{i_0(c)}(c)\le\xconstinl$. In every \PSTS{}, if $X(T_1)\le c$ for an integer $T_1\ge3$, then $X(2^{i_0(c)}T_1)\le\xconstinl$, and hence $X(T)<u^{T/(2^{i_0(c)+1}T_1)}/64$ for every integer $T\ge2^{i_0(c)}T_1$.
+\item For a family $(Z_{N,p})$ as above, exactly one of the following holds:
+\begin{enumerate}[label=(\Roman*)]
+\item $y(t)\ge x_c$ for every $t>0$;
+\item there is $\tzero>0$ such that $y(t)\le u^{t/(2t_0)}/64=e^{-\Delta t/2}/64$ for every $t>\tzero$, where $\Delta=\tzero^{-1}\log\frac{63}{32}$.
+\end{enumerate}
+The following are equivalent: \textup{(II)}; \Mcirc{} along the family; \Bcirc{} along the family; $\lim_{t\to\infty}y(t)=0$; $y(t_1)<x_c$ for some $t_1>0$. If \Mcirc{} or \Bcirc{} holds along the family with $\tzero$, then \textup{(II)} holds with the same $\tzero$. In particular, if $y(t)\to0$ then $t^ay(t)\to0$ for every $a>0$: $y$ cannot tend to $0$ at only a power-law rate.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The functions $x\mapsto(e^{64x}-1)/x$ and $x\mapsto e^{64x}-1$ are positive and strictly increasing on $(0,\infty)$, and the second tends to $0$ as $x\downarrow0$. So $f(x)/x$, their product, increases strictly from $0$ to $\infty$. Hence $f$ has one positive fixed point $x_c$, with $f(x)<x$ below it and $f(x)>x$ above it. The comparisons $f(1/4160)<1/4160$ and $f(1/4159)>1/4159$ are certificates of \cref{app:sc-certificates}.
+
+(a) Let $T_i=2^iT_0$ and $x_i$, $v_i$ be as in \cref{sc:thm:ascent}. By the second bound of \eqref{sc:eq:one-step}, the monotonicity of $f$ and induction, $X(T_i)\le x_i$. Further $64x_0=1/128\le1/126=u/64$, and for $i\ge1$, $64x_i=64v_{i-1}^2\le64(u^{2^{i-1}}/64)^2=u^{2^i}/64$ by \cref{sc:thm:ascent}(a). So
+\begin{equation}\label{sc:eq:envelope}
+64x_i\le\frac{u^{2^i}}{64}\qquad(i\ge0).
+\end{equation}
+For $T\in[T_i,T_{i+1})$ the first bound of \eqref{sc:eq:one-step} gives $X(T)\le8(T/T_i)^3X(T_i)\le64x_i\le u^{2^i}/64$, and $u^{2^i}<u^{T/(2T_0)}$ because $T/(2T_0)<2^i$ and $u<1$.
+
+(b) Since $f$ is increasing and $f(x)<x$ on $(0,x_c)$, the iterates $f^i(c)$ decrease and stay positive. Their limit is a fixed point of $f$ in $[0,c]$, hence $0$, so $i_0(c)$ is well defined. By the second bound of \eqref{sc:eq:one-step}, the monotonicity of $f$ and induction, $X(2^iT_1)\le f^i(c)$; in particular $X(2^{i_0(c)}T_1)\le\xconstinl$. The last claim is (a) with $T_0=2^{i_0(c)}T_1$.
+
+(c) We prove the cycle \Mcirc{} $\Rightarrow$ \Bcirc{} $\Rightarrow$ (II) $\Rightarrow$ $\lim y=0$ $\Rightarrow$ \Mcirc{}, keeping $\tzero$ in the first two steps, and the implications $\lim y=0\Rightarrow y(t_1)<x_c$ for some $t_1$ $\Rightarrow$ \Bcirc{}.
+
+\Mcirc{} along the family with $\tzero$ implies \Bcirc{} with the same $\tzero$, by \cref{sc:lem:purity-conversion}.
+
+Suppose \Bcirc{} along the family with $\tzero$. For all large $p$ and $N\ge N_0(p)$ there is $T_0\le N\tzero$ with $X_{N,p}(T_0)\le\xconstinl$. Let $t>\tzero$. If $N\ge1/(t-\tzero)$, then $\lfloor Nt\rfloor\ge Nt-1\ge N\tzero\ge T_0$, and by (a)
+\[
+X_{N,p}(\lfloor Nt\rfloor)<\frac{u^{\lfloor Nt\rfloor/(2T_0)}}{64}\le\frac{u^{(Nt-1)/(2N\tzero)}}{64}.
+\]
+Letting $N\to\infty$ and then $p\to\infty$ gives $y(t)\le u^{t/(2\tzero)}/64$, which is (II) with the same $\tzero$; and $u^{t/(2t_0)}=e^{-\Delta t/2}$.
+
+(II) implies $\lim_{t\to\infty}y(t)=0$, which implies $y(t_1)<x_c$ for some $t_1$.
+
+Suppose $\lim_{t\to\infty}y(t)=0$, and choose $t_1$ with $y(t_1)<1/8194$. There is $p_0$ such that $\limsup_NX_{N,p}(\lfloor Nt_1\rfloor)<1/8194$ for $p\ge p_0$, and then $N_0(p)$ such that $X_{N,p}(\lfloor Nt_1\rfloor)<1/8194$ and $\lfloor Nt_1\rfloor\ge3$ for $N\ge N_0(p)$. By \eqref{sc:eq:X-psi}, $T_0=\lfloor Nt_1\rfloor\le Nt_1$ satisfies $\psiT{\cube{T_0}}{T_0}\le2X_{N,p}(T_0)<2/8194=\dconstinl$. This is \Mcirc{} along the family with $\tzero=t_1$.
+
+Suppose $y(t_1)<x_c$, and choose $c$ with $y(t_1)<c<x_c$. As in the previous step, for $p\ge p_0$ and $N\ge N_0(p)$ the integer $T_1=\lfloor Nt_1\rfloor\ge3$ satisfies $X_{N,p}(T_1)<c$. By (b), $X_{N,p}(2^{i_0(c)}T_1)\le\xconstinl$ with $3\le2^{i_0(c)}T_1\le N2^{i_0(c)}t_1$. This is \Bcirc{} along the family with $\tzero=2^{i_0(c)}t_1$.
+
+So the five statements are equivalent. Alternative (I) is the negation of the last of them, so exactly one of (I) and (II) holds. If $y(t)\to0$, then (II) holds, and $y(t)\le e^{-\Delta t/2}/64$ for $t>\tzero$ gives $t^ay(t)\to0$.
+\end{proof}
+
+\noindent\emph{Remark.} Both alternatives occur among families of \PSTS{}. For $0<q<1$ the function $Z(n)=1+q^{|n|}$ is a \PSTS{} with $\TT_s=\mathrm{diag}(1,q^{\Vol{s}})$, so $\Zs{s}{T}=1+q^{\Vol{s}T}$ and $X(T)=\log(1+q^{8T^4})$. A fixed $q$ gives $X(\lfloor Nt\rfloor)\to0$, hence $y\equiv0$ and alternative (II). The choice $q_N=e^{-N^{-5}}$ gives $X_N(\lfloor Nt\rfloor)=\log\bigl(1+e^{-8\lfloor Nt\rfloor^4/N^5}\bigr)\to\log2$, because $\lfloor Nt\rfloor^4/N^5\le t^4/N$; so $y\equiv\log2>x_c$ and alternative (I) holds. No property of these systems beyond (P1) and (P2) is claimed. For the Wilson theory along the continuum tuning it is not known which alternative holds.
+

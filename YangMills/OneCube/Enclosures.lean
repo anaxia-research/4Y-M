@@ -313,6 +313,33 @@ theorem J5_17 : ((3595305184641) / 625000000000000 : ℚ) < ((2301) / 400000 : �
 /-- J5: 0.405465/70.4 > 0.2754^4 (exact). -/
 theorem J5_18 : ((81093) / 14080000 : ℚ) > ((3595305184641) / 625000000000000 : ℚ) := by norm_num
 
+/-- J5: K > 0 (root equation coefficient). Julia enclosure: quantity ≥ the left side. -/
+theorem J5_19 : (1690000 : ℚ) > (0 : ℚ) := by norm_num
+
+/-- J5: h(100) < 0 (left root bracket). Julia enclosure: quantity ≤ the left side. -/
+theorem J5_20 : (-566000 : ℚ) < (0 : ℚ) := by norm_num
+
+/-- J5: h(130) > 0 (right root bracket). Julia enclosure: quantity ≥ the left side. -/
+theorem J5_21 : (600000 : ℚ) > (0 : ℚ) := by norm_num
+
+/-- J5: h'(T) >= 3*100^2 - 7.65K/100^2 > 0 on [100,130]. Julia enclosure: quantity ≥ the left side. -/
+theorem J5_22 : (28700 : ℚ) > (0 : ℚ) := by norm_num
+
+/-- J5: h(116.5888) < 0 (corrected strict lower bracket). Julia enclosure: quantity ≤ the left side. -/
+theorem J5_23 : ((-267) / 100 : ℚ) < (0 : ℚ) := by norm_num
+
+/-- J5: h(116.5889) > 0 (corrected strict upper bracket). Julia enclosure: quantity ≥ the left side. -/
+theorem J5_24 : ((13) / 10 : ℚ) > (0 : ℚ) := by norm_num
+
+/-- J5: corrected beta=10^9 root: T_0 > 116.5888. Julia enclosure: quantity ≥ the left side. -/
+theorem J5_25 : ((5829443) / 50000 : ℚ) > ((72868) / 625 : ℚ) := by norm_num
+
+/-- J5: corrected beta=10^9 root: T_0 < 116.5889. Julia enclosure: quantity ≤ the left side. -/
+theorem J5_26 : ((11658887) / 100000 : ℚ) < ((1165889) / 10000 : ℚ) := by norm_num
+
+/-- J5: counterexample to former T_0 >= 116.7: T_0 < 116.7. Julia enclosure: quantity ≤ the left side. -/
+theorem J5_27 : ((583) / 5 : ℚ) < ((1167) / 10 : ℚ) := by norm_num
+
 /-- J5x: (1 - 0.58^2/6)^2 > 0.94^2 (exact). -/
 theorem J5x_1 : ((200477281) / 225000000 : ℚ) > ((2209) / 2500 : ℚ) := by norm_num
 
