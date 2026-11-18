@@ -34,4 +34,7 @@ From this directory run `pdflatex -no-shell-escape -interaction=nonstopmode -hal
 
 
 
-The current compiled manuscript has 178 pages. VERIFICATION.md records executed checks and formal verification status. BIBLIOGRAPHY-AUDIT.md records reference evidence. No release or DOI was created. The upload record identifies the final repository commit when the authorised push completes.
+
+The current compiled manuscript has 179 pages. VERIFICATION.md records executed checks and formal verification status. BIBLIOGRAPHY-AUDIT.md records reference evidence. No release or DOI was created. The upload record identifies the final repository commit when the authorised push completes.
+
+Section 20 derives the bounded seam test in sec/06j_seams.tex. Theorem 20.1 gives a second one-cube criterion. If the Wilson-weighted probability of different seam matchings is at least 2/5 on the cube of side 24T, increasing time eightfold before enlarging space gives a physical gap of at least log(3)/(7t0) in a compatible Wightman limit. The probability lower bound along the weak-coupling tuning and nontrivial continuum existence remain open.

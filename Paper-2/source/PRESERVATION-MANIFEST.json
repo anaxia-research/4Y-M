@@ -25,7 +25,8 @@
     "spectral retention and the exact Wilson Dirichlet form",
     "volume-independent one-link conditional Wilson Poincare inequalities",
     "tilted Fisher budget and bounded-energy spectral-mass criterion",
-    "support-preserving flow and reflected approximation bounds"
+    "support-preserving flow and reflected approximation bounds",
+    "bounded two-seam comparison and eightfold time ascent"
   ],
   "publication": "No GitHub release or Zenodo deposit; no new DOI requested",
   "scope": "The uniform tuned Wilson bound and unconditional Clay theorem remain unproved",
@@ -255,7 +256,7 @@
     {
       "path": "YangMills.tex",
       "baseline_sha256": "6c87419d4ce1480a026df62ff287450a51eb4e570192c9fecb8a80ce2d96a394",
-      "revision_sha256": "034f6660568216373378c2a153e06cf834c63b493bd2e753aeed130b0566cebe",
+      "revision_sha256": "ac63e96d3bd1a93906d0f3e22d3460467ed3827bd81446acf2ff12c51da4c78f",
       "status": "modified as documented"
     }
   ],

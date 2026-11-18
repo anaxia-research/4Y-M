@@ -72,3 +72,7 @@ No release or Zenodo DOI was created. The manuscript's Data and Code
 Availability section links to https://github.com/anaxia-research/4Y-M and
 https://github.com/anaxia-research/anaxia, the former Open Gluon workspace.
 The upload record documents the final repository commit when the authorised push completes.
+
+## Section 20
+
+The exact rational checks in anc/seam_disagreement_constants.py cover the numerical inequalities in Theorem 20.1. The induction and continuum transfer are analytical arguments outside the Lean library. The calculation does not evaluate a tuned Wilson probability.

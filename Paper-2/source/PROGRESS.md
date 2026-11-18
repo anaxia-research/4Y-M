@@ -44,3 +44,7 @@ independent published references were added. No unpublished companion or Zenodo
 DOI was introduced. No release or DOI is authorised. Repository links in the
 paper are https://github.com/anaxia-research/4Y-M and
 https://github.com/anaxia-research/anaxia.
+
+## Bounded seam observable
+
+Theorem 20.1 gives a second one-cube criterion. If the Wilson-weighted probability of different seam matchings is at least 2/5 on the cube of side 24T, increasing time eightfold before enlarging space gives a physical gap of at least log(3)/(7t0) in a compatible Wightman limit. The probability lower bound along the weak-coupling tuning and nontrivial continuum existence remain open.

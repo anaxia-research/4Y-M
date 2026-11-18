@@ -1,6 +1,6 @@
 {
   "title": "Weak Coupling and the Yangâ€“Mills Mass Gap",
-  "pages": 178,
+  "pages": 179,
   "date": "2026-11-18",
   "source_main": "source/YangMills.tex",
   "claim_status": "Uniform tuned Wilson estimate and Clay theorem unproved",
@@ -8,12 +8,12 @@
   "doi_created": false,
   "files": {
     "YangMills.pdf": {
-      "sha256": "dc22c3dc203833b9040781774fbb781efd288be02ad305c0ae2b21a51a61526e",
-      "bytes": 3223891
+      "sha256": "5637b1ca620670fe43fa5935e8b45fcb498934e9a86ac97ca988eb5994ba8020",
+      "bytes": 3233942
     },
     "ymmdpitex.zip": {
-      "sha256": "6d586cb9975dbefeaf657f2b9865e7f9872f45cd732734ee6fa848f01271bbbe",
-      "bytes": 1763615
+      "sha256": "178358e415a6d00fb39a8c3408ad4217c929b9efe1106f261dbf1a0b311988ca",
+      "bytes": 1767600
     }
   }
 }

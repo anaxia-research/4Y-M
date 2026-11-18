@@ -9,7 +9,7 @@ gap theorems and the supporting formal and exact-arithmetic checks.
 
 ## Current manuscript
 
-- [PDF — 178 pages](Paper-2/YangMills.pdf)
+- [PDF — 179 pages](Paper-2/YangMills.pdf)
 - [Submission TeX ZIP](Paper-2/ymmdpitex.zip): select `YangMills.tex`.
 - [Unpacked source](Paper-2/source/YangMills.tex)
 - [Analytical progress and open estimates](Paper-2/PROGRESS.md)
@@ -75,3 +75,7 @@ is the supporting construction workspace. Its proposals and finite checks
 do not substitute for a proof of a missing model-dependent estimate.
 
 No release, tag or Zenodo DOI is created for this revision.
+
+## Bounded seam observable
+
+Theorem 20.1 gives a second one-cube criterion. If the Wilson-weighted probability of different seam matchings is at least 2/5 on the cube of side 24T, increasing time eightfold before enlarging space gives a physical gap of at least log(3)/(7t0) in a compatible Wightman limit. The probability lower bound along the weak-coupling tuning and nontrivial continuum existence remain open.
