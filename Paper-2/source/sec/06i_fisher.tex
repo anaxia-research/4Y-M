@@ -185,8 +185,10 @@ $\psi_s(T)=2X_s(T)-X_s(2T)$ and $X_s(2T)\ge0$, the second follows.
 {conditional Poincar\'e\\$C_j\le e^{12b}/3$};
 \node[draw,rounded corners,text width=3cm] (c) at (8.2,0)
 {thermal trace bound\\$X_s(T)\le\delta/(1-\delta)$};
-\draw[->,thick] (a)--node[above]{proved} (b);
-\draw[->,thick] (b)--node[above]{score budget} (c);
+\draw[->,thick] (a)--(b);
+\draw[->,thick] (b)--(c);
+\node at (2.05,.85) {proved};
+\node at (6.15,.85) {score budget};
 \node[text width=7cm] at (6.1,-1.3)
 {The score budget in \eqref{cl:eq:wilson-score-target} remains unproved
 along the continuum tuning.};

@@ -1,5 +1,5 @@
 {
-  "title": "Weak Coupling and the Yang–Mills Mass Gap",
+  "title": "Weak Coupling and the Yangâ€“Mills Mass Gap",
   "pages": 178,
   "date": "2026-11-18",
   "source_main": "source/YangMills.tex",
@@ -8,12 +8,12 @@
   "doi_created": false,
   "files": {
     "YangMills.pdf": {
-      "sha256": "59284283708c297c59051c2375c68261e325c9625a9e392a03220f705a58b9b1",
-      "bytes": 3223835
+      "sha256": "dc22c3dc203833b9040781774fbb781efd288be02ad305c0ae2b21a51a61526e",
+      "bytes": 3223891
     },
     "ymmdpitex.zip": {
-      "sha256": "280760b1b574a6105c4391e6e3349390905136475d2da772cdf336117a9320ba",
-      "bytes": 1763605
+      "sha256": "6d586cb9975dbefeaf657f2b9865e7f9872f45cd732734ee6fa848f01271bbbe",
+      "bytes": 1763615
     }
   }
 }
