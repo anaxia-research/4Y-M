@@ -1,6 +1,6 @@
 # Bibliographic verification
 
-All 65 identities were checked. The detailed evidence follows; proof verification has a different scope.
+All 66 identities were checked. The detailed evidence follows; proof verification has a different scope.
 
 # Bibliography verification — entries AC25 through JW06
 
@@ -390,4 +390,6 @@ The resulting bibliography has 65 entries, including 58 DOI-bearing works.
 
 No unpublished companion paper or Zenodo DOI was added to the bibliography.
 
+## Chessboard estimate
 
+Marek Biskup, “Reflection Positivity and Phase Transitions in Lattice Spin Models,” Lecture Notes in Mathematics 1970 (2009), pp. 1–86. The publisher verifies the author, title, year, pages and DOI. The author’s text gives the chessboard estimate in Theorem 5.8. [Springer](https://doi.org/10.1007/978-3-540-92796-9_1) · [Author’s text](https://www.math.ucla.edu/~biskup/PDFs/private/2008-2010/Biskup-LNM08.pdf)

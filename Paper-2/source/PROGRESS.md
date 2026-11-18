@@ -39,8 +39,7 @@ formalised. Exact ancillary tests check finite identities, not these open inputs
 ## Sources and publication
 
 Recent primary literature, GitHub repositories and construction reports were
-examined; scope is recorded in the separate literature audit. Only three
-independent published references were added. No unpublished companion or Zenodo
+examined; scope is recorded in the separate literature audit. Four independent published references were added. No unpublished companion or Zenodo
 DOI was introduced. No release or DOI is authorised. Repository links in the
 paper are https://github.com/anaxia-research/4Y-M and
 https://github.com/anaxia-research/anaxia.
@@ -48,3 +47,9 @@ https://github.com/anaxia-research/anaxia.
 ## Bounded seam observable
 
 Theorem 20.1 gives a second one-cube criterion. If the Wilson-weighted probability of different seam matchings is at least 2/5 on the cube of side 24T, increasing time eightfold before enlarging space gives a physical gap of at least log(3)/(7t0) in a compatible Wightman limit. The probability lower bound along the weak-coupling tuning and nontrivial continuum existence remain open.
+
+## Rough plaquettes and the transfer trace
+
+On even periodic Wilson boxes, a chessboard estimate gives an exponential tail for connected rough-cell clusters of every size. Removing clusters of size at least T/2 changes the seam-disagreement probability by at most 432 T^4 (2b)^(-T/2) on a spatial cube of side 24T. The interacting SU(2) transfer trace also admits a positive finite-matrix approximation with an explicit error. The seam probability in the retained ensemble and a matching nontrivial continuum limit remain unproved.
+
+On a spatial cube of side 24T, a seam-disagreement probability of 97/266 suffices for a physical gap of log(2)/(17t0) under the continuum transfer hypotheses. Any fixed probability above one third suffices at a corresponding fixed aspect ratio. Incompatible flat winding fields show why a lower bound conditional on every spatial field fails at fixed volume. The averaged Wilson lower bound along the tuning and continuum existence remain open.

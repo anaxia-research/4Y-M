@@ -1,0 +1,327 @@
+\subsection{Connected rough cells in the Wilson seam ensemble}\label{cl:sec:rough-seams}
+
+Write $x_p=N_c^{-1}\ReTr U_p$, so the actual Wilson weight is
+$\exp(b\sum_p x_p)$. On a four-dimensional periodic rectangular lattice
+with even sides at least four, let $H$ denote its number of unit
+four-cells. There are $6H$ plaquettes and $4H$ positively oriented links.
+Call a cell rough if at least one of its square faces satisfies
+$1-x_p\ge\kappa$. Cells are adjacent if they share a three-dimensional face.
+
+\begin{theorem}[Joint probability of rough cells]\label{cl:thm:rough-cells}
+For $\SU(2)$ and $b\ge1$ put $L_b=6+6\log(8b)+4\log(54\pi/25)$.
+For $\kappa>0$ and any set $S$ of distinct four-cells,
+\[
+ {\mathbb P}_b(\text{every cell in }S\text{ is rough})
+ \le \min\{1,\exp[(L_b-b\kappa/4)|S|]\}.
+\]
+In particular $\kappa_b=4[L_b+\log(128b)]/b$ gives an upper bound
+$(128b)^{-|S|}$. This threshold tends to zero as $b\to\infty$.
+\end{theorem}
+
+\begin{proof}
+First disseminate the event from the cells of $S$ to the whole torus by
+the chessboard estimate \cite[Theorem~5.8]{Biskup09}. We give the argument
+for link variables because adjacent closed cells have common faces.
+
+Cut perpendicular to an axis of length $h$. Let $S_i$ be the pattern of
+marked cells in slab $i$. For a tangential pattern $C$, denote by $K_C$
+the one-slab integral kernel between its two boundary link fields.
+Integrate the normal links with probability Haar measure. Include all
+plaquettes with a normal direction, half the action on each boundary,
+and the indicators for the cells of $C$. Reflection across the middle
+of the slab exchanges the boundary fields, preserves the marked
+tangential positions, and inverts the normal links. The real trace of a
+plaquette is invariant under this operation up to reversal of its path.
+The event uses all faces, so $K_C$ is symmetric. It is bounded and
+Hilbert--Schmidt on the compact boundary field space.
+
+The restricted partition integral is the trace of the cyclic product
+of the $K_{S_i}$. By the Schatten H\"older inequality it is at most
+$\prod_i(\Tr |K_{S_i}|^h)^{1/h}$. Since $h$ is even, each trace here is
+$\Tr K_{S_i}^h$, the integral for the pattern $S_i$ repeated in every
+slab. This also explains why positivity of the spectrum of a restricted
+slab kernel is unnecessary. Divide by the unrestricted partition
+function and repeat successively in the other three directions. The
+resulting product has one factor per original cell, with exponent $1/H$.
+A marked cell contributes the probability that every cell is rough, and
+an unmarked cell contributes one. Hence, writing $B_S$ for the joint event,
+\[
+ {\mathbb P}_b(B_S)\le {\mathbb P}_b(B_{\rm all})^{|S|/H}.
+\]
+
+Each plaquette belongs to exactly four four-cells. Thus on $B_{\rm all}$,
+$\sum_p(1-x_p)\ge\kappa H/4$, and the restricted partition integral
+is at most $e^{6bH-b\kappa H/4}$. For the denominator, identify
+$\SU(2)$ with the unit quaternions. Put $\delta=(8b)^{-1/2}$ and restrict
+every link to the chord ball of radius $\delta$ about the identity.
+Its Haar measure is at least $25\delta^3/(54\pi)$ by the ball estimate
+in the proof of Theorem~\ref{cl:thm:frustrated}. Bi-invariance and the
+triangle inequality give $\|1-U_p\|\le4\delta$ in quaternion chord length,
+hence $1-x_p\le8\delta^2$. Multiplication over the $4H$ links yields
+$Z\ge e^{6bH-L_b H}$. Taking the ratio proves the theorem.
+\end{proof}
+
+For a fixed compact simple matrix group with a faithful unitary
+representation the same proof applies with
+$d(g,h)=\|g-h\|_{\rm HS}/\sqrt{N_c}$, so
+$1-x_p=d(I,U_p)^2/2$. If $d_G$ is the group dimension, there are constants
+$c_G\in(0,1]$, $\delta_G>0$ such that
+$\operatorname{Haar}(B_\delta)\ge c_G\delta^{d_G}$ for
+$0<\delta\le\delta_G$. Indeed the exponential map has invertible
+differential at zero, Haar measure has a positive smooth density in
+this chart and the chord length is bounded above by a constant times
+the coordinate norm. Integrate over a coordinate ball of the
+corresponding radius. Taking $b$ large enough that
+$(8b)^{-1/2}\le\delta_G$ gives the theorem with
+$L_{b,G}=6+4\log(1/c_G)+2d_G\log(8b)$.
+All constants here are for the specified group and representation.
+
+\begin{corollary}[Removing long rough clusters]\label{cl:cor:seam-clusters}
+Use the threshold $\kappa_b$ of Theorem~\ref{cl:thm:rough-cells}, or its
+group-specific version. Let $T\ge4$ be even and $V=(24T)^3$.
+In the weighted matching ensemble of \eqref{cl:eq:seam-disagreement},
+form rough clusters on the active Wilson lattice at each corner. Let
+$\mathcal G$ be the event that every such cluster has fewer than $T/2$
+cells. Then
+\[
+ \left|p_{\rm diff}-
+   {\mathbb P}(\sigma\ne\tau\mid\mathcal G)\right|
+ \le {\mathbb P}(\mathcal G^c)
+ \le 432 T^4(2b)^{-T/2}.
+\]
+For $b\ge3$ in the range of the theorem, the last expression is at
+most $27648/b^2$ uniformly over all even $T\ge4$.
+\end{corollary}
+
+\begin{proof}
+A cluster of at least $m$ cells contains a connected set of exactly $m$
+containing any given root of the cluster. A rooted spanning tree of such a
+set has a depth-first traversal of $2m-2$ steps, with at most eight choices
+per step. Each traversal determines its visited set. The joint probability
+bound therefore gives
+\[
+ {\mathbb P}(|\mathcal C(x)|\ge m)
+ \le 8^{2m-2}(128b)^{-m}=(2b)^{-m}/64.
+\]
+Conditional on the two matching signs, the active graph consists of
+two Wilson tori of period $T$ or one of period $2T$. In either case it
+has $2VT$ potential roots. Sum the last inequality over these roots and
+average over the four corners. With $m=T/2$ this gives the stated
+coefficient. Along even times the ratio of successive upper bounds is
+$(1+2/T)^4/(2b)\le81/(32b)<1$ for $b\ge3$. Substituting $T=4$ gives the
+uniform estimate. The event $\mathcal G$ has positive probability since a
+neighbourhood of the identity field is included. Finally, for any event
+$A$, the total probability formula gives
+$|{\mathbb P}(A)-{\mathbb P}(A\mid\mathcal G)|\le{\mathbb P}(\mathcal G^c)$.
+\end{proof}
+
+For cuts separated by $T/2$ time steps, $\mathcal G$ excludes a connected
+chain of rough cells joining the two cuts. The estimate averages over
+the active Wilson fields at the corners. Conditioning on prescribed
+coarse links or an exterior field would change the measure in the
+chessboard argument. The result gives no such conditional estimate.
+
+The remaining probability in Corollary~\ref{cl:cor:seam-clusters} still
+includes long-wavelength gauge fields. For instance, take all links on
+a spatial circle of length $n$ in one coordinate direction to be the
+constant matrix $\operatorname{diag}(e^{i\theta/n},e^{-i\theta/n})$,
+at every transverse site, and all other links equal to the identity.
+Every plaquette is exactly flat, while the normalized winding trace is
+$\cos\theta$. Local smallness therefore leaves genuine holonomy variables.
+
+There is slack in the initial spectral estimate. In the notation of
+Theorem~\ref{cl:thm:seam-disagreement}, $p_{\rm diff}\ge53/134$ gives
+$(1+D)^2/(1+E)\le81/53$. Using $E\le D$ gives $D\le28/53<1$.
+Using $E\le D^2$ then gives $(7D-2)(2D-7)\ge0$, hence $D\le2/7$.
+The same induction yields the same physical gap. Thus, on even cubes
+in the theorem's tuning, it suffices that the conditional disagreement
+probability exceeds $53/134$ by any positive cutoff-independent margin
+as $b\to\infty$. The uniform error in the corollary eventually fits
+within that margin. In particular a limiting lower bound of $2/5$
+suffices since $2/5-53/134=3/670$. This remaining estimate concerns
+the relative weights of the two matchings within $\mathcal G$.
+
+\begin{proposition}[Flat spatial fields with incompatible winding]
+\label{cl:prop:seam-winding}
+Fix an even $T\ge4$ and the $\SU(2)$ spatial side $n=24T$. For all
+sufficiently large $b$ there are open sets of spatial fields of positive
+Haar measure on which the conditional probability of opposite seam signs,
+given the spatial fields and $\mathcal G$, tends uniformly to zero as
+$b\to\infty$. Here $\mathcal G$ is the event of Corollary~\ref{cl:cor:seam-clusters}.
+\end{proposition}
+\begin{proof}
+Take the reference spatial field on sheet zero to be the identity.
+On sheet one use $g=\operatorname{diag}(e^{i\pi/n},e^{-i\pi/n})$
+in direction one and the identity in both other directions, at every
+site and time. Require every spatial link to lie within chord distance
+$1/b$ of its reference value. These open sets have positive product Haar
+measure for each $b$.
+
+Opposite matching signs require one swapped cut. On each direction-one
+row of that cut, let $U_j$ be the active temporal links, with $U_n=U_0$.
+For reference endpoints $g_-,g_+$ the $j$th plaquette has chord length
+from the identity equal to $d(U_j,g_-U_{j+1}g_+^{-1})$. The map
+$u\mapsto g_-u g_+^{-1}$ is an isometry, and its $n$th iterate gives
+$-u$, since exactly one of $g_-,g_+$ equals $g$ and $g^n=-I$.
+The triangle inequality along the row therefore gives total chord length
+at least two. Perturbing the two spatial links in each plaquette costs
+at most $2/b$ per plaquette. For $b\ge2n$ the total remains at least one.
+Cauchy--Schwarz gives $\sum_{\rm row}(1-x_p)\ge1/(2n)$. The two sheets
+have $2n^2$ disjoint rows, giving total deficit at least $n$.
+
+For the straight-straight corner, restrict every active temporal link to
+the chord ball of radius $b^{-1/2}$. Each temporal plaquette then has
+chord length at most $2b^{-1/2}+2/b$, and each spatial plaquette has
+length at most $4/b$. Thus every deficit is at most $8/b<\kappa_b$ for
+large $b$, and the restricted corner lies in $\mathcal G$.
+There are $2VT$ active temporal links and $12VT$ plaquettes in either
+corner geometry. With $h_b$ the Haar mass of the ball used here,
+comparison of the two opposite-sign corner weights to this one
+straight-straight contribution gives
+\[
+ {\mathbb P}(\sigma\ne\tau\mid Q_{\rm spatial},\mathcal G)
+ \le 2e^{-bn+96VT}h_b^{-2VT}.
+\]
+Since $h_b\ge(25/(54\pi))b^{-3/2}$, the right side tends to zero at
+fixed $n,T$, uniformly on the stated open sets. All inactive link
+integrals have mass one.
+\end{proof}
+This calculation explains why a lower bound uniform in the prescribed
+spatial fields cannot finish the argument. The unconditional seam test
+requires their weights under the Wilson measure along the physical tuning.
+
+\subsection{A finite matrix for the thermal defect of the interacting theory}
+For $\SU(2)$ a complementary estimate controls the tail of the transfer
+trace at every coupling. Let $n=3V$ be the number of spatial links.
+View their unit quaternions as a vector $Q$ in $\mathbb R^{4n}$, so
+$Q\cdot Q'= \sum_e \tfrac12\ReTr(Q_e Q_e'{}^*)$.
+Write $\mathbb T=D\Pi C\Pi D$ as in Proposition~\ref{sc:prop:wilson},
+where $C(Q,Q')=\exp(b\,Q\cdot Q')$ and $\Pi$ averages vertex gauges.
+Define $C_K$ by retaining degrees $0$ through $K$ in this exponential,
+and put $\mathbb T_K=D\Pi C_K\Pi D$. Both occurrences of $D$ retain
+the complete spatial plaquette action.
+
+\begin{proposition}\label{cl:prop:finite-matrix-seam}
+For real $b\ge0$ and an integer $k\ge0$, take $K=\lceil4bn\rceil+k$.
+Put $J=\binom{4n+K}{K}$ and
+$\varepsilon=4^{-k-1}e^{-(4\log4-5)bn}$. With the exact eigenvalue
+ratios indexed from $r_0=1$, for every integer $m\ge1$ one has
+\[
+ \sum_{j\ge J}r_j^m\le\varepsilon^m.
+\]
+Writing $\psi_{s,K}(T)=2\log\Tr\mathbb T_K^T-\log\Tr\mathbb T_K^{2T}$,
+one also has
+\[
+ |\psi_s(T)-\psi_{s,K}(T)|\le -2T\log(1-\varepsilon).
+\]
+\end{proposition}
+\begin{proof}
+Each kernel $(Q\cdot Q')^j$ is the inner product of the tensor powers of
+$Q$ and $Q'$. The Taylor terms are positive operators. Expanding in
+monomials shows that the range of $C_K$ has dimension at most $J$.
+The positive tail has trace equal to the sum of its diagonal terms:
+for each finite-rank monomial kernel this follows by integration, and
+the series of these traces converges. Since $Q\cdot Q=n$,
+\[
+ \Tr(C-C_K)=\sum_{j>K}(bn)^j/j!
+ \le 4^{-K-1}e^{4bn}.
+\]
+Compression by $\Pi$ and multiplication by $D$ preserve operator order.
+Cyclicity of the trace and $\|D\|^2\le e^{bn}$ give
+$0\le \Tr(\mathbb T-\mathbb T_K)\le 4^{-K-1}e^{5bn}$.
+The constant Taylor term in $\mathbb T_K$ is
+$|D1\rangle\langle D1|$. Its eigenvalue $\int D^2\,dQ$ is at least
+one by Jensen's inequality, since each spatial plaquette has zero Haar
+mean. In particular $\lambda_0=\|\mathbb T\|\ge1$.
+
+After division of both operators by the same $\lambda_0$, their ordered
+eigenvalues $r_j$ and $u_j$ obey $0\le u_j\le r_j$ by the min--max
+principle, and $\sum_j(r_j-u_j)\le\varepsilon$. For $j\ge J$ one has
+$u_j=0$, proving the tail estimate. Also
+$\|r-u\|_{\ell^m}\le\|r-u\|_{\ell^1}\le\varepsilon$
+and $\|r\|_{\ell^m}\ge1$. The reverse triangle inequality therefore gives
+$\|u\|_{\ell^m}\ge(1-\varepsilon)\|r\|_{\ell^m}$. The error
+in each log trace lies between zero and $-m\log(1-\varepsilon)$.
+Taking twice the error at $T$ minus the error at $2T$ proves the
+defect estimate.
+\end{proof}
+
+The finite matrix can be written explicitly. Index monomials by
+multi-indices $\alpha$ of degree at most $K$, and set
+$f_\alpha=D\Pi\bigl[(b^{|\alpha|}/\alpha!)^{1/2} Q^\alpha\bigr]$,
+with the constant monomial equal to one before applying $D\Pi$.
+Then $\mathbb T_K=\sum_\alpha|f_\alpha\rangle\langle f_\alpha|$.
+The Gram matrix of the $f_\alpha$ has the same nonzero eigenvalues.
+Thus the proposition bounds the contribution lost in this explicit
+finite-dimensional approximation. Its dimension increases with the
+cutoff, and no bound on the relative weights of the retained eigenvalues
+along the tuning follows from the tail estimate.
+
+\subsection{How small a disagreement probability suffices?}
+\begin{theorem}[Aspect ratio and the seam threshold]\label{cl:thm:seam-aspect}
+Choose integers $R>m\ge2$, a number $0<d<1$, and put
+\[
+ A_m=\left(\frac{Rm}{R-m}\right)^3,\qquad
+ p(d)=\frac{1+d^2}{(1+d)^2+1+d^2}.
+\]
+Suppose $A_md^m<1$ and $B_m d^{m-1}\le c<1$, where
+$B_m=A_m/(1-A_md^m)$. At fixed coupling it suffices to have
+$p_{\rm diff}\ge p(d)$ at time $T\ge3$ on a spatial cube of side $RT$.
+With $q=c^{1/(m-1)}$, every integer $n\ge RT$ then satisfies
+\[
+ r_1(n^3)^T\le q,\qquad \Dexc{n^3}{n}\le q^{n/T}.
+\]
+Under the tuning and continuum-transfer hypotheses of
+Theorem~\ref{cl:thm:seam-disagreement}, with $R,m,d,c$ fixed across the
+tuning and the test imposed at side $RT$, the physical gap is at least
+$-\log(c)/[(m-1)t_0]$.
+\end{theorem}
+\begin{proof}
+Write $D=\sum_{j\ge1}r_j^T$, $E=\sum_{j\ge1}r_j^{2T}$ on the test box.
+The probability hypothesis gives
+$(1+D)^2/(1+E)\le(1+d)^2/(1+d^2)<2$.
+Since $E\le D$, first $D<1$. Since $E\le D^2$ and
+$u\mapsto(1+u)^2/(1+u^2)$ is increasing on $[0,1]$, we then have $D\le d$.
+
+Put $T_i=m^iT$ and $D_i=\Dexc{(RT_i)^3}{T_i}$. On the same box the
+excited trace at $mT_i$ is at most $D_i^m$. For $RT_i\le n\le RmT_i$,
+Theorem~\ref{sc:thm:cube-control} at time $mT_i$ therefore gives
+\[
+ \Dexc{n^3}{mT_i}\le(1+D_i^m)^{A_m}-1 .
+\]
+For $0\le x\le d$, the right hand side with $D_i=x$ is at most
+$e^{A_mx^m}-1\le A_m x^m/(1-A_m x^m)\le B_m x^m$.
+At the endpoint $n=RmT_i$ this proves inductively that
+$D_i\le d q^{m^i-1}$, since $B_m d^{m-1}\le q^{m-1}$.
+For an intermediate $n$ the very same bound gives
+$\Dexc{n^3}{mT_i}\le d q^{m^{i+1}-1}\le q^{m^{i+1}}$,
+where $d\le q$ follows from $B_m>1$. Taking the largest excited
+eigenvalue gives $r_1(n^3)^T\le q$. The remaining $n-mT_i\ge0$
+powers give the second inequality. On the tuning $T\le Nt_0$, the
+transfer argument of Theorem~\ref{cl:thm:seam-disagreement} applies
+once $L_p\ge Rt_0$.
+\end{proof}
+
+On the original cube $R=24$, take $m=18$ and $d=4/9$. Here
+$A_m=72^3$, $A_md^{18}<1/5$, $(5/4)A_md^{17}<1/2$, and $p(d)=97/266$.
+This gives a sufficient Wilson probability of $97/266$ on the very
+same box, with physical gap at least $\log(2)/(17t_0)$ under the
+stated hypotheses. On even boxes a fixed positive margin above
+$97/266$ in the ensemble conditioned on $\mathcal G$ suffices by
+Corollary~\ref{cl:cor:seam-clusters}.
+
+More generally, prescribe any $p_*$ with $1/3<p_*<1/2$. The identity
+for the signs and $E\le D$ give $D\le d_*=1/p_*-2<1$ whenever
+$p_{\rm diff}\ge p_*$. Choose $m$ large enough that
+$16m^3d_*^{m-1}\le1/2$ and take $R=2m$. Then $A_m=8m^3$,
+$A_md_*^m<1/2$ and $B_m\le2A_m$. The
+induction just proved starts from $D\le d_*$ with $c=1/2$. Thus every
+fixed margin above one third suffices on a cube with the corresponding
+fixed aspect ratio. In this geometry the same root count as in
+Corollary~\ref{cl:cor:seam-clusters} gives
+$R^3T^4(2b)^{-T/2}/32$ for the discarded probability on even boxes.
+The endpoint illustrates a spectral limitation of this argument: an
+abstract transfer system with exactly two equal eigenvalues and
+$Z(s,T)=2$ on every box has $p_{\rm diff}=1/3$ and $r_1=1$.
+For the interacting Wilson law a uniform lower bound at the required
+aspect ratio still has to be proved.

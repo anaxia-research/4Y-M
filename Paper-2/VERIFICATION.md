@@ -62,7 +62,7 @@ per loop iteration rather than indexing by a potentially migrating thread ID.
 The manuscript compiles with no unresolved references, duplicate labels,
 overfull boxes or oversized floats. Every page was inspected at contact-sheet
 scale, with enlarged inspection of the cover and new mathematical pages.
-Bibliographic identities were checked for all 65 references: 58 DOI records
+Bibliographic identities were checked for all 66 references: 59 DOI records
 match their works, and seven non-DOI items have official bibliographic or source
 records. Barta's 1937 entry is supported by official archival bibliographies;
 its original scan was not inspected. This is identity verification, not an
@@ -76,3 +76,7 @@ The upload record documents the final repository commit when the authorised push
 ## Section 20
 
 The exact rational checks in anc/seam_disagreement_constants.py cover the numerical inequalities in Theorem 20.1. The induction and continuum transfer are analytical arguments outside the Lean library. The calculation does not evaluate a tuned Wilson probability.
+
+The updated checker counts square-face incidences on two even four-tori and verifies the cluster, threshold and trace constants by rational arithmetic. The proofs in Sections 20.1 and 20.2 are analytical and outside the Lean audit.
+
+The exact checker also tests the rational constants for the side 24T and time multiplier 18 in the aspect-ratio theorem. The winding obstruction and the variable-aspect induction are analytical.
