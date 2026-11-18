@@ -67,10 +67,47 @@ def check_aspect_threshold():
     assert Fraction(24**3, 32) == 432
 
 
+def check_winding_geometry(n, period, swapped):
+    """Enumerate the active two-sheet Wilson plaquettes, including seam crossings."""
+    def step(site, axis):
+        sheet, x, y, z, t = site
+        coord = [x, y, z, t]
+        if axis == 3 and t in swapped:
+            sheet ^= 1
+        coord[axis] = (coord[axis] + 1) % (period if axis == 3 else n)
+        return (sheet, *coord)
+
+    sites = list(product(range(2), range(n), range(n), range(n), range(period)))
+    incidences = Counter()
+    for site in sites:
+        for i, j in combinations(range(4), 2):
+            assert step(step(site, i), j) == step(step(site, j), i)
+            square = [(site, i), (step(site, i), j), (step(site, j), i), (site, j)]
+            parallel = [s for s, direction in square if direction == 0]
+            if parallel:
+                tails = {(s[0], *s[2:]) for s in parallel}
+                assert len(parallel) == len(tails) == 2
+            incidences.update(square)
+    assert set(incidences.values()) == {6}
+    assert len({(s[0], *s[2:]) for s in sites}) == 2 * n**2 * period
+
+
+def check_winding_constants():
+    u = Fraction(1, 16)
+    assert (1 + u) / (1 - u)**3 == Fraction(4352, 3375) < Fraction(3, 2)
+    assert sum([1, 3, Fraction(9, 2), Fraction(27, 6), Fraction(81, 24)]) > 16
+    for b in [Fraction(1, 4), Fraction(3), Fraction(1000)]:
+        assert 12*b / (12*b + 3) == 4*b / (1 + 4*b)
+        assert 6*b / (4*(1+6*b)) < Fraction(1, 4)
+    for cuts in [set(), {1}, {3}, {1, 3}]:
+        check_winding_geometry(4, 4, cuts)
+
+
 if __name__ == "__main__":
     check_constants()
     for box in [(4, 4, 4, 4), (4, 6, 4, 8)]:
         check_rough_cell_incidence(box)
     check_cluster_and_trace_constants()
     check_aspect_threshold()
-    print("Seam, aspect ratio, cluster and trace constants passed. The Wilson seam probability remains open.")
+    check_winding_constants()
+    print("Seam, winding, aspect ratio, cluster and trace checks passed. The physical Wilson seam bound remains open.")

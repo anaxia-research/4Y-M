@@ -62,7 +62,7 @@ per loop iteration rather than indexing by a potentially migrating thread ID.
 The manuscript compiles with no unresolved references, duplicate labels,
 overfull boxes or oversized floats. Every page was inspected at contact-sheet
 scale, with enlarged inspection of the cover and new mathematical pages.
-Bibliographic identities were checked for all 66 references: 59 DOI records
+Bibliographic identities were checked for all 67 references: 60 DOI records
 match their works, and seven non-DOI items have official bibliographic or source
 records. Barta's 1937 entry is supported by official archival bibliographies;
 its original scan was not inspected. This is identity verification, not an
@@ -80,3 +80,5 @@ The exact rational checks in anc/seam_disagreement_constants.py cover the numeri
 The updated checker counts square-face incidences on two even four-tori and verifies the cluster, threshold and trace constants by rational arithmetic. The proofs in Sections 20.1 and 20.2 are analytical and outside the Lean audit.
 
 The exact checker also tests the rational constants for the side 24T and time multiplier 18 in the aspect-ratio theorem. The winding obstruction and the variable-aspect induction are analytical.
+
+Sections 20.4 and 20.5 contain analytical proofs. The supporting Python check enumerates all Wilson plaquettes on a two-sheet lattice for the four temporal matchings and checks the row incidences and numerical constants. These results have not been formalized in Lean.

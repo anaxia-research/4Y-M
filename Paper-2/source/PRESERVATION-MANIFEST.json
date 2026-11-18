@@ -11,7 +11,7 @@
     "sec/12_conclusion.tex": "Consolidate the strengthened reduction, replica response, kernel obstruction and retention criteria with the original conclusions; state unresolved model estimates.",
     "sec/13_decl.tex": "Data and Code Availability links the project and the verified Anaxia repository; retain the six-author declarations.",
     "app/J_tables.tex": "Correct current source-declaration and executed Julia-check counts; distinguish source coverage from a full formal audit.",
-    "bib.tex": "Correct van Baal--Koller author order and the exact von Renesse--Sturm title punctuation after bibliographic checks. Add Biskup on chessboard estimates.",
+    "bib.tex": "Correct van Baal--Koller author order and the exact von Renesse--Sturm title punctuation after bibliographic checks. Add Biskup on chessboard estimates. Add Parisi, Petronzio and Rapuano on one-link integration.",
     "anc/constants.jl": "Replace the older ancillary constants script with the current repository script that passed all 273 checks."
   },
   "added_mathematics": [
@@ -27,7 +27,8 @@
     "tilted Fisher budget and bounded-energy spectral-mass criterion",
     "support-preserving flow and reflected approximation bounds",
     "bounded two-seam comparison and eightfold time ascent",
-    "rough-cell cluster estimates and finite-matrix trace tail"
+    "rough-cell cluster estimates and finite-matrix trace tail",
+    "winding densities, axial pinning and the charged transfer spectrum"
   ],
   "publication": "No GitHub release or Zenodo deposit; no new DOI requested",
   "scope": "The uniform tuned Wilson bound and unconditional Clay theorem remain unproved",
@@ -95,7 +96,7 @@
     {
       "path": "bib.tex",
       "baseline_sha256": "9501b51e8d9b2ba0e2312491f17b1ffce2c7fff75605d63798cbc60f0439d8f4",
-      "revision_sha256": "cdc323c8288314fd463ae4abc6fed33085f6655891259569102f88ea0aeefd9f",
+      "revision_sha256": "b4007503d366198bdd85297e6ea3500f679f6c13b8f234483ed7696e140612a9",
       "status": "modified as documented"
     },
     {
@@ -245,7 +246,7 @@
     {
       "path": "sec/12_conclusion.tex",
       "baseline_sha256": "25e4ea5609767e0ef393a10cbb45cd18fd508753246321e69182b790bdfb033e",
-      "revision_sha256": "2f9e11b7b3236fcd2446be2f6c92e67d45a488ef9d2196e4f951bbebaaea9022",
+      "revision_sha256": "553ae6b4075f1d04dd2cdaf68f92bbfedaa3dc00cca00d9d158d012a23cb38c5",
       "status": "modified as documented"
     },
     {
@@ -257,7 +258,7 @@
     {
       "path": "YangMills.tex",
       "baseline_sha256": "6c87419d4ce1480a026df62ff287450a51eb4e570192c9fecb8a80ce2d96a394",
-      "revision_sha256": "108ba9132f1640a1d0b62e465e3bc829178d1178c6b12da1ce7be18a949bce0a",
+      "revision_sha256": "8adb637b4a1368378d46b4fb59d348533f6a9129c0af9e9bc405900604d67e8b",
       "status": "modified as documented"
     }
   ],

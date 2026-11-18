@@ -1,6 +1,6 @@
 # Bibliographic verification
 
-All 66 identities were checked. The detailed evidence follows; proof verification has a different scope.
+All 67 identities were checked. The detailed evidence follows; proof verification has a different scope.
 
 # Bibliography verification — entries AC25 through JW06
 
@@ -393,3 +393,7 @@ No unpublished companion paper or Zenodo DOI was added to the bibliography.
 ## Chessboard estimate
 
 Marek Biskup, “Reflection Positivity and Phase Transitions in Lattice Spin Models,” Lecture Notes in Mathematics 1970 (2009), pp. 1–86. The publisher verifies the author, title, year, pages and DOI. The author’s text gives the chessboard estimate in Theorem 5.8. [Springer](https://doi.org/10.1007/978-3-540-92796-9_1) · [Author’s text](https://www.math.ucla.edu/~biskup/PDFs/private/2008-2010/Biskup-LNM08.pdf)
+
+## One-link integration
+
+G. Parisi, R. Petronzio and F. Rapuano, “A measurement of the string tension near the continuum limit,” Physics Letters B 128 (1983), 418–420. The publisher and the university record agree on the bibliographic identity. [Publisher](https://www.sciencedirect.com/science/article/pii/0370269383909309) · [University record](https://boa.unimib.it/handle/10281/31379). The Bessel integral and recurrence used for the full winding density were also checked against NIST DLMF 10.32.2, 10.32.3 and 10.29.1–2.

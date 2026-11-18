@@ -9,7 +9,7 @@ gap theorems and the supporting formal and exact-arithmetic checks.
 
 ## Current manuscript
 
-- [PDF — 184 pages](YangMills.pdf)
+- [PDF — 187 pages](YangMills.pdf)
 - [Submission TeX ZIP](ymmdpitex.zip): select `YangMills.tex`.
 - [Unpacked source](source/YangMills.tex)
 - [Analytical progress and open estimates](PROGRESS.md)
@@ -85,3 +85,5 @@ Theorem 20.1 gives a second one-cube criterion. If the Wilson-weighted probabili
 On even periodic Wilson boxes, a chessboard estimate gives an exponential tail for connected rough-cell clusters of every size. Removing clusters of size at least T/2 changes the seam-disagreement probability by at most 432 T^4 (2b)^(-T/2) on a spatial cube of side 24T. The interacting SU(2) transfer trace also admits a positive finite-matrix approximation with an explicit error. The seam probability in the retained ensemble and a matching nontrivial continuum limit remain unproved.
 
 On a spatial cube of side 24T, a seam-disagreement probability of 97/266 suffices for a physical gap of log(2)/(17t0) under the continuum transfer hypotheses. Any fixed probability above one third suffices at a corresponding fixed aspect ratio. Incompatible flat winding fields show why a lower bound conditional on every spatial field fails at fixed volume. The averaged Wilson lower bound along the tuning and continuum existence remain open.
+
+For SU(2), integrating straight spatial winding rows compares the Wilson seam odds with the odds after pinning every holonomy in one direction to the identity. The error vanishes when n/(1+4b) - 3 log n tends to infinity. Temporal winding gives a spatial-volume-independent upper bound on the transfer spectrum outside the gauge-invariant subspace for every compact connected matrix group. At logarithmic tuning the change in the seam log odds and fixed-order gauge-invariant slice correlations upon dropping the gauge projection is smaller than every inverse power of the inverse spacing at fixed physical sizes. The remaining seam comparison and the continuum spectrum of gauge-invariant excitations are open.
