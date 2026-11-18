@@ -1,0 +1,59 @@
+\section{Checks for the unequal-coupling estimates}\label{cl:app:anisotropic-checks}
+
+The checker uses only the Python standard library. From the project
+repository linked in Data and code availability run
+\begin{verbatim}
+python scripts/seam_disagreement_constants.py
+\end{verbatim}
+The computation checks the rational inequalities and sample periodic graphs
+below. The polymer expansion and the passage to continuous time are proved in
+Theorems~\ref{cl:thm:unequal-gap} and \ref{cl:thm:electric-packet}.
+
+For the $\SU(2)$ parameters in Theorem~\ref{cl:thm:unequal-gap}, put
+$u=[2b/(3+2b)]^h$ and $\delta=10^{-6}$. With
+$h=\lceil18(1+2b/3)\rceil$ one has $u\le e^{-18}$, also at $b=0$.
+The fourth partial sum for $e^3$ is $131/8>16$. Thus
+$u<16^{-6}<1/8$, and
+\[
+ \frac{1+u}{(1-u)^3}-1
+ =\frac{4u-3u^2+u^3}{(1-u)^3}
+ \le\frac{4u}{(7/8)^3}<6u<\delta.
+\]
+The inequalities
+\[
+ \frac{(1+\delta)^4}{1-\delta}<4,\qquad
+ 4\delta < \frac{1}{2\cdot 3^2\cdot80^2}
+ <\frac1{2e^2\,80^2}
+\]
+certify the remaining activity comparison for $h\lambda\le\delta$.
+Here $e^x-1\le x/(1-x)$ for $0\le x<1$, and $e<3$ follows directly
+from its factorial series. At $A=a_0$, the ratio in the geometric
+sum for polymers containing a given mark is $80^2 A e^2=1/2$.
+Its sum is $1/80^2$, which leaves room for the factor $80$ in
+counting the closed neighbours of each mark.
+
+The incidence check constructs the columns and plaquettes of the spatial
+boxes $(4,4,4)$ and $(4,5,6)$ at $8$ and $12$ time slabs, respectively.
+It also constructs both doubled time graphs. Each endpoint belongs to ten
+marks, and each mark has two or eight endpoints, according to its type.
+The script counts the closed neighbours from these incidences and compares
+local patterns rooted across the periodic seam with their two lifts.
+The equality of the rooted contributions for general periods follows
+from the lifting argument in the theorem. The factor in the raw tail
+bound is $2(6Vm)+6V(2m)=24Vm$, since the two periods share the cutoff
+$m/4$. Projection then gives the coefficient $48Vm$ for the physical
+defect.\footnote{The purity defect need not decrease when one deletes
+excited levels. For normalized weights $1$ and thirty copies of $1/10$,
+the exponential of the defect is $160/13$. Adding an excited weight $9/10$
+makes it $2401/211<160/13$. This finite diagonal example explains the use
+of the trace bound in the projection argument.}
+
+For Theorem~\ref{cl:thm:electric-packet}, the upper bound
+$12B\kappa<\delta$ implies
+$\epsilon^2\le 2B\kappa/3<\delta/18<(1/50)^2$. At $\epsilon=1/50$,
+the lower variance bound is $2083/10000>1/5$. The four links of the
+plaquette give relative energy at most $4/(2B)$, and division by
+$1/5$ gives the Rayleigh bound $10/B$. The relation $th\to12B$
+turns $1/(4h)$ into the lower gap $1/(48B)$ in continuous time.
+These checks concern the unequal-coupling regime and continuous time on
+a fixed spatial lattice.

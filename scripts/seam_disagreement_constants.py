@@ -1,4 +1,4 @@
-"""Exact constants for the conditional one-cube seam-disagreement theorem."""
+"""Exact arithmetic and geometry checks for the seam and unequal-coupling estimates."""
 
 from fractions import Fraction
 from collections import Counter
@@ -103,6 +103,144 @@ def check_winding_constants():
         check_winding_geometry(4, 4, cuts)
 
 
+def check_anisotropic_constants():
+    """Check the scalar bounds used in the unequal-coupling and time limits."""
+    neighborhood_size = 80
+    small_weight = Fraction(1, 10**6)
+    # e^3 > sum_{j=0}^4 3^j/j! > 16, so e^18 > 16^6.
+    exp_three_lower = 1 + 3 + Fraction(9, 2) + Fraction(27, 6) + Fraction(81, 24)
+    assert exp_three_lower > 16
+    assert Fraction(1, 16**6) < Fraction(1, 8)
+    assert 4 / Fraction(7, 8)**3 < 6
+    assert Fraction(6, 16**6) < small_weight
+    # The geometric tail bound gives exp(x)-1 <= x/(1-x), 0 <= x < 1.
+    assert (1 + small_weight)**4 / (1 - small_weight) < 4
+    # e < 3 by using j! >= 2^(j-1) in its series (strict for j >= 3).
+    assert 4 * small_weight < Fraction(1, 2 * 9 * neighborhood_size**2)
+    # At A = a_0, A e^2 = 1/(2*80^2). Check the weighted rooted sum.
+    weighted_activity = Fraction(1, 2 * neighborhood_size**2)
+    rooted_sum = weighted_activity / (1 - neighborhood_size**2 * weighted_activity)
+    assert rooted_sum == Fraction(1, neighborhood_size**2)
+    assert neighborhood_size * rooted_sum <= 1
+    # At a common cluster-size cutoff, the two periods contribute 2*6 and 12.
+    assert 2 * (3 + 3) + 2 * (3 + 3) == 24
+    assert 2 * 24 == 48
+    assert Fraction(97, 169) / (1 + Fraction(97, 169)) == Fraction(97, 266)
+    # In continuous time, t*h -> 12 B and epsilon^2 <= 2 B*kappa/3.
+    assert 18 * Fraction(2, 3) == 12
+    assert Fraction(1, 4 * 12) == Fraction(1, 48)
+    epsilon_bound = Fraction(1, 50)
+    assert Fraction(2, 3) * small_weight / 12 < epsilon_bound**2
+    variance_bound = Fraction(1, 4) - 2 * epsilon_bound - Fraction(17, 4) * epsilon_bound**2
+    assert variance_bound == Fraction(2083, 10000) > Fraction(1, 5)
+    assert Fraction(4, 2) / Fraction(1, 5) == 10
+
+
+def anisotropic_mark_graph(sides, period):
+    """Build column and plaquette marks from actual periodic spatial links."""
+    sites = list(product(*(range(length) for length in sides)))
+    parallel_edges = list(product(sites, range(3)))
+    endpoints = {}
+
+    def step(site, axis):
+        target = list(site)
+        target[axis] = (target[axis] + 1) % sides[axis]
+        return tuple(target)
+
+    def column_endpoints(edges, slab):
+        return {
+            (end, edge)
+            for end in (slab, (slab + 1) % period)
+            for edge in edges
+        }
+
+    for slab in range(period):
+        for site, axis in parallel_edges:
+            column = (slab, "column", site, (axis,))
+            endpoints[column] = column_endpoints([(site, axis)], slab)
+        for site in sites:
+            for first, second in combinations(range(3), 2):
+                edges = [
+                    (site, first),
+                    (step(site, first), second),
+                    (step(site, second), first),
+                    (site, second),
+                ]
+                plaquette = (slab, "plaquette", site, (first, second))
+                endpoints[plaquette] = column_endpoints(edges, slab)
+
+    marks_at_endpoint = {}
+    for mark, support in endpoints.items():
+        for endpoint in support:
+            marks_at_endpoint.setdefault(endpoint, set()).add(mark)
+    return endpoints, marks_at_endpoint
+
+
+def check_anisotropic_incidence(sides, period, graph):
+    """Check the incidence count and closed neighborhood bound on a sample."""
+    endpoints, marks_at_endpoint = graph
+    volume = prod(sides)
+    counts = Counter(mark[1] for mark in endpoints)
+    assert counts == {"column": 3 * volume * period, "plaquette": 3 * volume * period}
+    assert len(marks_at_endpoint) == 3 * volume * period
+    assert {len(incident) for incident in marks_at_endpoint.values()} == {10}
+    for mark, support in endpoints.items():
+        assert len(support) == (2 if mark[1] == "column" else 8)
+        closed_neighbors = set().union(*(marks_at_endpoint[endpoint] for endpoint in support))
+        assert mark in closed_neighbors and len(closed_neighbors) <= 80
+
+
+def check_anisotropic_time_cover(sides, period):
+    """Check local lifting through the time seam on two periodic graphs."""
+    base = anisotropic_mark_graph(sides, period)
+    cover = anisotropic_mark_graph(sides, 2 * period)
+    check_anisotropic_incidence(sides, period, base)
+    check_anisotropic_incidence(sides, 2 * period, cover)
+
+    def local_marks(graph, root, radius):
+        endpoints, marks_at_endpoint = graph
+        found = {root}
+        for _ in range(radius):
+            found = {
+                neighbor
+                for mark in found
+                for endpoint in endpoints[mark]
+                for neighbor in marks_at_endpoint[endpoint]
+            }
+        return found
+
+    origin = (0, 0, 0)
+    radius = (period - 1) // 4
+    for kind, axes in [("column", (0,)), ("plaquette", (0, 1))]:
+        root = (period - 1, kind, origin, axes)
+        downstairs = local_marks(base, root, radius)
+        for lifted_slab in (period - 1, 2 * period - 1):
+            upstairs = local_marks(cover, (lifted_slab, kind, origin, axes), radius)
+            projected = {(mark[0] % period, *mark[1:]): mark for mark in upstairs}
+            assert len(projected) == len(upstairs)
+            assert set(projected) == downstairs
+            downstairs_endpoints = set().union(*(base[0][mark] for mark in downstairs))
+            upstairs_endpoints = set().union(*(cover[0][mark] for mark in upstairs))
+            assert len(downstairs_endpoints) == len(upstairs_endpoints)
+            for mark, lift in projected.items():
+                assert {(slab % period, edge) for slab, edge in cover[0][lift]} == base[0][mark]
+
+
+def check_projected_trace_example():
+    """A finite spectral illustration, with no Wilson dynamics assumed."""
+    singlet = [Fraction(1)] + [Fraction(1, 10)] * 30
+    unprojected = singlet + [Fraction(9, 10)]
+
+    def defect_ratio(spectrum):
+        return sum(spectrum)**2 / sum(value**2 for value in spectrum)
+
+    projected_ratio = defect_ratio(singlet)
+    raw_ratio = defect_ratio(unprojected)
+    assert raw_ratio == Fraction(2401, 211)
+    assert projected_ratio == Fraction(160, 13)
+    assert 1 < raw_ratio < projected_ratio <= raw_ratio**2
+
+
 if __name__ == "__main__":
     check_constants()
     for box in [(4, 4, 4, 4), (4, 6, 4, 8)]:
@@ -110,4 +248,9 @@ if __name__ == "__main__":
     check_cluster_and_trace_constants()
     check_aspect_threshold()
     check_winding_constants()
-    print("Seam, winding, aspect ratio, cluster and trace checks passed. The physical Wilson seam bound remains open.")
+    check_anisotropic_constants()
+    for spatial_box, time_period in [((4, 4, 4), 8), ((4, 5, 6), 12)]:
+        check_anisotropic_time_cover(spatial_box, time_period)
+    check_projected_trace_example()
+    print("Exact arithmetic, periodic incidence and time-cover checks passed.")
+    print("The unequal-coupling estimate has explicit hypotheses. The isotropic weak-coupling seam bound remains open.")
