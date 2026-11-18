@@ -2,7 +2,7 @@
   "baseline": "Supplied preprints-243579-manuscript (2).zip / 4Y-MTeX",
   "baseline_preprint_doi": "10.20944/preprints202611.1282.v1",
   "draft_input": "Supplied preprints-244356-manuscript.zip; audited reductions adapted into the preserved base",
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "title": "Lattice Yang–Mills Gaps and Weak Coupling",
   "author_list": "All six v1 authors retained",
   "changes": {
@@ -12,7 +12,9 @@
     "sec/13_decl.tex": "Data and Code Availability links the project and the verified Anaxia repository; retain the six-author declarations.",
     "app/J_tables.tex": "Correct current source-declaration and executed Julia-check counts; distinguish source coverage from a full formal audit.",
     "bib.tex": "Bibliographic identities, publication details and available identifiers checked against the sources recorded in BIBLIOGRAPHY-AUDIT.md.",
-    "anc/constants.jl": "Replace the older ancillary constants script with the current repository script that passed all 273 checks."
+    "anc/constants.jl": "Replace the older ancillary constants script with the current repository script that passed all 273 checks.",
+    "app/N_isotropic.tex": "Exact isotropic weak-coupling spectra on fixed free cubes and finite shared-link clusters, with an omitted-face estimate.",
+    "sec/20_anisotropic.tex": "Link the unequal-coupling regime to the exact fixed-box results."
   },
   "added_mathematics": [
     "PSTS and single-cube comparison",
@@ -30,7 +32,8 @@
     "rough-cell cluster estimates and finite-matrix trace tail",
     "winding densities, axial pinning and the charged transfer spectrum",
     "unequal-coupling partition ratio and gauge-invariant lattice gap",
-    "continuous-time spectral limit and a local finite-energy excitation"
+    "continuous-time spectral limit and a local finite-energy excitation",
+    "fixed free-box isotropic Wilson spectrum in SU(2) and the lowest gauge-invariant excitation"
   ],
   "publication": "No GitHub release or Zenodo deposit; no new DOI requested",
   "scope": "The uniform tuned Wilson bound and unconditional Clay theorem remain unproved",
@@ -260,7 +263,7 @@
     {
       "path": "YangMills.tex",
       "baseline_sha256": "6c87419d4ce1480a026df62ff287450a51eb4e570192c9fecb8a80ce2d96a394",
-      "revision_sha256": "5b864db05377752b920dd78eb97f7acc1d64a85dc216c5ade805d180841c5fa7",
+      "revision_sha256": "2496afccda5d58e2295481132f5686be91487550de1454fd482d41567bb2cbe2",
       "status": "modified as documented"
     }
   ],

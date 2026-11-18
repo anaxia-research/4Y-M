@@ -59,3 +59,7 @@ For SU(2), integrating straight spatial winding rows compares the Wilson seam od
 ## Unequal-coupling partition bounds
 
 The unequal-coupling theorem proves a gauge-invariant gap uniform in spatial volume at arbitrarily large temporal coupling with sufficiently small spatial coupling. At continuous time and fixed spatial spacing, the SU(2) theory has a finite-energy plaquette excitation with two-sided correlation bounds. The isotropic physical-scale Wilson estimate and a compatible nontrivial four-dimensional continuum limit remain open.
+
+## Equal couplings on finite spatial cubes
+
+For SU(2) at equal couplings, Appendix N determines the exact limiting gap on each fixed spatial cube with free boundary. The limit decreases inversely with the side length. The proof keeps all spatial plaquettes and the exact Wilson transfer before the limit. For separate clusters around a common link it also gives the two exact limiting eigenvalue ratios. The torus has additional flat holonomies. Uniform estimates in a joint cutoff and volume limit would be needed for the continuum theory.

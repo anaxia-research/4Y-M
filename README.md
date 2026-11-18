@@ -2,11 +2,11 @@
 
 Preprints.org revision of [Version 1](https://doi.org/10.20944/preprints202611.1282.v1), posted 12 November 2026. All six authors are retained.
 
-The unequal-coupling theorem proves a gauge-invariant gap uniform in spatial volume at arbitrarily large temporal coupling with sufficiently small spatial coupling. At continuous time and fixed spatial spacing, the SU(2) theory has a finite-energy plaquette excitation with two-sided correlation bounds. The isotropic physical-scale Wilson estimate and a compatible nontrivial four-dimensional continuum limit remain open.
+The unequal-coupling theorem proves a gauge-invariant gap uniform in spatial volume at arbitrarily large temporal coupling with sufficiently small spatial coupling. At continuous time and fixed spatial spacing, the SU(2) theory has a finite-energy plaquette excitation with two-sided correlation bounds. For SU(2) at equal couplings, Appendix N determines the exact limiting gap on each fixed spatial cube with free boundary. The limit decreases inversely with the side length. The isotropic physical-scale Wilson estimate and a compatible nontrivial four-dimensional continuum limit remain open.
 
 ## Current manuscript
 
-- [PDF (192 pages)](Paper-2/YangMills.pdf)
+- [PDF (196 pages)](Paper-2/YangMills.pdf)
 - [Submission source ZIP](Paper-2/texmdpi.zip) with one main.tex and the figures/ directory
 - [Modular source](Paper-2/source/YangMills.tex)
 - [Resubmission note](Paper-2/RESUBMISSION-NOTES.md)
@@ -43,6 +43,7 @@ python scripts/single_cube_constants.py
 python scripts/wilson_construction_checks.py
 python scripts/check_conditional_fisher.py
 python scripts/seam_disagreement_constants.py
+python scripts/check_isotropic_plaquette.py
 python scripts/package_manuscript.py --compile
 ```
 

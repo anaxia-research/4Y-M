@@ -83,3 +83,7 @@ The exact checker also tests the rational constants for the side 24T and time mu
 Sections 20.4 and 20.5 contain analytical proofs. The supporting Python check enumerates all Wilson plaquettes on a two-sheet lattice for the four temporal matchings and checks the row incidences and numerical constants. These results have not been formalized in Lean.
 
 The unequal-coupling and continuous-time results are analytical. Appendix M and the exact Python checks document the block-counting, threshold and variational constants. The new theorems have not been formalized in Lean. The submission source is main.tex with the PNG files in figures/.
+
+## Isotropic finite boxes (19 November 2026)
+
+Appendix N derives the fixed-box limit analytically. The NumPy checker scripts/check_isotropic_plaquette.py independently diagonalizes the finite-coupling single-face transfer in a character basis at couplings 16, 64, 256 and 1024. It also checks shared-link Gaussian covariances and free-box incidence spectra at side lengths 1 through 4. The numerical checks use floating-point arithmetic. The new analytical results have not been formalized in Lean.

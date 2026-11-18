@@ -1,1 +1,1 @@
-Please consider Version 2 of our preprint, first posted on 12 November 2026. We retain the results and author list of Version 1, add a proof for a wider range of lattice models, and clarify what remains open in the continuum theory. We have also revised the figures and checked the bibliography.
+Please consider this revision of our November preprint. We have added an exact weak-coupling result for finite cubes with free boundaries and expanded the proofs and figures. The manuscript distinguishes these lattice results from the continuum problem.

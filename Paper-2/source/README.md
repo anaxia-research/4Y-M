@@ -1,10 +1,11 @@
 # Lattice Yang–Mills Gaps and Weak Coupling
 
-Research revision v2, 18 November 2026. Six-author list retained from the published preprint v1.
+Research revision v2, 19 November 2026. Six-author list retained from the published preprint v1.
 
 ## Current files
 
 - `YangMills.tex`: sole manuscript entry point; compile with pdfLaTeX.
+- `app/N_isotropic.tex`: equal-coupling spectra on free cubes and clusters of plaquettes sharing a link.
 - `sec/06d_singlecube.tex`: positive torus systems, one-cube comparison, ascent and zero–one law.
 - `sec/06e_continuum.tex`: physical-gap transfer theorem and explicit Clay obligations.
 - `sec/06f_replica.tex`: the exact Wilson replica response and tilted conditional trace factorisation.
