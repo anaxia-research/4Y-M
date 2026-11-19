@@ -1,7 +1,7 @@
 # Analytical progress from the user-designated main source
 
 Main source: the attached ymmdpitex.zip, preserved by SHA-256 in the manifest.
-Title: Lattice Yang–Mills Gaps and Weak Coupling.
+Title: Lattice Yang–Mills at Weak Coupling.
 The main source and all prior substantive mathematical sections are retained.
 
 ## Proved in this continuation
@@ -63,3 +63,7 @@ The unequal-coupling theorem proves a gauge-invariant gap uniform in spatial vol
 ## Equal couplings on finite spatial cubes
 
 For SU(2) at equal couplings, Appendix N determines the exact limiting gap on each fixed spatial cube with free boundary. The limit decreases inversely with the side length. The proof keeps all spatial plaquettes and the exact Wilson transfer before the limit. For separate clusters around a common link it also gives the two exact limiting eigenvalue ratios. The torus has additional flat holonomies. Uniform estimates in a joint cutoff and volume limit would be needed for the continuum theory.
+
+## Plaquette deficits with fixed exterior links
+
+On isotropic four-dimensional Wilson lattices, the new estimates bound the mean plaquette deficit in growing boxes for every exterior field. For SU(2) they also give upper and lower bounds on the contact variance of the rescaled plaquette trace. The neutral transfer estimate at positive physical separation and the required continuum construction remain unproved.

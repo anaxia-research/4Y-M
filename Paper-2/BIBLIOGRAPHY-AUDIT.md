@@ -1,8 +1,6 @@
 # Bibliography audit
 
-Checked on 18 November 2026. The active manuscript has **68 bibliography entries**. Of these, 61 have DOIs and seven have archival or publisher records. There are 121 DOI occurrences in `bib.tex` when the hyperlink target and displayed DOI are counted separately. The DOI checks ignore case and TeX display commands. Every occurrence agrees with the identifier verified for its entry.
-
-I followed the input tree from `YangMills.tex` and checked 38 TeX files. There are 107 citation commands and 129 cited-key occurrences. Every citation resolves to one bibliography entry. Every bibliography entry is cited. The active text outside the bibliography contains no DOI token. The prior version's publication identifier was checked separately below.
+The 18 November audit checked 68 entries. On 19 November the additional reference FO25 was checked against the publisher and the journal PDF. The current bibliography contains 69 entries, including 62 with a DOI and seven with archival or publisher records. In the submission source, 108 citation commands contain 130 cited-key occurrences. Every citation resolves and every entry is cited.
 
 The checks cover authorship, title, journal or publisher, edition or volume, publication year and page or article numbers where applicable. They verify bibliographic identity. The mathematical scope of the October OpenAI result is recorded below.
 
@@ -96,6 +94,7 @@ The 9 November 2026 statement from the shepherding committee records the 28 Octo
 | `vRS05` | `10.1002/cpa.20060` | [DOI metadata](<https://doi.org/10.1002/cpa.20060>) · [Publisher or original text](<https://onlinelibrary.wiley.com/doi/10.1002/cpa.20060>) |
 | `Wat44` | — | [National Diet Library](<https://ndlsearch.ndl.go.jp/books/R100000136-I1971430859749505171>) · [Contemporary review](<https://www.nature.com/articles/156190a0>) |
 | `Wil74` | `10.1103/PhysRevD.10.2445` | [Crossref](<https://api.crossref.org/works/10.1103%2FPhysRevD.10.2445>) |
+| `FO25` | `10.1016/S0034-4877(25)00035-7` | [Publisher](https://www.sciencedirect.com/science/article/pii/S0034487725000357) · [Journal PDF](https://repositorio.usp.br/directbitstream/ef6d3c36-bb3e-4609-acf3-305a632492f3/3265110.pdf) |
 | `YMG26` | — | [Pinned assessment](<https://github.com/yang-mills-group/YM/blob/55ba9fc36293b3f4d52c6b1f813169a0be76ee98/docs/assessment-1.pdf>) |
 
 Detailed Crossref responses from the earlier audit are in `proof-attempts/reference-audit-1-crossref.json` and `proof-attempts/references-2-crossref.json` in the working directory. The identity of each of the six added DOI-bearing references was checked against a new publisher-deposited record. The OpenAI assessment title page was inspected directly, and the two original Barta pages are linked above.

@@ -3,18 +3,20 @@
   "baseline_preprint_doi": "10.20944/preprints202611.1282.v1",
   "draft_input": "Supplied preprints-244356-manuscript.zip; audited reductions adapted into the preserved base",
   "date": "2026-11-19",
-  "title": "Lattice Yang–Mills Gaps and Weak Coupling",
+  "title": "Lattice Yang–Mills at Weak Coupling",
   "author_list": "All six v1 authors retained",
   "changes": {
     "YangMills.tex": "Current title, short abstract, date, common notation and diagrams; integrate the additional analytical sections and an exact-constant appendix; no software DOI.",
-    "sec/01_intro.tex": "Integrate the single-cube and exact Wilson constructions; correct physical gap conversion and the nonnegative-coupling transfer branch; preserve the original theorem statements and proofs with these documented corrections. Introduce the unequal-coupling result.",
+    "sec/01_intro.tex": "Integrate the single-cube and exact Wilson constructions; correct physical gap conversion and the nonnegative-coupling transfer branch; preserve the original theorem statements and proofs with these documented corrections. Introduce the unequal-coupling result. Introduce the fixed-box gap and conditional curvature bounds.",
     "sec/12_conclusion.tex": "Consolidate the strengthened reduction, replica response, kernel obstruction and retention criteria with the original conclusions; state unresolved model estimates.",
     "sec/13_decl.tex": "Data and Code Availability links the project and the verified Anaxia repository; retain the six-author declarations.",
     "app/J_tables.tex": "Correct current source-declaration and executed Julia-check counts; distinguish source coverage from a full formal audit.",
     "bib.tex": "Bibliographic identities, publication details and available identifiers checked against the sources recorded in BIBLIOGRAPHY-AUDIT.md.",
     "anc/constants.jl": "Replace the older ancillary constants script with the current repository script that passed all 273 checks.",
     "app/N_isotropic.tex": "Exact isotropic weak-coupling spectra on fixed free cubes and finite shared-link clusters, with an omitted-face estimate.",
-    "sec/20_anisotropic.tex": "Link the unequal-coupling regime to the exact fixed-box results."
+    "sec/20_anisotropic.tex": "Link the unequal-coupling regime to the exact fixed-box results.",
+    "sec/06h_retention.tex": "Add quantitative conditional and sparse-array plaquette variances.",
+    "sec/20_rough_clusters.tex": "Add partition doubling, joint rarity at the Wilson scale, and curvature estimates for every exterior."
   },
   "added_mathematics": [
     "PSTS and single-cube comparison",
@@ -33,7 +35,9 @@
     "winding densities, axial pinning and the charged transfer spectrum",
     "unequal-coupling partition ratio and gauge-invariant lattice gap",
     "continuous-time spectral limit and a local finite-energy excitation",
-    "fixed free-box isotropic Wilson spectrum in SU(2) and the lowest gauge-invariant excitation"
+    "fixed free-box isotropic Wilson spectrum in SU(2) and the lowest gauge-invariant excitation",
+    "Wilson curvature concentration on growing boxes with arbitrary exterior",
+    "two-sided contact variance bounds for the rescaled SU(2) plaquette"
   ],
   "publication": "No GitHub release or Zenodo deposit; no new DOI requested",
   "scope": "The uniform tuned Wilson bound and unconditional Clay theorem remain unproved",
@@ -101,7 +105,7 @@
     {
       "path": "bib.tex",
       "baseline_sha256": "9501b51e8d9b2ba0e2312491f17b1ffce2c7fff75605d63798cbc60f0439d8f4",
-      "revision_sha256": "0604a76b4c54fa89e7ae7c2408d5396c5caf15afc751e16c306d4c19271d6479",
+      "revision_sha256": "13226b4c9392fe546c89f32b9b324a7fca54f37b2c42a4d36bcf449ce7292c98",
       "status": "modified as documented"
     },
     {
@@ -173,7 +177,7 @@
     {
       "path": "sec/01_intro.tex",
       "baseline_sha256": "2baf424b3a2fee55a76c8b74142328e96bfbcde5c2efeb1472d06555159cae53",
-      "revision_sha256": "4bbb07cae8f8d8875a93d3c6f0d2b7c2f36aa6016681d308464d4aa4b523f2e8",
+      "revision_sha256": "c3415b210b8515f7d44726faa1d89e2da99141bb703368a79bfd12126f621031",
       "status": "modified as documented"
     },
     {
@@ -251,7 +255,7 @@
     {
       "path": "sec/12_conclusion.tex",
       "baseline_sha256": "25e4ea5609767e0ef393a10cbb45cd18fd508753246321e69182b790bdfb033e",
-      "revision_sha256": "bc62c48cbcb8c24ba837583adcc02ac3311f7ef2bcf263442da082eef62e6cb0",
+      "revision_sha256": "f9fb892079c2f73d006b5f3a9831afbb2429c5d9513df6f799ed66ef5121e9db",
       "status": "modified as documented"
     },
     {
@@ -263,7 +267,7 @@
     {
       "path": "YangMills.tex",
       "baseline_sha256": "6c87419d4ce1480a026df62ff287450a51eb4e570192c9fecb8a80ce2d96a394",
-      "revision_sha256": "2496afccda5d58e2295481132f5686be91487550de1454fd482d41567bb2cbe2",
+      "revision_sha256": "75892d4cc237f83f2907f5b192c9c73a5b8a4baf68659d082646f59d4b052d9c",
       "status": "modified as documented"
     }
   ],

@@ -1,12 +1,14 @@
-# Lattice Yang–Mills Gaps and Weak Coupling
+# Lattice Yang–Mills at Weak Coupling
 
 Preprints.org revision of [Version 1](https://doi.org/10.20944/preprints202611.1282.v1), posted 12 November 2026. All six authors are retained.
 
 The unequal-coupling theorem proves a gauge-invariant gap uniform in spatial volume at arbitrarily large temporal coupling with sufficiently small spatial coupling. At continuous time and fixed spatial spacing, the SU(2) theory has a finite-energy plaquette excitation with two-sided correlation bounds. For SU(2) at equal couplings, Appendix N determines the exact limiting gap on each fixed spatial cube with free boundary. The limit decreases inversely with the side length. The isotropic physical-scale Wilson estimate and a compatible nontrivial four-dimensional continuum limit remain open.
 
+On isotropic four-dimensional Wilson lattices, the new estimates bound the mean plaquette deficit in growing boxes for every exterior field. For SU(2) they also give upper and lower bounds on the contact variance of the rescaled plaquette trace. The neutral transfer estimate at positive physical separation and the required continuum construction remain unproved.
+
 ## Current manuscript
 
-- [PDF (196 pages)](YangMills.pdf)
+- [PDF (198 pages)](YangMills.pdf)
 - [Submission source ZIP](texmdpi.zip) with one main.tex and the figures/ directory
 - [Modular source](source/YangMills.tex)
 - [Resubmission note](RESUBMISSION-NOTES.md)
@@ -44,6 +46,7 @@ python scripts/wilson_construction_checks.py
 python scripts/check_conditional_fisher.py
 python scripts/seam_disagreement_constants.py
 python scripts/check_isotropic_plaquette.py
+python scripts/check_wilson_curvature.py
 python scripts/package_manuscript.py --compile
 ```
 

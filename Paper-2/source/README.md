@@ -1,4 +1,4 @@
-# Lattice Yang–Mills Gaps and Weak Coupling
+# Lattice Yang–Mills at Weak Coupling
 
 Research revision v2, 19 November 2026. Six-author list retained from the published preprint v1.
 

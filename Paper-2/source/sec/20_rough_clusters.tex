@@ -121,6 +121,140 @@ the active Wilson fields at the corners. Conditioning on prescribed
 coarse links or an exterior field would change the measure in the
 chessboard argument. The result gives no such conditional estimate.
 
+\subsection{Plaquette deficits at isotropic weak coupling}
+\label{cl:sec:natural-roughness}
+Set \(v_p=1-x_p\), \(V=\sum_p v_p\), and write \(Z(b)=\int e^{-bV}\,dQ\).
+Related free and periodic partition bounds and estimates for scaled plaquette
+fields were obtained by Faria da Veiga and O'Carroll~\cite{FO25}.
+Here the ratio \(Z(b/2)/Z(b)\) gives both a joint bound on rough cells and
+an estimate conditional on arbitrary exterior links.
+
+\begin{lemma}\label{cl:lem:triangular-plaquettes}
+On a connected rectangular grid let \(r\) be the number of edges minus
+the number of vertices plus one. Under product Haar measure in tree gauge
+one can use \(r\) elementary plaquette holonomies as independent Haar
+coordinates for a free box. On a \(d\)-dimensional rectangular torus one
+can use \(r-d\) elementary plaquettes and \(d\) remaining group variables.
+Plaquette holonomies here are computed in the chosen tree gauge.
+\end{lemma}
+\begin{proof}
+Induct on dimension. On a line the tree uses every edge, and on a circle
+one wrap link remains. In higher dimension choose an axial coordinate.
+Take into the tree every nonwrapping axial edge and a spanning tree
+in the base transverse slice. Fix its links to \(I\); given the original
+tree links, each remaining link is Haar independently, by left and
+right invariance. Use the induction hypothesis in the base slice.
+Successive axial plaquettes now determine every transverse link one slice
+above from its value one slice below. This includes transverse edges
+that wrap around a periodic direction. In a free box this exhausts the
+coordinates. On a torus a wrap link \(h_y\) remains on each axial column
+\(y\). Keep the one at a transverse root. For each edge of the transverse
+spanning tree use its axial-wrap plaquette to determine the wrap link
+at its child from the one at its parent. The transverse links in this last
+plaquette have already been recovered. Every replacement consists of left
+and right translation and possibly inversion of one fresh Haar variable
+by known variables. Successive changes thus preserve product Haar measure.
+The induction leaves one additional handle for each periodic direction.
+\end{proof}
+
+\begin{theorem}\label{cl:thm:natural-rough-cells}
+Consider the isotropic \(\SU(2)\) Wilson measure at \(b\ge1\) on a
+four-dimensional rectangular torus with \(H\) sites and even periods
+at least four. For any set \(S\) of distinct cells,
+\[
+ \mathbb P_b(\text{each cell in }S\text{ has a face with }v_p\ge\kappa)
+ \le \min\{1,\exp[(33+6\log(b)/H-b\kappa/8)|S|]\}.
+\]
+In particular, if \(H\ge\log b\), then \(\kappa=352/b\) gives probability
+at most \(128^{-|S|}\). The expectation of the mean over all faces satisfies
+\[
+ \frac1{4b+1}\le\frac{\E_b V}{6H}
+       \le\frac{33+6\log(b)/H}{3b}.
+\]
+\end{theorem}
+\begin{proof}
+Let \(c=25/(54\pi)\), \(C=\pi^{5/2}/2\) and \(\delta=(8b)^{-1/2}\).
+A Haar ball of angular radius \(\delta\) has mass at least \(c\delta^3\),
+by integrating \((2/\pi)\sin^2\theta\) and using
+\(\sin\theta\ge5\theta/6\) there. If each of the \(r\) free links
+after gauge fixing lies in this ball, each plaquette has angle at most
+\(4\delta\) and \(bv_p\le1\). For \(M\) faces this gives
+\(Z(b)\ge e^{-M}[c(8b)^{-3/2}]^r\).
+Also \(z(b/2)=\int e^{-(b/2)(1-x)}\,dg\le C b^{-3/2}\), by
+\(1-\cos\theta\ge2\theta^2/\pi^2\) and \(\sin\theta\le\theta\).
+In the numerator keep only the \(r-4\) independent plaquettes of
+Lemma~\ref{cl:lem:triangular-plaquettes}; discarding the others increases
+the integral. On the torus \(M=6H,\ r=3H+1\), so
+\[
+ \log[Z(b/2)/Z(b)]\le33H+6\log b ,
+ \qquad 6+4\log(8^{3/2}/c)+3\log C<33.
+\]
+Under the Wilson measure the ratio equals \(\E_b e^{bV/2}\).
+Jensen's inequality gives the upper bound on the mean. If all cells
+are rough, incidence counting gives \(V\ge\kappa H/4\).
+Exponential Markov followed by the chessboard inequality in
+Theorem~\ref{cl:thm:rough-cells} gives the claimed joint estimate.
+
+For the lower bound fix all links except one. Its six incident traces
+sum to \(s x\), where \(s\le6\) and \(x\) is an axial coordinate on
+the unit three-sphere, tilted by \(e^{bsx}\). For \(t=bs\) let
+\(g(t)=\E_t x\). Integrating the derivative of
+\(e^{tx}(1-x^2)^{3/2}\) gives \(3g(t)=t\E_t(1-x^2)\le2t(1-g(t))\).
+Thus the conditional sum of the six deficits has mean
+\(6-sg(bs)\ge6/(4b+1)\). Sum over links and count each face four times.
+\end{proof}
+
+\begin{theorem}\label{cl:thm:exterior-mean-curvature}
+Inside a periodic four-dimensional \(\SU(2)\) Wilson lattice consider an
+embedded box with \(L\) intervals per side, with periods at least \(L+2\)
+and at least four. Fix all links outside its internal edge set to any
+values \(\eta\). For \(M=6L^2(L+1)^2\) internal faces put
+\(\bar v=M^{-1}\sum_{p\ {\rm internal}}v_p\).
+If \(L\ge b\ge1\), then
+\[
+ \E_{b,\eta}\bar v\le34/b,\qquad
+ \mathbb P_{b,\eta}(\bar v\ge36/b)\le e^{-M}.
+\]
+\end{theorem}
+\begin{proof}
+There are \(M_\partial=24L(L+1)^2=4M/L\) faces using both internal
+and external links: each of the eight boundary hyperplanes has three
+tangential edge directions, each giving \(L(L+1)^2\) crossing faces.
+Since every deficit is between zero and two, the conditional exponential
+moment of \(bM\bar v/2\) is at most
+\(e^{2bM_\partial} Z_{\rm free}(b/2)/Z_{\rm free}(b)\). This comparison
+is made before gauge fixing and holds for every exterior. The previous
+proof on the free box uses \(r\le M\) independent faces in the numerator
+and the same \(r\) independent links in the denominator. The powers of
+\(b\) cancel. Consequently
+\[
+ \log \E_{b,\eta} e^{bM\bar v/2}
+ \le 2bM_\partial+M+r\log(C8^{3/2}/c)<17M
+\]
+since \(L\ge b\) and \(\log(C8^{3/2}/c)<7.21\).
+Jensen's inequality and exponential Markov give the two assertions.
+\end{proof}
+
+The same exterior estimate holds up to group-dependent constants for a
+fixed compact simple matrix group in a faithful unitary representation.
+Indeed, with \(n\) the representation dimension, the deficit is
+\(\|I-U\|_{\rm HS}^2/(2n)\). It vanishes only at \(I\), with positive
+quadratic part there because the differential of the representation is
+injective. Smooth Haar density in exponential coordinates gives both a
+lower bound \(c_G b^{-\dim G/2}\) for a ball of radius \(b^{-1/2}\) and
+an upper bound \(C_G b^{-\dim G/2}\) for the single-face integral at
+\(b/2\); the complement of a fixed coordinate ball is exponentially small.
+The same \(r\) powers cancel on a free box, leaving a conditional log
+moment at most \(C'_G M\) for \(L\ge b\ge1\).
+
+In a fixed physical four-volume with lattice spacing \(a\), take
+\(L=\lceil b\rceil\) along a trajectory \(b\asymp\log(1/a)\).
+There are \(O(a^{-4})\) possible translates and \(M\ge6b^4\).
+A union bound shows that, with probability tending to one, \emph{every}
+such box has \(\bar v<36/b\). This estimates a local action even in
+the presence of arbitrary exterior fields. It gives no decay in the
+separation of two observables.
+
 The remaining probability in Corollary~\ref{cl:cor:seam-clusters} still
 includes long-wavelength gauge fields. For instance, take all links on
 a spatial circle of length $n$ in one coordinate direction to be the

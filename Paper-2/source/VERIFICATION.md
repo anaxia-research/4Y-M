@@ -62,7 +62,7 @@ per loop iteration rather than indexing by a potentially migrating thread ID.
 The manuscript compiles with no unresolved references, duplicate labels,
 overfull boxes or oversized floats. Every page was inspected at contact-sheet
 scale, with enlarged inspection of the cover and new mathematical pages.
-Bibliographic identities were checked for all 68 references: 61 DOI records
+Bibliographic identities were checked for all 69 references: 62 DOI records
 match their works, and seven non-DOI items have official bibliographic or source
 records. Barta's 1937 entry was also checked against pages 472–473 of the original volume in a digital facsimile. This is identity verification, not an
 independent verification of every cited proof.
@@ -87,3 +87,7 @@ The unequal-coupling and continuous-time results are analytical. Appendix M and 
 ## Isotropic finite boxes (19 November 2026)
 
 Appendix N derives the fixed-box limit analytically. The NumPy checker scripts/check_isotropic_plaquette.py independently diagonalizes the finite-coupling single-face transfer in a character basis at couplings 16, 64, 256 and 1024. It also checks shared-link Gaussian covariances and free-box incidence spectra at side lengths 1 through 4. The numerical checks use floating-point arithmetic. The new analytical results have not been formalized in Lean.
+
+## Wilson plaquette estimates (19 November 2026)
+
+The new conditional block and contact-variance estimates are analytical. The standard-library script scripts/check_wilson_curvature.py checks the ordered plaquette changes of variables using exact noncommuting unit quaternions on free and periodic grids of dimensions one through four. The scalar constants are also checked numerically. The new estimates have not been formalized in Lean.

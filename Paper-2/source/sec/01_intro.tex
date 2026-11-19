@@ -1,14 +1,12 @@
 \section{Introduction}\label{sec:intro}
 
-The Yang--Mills existence and mass gap problem asks for a quantum
-Yang--Mills theory on $\R^4$ with a compact simple gauge group that satisfies
-the axioms of constructive quantum field theory, and for a number $\Delta>0$
-such that the spectrum of the Hamiltonian lies in $\{0\}\cup[\Delta,\infty)$
-\cite{JW06}. In the Euclidean formulation the theory is a probability measure
-on gauge fields whose Schwinger functions satisfy the Osterwalder--Schrader
-axioms \cite{OS73,OS75}; the mass gap is then exponential decay of the
-truncated two-point functions of gauge-invariant observables at the rate
-$\Delta$. The natural regularisation is Wilson's lattice gauge theory
+The Clay problem asks for a nontrivial quantum Yang--Mills theory on
+$\R^4$ for every compact simple gauge group, with Hamiltonian spectrum
+in $\{0\}\cup[\Delta,\infty)$ for some $\Delta>0$ \cite{JW06}.
+In a Euclidean construction the gauge-invariant Schwinger functions must
+satisfy reconstruction axioms \cite{OS73,OS75}. A gap then bounds the
+decay of vacuum-subtracted time correlations by $e^{-\Delta t}$ for
+observables creating finite-norm states. We use Wilson's lattice theory
 \cite{Wil74}: an element $Q_e$ of $G\subset\U(N)$ sits on every link $e$ of the
 lattice $a\Z^4$, and a configuration has the weight
 $\exp(N\beta\sum_p\ReTr Q_p)$, where $Q_p$ is the ordered product around the
@@ -24,12 +22,14 @@ Ba{\l}aban's renormalisation group \cite{Bal84a,Bal85a,Bal89b} gives ultraviolet
 stability in finite volume at weak coupling (Dimock \cite{Dim13} presents the
 method for the scalar $\phi^4$ model in three dimensions), and Magnen, Rivasseau and S\'en\'eor constructed the theory with an
 infrared cutoff \cite{MRS93}. No existing result gives a mass gap in physical
-units. This paper proves a lattice mass gap with explicit constants for every
-compact simple group, reduces the continuum gap to one estimate on one
-physical scale, proves that estimate at strong coupling, reduces it further to
-a decay of correlations across a slab of physical width $\ell/2$, and
-determines what the methods used here can and cannot reach. It also states
-precisely what is missing.
+units for the four-dimensional continuum theory of the Clay problem.
+We prove a strong-coupling lattice gap for every compact simple group.
+For isotropic $\SU(2)$ we compute the weak-coupling gap on a fixed free
+cube (Theorem~\ref{thm:isotropic-free-box}). On growing boxes,
+Theorem~\ref{cl:thm:exterior-mean-curvature} controls the average Wilson
+plaquette deficit for every exterior field. Reaching the continuum gap
+would require a physical-scale correlation estimate in addition to this
+control of the local action.
 
 
 \noindent\emph{Unequal Wilson couplings.}\enspace

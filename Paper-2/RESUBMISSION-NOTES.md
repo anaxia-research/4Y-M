@@ -1,1 +1,1 @@
-Please consider this revision of our November preprint. We have added an exact weak-coupling result for finite cubes with free boundaries and expanded the proofs and figures. The manuscript distinguishes these lattice results from the continuum problem.
+Please consider this revision of our November preprint. We have added estimates that remain valid on growing lattices with arbitrary exterior fields and clarified which results apply to the continuum problem.
