@@ -1,4 +1,4 @@
-# The Mass Gap Δ > 0 in Four-Dimensional Lattice Yang–Mills Theory
+# The Mass Gap Δ > 0 in Four-Dimensional Yang–Mills Theory under a Uniform Cube Condition
 
 **Deep Bhattacharjee**\*, **Ushashi Bhattacharya**, **James Montgomery Lockwood**,
 **Tristan Romanov**, **Ikailo John Sessford** and **Sanjeevan Singha Roy**
@@ -32,17 +32,18 @@ ORCID [0000-0002-6148-1421](https://orcid.org/0000-0002-6148-1421).
 itsdeep@live.com. Code and GitHub contact: egspl@proton.me, GitHub
 [creelie](https://github.com/creelie).
 
-**Paper:** [Mass-Gap-4D-Lattice-Yang-Mills-Theory.pdf](paper/Mass-Gap-4D-Lattice-Yang-Mills-Theory.pdf)
+**Paper:** [Mass-Gap-4D-Yang-Mills-Uniform-Cube-Condition.pdf](paper/Mass-Gap-4D-Yang-Mills-Uniform-Cube-Condition.pdf)
 
 ---
 
 ## Abstract
 
-We prove that one inequality at one physical scale, imposed along the
-asymptotic-freedom tuning, gives a positive mass gap in every nontrivial
-continuum limit of four-dimensional Wilson lattice Yang–Mills theory. For
+We prove that a cube condition at one physical scale, imposed uniformly
+along the asymptotic-freedom tuning, gives a positive mass gap in every
+nontrivial continuum limit of four-dimensional Wilson lattice Yang–Mills
+theory. For
 every compact simple gauge group we prove volume-uniform transfer-matrix gaps
-with explicit rates at strong coupling. For SU(2) the underlying cube condition
+with explicit rates at strong coupling. For SU(2) the cube condition
 holds uniformly in the cube size for β_W < (√37 − 5)/3, and we compute the
 exact weak-coupling gap on each fixed free cube. For two static sources we
 prove an exact Gauss law for the transfer matrix and a compensation inequality
@@ -185,7 +186,7 @@ YangMills/
     Haar.lean               pseudoreal surface integrals
     Counting.lean           two-gluon singlet states
 paper/
-  Mass-Gap-4D-Lattice-Yang-Mills-Theory.pdf   the paper
+  Mass-Gap-4D-Yang-Mills-Uniform-Cube-Condition.pdf   the paper
 YangMills.lean              root import
 Axioms.lean                 axiom audit and #print axioms
 axioms.txt                  output of Axioms.lean
@@ -220,7 +221,7 @@ proved in the paper, and the statements listed above are checked here in Lean.
 @misc{Bhattacharjee2026YangMills,
   author       = {Bhattacharjee, Deep and Bhattacharya, Ushashi and Lockwood, James Montgomery
                   and Romanov, Tristan and Sessford, Ikailo John and Singha Roy, Sanjeevan},
-  title        = {The Mass Gap {$\Delta > 0$} in Four-Dimensional Lattice {Yang--Mills} Theory},
+  title        = {The Mass Gap {$\Delta > 0$} in Four-Dimensional {Yang--Mills} Theory under a Uniform Cube Condition},
   year         = {2026},
   note         = {Preprint},
   url          = {https://github.com/anaxia-research/4Y-M}
