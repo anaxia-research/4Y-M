@@ -1,88 +1,68 @@
-# Proof of the Yang–Mills Mass Gap Δ > 0 under Quasi-Lee–Yang Channels
+# Yang–Mills Mass Gap: Lean 4 Formalization
 
-**Deep Bhattacharjee**\*, **Ushashi Bhattacharya**, **James Montgomery Lockwood**,
-**Tristan Romanov**, **Ikailo John Sessford** and **Sanjeevan Singha Roy**
+Lean 4 and Mathlib formalization for *Proof of the Yang–Mills Mass Gap Δ > 0
+under Quasi-Lee–Yang Channels*, by Deep Bhattacharjee, Ushashi Bhattacharya,
+James Montgomery Lockwood, Tristan Romanov, Ikailo John Sessford and
+Sanjeevan Singha Roy.
 
-**Deep Bhattacharjee.** Formerly, Electro-Gravitational Space Propulsion
-Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; formerly, University of
-Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata
-700029, West Bengal, India.
-Email: itsdeep@live.com, d.bhattacharjee@erl-forschung.de, egspl@proton.me.
+Corresponding author: Deep Bhattacharjee, itsdeep@live.com,
 ORCID [0000-0003-0466-750X](https://orcid.org/0000-0003-0466-750X).
 
-**Ushashi Bhattacharya.** Formerly, National Taiwan University, Taipei 106319,
-Taiwan. Email: rai.bhattacharya.in@gmail.com.
-ORCID [0009-0002-2254-3914](https://orcid.org/0009-0002-2254-3914).
+[![Lean](https://github.com/anaxia-research/4Y-M/actions/workflows/lean.yml/badge.svg)](https://github.com/anaxia-research/4Y-M/actions/workflows/lean.yml)
 
-**James Montgomery Lockwood.** Independent Researcher, San Antonio, USA.
-Email: spectralityworkinggroup@gmail.com.
+## Overview
 
-**Tristan Romanov.** Independent Researcher, San Francisco, CA, USA.
-Email: romanov360@gmail.com.
+The repository contains Lean files only. It formalizes the finite, algebraic
+and numerical parts of four-dimensional Wilson lattice Yang–Mills theory that
+the mass-gap argument rests on: the spectral no-go theorem and the critical
+scaling of the lattice gap, Dobrushin and star thresholds at strong coupling,
+the cube condition and its ascent, the free cube at weak coupling, centre
+twists and two static sources, and the quasi-Lee–Yang zeros of two finite tori
+together with the transport of zero-free domains to the twisted ratios, the
+zero-free strips at every coupling and the count of the zeros. Every explicit
+constant and threshold of the main theorems is proved here from its definition.
 
-**Ikailo John Sessford.** Ikailo Inc., Whitby, Ontario, Canada.
-Email: john@ikailo.com.
-ORCID [0009-0002-0150-4027](https://orcid.org/0009-0002-0150-4027).
-
-**Sanjeevan Singha Roy.** Department of Physics, Birla Institute of Technology,
-Mesra, Ranchi, Jharkhand 835215, India. Email: sanjeevan9905@gmail.com.
-ORCID [0000-0002-6148-1421](https://orcid.org/0000-0002-6148-1421).
-
-\*Corresponding author and head of the project: Deep Bhattacharjee,
-itsdeep@live.com. Code and GitHub contact: egspl@proton.me, GitHub
-[creelie](https://github.com/creelie).
-
----
-
-## Abstract
-
-We prove that a cube condition at one physical scale, imposed uniformly
-along the asymptotic-freedom tuning, gives a positive mass gap in every
-nontrivial continuum limit of four-dimensional Wilson lattice Yang–Mills
-theory. We introduce quasi-Lee–Yang zeros, the complex zeros of the
-partition functions of two finite tori, and prove that the one-cube form of
-this condition holds whenever the tuned coupling lies hyperbolically close to
-strong coupling in the complement of these zeros, which for ℤ₂ fails in large
-volumes. For every compact simple gauge group we prove volume-uniform transfer-matrix gaps
-with explicit rates at strong coupling. For SU(2) the cube condition
-holds uniformly in the cube size for β_W < (√37 − 5)/3, and we compute the
-exact weak-coupling gap on each fixed free cube. For two static sources we
-prove an exact Gauss law for the transfer matrix and a compensation inequality
-that bounds the Polyakov-loop correlator by the free energy of a centre vortex.
-
-**Keywords:** lattice Yang–Mills theory; mass gap; Lee–Yang zeros; reflection
-positivity; centre vortices; Polyakov loops.
-
-**MSC 2020:** 81T13, 81T25; 82B20, 60K35, 81T08.
-
-## Contents of this repository
-
-| Path | Content |
+| | |
 |---|---|
-| [`YangMills/`](YangMills) | Lean 4 formalization, 36 modules |
-| [`YangMills.lean`](YangMills.lean) | Root file importing every module |
-| [`Axioms.lean`](Axioms.lean) | Axiom audit of every theorem, and `#print axioms` for the main results |
-| [`axioms.txt`](axioms.txt) | Output of `Axioms.lean` |
+| Modules | 36 |
+| Theorems and lemmas | 690 |
+| Definitions | 136 |
+| Lines | about 8,900 |
+| Theorems audited | 1,269 (all declarations in the `YangMills` namespace, including auxiliary ones) |
+| Axioms | `propext`, `Classical.choice`, `Quot.sound` only |
+| Toolchain | Lean 4.33.0, Mathlib `v4.33.0` |
 
-## The Lean formalization
+No file contains `sorry`, `admit`, a new `axiom`, `native_decide` or an
+`@[implemented_by]` attribute. [`Axioms.lean`](Axioms.lean) collects every
+theorem in the `YangMills` namespace and fails unless each depends only on the
+three standard axioms; its output is [`axioms.txt`](axioms.txt). Constants are
+proved in exact arithmetic or by explicit bounds on exp, log and √; none is
+taken from a floating-point computation.
 
-The formalization is to be read beside the paper. It checks the finite,
-algebraic and numerical steps of the paper, the explicit constants and
-thresholds of the main theorems, and the analytic steps that can be stated on a
-finite state space or on the real line.
+## Building
 
-It consists of 36 modules with 690 theorems and lemmas and 136 definitions,
-about 8,900 lines in all. No file contains `sorry`, `admit`, a new `axiom`,
-`native_decide` or an `@[implemented_by]` attribute. `Axioms.lean` collects every
-theorem in the `YangMills` namespace, 1,269 of them including the auxiliary
-ones that Lean generates, and fails unless each depends only on the three
-standard axioms `propext`, `Classical.choice` and `Quot.sound`. Every constant
-checked here is proved from its definition in exact arithmetic or by explicit
-bounds on exp, log and √; none is taken from a floating-point computation.
+Requirements: [elan](https://github.com/leanprover/elan). The toolchain
+(Lean 4.33.0) and the Mathlib revision (tag `v4.33.0`) are pinned in
+[`lean-toolchain`](lean-toolchain) and [`lake-manifest.json`](lake-manifest.json).
+
+```
+lake exe cache get
+lake build
+lake env lean Axioms.lean
+```
+
+On a four-core machine, `lake exe cache get` takes about 4 minutes (including
+the download of Mathlib and its prebuilt cache), `lake build` about 2 minutes,
+and the audit about 20 seconds. The build finishes with no errors and no
+warnings, and the audit prints the text of [`axioms.txt`](axioms.txt).
+The same three steps run in GitHub Actions on every push
+([`.github/workflows/lean.yml`](.github/workflows/lean.yml)).
 
 ## Main results
 
-| Result in the paper | Lean theorem | Statement |
+Each row names a statement and the Lean theorems that prove it.
+
+| Result | Lean theorems | Statement |
 |---|---|---|
 | No gapped limit from a spacing-uniform gap | `YangMills.nogo_no_gapped_limit` | If the lattice gap is bounded below uniformly in the spacing, the renormalised two-point functions cannot converge to those of a continuum theory with a positive gap. |
 | Critical scaling of the lattice gap | `YangMills.limit_ratio_le` | If the lattice gaps are at least m_a · a with m_a → m, the limiting two-point function L satisfies L(t₂) ≤ e^{−m(t₂−t₁)} L(t₁). |
@@ -121,41 +101,19 @@ bounds on exp, log and √; none is taken from a floating-point computation.
 | Strong coupling and criticality | `YangMills.QuasiLeeYang.eps_rKP`, `YangMills.QuasiLeeYang.disc_consistency`, `YangMills.QuasiLeeYang.critical_width`, `YangMills.QuasiLeeYang.critflux_width` | ε(0.00539) ≤ 1/(25e²); 12288 · 0.00539 · T⁵ 2^{−4T} ≤ 1/4097 for T ≥ 9; the critical half-widths 11/(6π) and 11/(12π). |
 | The projected datum and ℤ₂ | `YangMills.QuasiLeeYang.plus_arith`, `YangMills.QuasiLeeYang.KN_threshold`, `YangMills.QuasiLeeYang.z2_datum_gap` | 1/8194 + 2/16388 = 1/4097 with the flux correction 7/114721 < 1/16388; the ℤ₂ half-plane Re K ≥ ½ log(50e²) and the ℤ₂ datum gap log(2/1.001) > 0.6921. |
 
-## What the paper proves outside Lean
+## Scope
 
-The character expansions on SU(N), the transfer matrices on infinite
-lattices, the polymer and cluster expansions, the Dobrushin comparison in
-infinite volume, reflection positivity, the passage to the continuum, the Riemann and
-covering maps of plane domains and Carathéodory's coefficient inequality use
-analytic machinery that Mathlib does not yet provide. These steps are proved in
-full in the paper. Where a module checks the finite part of such a step, its
-header says which part is checked and which is proved in the paper.
+Character expansions on SU(N), transfer matrices on infinite lattices, polymer
+and cluster expansions, the Dobrushin comparison in infinite volume,
+reflection positivity, the continuum limit, Riemann and covering maps of plane
+domains and Carathéodory's coefficient inequality need analytic machinery that
+Mathlib does not yet provide, and are not formalized here. Where a module
+checks the finite part of such a step, its header says which part is checked.
+The finite and algebraic parts of the one-scale hypothesis used by the
+continuum criterion are in [`YangMills/OneScale.lean`](YangMills/OneScale.lean)
+and [`YangMills/BoundEquiv.lean`](YangMills/BoundEquiv.lean).
 
-The continuum criterion of the paper takes the one-scale inequality as its
-hypothesis. Its finite and algebraic parts are checked in
-[`YangMills/OneScale.lean`](YangMills/OneScale.lean) and
-[`YangMills/BoundEquiv.lean`](YangMills/BoundEquiv.lean).
-
-## Building
-
-Requirements: [elan](https://github.com/leanprover/elan). The toolchain
-(Lean 4.33.0) and the Mathlib revision (tag `v4.33.0`) are pinned in
-[`lean-toolchain`](lean-toolchain) and [`lake-manifest.json`](lake-manifest.json).
-
-```
-lake exe cache get
-lake build
-lake env lean Axioms.lean
-```
-
-On a four-core machine, `lake exe cache get` takes about 4 minutes (including
-the download of Mathlib and its prebuilt cache), `lake build` about 2 minutes,
-and the audit about 20 seconds. The build finishes with no errors and no
-warnings, and the audit prints the text of [`axioms.txt`](axioms.txt).
-The same three steps run in GitHub Actions on every push
-([`.github/workflows/lean.yml`](.github/workflows/lean.yml)).
-
-## Repository layout
+## Layout
 
 ```
 YangMills/
@@ -204,27 +162,11 @@ axioms.txt                  output of Axioms.lean
 .github/workflows/lean.yml  build and audit on every push
 ```
 
-## Credits
+## Acknowledgements
 
-Two tools built by Deep Bhattacharjee stand behind the way this project was
-organised.
-
-- **[Anaxia](https://github.com/anaxia-research/anaxia)**, formerly named Open
-  Gluon, is the research workspace of the project. It keeps pinned copies of
-  the mathematical libraries, the source record of the project and its checks
-  in one reproducible place.
-- **[eBLLM](https://github.com/anaxia-research/eBLLM)** holds Anaxia's
-  construction engine. It stores each construction as a route with its input,
-  its output, the obligations that must be discharged and a test that makes
-  the route fail when an obligation is skipped, and it certifies finite
-  statements in exact rational arithmetic. Three of its constructions were
-  used for this paper: exact certification of the constants, the transfer of a
-  boundary response between a block law and its restriction to the complement
-  of a rare event (where the cube condition of the paper originated), and
-  tightness with observables that do not escape to infinite energy.
-
-The engine proposes routes and tests them; every statement of the paper is
-proved in the paper, and the statements listed above are checked here in Lean.
+The project was organised in [Anaxia](https://github.com/anaxia-research/anaxia),
+the research workspace of Deep Bhattacharjee, and its construction engine
+[eBLLM](https://github.com/anaxia-research/eBLLM).
 
 ## Citation
 
@@ -241,5 +183,4 @@ proved in the paper, and the statements listed above are checked here in Lean.
 
 ## Licence
 
-The Lean files are under the MIT licence ([`LICENSE`](LICENSE)). Mathlib is
-under Apache 2.0.
+MIT ([`LICENSE`](LICENSE)). Mathlib is under Apache 2.0.
