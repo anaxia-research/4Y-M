@@ -1,4 +1,4 @@
-1062 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
+1125 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
 'YangMills.nogo_no_gapped_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.limit_ratio_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.holleyStroock_poincare' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -31,3 +31,15 @@
 'YangMills.CentreTwists.peierls_threshold_2495' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.CentreTwists.twistEater_commutator' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.CentreTwists.abelian_slice_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.holder_sector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.compensation_sector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.compensation_final' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.logconvex_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.chi_orth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.fourier_inversion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.flux_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.flux_zero_large' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.twist_of_Ftw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.trace_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.sheet_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoSources.datum_flux_log' depends on axioms: [propext, Classical.choice, Quot.sound]

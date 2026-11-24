@@ -69,3 +69,15 @@ elab "#audit_yang_mills" : command => do
 #print axioms YangMills.CentreTwists.peierls_threshold_2495
 #print axioms YangMills.CentreTwists.twistEater_commutator
 #print axioms YangMills.CentreTwists.abelian_slice_cost
+#print axioms YangMills.TwoSources.holder_sector
+#print axioms YangMills.TwoSources.compensation_sector
+#print axioms YangMills.TwoSources.compensation_final
+#print axioms YangMills.TwoSources.logconvex_sum
+#print axioms YangMills.TwoSources.chi_orth
+#print axioms YangMills.TwoSources.fourier_inversion
+#print axioms YangMills.TwoSources.flux_small
+#print axioms YangMills.TwoSources.flux_zero_large
+#print axioms YangMills.TwoSources.twist_of_Ftw
+#print axioms YangMills.TwoSources.trace_sandwich
+#print axioms YangMills.TwoSources.sheet_expansion
+#print axioms YangMills.TwoSources.datum_flux_log

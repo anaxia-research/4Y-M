@@ -1,4 +1,4 @@
-# The Mass Gap Δ > 0 in Four-Dimensional Lattice Yang–Mills Theory
+# The Mass Gap Δ > 0 in Four-Dimensional Yang–Mills Theory under a Uniform Cube Condition
 
 **Deep Bhattacharjee**\*, **Ushashi Bhattacharya**, **James Montgomery Lockwood**,
 **Tristan Romanov**, **Ikailo John Sessford** and **Sanjeevan Singha Roy**
@@ -32,22 +32,25 @@ ORCID [0000-0002-6148-1421](https://orcid.org/0000-0002-6148-1421).
 itsdeep@live.com. Code and GitHub contact: egspl@proton.me, GitHub
 [creelie](https://github.com/creelie).
 
-Preprints.org 202611.1282, version 3 (version 2:
-[doi.org/10.20944/preprints202611.1282.v2](https://doi.org/10.20944/preprints202611.1282.v2)).
+**Paper:** [Mass-Gap-4D-Yang-Mills-Uniform-Cube-Condition.pdf](paper/Mass-Gap-4D-Yang-Mills-Uniform-Cube-Condition.pdf)
 
 ---
 
 ## Abstract
 
-We prove that one inequality at one physical scale, imposed along the
-asymptotic-freedom tuning, gives a positive mass gap in every nontrivial
-continuum limit of four-dimensional Wilson lattice Yang–Mills theory. For
+We prove that a cube condition at one physical scale, imposed uniformly
+along the asymptotic-freedom tuning, gives a positive mass gap in every
+nontrivial continuum limit of four-dimensional Wilson lattice Yang–Mills
+theory. For
 every compact simple gauge group we prove volume-uniform transfer-matrix gaps
-with explicit rates at strong coupling. For SU(2) the underlying cube condition
+with explicit rates at strong coupling. For SU(2) the cube condition
 holds uniformly in the cube size for β_W < (√37 − 5)/3, and we compute the
-exact weak-coupling gap on each fixed free cube.
+exact weak-coupling gap on each fixed free cube. For two static sources we
+prove an exact Gauss law for the transfer matrix and a compensation inequality
+that bounds the Polyakov-loop correlator by the free energy of a centre vortex.
 
-**Keywords:** lattice Yang–Mills theory; mass gap; reflection positivity.
+**Keywords:** lattice Yang–Mills theory; mass gap; reflection positivity;
+centre vortices; Polyakov loops.
 
 **MSC 2020:** 81T13, 81T25; 82B20, 60K35, 81T08.
 
@@ -55,7 +58,8 @@ exact weak-coupling gap on each fixed free cube.
 
 | Path | Content |
 |---|---|
-| [`YangMills/`](YangMills) | Lean 4 formalization, 34 modules |
+| [`paper/`](paper) | The paper, as a PDF |
+| [`YangMills/`](YangMills) | Lean 4 formalization, 35 modules |
 | [`YangMills.lean`](YangMills.lean) | Root file importing every module |
 | [`Axioms.lean`](Axioms.lean) | Axiom audit of every theorem, and `#print axioms` for the main results |
 | [`axioms.txt`](axioms.txt) | Output of `Axioms.lean` |
@@ -67,10 +71,10 @@ algebraic and numerical steps of the paper, the explicit constants and
 thresholds of the main theorems, and the analytic steps that can be stated on a
 finite state space or on the real line.
 
-It consists of 34 modules with 560 theorems and lemmas and 124 definitions,
-about 7,000 lines in all. No file contains `sorry`, `admit`, a new `axiom`,
+It consists of 35 modules with 604 theorems and lemmas and 127 definitions,
+about 7,500 lines in all. No file contains `sorry`, `admit`, a new `axiom`,
 `native_decide` or an `@[implemented_by]` attribute. `Axioms.lean` collects every
-theorem in the `YangMills` namespace, 1,062 of them including the auxiliary
+theorem in the `YangMills` namespace, 1,125 of them including the auxiliary
 ones that Lean generates, and fails unless each depends only on the three
 standard axioms `propext`, `Classical.choice` and `Quot.sound`. Every constant
 checked here is proved from its definition in exact arithmetic or by explicit
@@ -100,6 +104,13 @@ bounds on exp, log and √; none is taken from a floating-point computation.
 | Z₂ Peierls comparison | `YangMills.CentreTwists.peierls_threshold_2127`, `YangMills.CentreTwists.peierls_threshold_2495` | For β ≥ 2.127 and every T ≥ 2 the Peierls bound is below 1 − 1/4096, and for β ≥ 2.495 it is at most 10⁻³. |
 | Twist eaters | `YangMills.CentreTwists.twistEater_commutator` | On the values 1, i, k the plaquette variable ABA⁻¹B⁻¹ is −1 exactly for the pairs (i, k) and (k, i). |
 | Abelian slice | `YangMills.CentreTwists.abelian_slice_cost` | Angles in [−π, π] on m plaquettes with sum π + 2πk give Σ(1 − cos φ) ≥ 2/m. |
+| Compensation inequality: Hölder step | `YangMills.TwoSources.compensation_sector` | For weights c_{ik} ≥ 0 with row and column sums at most N², Σ c_{ik} λ_i^{L−ℓ} μ_k^ℓ ≤ N² (Σ λ_i^L)^{1−s} (Σ μ_k^L)^s with s = ℓ/L. |
+| Compensation inequality: final form | `YangMills.TwoSources.two_point`, `YangMills.TwoSources.compensation_final` | ((1+ζ)^{1−s}(1−ζ)^s + (1+ζ)^s(1−ζ)^{1−s})/2 ≤ (1 − ζ²)^{min(s, 1−s)} for 0 ≤ ζ ≤ 1. |
+| Log-convexity of the static pair | `YangMills.TwoSources.logconvex_sum` | f(ℓ) = Σ c r^ℓ q^{L−ℓ} with nonnegative terms satisfies f(ℓ)² ≤ f(ℓ−1) f(ℓ+1). |
+| Twist–flux exchange | `YangMills.TwoSources.fourier_inversion`, `YangMills.TwoSources.flux_small`, `YangMills.TwoSources.flux_zero_large`, `YangMills.TwoSources.twist_of_Ftw` | Fourier inversion on ℤ₂^m between twisted and electric-flux partition functions; twisted ratios at least 1 − η give flux weights at most η/2 and the converse bound. |
+| Polyakov loops as charged traces | `YangMills.TwoSources.trace_sandwich` | The trace of X ↦ A X B* on n × n matrices is Tr A · conj(Tr B). |
+| Centre sheets | `YangMills.TwoSources.sheet_expansion` | ∏ (w₊ + ζ_p w₋) expands as the sum over sheets S of ∏_{p∈S} ζ_p w₋ ∏_{p∉S} w₊. |
+| Constants for two sources | `YangMills.TwoSources.datum_antipodal`, `YangMills.TwoSources.datum_pair_free_energy`, `YangMills.TwoSources.datum_flux_log`, `YangMills.TwoSources.flux_antipodal` | Under the single-cube datum: antipodal Polyakov correlator at most 0.08839, static-pair free energy at least 2.4260, electric-flux free energy above log 8191 > 9.0107; with η = 1/7169 the antipodal bound 0.066812. |
 
 ## What the paper proves outside Lean
 
@@ -151,6 +162,7 @@ YangMills/
   ErrorStableAscent.lean    error-stable quadratic ascent
   GapFree.lean              the ascent without a gap hypothesis
   CentreTwists.lean         centre twists, Z₂ Peierls comparison, twist eaters
+  TwoSources.lean           two static sources: compensation, twist–flux exchange
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
@@ -173,11 +185,35 @@ YangMills/
     Fourier.lean            sector-zero Fourier identity
     Haar.lean               pseudoreal surface integrals
     Counting.lean           two-gluon singlet states
+paper/
+  Mass-Gap-4D-Yang-Mills-Uniform-Cube-Condition.pdf   the paper
 YangMills.lean              root import
 Axioms.lean                 axiom audit and #print axioms
 axioms.txt                  output of Axioms.lean
 .github/workflows/lean.yml  build and audit on every push
 ```
+
+## Credits
+
+Two tools built by Deep Bhattacharjee stand behind the way this project was
+organised.
+
+- **[Anaxia](https://github.com/anaxia-research/anaxia)**, formerly named Open
+  Gluon, is the research workspace of the project. It keeps pinned copies of
+  the mathematical libraries, the source record of the project and its checks
+  in one reproducible place.
+- **[eBLLM](https://github.com/anaxia-research/eBLLM)** holds Anaxia's
+  construction engine. It stores each construction as a route with its input,
+  its output, the obligations that must be discharged and a test that makes
+  the route fail when an obligation is skipped, and it certifies finite
+  statements in exact rational arithmetic. Three of its constructions were
+  used for this paper: exact certification of the constants, the transfer of a
+  boundary response between a block law and its restriction to the complement
+  of a rare event (where the cube condition of the paper originated), and
+  tightness with observables that do not escape to infinite energy.
+
+The engine proposes routes and tests them; every statement of the paper is
+proved in the paper, and the statements listed above are checked here in Lean.
 
 ## Citation
 
@@ -185,9 +221,9 @@ axioms.txt                  output of Axioms.lean
 @misc{Bhattacharjee2026YangMills,
   author       = {Bhattacharjee, Deep and Bhattacharya, Ushashi and Lockwood, James Montgomery
                   and Romanov, Tristan and Sessford, Ikailo John and Singha Roy, Sanjeevan},
-  title        = {The Mass Gap {$\Delta > 0$} in Four-Dimensional Lattice {Yang--Mills} Theory},
+  title        = {The Mass Gap {$\Delta > 0$} in Four-Dimensional {Yang--Mills} Theory under a Uniform Cube Condition},
   year         = {2026},
-  howpublished = {Preprints.org, 202611.1282, version 3},
+  note         = {Preprint},
   url          = {https://github.com/anaxia-research/4Y-M}
 }
 ```
