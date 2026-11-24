@@ -3,8 +3,8 @@ import Mathlib
 /-!
 # What the one bound is
 
-Finite and elementary parts of Section `ssec:whatB` of the paper
-(Theorem `thm:Bequiv`, Propositions `prop:defect` and `prop:twist`): the
+Finite and elementary parts of the equivalent forms of the one-scale bound, the
+defect criterion and the twist bound: the
 normalisation `γ = 1/(320 (96T)³)` of (B*) at `T₀ = 2T`, the constant
 `2·96³ = 1 769 472`, the monotonicity of `(e^{αv} − 1)/v`, the constant
 `4.6·10⁻⁷` of the Stefan–Boltzmann bound, the defect thresholds `d_*`,
@@ -56,7 +56,7 @@ theorem expm1_div_mono (α v w : ℝ) (hv : 0 < v) (hvw : v ≤ w) :
       _ = (Real.exp (α * w) - 1) * v := by field_simp
   linarith
 
-/-- The Stefan–Boltzmann constant of Theorem `thm:Bequiv`(b): `8 y₀ / 96³ ≤ 4.6·10⁻⁷`. -/
+/-- The Stefan–Boltzmann constant of the equivalent pressure criterion: `8 y₀ / 96³ ≤ 4.6·10⁻⁷`. -/
 theorem sb_constant (y₀ : ℝ) (h1 : y₀ ≤ 1 / 20) :
     8 * y₀ / 96 ^ 3 ≤ 4.6e-7 := by
   have : 8 * y₀ / 96 ^ 3 ≤ 8 * (1 / 20) / 96 ^ 3 := by
@@ -101,7 +101,7 @@ theorem exp_sub_one_le_div (x : ℝ) (h1 : x < 1) :
   rw [le_div_iff₀ hpos]
   nlinarith
 
-/-- Proposition `prop:defect`(c): `e^{1/320} − 1 ≤ 1/319 < 3.2·10⁻³`. -/
+/-- The window defect: `e^{1/320} − 1 ≤ 1/319 < 3.2·10⁻³`. -/
 theorem window_defect : Real.exp (1 / 320) - 1 ≤ 1 / 319 ∧ (1 / 319 : ℝ) < 3.2e-3 := by
   refine ⟨?_, by norm_num⟩
   have := exp_sub_one_le_div (1 / 320) (by norm_num)
@@ -126,12 +126,12 @@ theorem twist_ratio (D : ℝ) (hD : 0 ≤ D) : 1 - 2 * D ≤ (1 - D) / (1 + D) :
   rw [le_div_iff₀ (by linarith)]
   nlinarith
 
-/-- Proposition `prop:twist`: the two numerical bounds `6.3·10⁻³` and `4.6·10⁻⁷`. -/
+/-- The twist bound: the two numerical bounds `6.3·10⁻³` and `4.6·10⁻⁷`. -/
 theorem twist_constants :
     2 * (1 / 319 : ℝ) ≤ 6.3e-3 ∧ 2 * (2.27e-7 : ℝ) ≤ 4.6e-7 := by
   constructor <;> norm_num
 
-/-- The criterion of Proposition `prop:defect`(b): a gap `e^{-m}` over the time
+/-- The defect criterion: a gap `e^{-m}` over the time
 `T₀ − T'` turns `D(T') ≤ B` into `D(T₀) ≤ d_*` once `m (T₀ − T') ≥ log(B/d_*)`. -/
 theorem defect_criterion (m gap B dstar : ℝ) (hB : 0 < B) (hd : 0 < dstar)
     (h : Real.log (B / dstar) ≤ m * gap) : Real.exp (-(m * gap)) * B ≤ dstar := by

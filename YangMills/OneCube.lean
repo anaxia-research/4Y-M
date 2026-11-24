@@ -6,12 +6,13 @@ import YangMills.OneCube.Counting
 import YangMills.OneCube.Chebyshev
 import YangMills.OneCube.Transcendental
 import YangMills.OneCube.Tables
-import YangMills.OneCube.Enclosures
 
 /-!
 # One-cube criteria: verification of constants and finite computations
 
-L1–L16 and J1–J12 of the paper "One-Cube Criteria for the Yang–Mills Mass Gap".
+The checks L1–L16 of the single-cube criterion, and the transcendental bounds and
+certified tables behind J1–J12 (Sections `sc:sec:psts`–`sc:sec:continuum` and Appendix
+`app:sc-certificates` of the paper).
 None of these statements proves the existence of the continuum limit, the one-cube
 bound or the mass gap.
 -/

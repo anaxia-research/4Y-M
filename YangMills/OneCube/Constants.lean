@@ -111,7 +111,7 @@ theorem L8 : (2 : ℚ) * (161 / 645) * (645 / 644) = 1 / 2 ∧ (644 : ℕ) = 4 *
 theorem L8_ineq (x : ℚ) (h0 : 0 ≤ x) (h1 : x ≤ 1 / 3) : 1 - 2 * x + 2 * x ^ 2 ≤ 1 - x - x ^ 2 := by
   nlinarith
 
-/-! ## L9: the window margin of the first paper -/
+/-! ## L9: the window margin -/
 
 theorem L9 :
     let q : ℚ := 1 - 1 / 320 + 1 / (2 * 320 ^ 2)

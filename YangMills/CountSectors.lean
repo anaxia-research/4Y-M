@@ -3,17 +3,15 @@ import Mathlib
 /-!
 # The count of states and the centre sectors
 
-Finite and elementary parts of Section `ssec:count` of the paper
-(Proposition `prop:count`, Theorem `thm:plane`, Lemma `lem:transport`,
-Proposition `prop:countscale`, Lemma `lem:flux`, Theorem `thm:sectors`,
-Proposition `prop:centreblind`): the bound `T/(T-λ) ≤ 2`, the criterion
+Finite and elementary parts of the count of states and of the centre sectors
+(the count criterion, the plane model, transport, the count at one scale, the flux
+lemma, the sector theorem and centre blindness): the bound `T/(T-λ) ≤ 2`, the criterion
 `2P e^{-mT/2} ≤ d`, the trace inequality of the plane model, the minimum of
 `x³/(x-a)`, the constant `926`, the charged-defect identity, the sector
 arithmetic `1/642 · 641/640 · 642/641 = 1/640`, the constants `0.02492`
 and `0.1505`, the numbers `3.443`, `5.947` and `6.01` of the
 centre-blind example, the constants of the finite gauge groups
-(Proposition `prop:finiteG`) and of the Maxwell model
-(Proposition `prop:maxwell`).
+and of the Maxwell model.
 -/
 
 namespace YangMills.CountSectors
@@ -83,7 +81,7 @@ theorem charged_defect (W D0 D : ℝ) (hW : W < 1) (h : D = W * (1 + D0 + D)) :
   field_simp
   linarith
 
-/-- Sector arithmetic of Theorem `thm:sectors`(a). -/
+/-- Sector arithmetic of the sector theorem, part (a). -/
 theorem sector_product : (1 / 642 : ℝ) * (641 / 640) * (642 / 641) = 1 / 640 := by
   norm_num
 
@@ -151,7 +149,7 @@ theorem blind_total (c : ℝ) (hc0 : 0 ≤ c) (hc : c ≤ 1.19979) :
 /-- The zero mode: `0.4588/8 ≤ 0.0574`. -/
 theorem zero_mode : (0.4588 : ℝ) / 8 ≤ 0.0574 := by norm_num
 
-/-! ### Finite gauge groups (Proposition `prop:finiteG`) -/
+/-! ### Finite gauge groups -/
 
 /-- The window bound at `T₀ = 3`: `(6·48³·3⁴/400)/(1 - 1/100) · 10⁻³⁶ ≤ 1.36·10⁻³¹`. -/
 theorem finite_window_S :
@@ -230,7 +228,7 @@ theorem finite_purity : (2 / 5 + 1 / 10 : ℝ) < Real.exp (-(1 / 160)) := by
   have h := Real.add_one_le_exp (-(1 / 160 : ℝ))
   norm_num at h ⊢; linarith
 
-/-! ### The Maxwell model (Proposition `prop:maxwell`) -/
+/-! ### The Maxwell model -/
 
 /-- `3ζ(2)/2.27797² + 3ζ(3)/2.27797 + ζ(4) ≤ 3.6164` with decimal bounds of `ζ`. -/
 theorem maxwell_zeta (z2 z3 z4 : ℝ) (h2 : z2 ≤ 1.64494) (h3 : z3 ≤ 1.20206)
@@ -251,7 +249,7 @@ theorem maxwell_photon (c3 : ℝ) (_h0 : 0 ≤ c3) (h : c3 ≤ 1.47761) :
 theorem maxwell_count_one (L1 L2 : ℝ) (h1 : L1 ≤ 4.4553) (h2 : L2 ≤ 2.677) :
     10.69 + 3 / 8 * (L1 + L2) ≤ 13.37 := by linarith
 
-/-! ### The twist cost for SU(N) (Proposition `prop:twistcost`) -/
+/-! ### The twist cost for SU(N) -/
 
 /-- `(1 - x) ≤ 2 W^{1/4}` in the form used: `(1-x)⁴/16 ≤ W` and `W ≤ D` give `(1-x)⁴ ≤ 16 D`. -/
 theorem twist_fourth_power (x W D : ℝ) (h1 : (1 - x) ^ 4 / 16 ≤ W) (h2 : W ≤ D) :
@@ -282,7 +280,7 @@ theorem twist_base_constants :
     (0.2375 : ℝ) ≤ (1 - 0.04967) / 4 ∧ (3.825 : ℝ) ≤ 4 * (1 - 0.04362) := by
   constructor <;> norm_num
 
-/-! ### Finite gauge groups: the exponential base scale (Proposition `prop:finiteG`(b)) -/
+/-! ### Finite gauge groups: the exponential base scale -/
 
 /-- The link ordering leaves `|Λ|+3` free links: `(|Λ'|+2) + (n-1)|Λ'| + 1 = n|Λ'| + 3`. -/
 theorem finiteG_free_links (V' n : ℕ) (hn : 1 ≤ n) :
@@ -308,7 +306,7 @@ theorem finiteG_t_ratio (c G3 : ℝ) (hc : 1.97507 ≤ c) (hG : 8 ≤ G3) :
 theorem finiteG_exp_constants : (96 : ℝ) / 1.584 < 60.61 ∧ (60.61 : ℝ) < 2.791 ^ 4 := by
   constructor <;> norm_num
 
-/-! ### Two dimensions, SU(2) (Proposition `prop:twod`) -/
+/-! ### Two dimensions, SU(2) -/
 
 /-- `Σ_{n≥1} qⁿ = q/(1-q) ≤ d` iff `q ≤ d/(1+d)`. -/
 theorem twod_geometric (q d : ℝ) (hq1 : q < 1)

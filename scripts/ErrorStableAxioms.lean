@@ -1,8 +1,0 @@
-import YangMills.ErrorStableAscent
-
-#print axioms YangMills.ErrorStableAscent.dyadic_power_succ
-#print axioms YangMills.ErrorStableAscent.variable_budget_ascent
-#print axioms YangMills.ErrorStableAscent.error_stable_ascent
-#print axioms YangMills.ErrorStableAscent.rescale_recurrence
-#print axioms YangMills.ErrorStableAscent.scaled_error_stable_ascent
-#print axioms YangMills.ErrorStableAscent.exponential_error_stable_ascent

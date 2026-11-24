@@ -194,7 +194,7 @@ theorem trace_commutator_sl2 {R : Type*} [CommRing R] (A B : Matrix (Fin 2) (Fin
         - Matrix.trace A * Matrix.trace B * Matrix.trace (A * B) - 2 := by
   rw [trace_commutator_two, hA, hB]; ring
 
-/-- The bound of Lemma `lem:bpcommute` for `N = 2`: if the real traces satisfy
+/-- The almost-commuting bound for `N = 2`: if the real traces satisfy
 `x² + y² + w² - xyw ≥ 4 - √2`, then `M = x² + y² + w² > 0.64`. -/
 theorem commutator_bound (x y w : ℝ) (h : 4 - Real.sqrt 2 ≤ x ^ 2 + y ^ 2 + w ^ 2 - x * y * w) :
     0.64 < x ^ 2 + y ^ 2 + w ^ 2 := by
@@ -216,7 +216,7 @@ theorem commutator_bound (x y w : ℝ) (h : 4 - Real.sqrt 2 ≤ x ^ 2 + y ^ 2 + 
 
 /-! ## Constants of the averaged condition -/
 
-/-- The strong-coupling ranges of Corollary `cor:bpranges`(i) for `SU(2)`:
+/-- The strong-coupling ranges of the averaged cube condition for `SU(2)`:
 `α_n = β(18n-3)/((4-18β)n²)`. -/
 noncomputable def alphaSU2 (β : ℝ) (n : ℝ) : ℝ := β * (18 * n - 3) / ((4 - 18 * β) * n ^ 2)
 
@@ -239,7 +239,7 @@ theorem alphaSU2_lt_one_iff (β n : ℝ) (_hβ : 0 ≤ β) (hβ' : β < 2 / 9) (
 theorem threshold_two : (4 : ℝ) * 2 ^ 2 / (18 * 2 ^ 2 + 18 * 2 - 3) = 16 / 105 := by
   norm_num
 
-/-- The decimals of Corollary `cor:bpranges`(ii) for `SU(3)` at `β_W = 0.35`. -/
+/-- The decimals of the strong-coupling range for `SU(3)` at `β_W = 0.35`. -/
 theorem su3_constants :
     (0.578568 : ℝ) < 0.76064 ^ 2 ∧
     (2.1 : ℝ) * 0.76064 * (640 / 1191) ≤ 0.8584 ∧
@@ -247,7 +247,7 @@ theorem su3_constants :
     (0.3368 : ℝ) * (18 * 6 - 3) / 6 ^ 2 ≤ 0.9824 := by
   norm_num
 
-/-- The constants of Theorem `thm:bpfixed`: for `N = 2` the Dirichlet bound
+/-- The constants of the fixed-cube obstruction: for `N = 2` the Dirichlet bound
 `8 N² (N-1)² L³ n ε` against the variance `0.64 (1 - 1/2)/3` gives `300`, and
 `L ≤ 4n` gives `19200 n⁴ ε`; the other case gives `2048 ≤ 19200`; and
 `ε ≤ 2 (log β + 6.11)/β` gives `38400`. -/
@@ -257,7 +257,7 @@ theorem bp_fixed_constants :
     (8 : ℝ) * 4 ^ 3 * 4 = 2048 ∧ (19200 : ℝ) * 2 = 38400 := by
   norm_num
 
-/-- The constant of Lemma `lem:bpflat`: `log 32 + 1 + (2/3) log(3π³/8) ≤ 6.11`. -/
+/-- The constant of the flat-cube bound: `log 32 + 1 + (2/3) log(3π³/8) ≤ 6.11`. -/
 theorem bpflat_constant :
     Real.log 32 + 1 + 2 / 3 * Real.log (3 * Real.pi ^ 3 / 8) ≤ 6.11 := by
   have hpi := Real.pi_lt_d6
@@ -291,7 +291,7 @@ theorem sqrt_two_bounds : (1.41421 : ℝ) < Real.sqrt 2 ∧ Real.sqrt 2 < 1.4142
   · rw [Real.lt_sqrt (by norm_num)]; norm_num
   · rw [Real.sqrt_lt' (by norm_num)]; norm_num
 
-/-- Lemma `lem:endboundary`: `8√2 π > 35.54`, `7/35.54 < 0.19697`, and
+/-- The boundary constants of the ends: `8√2 π > 35.54`, `7/35.54 < 0.19697`, and
 `0.19697 · 1.706·10⁻⁷ < 3.4·10⁻⁸`. -/
 theorem endboundary_constants :
     (35.54 : ℝ) < 8 * Real.sqrt 2 * Real.pi ∧ (7 : ℝ) / 35.54 < 0.19697 ∧
@@ -300,7 +300,7 @@ theorem endboundary_constants :
   have := Real.pi_gt_d6
   refine ⟨by nlinarith, by norm_num, by norm_num⟩
 
-/-- Lemma `lem:endchart` and Corollary `cor:endchart`. -/
+/-- The chart constants of the ends. -/
 theorem endchart_constants :
     (1.828 : ℝ) * 70.06 < 128.07 ∧ (1.828 : ℝ) ^ 2 < 3.3416 ∧
     (3.3416 : ℝ) * 53.96 < 180.4 ∧ (3.3416 : ℝ) * 15.134 < 50.6 ∧
@@ -308,7 +308,7 @@ theorem endchart_constants :
   obtain ⟨_, h2⟩ := sqrt_two_bounds
   refine ⟨by norm_num, by norm_num, by norm_num, by norm_num, by linarith⟩
 
-/-- Corollary `cor:tieareab`: `14/(2√2 π) < 1.57556` and `50.6 · 1.5756 < 79.73`. -/
+/-- The tie-area constants: `14/(2√2 π) < 1.57556` and `50.6 · 1.5756 < 79.73`. -/
 theorem tiearea_constants :
     (14 : ℝ) / (2 * Real.sqrt 2 * Real.pi) < 1.57556 ∧ (50.6 : ℝ) * 1.5756 < 79.73 := by
   obtain ⟨h1, _⟩ := sqrt_two_bounds
@@ -318,7 +318,7 @@ theorem tiearea_constants :
   rw [div_lt_iff₀ hpos]
   nlinarith
 
-/-- Proposition `prop:jweighted` and Theorem `thm:endlinear`. -/
+/-- The constants of the weighted and linear end bounds. -/
 theorem endlinear_constants :
     (1.828 : ℝ) * 20.113 < 36.77 ∧
     (77 : ℝ) * 0.6034 * 36.77 * 1.1825 < 2020.2 ∧
@@ -335,7 +335,7 @@ theorem endlinear_constants :
 
 /-! ## The averaged condition at weak coupling -/
 
-/-- Corollaries `cor:bpcharged` and `cor:bpcoupling`: on the torus of side
+/-- The charged and coupled cube conditions: on the torus of side
 `L = 2n + 4`, `L ≤ 4n` and `L⁴ ≤ 256 n⁴` for `n ≥ 2`. -/
 theorem torus_side_bounds (n : ℕ) (hn : 2 ≤ n) :
     2 * n + 4 ≤ 4 * n ∧ (2 * n + 4) ^ 4 ≤ 256 * n ^ 4 := by
@@ -344,13 +344,13 @@ theorem torus_side_bounds (n : ℕ) (hn : 2 ≤ n) :
   calc (2 * n + 4) ^ 4 ≤ (4 * n) ^ 4 := Nat.pow_le_pow_left h 4
     _ = 256 * n ^ 4 := by ring
 
-/-- Corollary `cor:bpcharged`: with `ϖ ≤ 4` in place of `ϖ ≤ 2` and `η₂ = 1`,
-`4096 ≤ 19200`; Corollary `cor:bpcoupling`: `38400 / 256 = 150`. -/
+/-- The charged case, with `ϖ ≤ 4` in place of `ϖ ≤ 2` and `η₂ = 1`:
+`4096 ≤ 19200`; the coupled case: `38400 / 256 = 150`. -/
 theorem bpweak_constants :
     (4 : ℝ) * 1024 = 4096 ∧ (4096 : ℝ) ≤ 19200 ∧ (38400 : ℝ) / 256 = 150 := by
   refine ⟨by norm_num, by norm_num, by norm_num⟩
 
-/-- Proposition `prop:bpnoloc`: `5 ω |P_S| ≤ 60 N² |β| |S|` from
+/-- The locality bound `5 ω |P_S| ≤ 60 N² |β| |S|` from
 `ω ≤ 2 N² |β|` and `|P_S| ≤ 6 |S|`. -/
 theorem bpnoloc_constant (N β ω P S : ℝ) (hβ : 0 ≤ β) (_hω0 : 0 ≤ ω)
     (hω : ω ≤ 2 * N ^ 2 * β) (hP0 : 0 ≤ P) (hP : P ≤ 6 * S) :
@@ -362,7 +362,7 @@ theorem bpnoloc_constant (N β ω P S : ℝ) (hβ : 0 ≤ β) (_hω0 : 0 ≤ ω)
     mul_le_mul_of_nonneg_left hP (by positivity)
   nlinarith
 
-/-- Corollary `cor:bpranges`(i): for `n ≥ 1` the threshold
+/-- The strong-coupling range: for `n ≥ 1` the threshold
 `4n² / (18n² + 18n - 3)` is below `2/9`, and at `n = 2` it is `16/105`. -/
 theorem bpranges_threshold (n : ℝ) (hn : 1 ≤ n) :
     4 * n ^ 2 / (18 * n ^ 2 + 18 * n - 3) < 2 / 9 ∧
@@ -371,13 +371,13 @@ theorem bpranges_threshold (n : ℝ) (hn : 1 ≤ n) :
   have hpos : 0 < 18 * n ^ 2 + 18 * n - 3 := by nlinarith
   rw [div_lt_iff₀ hpos]; nlinarith
 
-/-- Lemma `lem:rayleighnogap`: the Rayleigh quotient `cos²θ + η sin²θ` of the
+/-- The Rayleigh quotient `cos²θ + η sin²θ` of the
 two-dimensional example is at least `cos²θ`. -/
 theorem rayleigh_example (θ η : ℝ) (hη : 0 ≤ η) :
     Real.cos θ ^ 2 ≤ Real.cos θ ^ 2 + η * Real.sin θ ^ 2 := by
   have := mul_nonneg hη (sq_nonneg (Real.sin θ)); linarith
 
-/-- The values of `L_lin` quoted after Theorem `thm:endlinear`. -/
+/-- The values of `L_lin` of the linear end bound. -/
 theorem endlinear_values :
     (7192 : ℝ) + 443620 * 1 + 1 * (79.69 + 27216 * 1) = 478107.69 ∧
     (7192 : ℝ) + 443620 * 0.08 = 42681.6 := by
@@ -407,14 +407,14 @@ theorem endslinear_exp_bounds :
     norm_num at this ⊢; nlinarith
 
 
-/-- Constants of Lemma `lem:bpflow` and Theorem `thm:bpneutral`. -/
+/-- The constants of the flow lemma and of the neutral cube condition. -/
 theorem bpneutral_constants :
     (16 * 12 : ℕ) = 192 ∧ (192 : ℕ) ^ 2 = 36864 ∧ 16 * 8 * 36864 = 9 * 2 ^ 19 ∧
     (4 : ℕ) ^ 11 = 2 ^ 22 ∧ (9 * 2 ^ 41 : ℝ) ≤ (4.45e6 : ℝ) ^ 2 ∧
     (32 : ℝ) ≤ 1.92 * 8 ^ 4 ∧ (6 : ℝ) ≤ 1.92 * 8 := by
   refine ⟨by norm_num, by norm_num, by norm_num, by norm_num, by norm_num, by norm_num, by norm_num⟩
 
-/-- The elementary inequality of Lemma `lem:bpflow`(iii):
+/-- The elementary inequality of the flow lemma:
 `2ay + y² ≤ (2a+2)(eʸ - 1)` for `a, y ≥ 0`. -/
 theorem bpflow_exp_inequality (a y : ℝ) (ha : 0 ≤ a) (hy : 0 ≤ y) :
     2 * a * y + y ^ 2 ≤ (2 * a + 2) * (Real.exp y - 1) := by
@@ -422,7 +422,7 @@ theorem bpflow_exp_inequality (a y : ℝ) (ha : 0 ≤ a) (hy : 0 ≤ y) :
   have h2 : 1 + y + y ^ 2 / 2 ≤ Real.exp y := Real.quadratic_le_exp_of_nonneg hy
   nlinarith [mul_le_mul_of_nonneg_left h1 ha]
 
-/-- The torus bound of Theorem `thm:bpneutral`(ii): `L^11 n ≤ 2^22 n^12`
+/-- The torus bound of the neutral cube condition: `L^11 n ≤ 2^22 n^12`
 for `L ≤ 4n`. -/
 theorem bpneutral_torus (n L : ℕ) (hL : L ≤ 4 * n) : L ^ 11 * n ≤ 2 ^ 22 * n ^ 12 := by
   have : L ^ 11 ≤ (4 * n) ^ 11 := Nat.pow_le_pow_left hL 11
