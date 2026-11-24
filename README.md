@@ -12,7 +12,8 @@ ORCID [0000-0003-0466-750X](https://orcid.org/0000-0003-0466-750X).
 
 ## Overview
 
-The repository contains Lean files only. It formalizes the finite, algebraic
+The paper is [Proof-of-Yang-Mills-Mass-Gap-Quasi-Lee-Yang.pdf](Proof-of-Yang-Mills-Mass-Gap-Quasi-Lee-Yang.pdf).
+The Lean files formalize the finite, algebraic
 and numerical parts of four-dimensional Wilson lattice Yang–Mills theory that
 the mass-gap argument rests on: the spectral no-go theorem and the critical
 scaling of the lattice gap, Dobrushin and star thresholds at strong coupling,
