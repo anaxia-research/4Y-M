@@ -1,4 +1,4 @@
-# Proof of a Mass Gap Δ > 0 for Four-Dimensional Lattice Yang–Mills at Strong Coupling
+# The Mass Gap Δ > 0 in Four-Dimensional Lattice Yang–Mills Theory
 
 **Deep Bhattacharjee**\*, **Ushashi Bhattacharya**, **James Montgomery Lockwood**,
 **Tristan Romanov**, **Ikailo John Sessford** and **Sanjeevan Singha Roy**
@@ -185,7 +185,7 @@ axioms.txt                  output of Axioms.lean
 @misc{Bhattacharjee2026YangMills,
   author       = {Bhattacharjee, Deep and Bhattacharya, Ushashi and Lockwood, James Montgomery
                   and Romanov, Tristan and Sessford, Ikailo John and Singha Roy, Sanjeevan},
-  title        = {Proof of a Mass Gap {$\Delta > 0$} for Four-Dimensional Lattice {Yang--Mills} at Strong Coupling},
+  title        = {The Mass Gap {$\Delta > 0$} in Four-Dimensional Lattice {Yang--Mills} Theory},
   year         = {2026},
   howpublished = {Preprints.org, 202611.1282, version 3},
   url          = {https://github.com/anaxia-research/4Y-M}
