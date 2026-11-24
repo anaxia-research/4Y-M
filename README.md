@@ -131,6 +131,8 @@ On a four-core machine, `lake exe cache get` takes about 4 minutes (including
 the download of Mathlib and its prebuilt cache), `lake build` about 2 minutes,
 and the audit about 20 seconds. The build finishes with no errors and no
 warnings, and the audit prints the text of [`axioms.txt`](axioms.txt).
+The same three steps run in GitHub Actions on every push
+([`.github/workflows/lean.yml`](.github/workflows/lean.yml)).
 
 ## Repository layout
 
@@ -174,6 +176,7 @@ YangMills/
 YangMills.lean              root import
 Axioms.lean                 axiom audit and #print axioms
 axioms.txt                  output of Axioms.lean
+.github/workflows/lean.yml  build and audit on every push
 ```
 
 ## Citation
