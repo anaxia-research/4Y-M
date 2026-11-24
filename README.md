@@ -1,4 +1,4 @@
-# The Mass Gap Δ > 0 in Four-Dimensional Yang–Mills Theory under a Uniform Cube Condition
+# Proof of the Yang–Mills Mass Gap Δ > 0 under Zero-Free Quasi-Lee–Yang Channels
 
 **Deep Bhattacharjee**\*, **Ushashi Bhattacharya**, **James Montgomery Lockwood**,
 **Tristan Romanov**, **Ikailo John Sessford** and **Sanjeevan Singha Roy**
@@ -32,7 +32,7 @@ ORCID [0000-0002-6148-1421](https://orcid.org/0000-0002-6148-1421).
 itsdeep@live.com. Code and GitHub contact: egspl@proton.me, GitHub
 [creelie](https://github.com/creelie).
 
-**Paper:** [Mass-Gap-4D-Yang-Mills-Uniform-Cube-Condition.pdf](paper/Mass-Gap-4D-Yang-Mills-Uniform-Cube-Condition.pdf)
+**Paper:** [Proof-of-Yang-Mills-Mass-Gap-Quasi-Lee-Yang.pdf](paper/Proof-of-Yang-Mills-Mass-Gap-Quasi-Lee-Yang.pdf)
 
 ---
 
@@ -41,16 +41,19 @@ itsdeep@live.com. Code and GitHub contact: egspl@proton.me, GitHub
 We prove that a cube condition at one physical scale, imposed uniformly
 along the asymptotic-freedom tuning, gives a positive mass gap in every
 nontrivial continuum limit of four-dimensional Wilson lattice Yang–Mills
-theory. For
-every compact simple gauge group we prove volume-uniform transfer-matrix gaps
+theory. We introduce quasi-Lee–Yang zeros, the complex zeros of the
+partition functions of two finite tori, and prove that the one-cube form of
+this condition holds whenever the tuned coupling lies hyperbolically close to
+strong coupling in the complement of these zeros, which for ℤ₂ fails in large
+volumes. For every compact simple gauge group we prove volume-uniform transfer-matrix gaps
 with explicit rates at strong coupling. For SU(2) the cube condition
 holds uniformly in the cube size for β_W < (√37 − 5)/3, and we compute the
 exact weak-coupling gap on each fixed free cube. For two static sources we
 prove an exact Gauss law for the transfer matrix and a compensation inequality
 that bounds the Polyakov-loop correlator by the free energy of a centre vortex.
 
-**Keywords:** lattice Yang–Mills theory; mass gap; reflection positivity;
-centre vortices; Polyakov loops.
+**Keywords:** lattice Yang–Mills theory; mass gap; Lee–Yang zeros; reflection
+positivity; centre vortices; Polyakov loops.
 
 **MSC 2020:** 81T13, 81T25; 82B20, 60K35, 81T08.
 
@@ -59,7 +62,7 @@ centre vortices; Polyakov loops.
 | Path | Content |
 |---|---|
 | [`paper/`](paper) | The paper, as a PDF |
-| [`YangMills/`](YangMills) | Lean 4 formalization, 35 modules |
+| [`YangMills/`](YangMills) | Lean 4 formalization, 36 modules |
 | [`YangMills.lean`](YangMills.lean) | Root file importing every module |
 | [`Axioms.lean`](Axioms.lean) | Axiom audit of every theorem, and `#print axioms` for the main results |
 | [`axioms.txt`](axioms.txt) | Output of `Axioms.lean` |
@@ -71,10 +74,10 @@ algebraic and numerical steps of the paper, the explicit constants and
 thresholds of the main theorems, and the analytic steps that can be stated on a
 finite state space or on the real line.
 
-It consists of 35 modules with 604 theorems and lemmas and 127 definitions,
-about 7,500 lines in all. No file contains `sorry`, `admit`, a new `axiom`,
+It consists of 36 modules with 686 theorems and lemmas and 136 definitions,
+about 8,900 lines in all. No file contains `sorry`, `admit`, a new `axiom`,
 `native_decide` or an `@[implemented_by]` attribute. `Axioms.lean` collects every
-theorem in the `YangMills` namespace, 1,125 of them including the auxiliary
+theorem in the `YangMills` namespace, 1,258 of them including the auxiliary
 ones that Lean generates, and fails unless each depends only on the three
 standard axioms `propext`, `Classical.choice` and `Quot.sound`. Every constant
 checked here is proved from its definition in exact arithmetic or by explicit
@@ -111,12 +114,21 @@ bounds on exp, log and √; none is taken from a floating-point computation.
 | Polyakov loops as charged traces | `YangMills.TwoSources.trace_sandwich` | The trace of X ↦ A X B* on n × n matrices is Tr A · conj(Tr B). |
 | Centre sheets | `YangMills.TwoSources.sheet_expansion` | ∏ (w₊ + ζ_p w₋) expands as the sum over sheets S of ∏_{p∈S} ζ_p w₋ ∏_{p∉S} w₊. |
 | Constants for two sources | `YangMills.TwoSources.datum_antipodal`, `YangMills.TwoSources.datum_pair_free_energy`, `YangMills.TwoSources.datum_flux_log`, `YangMills.TwoSources.flux_antipodal` | Under the single-cube datum: antipodal Polyakov correlator at most 0.08839, static-pair free energy at least 2.4260, electric-flux free energy above log 8191 > 9.0107; with η = 1/7169 the antipodal bound 0.066812. |
+| Quasi-Lee–Yang zeros: the stack identity | `YangMills.QuasiLeeYang.vieta_norm`, `YangMills.QuasiLeeYang.stack_on_line` | The product of the moduli of the roots is \|g(0)\|/\|leading coefficient\|; if every root lies on the unit circle, the twisted and untwisted partition functions agree. |
+| Two-dimensional circle theorem | `YangMills.QuasiLeeYang.circle_zeros`, `YangMills.QuasiLeeYang.standing_wave_poly` | On the circle ρ^F O = E the points ρe^{iπ(2k+1)/F} are zeros of E + θ^F O, and \|E + (ρe^{iφ})^F O\| = 2E\|cos(Fφ/2)\|: nodes and antinodes of a standing wave. |
+| Knot lemma and twist areas | `YangMills.QuasiLeeYang.knot_invariance`, `YangMills.QuasiLeeYang.knot_independent`, `YangMills.QuasiLeeYang.area_bound` | A twist is a cocycle: it does not change when a sheet is deformed by a boundary, its parity on a 2-cycle does not depend on the sheet, and a 2-cycle that detects a temporal twist has at least L_j L_3 = 2T² plaquettes. |
+| Transport by Borel–Carathéodory and Schwarz | `YangMills.QuasiLeeYang.theoremA_tail`, `YangMills.QuasiLeeYang.theoremA_domain`, `YangMills.QuasiLeeYang.theoremB`, `YangMills.QuasiLeeYang.theoremB_zstar` | A zero-free vortex disc or domain bounds the twisted ratios; a zero-free domain in the coupling, entered through any analytic map of the disc, gives ψ_T ≤ 12288 s T⁵ ω^{4T}. |
+| Zeros anywhere | `YangMills.QuasiLeeYang.coef_tail`, `YangMills.QuasiLeeYang.zstar_implies_HZ`, `YangMills.QuasiLeeYang.halfplane_model`, `YangMills.QuasiLeeYang.strip_model` | Coefficients bounded by C that vanish below order m give a sum at most C\|v\|^m/(1−\|v\|); the hyperbolic bound 768 s T⁴ ω^{4T}/(1−ω) is at most a quarter of 12288 s T⁵ ω_D^{4T}; the half-plane and strip models of the modulus. |
+| Evenness in the coupling | `YangMills.QuasiLeeYang.stagger_plaquette_odd` | The staggered centre transformation multiplies every plaquette by the centre: the four exponents add up to 1 mod 2. |
+| Strong coupling and criticality | `YangMills.QuasiLeeYang.eps_rKP`, `YangMills.QuasiLeeYang.disc_consistency`, `YangMills.QuasiLeeYang.critical_width`, `YangMills.QuasiLeeYang.critflux_width` | ε(0.00539) ≤ 1/(25e²); 12288 · 0.00539 · T⁵ 2^{−4T} ≤ 1/4097 for T ≥ 9; the critical half-widths 11/(6π) and 11/(12π). |
+| The projected datum and ℤ₂ | `YangMills.QuasiLeeYang.plus_arith`, `YangMills.QuasiLeeYang.KN_threshold`, `YangMills.QuasiLeeYang.z2_datum_gap` | 1/8194 + 2/16388 = 1/4097 with the flux correction 7/114721 < 1/16388; the ℤ₂ half-plane Re K ≥ ½ log(50e²) and the ℤ₂ datum gap log(2/1.001) > 0.6921. |
 
 ## What the paper proves outside Lean
 
 The character expansions on SU(N), the transfer matrices on infinite
 lattices, the polymer and cluster expansions, the Dobrushin comparison in
-infinite volume, reflection positivity and the passage to the continuum use
+infinite volume, reflection positivity, the passage to the continuum, the Riemann and
+covering maps of plane domains and Carathéodory's coefficient inequality use
 analytic machinery that Mathlib does not yet provide. These steps are proved in
 full in the paper. Where a module checks the finite part of such a step, its
 header says which part is checked and which is proved in the paper.
@@ -163,6 +175,9 @@ YangMills/
   GapFree.lean              the ascent without a gap hypothesis
   CentreTwists.lean         centre twists, Z₂ Peierls comparison, twist eaters
   TwoSources.lean           two static sources: compensation, twist–flux exchange
+  QuasiLeeYang.lean         quasi-Lee–Yang zeros: stack identity, circle theorem,
+                            knot lemma, transport theorems, zeros anywhere,
+                            evenness, criticality, constants
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
@@ -186,7 +201,7 @@ YangMills/
     Haar.lean               pseudoreal surface integrals
     Counting.lean           two-gluon singlet states
 paper/
-  Mass-Gap-4D-Yang-Mills-Uniform-Cube-Condition.pdf   the paper
+  Proof-of-Yang-Mills-Mass-Gap-Quasi-Lee-Yang.pdf   the paper
 YangMills.lean              root import
 Axioms.lean                 axiom audit and #print axioms
 axioms.txt                  output of Axioms.lean
@@ -221,7 +236,7 @@ proved in the paper, and the statements listed above are checked here in Lean.
 @misc{Bhattacharjee2026YangMills,
   author       = {Bhattacharjee, Deep and Bhattacharya, Ushashi and Lockwood, James Montgomery
                   and Romanov, Tristan and Sessford, Ikailo John and Singha Roy, Sanjeevan},
-  title        = {The Mass Gap {$\Delta > 0$} in Four-Dimensional {Yang--Mills} Theory under a Uniform Cube Condition},
+  title        = {Proof of the {Yang--Mills} Mass Gap {$\Delta > 0$} under Zero-Free Quasi-{Lee--Yang} Channels},
   year         = {2026},
   note         = {Preprint},
   url          = {https://github.com/anaxia-research/4Y-M}
