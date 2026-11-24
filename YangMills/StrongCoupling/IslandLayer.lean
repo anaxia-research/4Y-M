@@ -3,8 +3,8 @@ import Mathlib
 /-!
 # Finite arithmetic of the layer theorem and the block-map growth
 
-These are the finite inequalities behind `thm:layerbound`, `cor:twoislands`
-and `prop:massgrowth` of the paper.
+These are the finite inequalities behind the layer bound, the two-island
+corollary and the mass growth of the block maps.
 
 * `schur_row`, `gram_norm_inv` : a row of `𝒢 = BB*` has norm at most
   `1/4 + 681κ`, and `1/(1/4 + 681κ) = 4/(1 + 2724κ)`.
@@ -34,7 +34,7 @@ theorem gram_norm_inv (κ : ℝ) (hκ : 0 ≤ κ) :
   field_simp
   ring
 
-/-- The gain of the infimum in `prop:massgrowth`: `ε|w|²/(1/4 + 681κ)`
+/-- The gain of the infimum in the mass growth: `ε|w|²/(1/4 + 681κ)`
 equals `4ε|w|²/(1 + 2724κ)`. -/
 theorem gain_eq (κ ε q : ℝ) (hκ : 0 ≤ κ) :
     ε * (q / (1 / 4 + 681 * κ)) = 4 * ε / (1 + 2724 * κ) * q := by

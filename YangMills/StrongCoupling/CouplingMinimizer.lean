@@ -30,6 +30,7 @@ theorem couplings_nonempty (μ ν : ProbabilityMeasure Ω) :
   · apply Subtype.ext
     simp [γ, ProbabilityMeasure.map, Measure.map_snd_prod]
 
+omit [CompactSpace Ω] in
 theorem couplings_isClosed (μ ν : ProbabilityMeasure Ω) :
     IsClosed (couplings μ ν) := by
   exact (isClosed_eq (ProbabilityMeasure.continuous_map continuous_fst)
@@ -48,6 +49,7 @@ theorem exists_minimizer (μ ν : ProbabilityMeasure Ω) (c : C(Ω × Ω, ℝ)) 
   exact (couplings_isCompact μ ν).exists_isMinOn (couplings_nonempty μ ν)
     (ProbabilityMeasure.continuous_integral_continuousMap c).continuousOn
 
+omit [MetricSpace Ω] [CompactSpace Ω] [SecondCountableTopology Ω] [BorelSpace Ω] in
 /-- Identification with the marginal-based interface of WassersteinBridge. -/
 theorem mem_couplings_iff (μ ν : ProbabilityMeasure Ω)
     (γ : ProbabilityMeasure (Ω × Ω)) :

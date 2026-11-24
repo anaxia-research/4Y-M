@@ -3,13 +3,13 @@ import Mathlib
 /-!
 # Perturbations of the cube condition: the finite arithmetic
 
-The proposition `prop:cubeopen` of the forest-gauge paper shows that the cube
+A perturbation argument shows that the cube
 condition `D(n, α)` survives a finite-range perturbation of the action with
 Lipschitz constant `ε`, with `α' = α e^Ω (1 + 2Ω) + 96 s Ω` and
-`Ω = 48 M D N_n ε`; the proposition `prop:smallfield` shows that, for
+`Ω = 48 M D N_n ε`; a small-field argument shows that, for
 gauge-invariant perturbations in the small-field regime, the cube must satisfy
 `m(m+1) η + κ D ≥ (1 - α) D / 3`. The analytic steps (Kantorovich duality,
-the loop bound) are in the paper; this file checks the arithmetic that joins
+the loop bound) are not formalised; this file checks the arithmetic that joins
 them:
 
 * `cube_constants` : `48 · 2 = 96`, `96 · 48 = 4608`, `4608 = 4 · 1152`;

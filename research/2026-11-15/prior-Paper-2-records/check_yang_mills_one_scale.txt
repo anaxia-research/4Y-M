@@ -1,1 +1,0 @@
-Checked all three conditional seed bounds and exact contraction constants.

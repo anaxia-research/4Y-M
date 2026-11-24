@@ -1,1 +1,0 @@
-Please consider this revision of our November preprint. We have added estimates that remain valid on growing lattices with arbitrary exterior fields and clarified which results apply to the continuum problem.

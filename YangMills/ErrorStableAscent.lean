@@ -7,7 +7,7 @@ import YangMills.GapFree
 These are arithmetic theorems about real sequences. They do not assert that
 Yang--Mills partition functions satisfy the recurrence or the error bounds.
 The intended normalization is `z n = A * y n`, with `A = 16.83` in the
-quadratic majorant of Theorem 7.56 of the current paper.
+quadratic majorant of Theorem `thm:ascentfree` of the paper.
 
 An error exponential in `2 ^ n` is exponential in physical time when the
 time at step `n` is `2 ^ n * T₀`. A merely geometric error in `n` does not
