@@ -1,4 +1,4 @@
-# Proof of the Yang–Mills Mass Gap Δ > 0 under Zero-Free Quasi-Lee–Yang Channels
+# Proof of the Yang–Mills Mass Gap Δ > 0 under Quasi-Lee–Yang Channels
 
 **Deep Bhattacharjee**\*, **Ushashi Bhattacharya**, **James Montgomery Lockwood**,
 **Tristan Romanov**, **Ikailo John Sessford** and **Sanjeevan Singha Roy**
@@ -236,7 +236,7 @@ proved in the paper, and the statements listed above are checked here in Lean.
 @misc{Bhattacharjee2026YangMills,
   author       = {Bhattacharjee, Deep and Bhattacharya, Ushashi and Lockwood, James Montgomery
                   and Romanov, Tristan and Sessford, Ikailo John and Singha Roy, Sanjeevan},
-  title        = {Proof of the {Yang--Mills} Mass Gap {$\Delta > 0$} under Zero-Free Quasi-{Lee--Yang} Channels},
+  title        = {Proof of the {Yang--Mills} Mass Gap {$\Delta > 0$} under Quasi-{Lee--Yang} Channels},
   year         = {2026},
   note         = {Preprint},
   url          = {https://github.com/anaxia-research/4Y-M}
