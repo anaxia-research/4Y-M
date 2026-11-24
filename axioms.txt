@@ -1,4 +1,4 @@
-1258 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
+1269 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
 'YangMills.nogo_no_gapped_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.limit_ratio_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.holleyStroock_poincare' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -66,3 +66,7 @@
 'YangMills.QuasiLeeYang.stagger_plaquette_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.QuasiLeeYang.plus_arith' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.QuasiLeeYang.critflux_width' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.QuasiLeeYang.strip_cos_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.QuasiLeeYang.strip_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.QuasiLeeYang.heat_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.QuasiLeeYang.jensen_constant' depends on axioms: [propext, Classical.choice, Quot.sound]

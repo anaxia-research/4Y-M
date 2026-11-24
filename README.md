@@ -32,8 +32,6 @@ ORCID [0000-0002-6148-1421](https://orcid.org/0000-0002-6148-1421).
 itsdeep@live.com. Code and GitHub contact: egspl@proton.me, GitHub
 [creelie](https://github.com/creelie).
 
-**Paper:** [Proof-of-Yang-Mills-Mass-Gap-Quasi-Lee-Yang.pdf](paper/Proof-of-Yang-Mills-Mass-Gap-Quasi-Lee-Yang.pdf)
-
 ---
 
 ## Abstract
@@ -61,7 +59,6 @@ positivity; centre vortices; Polyakov loops.
 
 | Path | Content |
 |---|---|
-| [`paper/`](paper) | The paper, as a PDF |
 | [`YangMills/`](YangMills) | Lean 4 formalization, 36 modules |
 | [`YangMills.lean`](YangMills.lean) | Root file importing every module |
 | [`Axioms.lean`](Axioms.lean) | Axiom audit of every theorem, and `#print axioms` for the main results |
@@ -74,10 +71,10 @@ algebraic and numerical steps of the paper, the explicit constants and
 thresholds of the main theorems, and the analytic steps that can be stated on a
 finite state space or on the real line.
 
-It consists of 36 modules with 686 theorems and lemmas and 136 definitions,
+It consists of 36 modules with 690 theorems and lemmas and 136 definitions,
 about 8,900 lines in all. No file contains `sorry`, `admit`, a new `axiom`,
 `native_decide` or an `@[implemented_by]` attribute. `Axioms.lean` collects every
-theorem in the `YangMills` namespace, 1,258 of them including the auxiliary
+theorem in the `YangMills` namespace, 1,269 of them including the auxiliary
 ones that Lean generates, and fails unless each depends only on the three
 standard axioms `propext`, `Classical.choice` and `Quot.sound`. Every constant
 checked here is proved from its definition in exact arithmetic or by explicit
@@ -120,6 +117,7 @@ bounds on exp, log and √; none is taken from a floating-point computation.
 | Transport by Borel–Carathéodory and Schwarz | `YangMills.QuasiLeeYang.theoremA_tail`, `YangMills.QuasiLeeYang.theoremA_domain`, `YangMills.QuasiLeeYang.theoremB`, `YangMills.QuasiLeeYang.theoremB_zstar` | A zero-free vortex disc or domain bounds the twisted ratios; a zero-free domain in the coupling, entered through any analytic map of the disc, gives ψ_T ≤ 12288 s T⁵ ω^{4T}. |
 | Zeros anywhere | `YangMills.QuasiLeeYang.coef_tail`, `YangMills.QuasiLeeYang.zstar_implies_HZ`, `YangMills.QuasiLeeYang.halfplane_model`, `YangMills.QuasiLeeYang.strip_model` | Coefficients bounded by C that vanish below order m give a sum at most C\|v\|^m/(1−\|v\|); the hyperbolic bound 768 s T⁴ ω^{4T}/(1−ω) is at most a quarter of 12288 s T⁵ ω_D^{4T}; the half-plane and strip models of the modulus. |
 | Evenness in the coupling | `YangMills.QuasiLeeYang.stagger_plaquette_odd` | The staggered centre transformation multiplies every plaquette by the centre: the four exponents add up to 1 mod 2. |
+| Zero-free strips and the count of zeros | `YangMills.QuasiLeeYang.strip_cos_lower`, `YangMills.QuasiLeeYang.strip_optimal`, `YangMills.QuasiLeeYang.heat_strip`, `YangMills.QuasiLeeYang.jensen_constant` | If \|E\| ≤ P and P\|y\| ≤ π/2 then cos(yE) ≥ cos(Py) ≥ 0, which gives the zero-free strip \|Im β_W\| < π/(2\|P\|); the width is attained by cosh(Pβ); cos u ≥ 1 − u²/2 and the specific-heat strip; the Jensen constant 288e/π < 250. |
 | Strong coupling and criticality | `YangMills.QuasiLeeYang.eps_rKP`, `YangMills.QuasiLeeYang.disc_consistency`, `YangMills.QuasiLeeYang.critical_width`, `YangMills.QuasiLeeYang.critflux_width` | ε(0.00539) ≤ 1/(25e²); 12288 · 0.00539 · T⁵ 2^{−4T} ≤ 1/4097 for T ≥ 9; the critical half-widths 11/(6π) and 11/(12π). |
 | The projected datum and ℤ₂ | `YangMills.QuasiLeeYang.plus_arith`, `YangMills.QuasiLeeYang.KN_threshold`, `YangMills.QuasiLeeYang.z2_datum_gap` | 1/8194 + 2/16388 = 1/4097 with the flux correction 7/114721 < 1/16388; the ℤ₂ half-plane Re K ≥ ½ log(50e²) and the ℤ₂ datum gap log(2/1.001) > 0.6921. |
 
@@ -177,7 +175,7 @@ YangMills/
   TwoSources.lean           two static sources: compensation, twist–flux exchange
   QuasiLeeYang.lean         quasi-Lee–Yang zeros: stack identity, circle theorem,
                             knot lemma, transport theorems, zeros anywhere,
-                            evenness, criticality, constants
+                            evenness, zero-free strips, criticality, constants
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
@@ -200,8 +198,6 @@ YangMills/
     Fourier.lean            sector-zero Fourier identity
     Haar.lean               pseudoreal surface integrals
     Counting.lean           two-gluon singlet states
-paper/
-  Proof-of-Yang-Mills-Mass-Gap-Quasi-Lee-Yang.pdf   the paper
 YangMills.lean              root import
 Axioms.lean                 axiom audit and #print axioms
 axioms.txt                  output of Axioms.lean

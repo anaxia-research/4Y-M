@@ -1410,4 +1410,59 @@ theorem torelon_toy_zero : 1 + Complex.exp (-(Complex.I * Real.pi)) = 0 := by
 
 end Cover
 
+section Strips
+
+/-- Proposition `ly:prop:strip`: if the action `E` lies in `[-P, P]` and `P|y| ≤ π/2`, then
+`cos (y E) ≥ cos (P y) ≥ 0`. Integrated against `e^{xE} dU` this gives
+`Re Z(x+iy) ≥ cos(P y) Z(x)`, and hence the zero-free strip `|Im β_W| < π/(2P)`. -/
+theorem strip_cos_lower (y E P : ℝ) (hE : |E| ≤ P) (hy : P * |y| ≤ Real.pi / 2) :
+    Real.cos (P * y) ≤ Real.cos (y * E) ∧ 0 ≤ Real.cos (P * y) := by
+  have hP : 0 ≤ P := (abs_nonneg E).trans hE
+  have hpi := Real.pi_pos
+  have h1 : |y * E| ≤ P * |y| := by
+    rw [abs_mul]; nlinarith [abs_nonneg y, abs_nonneg E]
+  have h2 : Real.cos (P * y) = Real.cos (P * |y|) := by
+    rw [← Real.cos_abs (P * y), abs_mul, abs_of_nonneg hP]
+  rw [h2, ← Real.cos_abs (y * E)]
+  refine ⟨Real.cos_le_cos_of_nonneg_of_le_pi (abs_nonneg _) (by linarith) h1, ?_⟩
+  exact Real.cos_nonneg_of_mem_Icc ⟨by nlinarith [abs_nonneg y], hy⟩
+
+/-- Proposition `ly:prop:strip`(c): the width `π/(2P)` is optimal. The Laplace transform of
+`½(δ_{-P} + δ_P)` is `cosh (P β)`, and it vanishes at `β = iπ/(2P)`. -/
+theorem strip_optimal (P : ℝ) (hP : P ≠ 0) (β : ℂ) :
+    (Complex.exp (-(P * β)) + Complex.exp (P * β)) / 2 = Complex.cosh (P * β) ∧
+    Complex.cosh ((P : ℂ) * (Complex.I * ((Real.pi : ℂ) / (2 * (P : ℂ))))) = 0 := by
+  refine ⟨by rw [Complex.cosh]; ring, ?_⟩
+  have hP' : (P : ℂ) ≠ 0 := by exact_mod_cast hP
+  have h : (P : ℂ) * (Complex.I * ((Real.pi : ℂ) / (2 * (P : ℂ)))) =
+      ((Real.pi / 2 : ℝ) : ℂ) * Complex.I := by
+    push_cast; field_simp
+  rw [h, Complex.cosh_mul_I, ← Complex.ofReal_cos, Real.cos_pi_div_two]
+  simp
+
+/-- Proposition `ly:prop:heat`: `cos u ≥ 1 - u²/2`, and if the variance `C` satisfies
+`C ≤ 2/η²`, then `y² C/2 < 1` for `|y| < η`, so no zero lies at height `|y| < η`;
+the exceptional set has measure at most `(η²/2)·2P = P η²`. -/
+theorem heat_strip (u y C η P : ℝ) (hη : 0 < η) (hCη : C ≤ 2 / η ^ 2)
+    (hy : |y| < η) :
+    1 - u ^ 2 / 2 ≤ Real.cos u ∧ y ^ 2 / 2 * C < 1 ∧ η ^ 2 / 2 * (2 * P) = P * η ^ 2 := by
+  refine ⟨Real.one_sub_sq_div_two_le_cos, ?_, by ring⟩
+  have hy2 : y ^ 2 < η ^ 2 := by
+    rw [← sq_abs y]; exact pow_lt_pow_left₀ hy (abs_nonneg y) (by norm_num)
+  have hη2 : 0 < η ^ 2 := by positivity
+  have hC' : η ^ 2 * C ≤ 2 := by
+    rw [le_div_iff₀ hη2] at hCη; linarith
+  nlinarith [sq_nonneg y]
+
+/-- Proposition `ly:prop:count`: the Jensen constant for the quasi-Lee–Yang zeros,
+`(2e/π)·144 = 288e/π < 250`. -/
+theorem jensen_constant : 2 * Real.exp 1 / Real.pi * 144 < 250 := by
+  have he := Real.exp_one_lt_d9
+  have hp := Real.pi_gt_d2
+  have hpi := Real.pi_pos
+  rw [div_mul_eq_mul_div, div_lt_iff₀ hpi]
+  nlinarith
+
+end Strips
+
 end YangMills.QuasiLeeYang

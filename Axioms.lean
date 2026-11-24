@@ -104,3 +104,7 @@ elab "#audit_yang_mills" : command => do
 #print axioms YangMills.QuasiLeeYang.stagger_plaquette_odd
 #print axioms YangMills.QuasiLeeYang.plus_arith
 #print axioms YangMills.QuasiLeeYang.critflux_width
+#print axioms YangMills.QuasiLeeYang.strip_cos_lower
+#print axioms YangMills.QuasiLeeYang.strip_optimal
+#print axioms YangMills.QuasiLeeYang.heat_strip
+#print axioms YangMills.QuasiLeeYang.jensen_constant
