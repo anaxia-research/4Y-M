@@ -1,4 +1,4 @@
-1269 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
+1281 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
 'YangMills.nogo_no_gapped_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.limit_ratio_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.holleyStroock_poincare' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -70,3 +70,9 @@
 'YangMills.QuasiLeeYang.strip_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.QuasiLeeYang.heat_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.QuasiLeeYang.jensen_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Ledger.matched_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Ledger.orbit_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Ledger.ledger_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Ledger.ladder_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Ledger.ladder_size' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Ledger.step_scaling_defect' depends on axioms: [propext, Classical.choice, Quot.sound]

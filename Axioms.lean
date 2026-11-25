@@ -108,3 +108,9 @@ elab "#audit_yang_mills" : command => do
 #print axioms YangMills.QuasiLeeYang.strip_optimal
 #print axioms YangMills.QuasiLeeYang.heat_strip
 #print axioms YangMills.QuasiLeeYang.jensen_constant
+#print axioms YangMills.Ledger.matched_mem
+#print axioms YangMills.Ledger.orbit_chain
+#print axioms YangMills.Ledger.ledger_bound
+#print axioms YangMills.Ledger.ladder_length
+#print axioms YangMills.Ledger.ladder_size
+#print axioms YangMills.Ledger.step_scaling_defect
