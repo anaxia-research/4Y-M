@@ -123,3 +123,11 @@ elab "#audit_yang_mills" : command => do
 #print axioms YangMills.OneBox.orb_drop
 #print axioms YangMills.OneBox.barrier_chain
 #print axioms YangMills.OneBox.barrier_gap
+#print axioms YangMills.StarCert.ratio_le
+#print axioms YangMills.StarCert.q_admissible_third
+#print axioms YangMills.StarCert.starBound_third
+#print axioms YangMills.StarCert.starBound_seven_twentieths
+#print axioms YangMills.StarCert.xstar_lower
+#print axioms YangMills.StarCert.certificate_of_star
+#print axioms YangMills.StarCert.certificate_third
+#print axioms YangMills.StarCert.oneloop_step_lt_third
