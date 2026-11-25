@@ -12,6 +12,8 @@ ladder ends on the single box `m = 0`.
   `T E₁ ≥ log (1/(e^x - 1))` (Lemma `ly:lem:pressuregap`).
 * `onebox_bound`: the box certificate and the endpoint condition give the
   pressure bound at the top (Theorem `ly:thm:onebox`).
+* `onebox_gap`: under the same hypotheses the large box has
+  `T E₁ ≥ log (1/(e^x - 1))`.
 * `ref_iterate_le`, `onebox_size`: the number of rungs and the side,
   `2^n < 2 N e^{(C+D-β_top)/c₁}`.
 * `orb_drop`, `barrier_chain`, `barrier_gap`: a uniform drop on a window ends
@@ -49,6 +51,18 @@ theorem onebox_bound (X : ℕ → ℝ → ℝ) (hcont : ContinuousOn (X 0) (Set.
     X n β ≤ x := by
   have hm := YangMills.Ledger.matched_mem (X 0) hcont (X n β) hne
   exact hm.2.trans (hC _ hm.1 hE)
+
+/-- **One box bounds the gap of the large box.** Under the box certificate
+and the endpoint condition, the first excitation energy `E₁` of the box of
+side `T_* · 2^n` satisfies `T E₁ ≥ log (1/(e^x - 1))`, where `t = T E₁` and
+`log (1 + e^{-t}) ≤ X n β` is the lemma that the pressure bounds the gap. -/
+theorem onebox_gap (X : ℕ → ℝ → ℝ) (hcont : ContinuousOn (X 0) (Set.Ici 0))
+    (x βtop : ℝ) (hC : ∀ b, 0 ≤ b → b ≤ βtop → X 0 b ≤ x) (n : ℕ) (β : ℝ)
+    (hne : ({b | 0 ≤ b ∧ X n β ≤ X 0 b} : Set ℝ).Nonempty)
+    (hE : sInf {b | 0 ≤ b ∧ X n β ≤ X 0 b} ≤ βtop) (t : ℝ)
+    (hlow : Real.log (1 + Real.exp (-t)) ≤ X n β) :
+    Real.log (1 / (Real.exp x - 1)) ≤ t :=
+  gap_of_pressure t x (X n β) hlow (onebox_bound X hcont x βtop hC n β hne hE)
 
 /-- The endpoint condition `R^{♯(n)} ≤ ρ_n + D` with `ρ_n + D ≤ β_top` gives
 the hypothesis `hE` of `onebox_bound`. -/
