@@ -24,11 +24,11 @@ constant and threshold of the main theorems is proved here from its definition.
 
 | | |
 |---|---|
-| Modules | 36 |
+| Modules | 37 |
 | Theorems and lemmas | 690 |
 | Definitions | 136 |
 | Lines | about 8,900 |
-| Theorems audited | 1,269 (all declarations in the `YangMills` namespace, including auxiliary ones) |
+| Theorems audited | 1,281 (all declarations in the `YangMills` namespace, including auxiliary ones) |
 | Axioms | `propext`, `Classical.choice`, `Quot.sound` only |
 | Toolchain | Lean 4.33.0, Mathlib `v4.33.0` |
 
@@ -100,6 +100,7 @@ Each row names a statement and the Lean theorems that prove it.
 | Zero-free strips and the count of zeros | `YangMills.QuasiLeeYang.strip_cos_lower`, `YangMills.QuasiLeeYang.strip_optimal`, `YangMills.QuasiLeeYang.heat_strip`, `YangMills.QuasiLeeYang.jensen_constant` | If \|E\| ≤ P and P\|y\| ≤ π/2 then cos(yE) ≥ cos(Py) ≥ 0, which gives the zero-free strip \|Im β_W\| < π/(2\|P\|); the width is attained by cosh(Pβ); cos u ≥ 1 − u²/2 and the specific-heat strip; the Jensen constant 288e/π < 250. |
 | Strong coupling and criticality | `YangMills.QuasiLeeYang.eps_rKP`, `YangMills.QuasiLeeYang.disc_consistency`, `YangMills.QuasiLeeYang.critical_width`, `YangMills.QuasiLeeYang.critflux_width` | ε(0.00539) ≤ 1/(25e²); 12288 · 0.00539 · T⁵ 2^{−4T} ≤ 1/4097 for T ≥ 9; the critical half-widths 11/(6π) and 11/(12π). |
 | The projected datum and ℤ₂ | `YangMills.QuasiLeeYang.plus_arith`, `YangMills.QuasiLeeYang.KN_threshold`, `YangMills.QuasiLeeYang.z2_datum_gap` | 1/8194 + 2/16388 = 1/4097 with the flux correction 7/114721 < 1/16388; the ℤ₂ half-plane Re K ≥ ½ log(50e²) and the ℤ₂ datum gap log(2/1.001) > 0.6921. |
+| The defect ledger | `YangMills.Ledger.matched_mem`, `YangMills.Ledger.orbit_chain`, `YangMills.Ledger.ledger_bound`, `YangMills.Ledger.ladder_length`, `YangMills.Ledger.ladder_size`, `YangMills.Ledger.step_scaling_defect` | A continuous pressure attains the infimum that defines the pressure-matched coupling; pressures are non-decreasing along the matched orbit until it enters the strong-coupling band; a running defect at most D gives the pressure bound at the top of the ladder, with 2^{n₀} ≤ 2N e^{(C+D)/c₁}; the rung-by-rung step-scaling condition gives a defect at most c₁ log 2. |
 
 ## Scope
 
@@ -134,6 +135,7 @@ YangMills/
   QuasiLeeYang.lean         quasi-Lee–Yang zeros: stack identity, circle theorem,
                             knot lemma, transport theorems, zeros anywhere,
                             evenness, zero-free strips, criticality, constants
+  Ledger.lean               the defect ledger: matched orbit, ladder bound
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
