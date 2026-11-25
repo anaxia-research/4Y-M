@@ -1,4 +1,4 @@
-1297 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
+1319 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
 'YangMills.nogo_no_gapped_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.limit_ratio_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.holleyStroock_poincare' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -93,3 +93,13 @@
 'YangMills.StarCert.certificate_of_star' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.StarCert.certificate_third' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.StarCert.oneloop_step_lt_third' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.omega_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.gap_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.mode_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.exp_pi_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.exp_neg_pi_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.free_pressure_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.free_pressure_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.singlet_pressure_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.free_violates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.FreePressure.singlet_violates' depends on axioms: [propext, Classical.choice, Quot.sound]

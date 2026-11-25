@@ -131,3 +131,13 @@ elab "#audit_yang_mills" : command => do
 #print axioms YangMills.StarCert.certificate_of_star
 #print axioms YangMills.StarCert.certificate_third
 #print axioms YangMills.StarCert.oneloop_step_lt_third
+#print axioms YangMills.FreePressure.omega_le
+#print axioms YangMills.FreePressure.gap_le
+#print axioms YangMills.FreePressure.mode_ge
+#print axioms YangMills.FreePressure.exp_pi_lt
+#print axioms YangMills.FreePressure.exp_neg_pi_gt
+#print axioms YangMills.FreePressure.free_pressure_ge
+#print axioms YangMills.FreePressure.free_pressure_gt
+#print axioms YangMills.FreePressure.singlet_pressure_gt
+#print axioms YangMills.FreePressure.free_violates
+#print axioms YangMills.FreePressure.singlet_violates

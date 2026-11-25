@@ -37,6 +37,7 @@ doi:[10.20944/preprints202611.1282.v2](https://doi.org/10.20944/preprints202611.
 | Mass gap Δ = t₀⁻¹ log(63/32) for four-dimensional SU(2) Yang–Mills theory in every Wightman continuum limit along the asymptotic-freedom tuning, given one bound (P) on the pressure of one box of fixed physical size, uniform in the lattice spacing | proved from (P) |
 | The box certificate: pressure bound X(1012; b) ≤ x* on the 2024³ × 1012 lattice for 0 ≤ b ≤ 1/3 | proved (exact arithmetic, `StarCert.lean`) |
 | One-box reduction: the box certificate and the endpoint condition give the pressure bound on the large box, and a gap bound for it | proved (`OneBox.lean`) |
+| Free gluons violate (P) on every box: pressure above 1/2 (above 1/50 on colour-invariant states) and 2T·E₁ ≤ 2π, at every spacing | proved (`FreePressure.lean`) |
 | Zero-free strip of optimal width and count of the complex zeros of the torus partition functions | proved |
 | Volume-uniform transfer-matrix gaps at strong coupling for every compact simple gauge group | proved |
 | Cube condition and one-cube datum for SU(2) for β_W < (√37 − 5)/3, uniformly in the cube size | proved |
@@ -60,11 +61,11 @@ constant and threshold of the main theorems is proved here from its definition.
 
 | | |
 |---|---|
-| Modules | 39 |
-| Theorems and lemmas | 713 |
-| Definitions | 135 |
+| Modules | 40 |
+| Theorems and lemmas | 723 |
+| Definitions | 136 |
 | Lines | about 9,400 |
-| Theorems audited | 1,309 (all declarations in the `YangMills` namespace, including auxiliary ones) |
+| Theorems audited | 1,319 (all declarations in the `YangMills` namespace, including auxiliary ones) |
 | Axioms | `propext`, `Classical.choice`, `Quot.sound` only |
 | Toolchain | Lean 4.33.0, Mathlib `v4.33.0` |
 
@@ -138,6 +139,7 @@ Each row names a statement and the Lean theorems that prove it.
 | The projected datum and ℤ₂ | `YangMills.QuasiLeeYang.plus_arith`, `YangMills.QuasiLeeYang.KN_threshold`, `YangMills.QuasiLeeYang.z2_datum_gap` | 1/8194 + 2/16388 = 1/4097 with the flux correction 7/114721 < 1/16388; the ℤ₂ half-plane Re K ≥ ½ log(50e²) and the ℤ₂ datum gap log(2/1.001) > 0.6921. |
 | The defect ledger | `YangMills.Ledger.matched_mem`, `YangMills.Ledger.orbit_chain`, `YangMills.Ledger.ledger_bound`, `YangMills.Ledger.ladder_length`, `YangMills.Ledger.ladder_size`, `YangMills.Ledger.step_scaling_defect` | A continuous pressure attains the infimum that defines the pressure-matched coupling; pressures are non-decreasing along the matched orbit until it enters the strong-coupling band; a running defect at most D gives the pressure bound at the top of the ladder, with 2^{n₀} ≤ 2N e^{(C+D)/c₁}; the rung-by-rung step-scaling condition gives a defect at most c₁ log 2. |
 | The one-box reduction | `YangMills.OneBox.gap_of_pressure`, `YangMills.OneBox.onebox_bound`, `YangMills.OneBox.onebox_gap`, `YangMills.OneBox.endpoint_le`, `YangMills.OneBox.ref_iterate_le`, `YangMills.OneBox.onebox_size`, `YangMills.OneBox.orb_drop`, `YangMills.OneBox.barrier_chain`, `YangMills.OneBox.barrier_gap` | A pressure at most x forces T E₁ ≥ log(1/(e^x − 1)); the box certificate on [0, β_top] and the endpoint condition give the pressure bound on the large box and hence its gap bound, with 2^n < 2N e^{(C+D−β_top)/c₁}; a uniform drop on a window ends the matched orbit in the strong-coupling band within j rungs and gives the gap bound E ≥ 4 log 2/L − log(2KT⁴)/T. |
+| The free pressure on one box | `YangMills.FreePressure.omega_le`, `YangMills.FreePressure.gap_le`, `YangMills.FreePressure.mode_ge`, `YangMills.FreePressure.exp_pi_lt`, `YangMills.FreePressure.exp_neg_pi_gt`, `YangMills.FreePressure.free_pressure_ge`, `YangMills.FreePressure.free_pressure_gt`, `YangMills.FreePressure.singlet_pressure_gt`, `YangMills.FreePressure.free_violates`, `YangMills.FreePressure.singlet_violates` | The lowest mode energy 2 arsinh(sin(π/2T)) ≤ π/T, so 2T·E₁ ≤ 2π; each of the 36 lowest modes adds at least e^{−π} > 1/55 to the pressure, so X > 1/2 > 10⁴ x_*; the 78 colour-invariant two-mode states give X ≥ log(1 + 78e^{−2π}) > 1/50 > 500 x_*. |
 | The box certificate on the star range | `YangMills.StarCert.ratio_le`, `YangMills.StarCert.q_admissible_third`, `YangMills.StarCert.starBound_third`, `YangMills.StarCert.starBound_seven_twentieths`, `YangMills.StarCert.xstar_lower`, `YangMills.StarCert.certificate_of_star`, `YangMills.StarCert.certificate_third`, `YangMills.StarCert.oneloop_step_lt_third` | The box certificate X(T_*; b) ≤ x_* holds on [0, 1/3] for T_* = 1012 (and on [0, 7/20] for T_* = 2860): x_* ≥ 1/28684, and the star bound 𝔅(1/3, 1012, 575769/500000) ≤ 1/28684 in exact rational arithmetic; the one-loop step c₁ log 2 is below 1/3. |
 
 ## Scope
@@ -177,6 +179,7 @@ YangMills/
   OneBox.lean               the one-box reduction: pressure and gap, one-box
                             bound, size of the box, barrier for a uniform drop
   StarCert.lean             the box certificate on the star range
+  FreePressure.lean         free gluons violate the box pressure bound
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
