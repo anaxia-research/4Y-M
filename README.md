@@ -24,11 +24,11 @@ constant and threshold of the main theorems is proved here from its definition.
 
 | | |
 |---|---|
-| Modules | 37 |
-| Theorems and lemmas | 690 |
+| Modules | 38 |
+| Theorems and lemmas | 698 |
 | Definitions | 136 |
-| Lines | about 8,900 |
-| Theorems audited | 1,281 (all declarations in the `YangMills` namespace, including auxiliary ones) |
+| Lines | about 9,400 |
+| Theorems audited | 1,297 (all declarations in the `YangMills` namespace, including auxiliary ones) |
 | Axioms | `propext`, `Classical.choice`, `Quot.sound` only |
 | Toolchain | Lean 4.33.0, Mathlib `v4.33.0` |
 
@@ -101,6 +101,7 @@ Each row names a statement and the Lean theorems that prove it.
 | Strong coupling and criticality | `YangMills.QuasiLeeYang.eps_rKP`, `YangMills.QuasiLeeYang.disc_consistency`, `YangMills.QuasiLeeYang.critical_width`, `YangMills.QuasiLeeYang.critflux_width` | ε(0.00539) ≤ 1/(25e²); 12288 · 0.00539 · T⁵ 2^{−4T} ≤ 1/4097 for T ≥ 9; the critical half-widths 11/(6π) and 11/(12π). |
 | The projected datum and ℤ₂ | `YangMills.QuasiLeeYang.plus_arith`, `YangMills.QuasiLeeYang.KN_threshold`, `YangMills.QuasiLeeYang.z2_datum_gap` | 1/8194 + 2/16388 = 1/4097 with the flux correction 7/114721 < 1/16388; the ℤ₂ half-plane Re K ≥ ½ log(50e²) and the ℤ₂ datum gap log(2/1.001) > 0.6921. |
 | The defect ledger | `YangMills.Ledger.matched_mem`, `YangMills.Ledger.orbit_chain`, `YangMills.Ledger.ledger_bound`, `YangMills.Ledger.ladder_length`, `YangMills.Ledger.ladder_size`, `YangMills.Ledger.step_scaling_defect` | A continuous pressure attains the infimum that defines the pressure-matched coupling; pressures are non-decreasing along the matched orbit until it enters the strong-coupling band; a running defect at most D gives the pressure bound at the top of the ladder, with 2^{n₀} ≤ 2N e^{(C+D)/c₁}; the rung-by-rung step-scaling condition gives a defect at most c₁ log 2. |
+| The one-box reduction | `YangMills.OneBox.gap_of_pressure`, `YangMills.OneBox.onebox_bound`, `YangMills.OneBox.endpoint_le`, `YangMills.OneBox.ref_iterate_le`, `YangMills.OneBox.onebox_size`, `YangMills.OneBox.orb_drop`, `YangMills.OneBox.barrier_chain`, `YangMills.OneBox.barrier_gap` | A pressure at most x forces T E₁ ≥ log(1/(e^x − 1)); the box certificate on [0, β_top] and the endpoint condition give the pressure bound on the large box, with 2^n < 2N e^{(C+D−β_top)/c₁}; a uniform drop on a window ends the matched orbit in the strong-coupling band within j rungs and gives the gap bound E ≥ 4 log 2/L − log(2KT⁴)/T. |
 
 ## Scope
 
@@ -136,6 +137,8 @@ YangMills/
                             knot lemma, transport theorems, zeros anywhere,
                             evenness, zero-free strips, criticality, constants
   Ledger.lean               the defect ledger: matched orbit, ladder bound
+  OneBox.lean               the one-box reduction: pressure and gap, one-box
+                            bound, size of the box, barrier for a uniform drop
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
