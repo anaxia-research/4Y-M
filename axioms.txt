@@ -78,6 +78,7 @@
 'YangMills.Ledger.step_scaling_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.OneBox.gap_of_pressure' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.OneBox.onebox_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.OneBox.onebox_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.OneBox.endpoint_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.OneBox.ref_iterate_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.OneBox.onebox_size' depends on axioms: [propext, Classical.choice, Quot.sound]

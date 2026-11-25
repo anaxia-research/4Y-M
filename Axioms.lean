@@ -116,6 +116,7 @@ elab "#audit_yang_mills" : command => do
 #print axioms YangMills.Ledger.step_scaling_defect
 #print axioms YangMills.OneBox.gap_of_pressure
 #print axioms YangMills.OneBox.onebox_bound
+#print axioms YangMills.OneBox.onebox_gap
 #print axioms YangMills.OneBox.endpoint_le
 #print axioms YangMills.OneBox.ref_iterate_le
 #print axioms YangMills.OneBox.onebox_size
