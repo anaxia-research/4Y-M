@@ -1,12 +1,47 @@
 # Yang–Mills Mass Gap: Lean 4 Formalization
 
-Lean 4 and Mathlib formalization for *Proof of the Yang–Mills Mass Gap Δ > 0
-under Quasi-Lee–Yang Channels*, by Deep Bhattacharjee, Ushashi Bhattacharya,
-James Montgomery Lockwood, Tristan Romanov, Ikailo John Sessford and
-Sanjeevan Singha Roy.
+Lean 4 and Mathlib formalization for the paper
 
-Corresponding author: Deep Bhattacharjee, itsdeep@live.com,
-ORCID [0000-0003-0466-750X](https://orcid.org/0000-0003-0466-750X).
+**The SU(2) Yang–Mills Mass Gap Δ > 0 from a Single Finite-Volume Bound**
+
+## Authors
+
+- **Deep Bhattacharjee** (corresponding author and head of the project).
+  Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL),
+  Bhubaneswar, Odisha 751030, India; formerly, University of Calcutta (Heramba
+  Chandra College), Kolkata 700029, West Bengal, India.
+  itsdeep@live.com, d.bhattacharjee@erl-forschung.de, egspl@proton.me.
+  ORCID [0000-0003-0466-750X](https://orcid.org/0000-0003-0466-750X).
+- **Ushashi Bhattacharya**. Formerly, National Taiwan University, Taipei
+  106319, Taiwan. rai.bhattacharya.in@gmail.com.
+  ORCID [0009-0002-2254-3914](https://orcid.org/0009-0002-2254-3914).
+- **James Montgomery Lockwood**. Independent Researcher, San Antonio, USA.
+  spectralityworkinggroup@gmail.com.
+- **Tristan Romanov**. Independent Researcher, San Francisco, CA, USA.
+  romanov360@gmail.com.
+- **Ikailo John Sessford**. Ikailo Inc., Whitby, Ontario, Canada.
+  john@ikailo.com.
+  ORCID [0009-0002-0150-4027](https://orcid.org/0009-0002-0150-4027).
+- **Sanjeevan Singha Roy**. Department of Physics, Birla Institute of
+  Technology, Mesra, Ranchi, Jharkhand 835215, India.
+  sanjeevan9905@gmail.com.
+  ORCID [0000-0002-6148-1421](https://orcid.org/0000-0002-6148-1421).
+
+Previous version of the paper: Preprints 202611.1282, version 2,
+doi:[10.20944/preprints202611.1282.v2](https://doi.org/10.20944/preprints202611.1282.v2).
+
+## What the paper proves
+
+| Statement | Status |
+|---|---|
+| Mass gap Δ = t₀⁻¹ log(63/32) for four-dimensional SU(2) Yang–Mills theory in every Wightman continuum limit along the asymptotic-freedom tuning, given one bound (P) on the pressure of one box of fixed physical size, uniform in the lattice spacing | proved from (P) |
+| The box certificate: pressure bound X(1012; b) ≤ x* on the 2024³ × 1012 lattice for 0 ≤ b ≤ 1/3 | proved (exact arithmetic, `StarCert.lean`) |
+| One-box reduction: the box certificate and the endpoint condition give the pressure bound on the large box, and a gap bound for it | proved (`OneBox.lean`) |
+| Zero-free strip of optimal width and count of the complex zeros of the torus partition functions | proved |
+| Volume-uniform transfer-matrix gaps at strong coupling for every compact simple gauge group | proved |
+| Cube condition and one-cube datum for SU(2) for β_W < (√37 − 5)/3, uniformly in the cube size | proved |
+| Polyakov-loop correlator of two static sources bounded by a centre-vortex free energy | proved |
+| The bound (P), equivalently the endpoint condition (E_D): the finite-volume mass gap uniformly in the lattice spacing | hypothesis |
 
 [![Lean](https://github.com/anaxia-research/4Y-M/actions/workflows/lean.yml/badge.svg)](https://github.com/anaxia-research/4Y-M/actions/workflows/lean.yml)
 
@@ -19,16 +54,17 @@ scaling of the lattice gap, Dobrushin and star thresholds at strong coupling,
 the cube condition and its ascent, the free cube at weak coupling, centre
 twists and two static sources, and the quasi-Lee–Yang zeros of two finite tori
 together with the transport of zero-free domains to the twisted ratios, the
-zero-free strips at every coupling and the count of the zeros. Every explicit
+zero-free strips at every coupling and the count of the zeros, the defect
+ledger, the one-box reduction and the box certificate on the star range. Every explicit
 constant and threshold of the main theorems is proved here from its definition.
 
 | | |
 |---|---|
-| Modules | 38 |
-| Theorems and lemmas | 698 |
-| Definitions | 136 |
+| Modules | 39 |
+| Theorems and lemmas | 713 |
+| Definitions | 135 |
 | Lines | about 9,400 |
-| Theorems audited | 1,297 (all declarations in the `YangMills` namespace, including auxiliary ones) |
+| Theorems audited | 1,309 (all declarations in the `YangMills` namespace, including auxiliary ones) |
 | Axioms | `propext`, `Classical.choice`, `Quot.sound` only |
 | Toolchain | Lean 4.33.0, Mathlib `v4.33.0` |
 
@@ -181,7 +217,7 @@ the research workspace of Deep Bhattacharjee, and its construction engine
 @misc{Bhattacharjee2026YangMills,
   author       = {Bhattacharjee, Deep and Bhattacharya, Ushashi and Lockwood, James Montgomery
                   and Romanov, Tristan and Sessford, Ikailo John and Singha Roy, Sanjeevan},
-  title        = {Proof of the {Yang--Mills} Mass Gap {$\Delta > 0$} under Quasi-{Lee--Yang} Channels},
+  title        = {The {SU(2)} {Yang--Mills} Mass Gap {$\Delta > 0$} from a Single Finite-Volume Bound},
   year         = {2026},
   note         = {Preprint},
   url          = {https://github.com/anaxia-research/4Y-M}
