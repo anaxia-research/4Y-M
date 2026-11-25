@@ -27,8 +27,8 @@ Lean 4 and Mathlib formalization for the paper
   sanjeevan9905@gmail.com.
   ORCID [0000-0002-6148-1421](https://orcid.org/0000-0002-6148-1421).
 
-Previous version of the paper: Preprints 202611.1282, version 22,
-doi:[10.20944/preprints202611.1282.v22](https://doi.org/10.20944/preprints202611.1282.v22).
+Previous version of the paper: Preprints 202611.1282, version 2,
+doi:[10.20944/preprints202611.1282.v2](https://doi.org/10.20944/preprints202611.1282.v2).
 
 ## What the paper proves
 
