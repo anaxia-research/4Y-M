@@ -1,4 +1,4 @@
-1407 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
+1416 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
 'YangMills.nogo_no_gapped_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.limit_ratio_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.holleyStroock_poincare' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -152,3 +152,11 @@
 'YangMills.OrbitBound.remainder_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.OrbitBound.K_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.OrbitBound.vplus_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoDoublings.two_doublings' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoDoublings.datum_at_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoDoublings.top_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoDoublings.constant_improves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoDoublings.tail_below_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoDoublings.vanish_of_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoDoublings.vanish_of_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.TwoDoublings.gamma_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
