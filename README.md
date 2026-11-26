@@ -45,6 +45,7 @@ doi:[10.20944/preprints202611.1282.v2](https://doi.org/10.20944/preprints202611.
 | Cube condition and one-cube datum for SU(2) for β_W < (√37 − 5)/3, uniformly in the cube size | proved |
 | Polyakov-loop correlator of two static sources bounded by a centre-vortex free energy | proved |
 | The refinement bound (R) implies (P): if each halving of the spacing of the box raises its pressure by at most 10⁻⁷·2⁻ʲ, then X < 3.38·10⁻⁵ < 1/28684 ≤ x* at the top, hence the gap | proved (`RefinementBound.lean`) |
+| No comparison of resolutions gives (R): a same-physics comparison plus the smaller pressure of the physically larger coarse box does not imply (R); absolute smallness X ≤ 10⁻⁷·2⁻ʲ of the fine box does, and it is a gap bound | proved (`RefinementCompare.lean`) |
 | The refinement bound (R) (Conjecture `ly:conj:R`) | hypothesis |
 | The bound (P), equivalently the endpoint condition (E_D): the finite-volume mass gap uniformly in the lattice spacing | hypothesis |
 
@@ -65,11 +66,11 @@ constant and threshold of the main theorems is proved here from its definition.
 
 | | |
 |---|---|
-| Modules | 43 |
-| Theorems and lemmas | 742 |
+| Modules | 44 |
+| Theorems and lemmas | 746 |
 | Definitions | 136 |
 | Lines | about 9,900 |
-| Theorems audited | 1,342 (all declarations in the `YangMills` namespace, including auxiliary ones) |
+| Theorems audited | 1,346 (all declarations in the `YangMills` namespace, including auxiliary ones) |
 | Axioms | `propext`, `Classical.choice`, `Quot.sound` only |
 | Toolchain | Lean 4.33.0, Mathlib `v4.33.0` |
 
@@ -146,6 +147,7 @@ Each row names a statement and the Lean theorems that prove it.
 | The rung count and the two-loop tuning | `YangMills.Tuning.side_of_rungs`, `YangMills.Tuning.scale_step`, `YangMills.Tuning.scale_iterate`, `YangMills.Tuning.scale_rungs`, `YangMills.Tuning.twoloop_lipschitz`, `YangMills.Tuning.log_incr_le`, `YangMills.Tuning.twoloop_lower_incr`, `YangMills.Tuning.twoloop_strictMono`, `YangMills.Tuning.twoloop_lower`, `YangMills.Tuning.su2_twoloop_endpoint` | The rung count 2^n ≤ 2^K N gives the side T_*2^n ≤ (2^K T_*) N; a reference map with ℓ(ρb) = ℓb − log 2 lowers the coupling by at least c₁ log 2 and has ℓ(ρ^k β) = ℓβ − k log 2, so ℓβ ≤ log N + C gives 2^n ≤ 2N e^{C−ℓ(a)}; the two-loop scale function has slope at most 1/c₁, is strictly increasing for β₁ > c₁γ, and for SU(2) with γ = 51/121, β₁ = 4 satisfies ℓ(b) ≥ log 2 for b ≥ 161/600. |
 | Refinement does not create the gap | `YangMills.Refinement.trace_log_nonneg`, `YangMills.Refinement.small_pressure_gap`, `YangMills.Refinement.pressure_forces`, `YangMills.Refinement.free_short`, `YangMills.Refinement.free_gap_short`, `YangMills.Refinement.singlet_short` | log Σ μ_k^T ≥ 0 when the top eigenvalue is 1; log(1 + e^{−t}) ≤ X gives e^{−t} ≤ X(1 + e^{−t}), so X ≤ 1/28684 forces e^{−t} < 1/28000; the free value t ≤ π (2T E₁ ≤ 2π), and in particular the free lattice energy 2 arsinh(sin(π/2T)), is incompatible with (P); 4π < 12.57 < 20.5. |
 | The refinement bound gives the pressure bound | `YangMills.RefinementBound.geom_sum_lt`, `YangMills.RefinementBound.refine_chain`, `YangMills.RefinementBound.refine_pressure` | Σ_{j<n} 10⁻⁷2⁻ʲ < 2·10⁻⁷; along the rungs X(T_*2^n; β) ≤ X(T_*; ρ^n β) + Σ ε_j; with the certificate X(T_*; b) ≤ 3.36·10⁻⁵ on [0, 1/3], (R) gives X < 3.38·10⁻⁵ < 1/28684. |
+| No comparison of resolutions gives the refinement bound | `YangMills.RefinementCompare.comparison_insufficient`, `YangMills.RefinementCompare.refine_of_small`, `YangMills.RefinementCompare.refine_of_small_all`, `YangMills.RefinementCompare.small_forces_gap` | Xf ≤ Xs + ε and Xc ≤ Xs do not give Xf ≤ Xc + ε; Xc ≥ 0 and Xf ≤ ε give Xf ≤ Xc + ε, at every step; log(1 + e^{−t}) ≤ X ≤ ε < 1 gives e^{−t} ≤ ε/(1 − ε). |
 | The free pressure on one box | `YangMills.FreePressure.omega_le`, `YangMills.FreePressure.gap_le`, `YangMills.FreePressure.mode_ge`, `YangMills.FreePressure.exp_pi_lt`, `YangMills.FreePressure.exp_neg_pi_gt`, `YangMills.FreePressure.free_pressure_ge`, `YangMills.FreePressure.free_pressure_gt`, `YangMills.FreePressure.singlet_pressure_gt`, `YangMills.FreePressure.free_violates`, `YangMills.FreePressure.singlet_violates` | The lowest mode energy 2 arsinh(sin(π/2T)) ≤ π/T, so 2T·E₁ ≤ 2π; each of the 36 lowest modes adds at least e^{−π} > 1/55 to the pressure, so X > 1/2 > 10⁴ x_*; the 78 colour-invariant two-mode states give X ≥ log(1 + 78e^{−2π}) > 1/50 > 500 x_*. |
 | The box certificate on the star range | `YangMills.StarCert.ratio_le`, `YangMills.StarCert.q_admissible_third`, `YangMills.StarCert.starBound_third`, `YangMills.StarCert.starBound_seven_twentieths`, `YangMills.StarCert.xstar_lower`, `YangMills.StarCert.certificate_of_star`, `YangMills.StarCert.certificate_third`, `YangMills.StarCert.oneloop_step_lt_third` | The box certificate X(T_*; b) ≤ x_* holds on [0, 1/3] for T_* = 1012 (and on [0, 7/20] for T_* = 2860): x_* ≥ 1/28684, and the star bound 𝔅(1/3, 1012, 575769/500000) ≤ 1/28684 in exact rational arithmetic; the one-loop step c₁ log 2 is below 1/3. |
 
@@ -190,6 +192,7 @@ YangMills/
   Tuning.lean               the rung count and the two-loop tuning
   Refinement.lean           refinement and smoothing do not create the gap
   RefinementBound.lean      the refinement bound implies the pressure bound
+  RefinementCompare.lean    no comparison of resolutions gives the refinement bound
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
