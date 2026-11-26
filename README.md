@@ -2,7 +2,7 @@
 
 Lean 4 and Mathlib formalization for the paper
 
-**Proof of the SU(2) Yang–Mills Mass Gap Δ > 0 under the Refinement Bound**
+**Proof of the SU(2) Yang–Mills Mass Gap Δ > 0 on finite Refinement Bound**
 
 ## Authors
 
