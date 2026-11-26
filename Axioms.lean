@@ -160,3 +160,7 @@ elab "#audit_yang_mills" : command => do
 #print axioms YangMills.RefinementBound.geom_sum_lt
 #print axioms YangMills.RefinementBound.refine_chain
 #print axioms YangMills.RefinementBound.refine_pressure
+#print axioms YangMills.RefinementCompare.comparison_insufficient
+#print axioms YangMills.RefinementCompare.refine_of_small
+#print axioms YangMills.RefinementCompare.refine_of_small_all
+#print axioms YangMills.RefinementCompare.small_forces_gap
