@@ -39,3 +39,4 @@ import YangMills.TwoDoublings
 import YangMills.OrbitBoundSix
 import YangMills.AveragedSource
 import YangMills.AveragedTails
+import YangMills.CombinedFlow
