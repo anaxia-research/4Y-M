@@ -36,3 +36,4 @@ import YangMills.RefinementBound
 import YangMills.RefinementCompare
 import YangMills.OrbitBound
 import YangMills.TwoDoublings
+import YangMills.OrbitBoundSix
