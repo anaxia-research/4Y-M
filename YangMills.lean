@@ -38,3 +38,4 @@ import YangMills.OrbitBound
 import YangMills.TwoDoublings
 import YangMills.OrbitBoundSix
 import YangMills.AveragedSource
+import YangMills.AveragedTails
