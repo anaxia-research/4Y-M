@@ -2,7 +2,7 @@
 
 Lean 4 and Mathlib formalization for the paper
 
-**Proof of the SU(2) Yang–Mills Mass Gap Δ > 0 on finite Refinement Bound**
+**The SU(2) Yang–Mills Mass Gap Δ > 0 from the Orbit Bound**
 
 ## Authors
 
@@ -46,7 +46,11 @@ doi:[10.20944/preprints202611.1282.v2](https://doi.org/10.20944/preprints202611.
 | Polyakov-loop correlator of two static sources bounded by a centre-vortex free energy | proved |
 | The refinement bound (R) implies (P): if each halving of the spacing of the box raises its pressure by at most 10⁻⁷·2⁻ʲ, then X < 3.38·10⁻⁵ < 1/28684 ≤ x* at the top, hence the gap | proved (`RefinementBound.lean`) |
 | No comparison of resolutions gives (R): a same-physics comparison plus the smaller pressure of the physically larger coarse box does not imply (R); absolute smallness X ≤ 10⁻⁷·2⁻ʲ of the fine box does, and it is a gap bound | proved (`RefinementCompare.lean`) |
-| The refinement bound (R) (Conjecture `ly:conj:R`) | hypothesis |
+| Certified tails of (R): X(2024·2ʲ; b) < 10⁻⁷·2⁻ʲ for 1/3 < b ≤ B and j ≥ J, for (J, B) = (0, 0.3449), …, (10, 0.36089), each row checked in exact integer arithmetic | proved (`OrbitBound.lean`) |
+| A fixed box at large coupling: X(2024; 10²⁰) > 0.69, so the absolute bound fails at every fixed step | proved (`OrbitBound.lean`) |
+| The orbit bound (A) gives (P) on a box sixteen times larger, hence the gap; (R) implies (A) | proved (`OrbitBound.lean`) |
+| Removing the vacuum: Y = F + d with 0 ≤ d ≤ K·2⁻ⁱ, K < 4.17·10⁻¹¹, and the variation inequalities, so (B) implies (A) | proved (`OrbitBound.lean`) |
+| The orbit bound (A) (Definition `ly:def:orbit`), the one hypothesis of the main corollary; the refinement bound (R) (Conjecture `ly:conj:R`) implies it | hypothesis |
 | The bound (P), equivalently the endpoint condition (E_D): the finite-volume mass gap uniformly in the lattice spacing | hypothesis |
 
 [![Lean](https://github.com/anaxia-research/4Y-M/actions/workflows/lean.yml/badge.svg)](https://github.com/anaxia-research/4Y-M/actions/workflows/lean.yml)
@@ -66,11 +70,11 @@ constant and threshold of the main theorems is proved here from its definition.
 
 | | |
 |---|---|
-| Modules | 44 |
-| Theorems and lemmas | 746 |
+| Modules | 45 |
+| Theorems and lemmas | 774 |
 | Definitions | 136 |
-| Lines | about 9,900 |
-| Theorems audited | 1,346 (all declarations in the `YangMills` namespace, including auxiliary ones) |
+| Lines | about 10,500 |
+| Theorems audited | 1,407 (all declarations in the `YangMills` namespace, including auxiliary ones) |
 | Axioms | `propext`, `Classical.choice`, `Quot.sound` only |
 | Toolchain | Lean 4.33.0, Mathlib `v4.33.0` |
 
@@ -148,6 +152,7 @@ Each row names a statement and the Lean theorems that prove it.
 | Refinement does not create the gap | `YangMills.Refinement.trace_log_nonneg`, `YangMills.Refinement.small_pressure_gap`, `YangMills.Refinement.pressure_forces`, `YangMills.Refinement.free_short`, `YangMills.Refinement.free_gap_short`, `YangMills.Refinement.singlet_short` | log Σ μ_k^T ≥ 0 when the top eigenvalue is 1; log(1 + e^{−t}) ≤ X gives e^{−t} ≤ X(1 + e^{−t}), so X ≤ 1/28684 forces e^{−t} < 1/28000; the free value t ≤ π (2T E₁ ≤ 2π), and in particular the free lattice energy 2 arsinh(sin(π/2T)), is incompatible with (P); 4π < 12.57 < 20.5. |
 | The refinement bound gives the pressure bound | `YangMills.RefinementBound.geom_sum_lt`, `YangMills.RefinementBound.refine_chain`, `YangMills.RefinementBound.refine_pressure` | Σ_{j<n} 10⁻⁷2⁻ʲ < 2·10⁻⁷; along the rungs X(T_*2^n; β) ≤ X(T_*; ρ^n β) + Σ ε_j; with the certificate X(T_*; b) ≤ 3.36·10⁻⁵ on [0, 1/3], (R) gives X < 3.38·10⁻⁵ < 1/28684. |
 | No comparison of resolutions gives the refinement bound | `YangMills.RefinementCompare.comparison_insufficient`, `YangMills.RefinementCompare.refine_of_small`, `YangMills.RefinementCompare.refine_of_small_all`, `YangMills.RefinementCompare.small_forces_gap` | Xf ≤ Xs + ε and Xc ≤ Xs do not give Xf ≤ Xc + ε; Xc ≥ 0 and Xf ≤ ε give Xf ≤ Xc + ε, at every step; log(1 + e^{−t}) ≤ X ≤ ε < 1 gives e^{−t} ≤ ε/(1 − ε). |
+| Certified ranges and the orbit bound | `YangMills.OrbitBound.powLB_le`, `YangMills.OrbitBound.pow_gt_of_cert`, `YangMills.OrbitBound.row0`, `YangMills.OrbitBound.row1`, `YangMills.OrbitBound.row2`, `YangMills.OrbitBound.row3`, `YangMills.OrbitBound.row4`, `YangMills.OrbitBound.row5`, `YangMills.OrbitBound.row7`, `YangMills.OrbitBound.row10`, `YangMills.OrbitBound.doubling_ratio`, `YangMills.OrbitBound.ratio_lt_half`, `YangMills.OrbitBound.tails_of_start`, `YangMills.OrbitBound.refine_of_tail`, `YangMills.OrbitBound.log_witness`, `YangMills.OrbitBound.fixedbox_witness`, `YangMills.OrbitBound.telescope_pos`, `YangMills.OrbitBound.exp_sub_one_le`, `YangMills.OrbitBound.doubling_step`, `YangMills.OrbitBound.four_doublings`, `YangMills.OrbitBound.orbit_pressure`, `YangMills.OrbitBound.orbit_of_refine`, `YangMills.OrbitBound.rung_step_le`, `YangMills.OrbitBound.remainder_le`, `YangMills.OrbitBound.K_lt`, `YangMills.OrbitBound.vplus_le` | Binary powering on the grid 2⁻⁹⁶ℤ with downward rounding bounds q^r from below, and `decide` checks q^r > 256 and q^r > P for each row; H(2s) = 128 q^{−s/2} H(s) halves the star bound along doublings; 1 − r₁ ≤ 64T²ε gives log(1 + r₁^T) > 0.69; telescoping and four doublings 200 → 169 → 120 → 60 → 15 (units 10⁻⁶) give X ≤ 1.5·10⁻⁵ < 1/28684; rises of (R) sum to less than 1.664·10⁻⁴; couplings on an orbit step by less than 1; d ≤ K·2⁻ⁱ and V₊(Y) ≤ V₊(F) + Σd. |
 | The free pressure on one box | `YangMills.FreePressure.omega_le`, `YangMills.FreePressure.gap_le`, `YangMills.FreePressure.mode_ge`, `YangMills.FreePressure.exp_pi_lt`, `YangMills.FreePressure.exp_neg_pi_gt`, `YangMills.FreePressure.free_pressure_ge`, `YangMills.FreePressure.free_pressure_gt`, `YangMills.FreePressure.singlet_pressure_gt`, `YangMills.FreePressure.free_violates`, `YangMills.FreePressure.singlet_violates` | The lowest mode energy 2 arsinh(sin(π/2T)) ≤ π/T, so 2T·E₁ ≤ 2π; each of the 36 lowest modes adds at least e^{−π} > 1/55 to the pressure, so X > 1/2 > 10⁴ x_*; the 78 colour-invariant two-mode states give X ≥ log(1 + 78e^{−2π}) > 1/50 > 500 x_*. |
 | The box certificate on the star range | `YangMills.StarCert.ratio_le`, `YangMills.StarCert.q_admissible_third`, `YangMills.StarCert.starBound_third`, `YangMills.StarCert.starBound_seven_twentieths`, `YangMills.StarCert.xstar_lower`, `YangMills.StarCert.certificate_of_star`, `YangMills.StarCert.certificate_third`, `YangMills.StarCert.oneloop_step_lt_third` | The box certificate X(T_*; b) ≤ x_* holds on [0, 1/3] for T_* = 1012 (and on [0, 7/20] for T_* = 2860): x_* ≥ 1/28684, and the star bound 𝔅(1/3, 1012, 575769/500000) ≤ 1/28684 in exact rational arithmetic; the one-loop step c₁ log 2 is below 1/3. |
 
@@ -193,6 +198,7 @@ YangMills/
   Refinement.lean           refinement and smoothing do not create the gap
   RefinementBound.lean      the refinement bound implies the pressure bound
   RefinementCompare.lean    no comparison of resolutions gives the refinement bound
+  OrbitBound.lean           certified ranges and the orbit bound
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
