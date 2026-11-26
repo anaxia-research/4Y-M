@@ -1,4 +1,4 @@
-1501 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
+1535 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
 'YangMills.nogo_no_gapped_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.limit_ratio_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.holleyStroock_poincare' depends on axioms: [propext, Classical.choice, Quot.sound]
