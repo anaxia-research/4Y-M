@@ -190,3 +190,11 @@ elab "#audit_yang_mills" : command => do
 #print axioms YangMills.OrbitBound.remainder_le
 #print axioms YangMills.OrbitBound.K_lt
 #print axioms YangMills.OrbitBound.vplus_le
+#print axioms YangMills.TwoDoublings.two_doublings
+#print axioms YangMills.TwoDoublings.datum_at_four
+#print axioms YangMills.TwoDoublings.top_value
+#print axioms YangMills.TwoDoublings.constant_improves
+#print axioms YangMills.TwoDoublings.tail_below_threshold
+#print axioms YangMills.TwoDoublings.vanish_of_exp
+#print axioms YangMills.TwoDoublings.vanish_of_geom
+#print axioms YangMills.TwoDoublings.gamma_moment
