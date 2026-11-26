@@ -53,6 +53,7 @@ doi:[10.20944/preprints202611.1282.v2](https://doi.org/10.20944/preprints202611.
 | Six doublings: a total rise of at most 2·10⁻⁴ along each orbit already gives the one-cube datum, so the orbit constant 1.664·10⁻⁴ can be relaxed to 2·10⁻⁴, with Δ = log(63/32)/(64τ); chain 2336 → 2304 → 2240 → 2116 → 1885 → 1492 → 930 (units 10⁻⁷) | proved (`OrbitBoundSix.lean`) |
 | Further certified tails of (R): rows (J, B) = (11, 0.360905), (12, 0.36091), (13, 0.360915), (16, 0.36092), in the same exact integer arithmetic | proved (`OrbitBoundSix.lean`) |
 | Averaged sources: with the source of one star averaged over the star law, the star condition and the lattice gap (at least 6·10⁻⁹) extend from β_W < 0.36092 to β_W ≤ 0.3612 | arithmetic proved (`AveragedSource.lean`); the analytic inputs (harmonic-extension bound, zonal-gain enclosure) are proved in the paper, not in Lean |
+| Certified tails of (R) past β⋆ from the averaged contraction λ' = tλ(B): rows (J, B) = (7, 0.361), (8, 0.3611), (9, 0.36115), (10, 0.36118), (12, 0.3612) | arithmetic proved (`AveragedTails.lean`); the averaging factor's analytic inputs are proved in the paper, not in Lean |
 | A lattice gap beyond one third: for 1/3 < b ≤ 0.3449 every cube of side L ≥ 4048 has gap at least log(63/32)/2024, uniformly in L | proved (`TwoDoublings.lean`, with `OrbitBound.lean`) |
 | Spectral criteria for a gap: exponential decay at one rate, or inverse moments, exclude (0, m); polynomial decay does not | limit steps and the Gamma integral proved (`TwoDoublings.lean`); the spectral-theorem step is in the paper |
 | Removing the vacuum: Y = F + d with 0 ≤ d ≤ K·2⁻ⁱ, K < 4.17·10⁻¹¹, and the variation inequalities, so (B) implies (A) | proved (`OrbitBound.lean`) |
@@ -76,11 +77,11 @@ constant and threshold of the main theorems is proved here from its definition.
 
 | | |
 |---|---|
-| Modules | 48 |
-| Theorems and lemmas | 795 |
+| Modules | 49 |
+| Theorems and lemmas | 800 |
 | Definitions | 136 |
 | Lines | about 10,500 |
-| Theorems audited | 1,442 (all declarations in the `YangMills` namespace, including auxiliary ones) |
+| Theorems audited | 1,457 (all declarations in the `YangMills` namespace, including auxiliary ones) |
 | Axioms | `propext`, `Classical.choice`, `Quot.sound` only |
 | Toolchain | Lean 4.33.0, Mathlib `v4.33.0` |
 
@@ -162,6 +163,7 @@ Each row names a statement and the Lean theorems that prove it.
 | Two doublings, the lattice gap beyond one third, spectral criteria | `YangMills.TwoDoublings.two_doublings`, `YangMills.TwoDoublings.datum_at_four`, `YangMills.TwoDoublings.top_value`, `YangMills.TwoDoublings.constant_improves`, `YangMills.TwoDoublings.tail_below_threshold`, `YangMills.TwoDoublings.vanish_of_exp`, `YangMills.TwoDoublings.vanish_of_geom`, `YangMills.TwoDoublings.gamma_moment` | 200 → 169 → 120 (units 10⁻⁶) in two doublings and ψ ≤ 2X < 240·10⁻⁶ < 1/4097; 3.36·10⁻⁵ + 1.664·10⁻⁴ = 2·10⁻⁴; log(63/32)/(16τ) < log(63/32)/(4τ); 10⁻⁷ < 1/8192; x ≤ C e^{−(m−a)t} for all t and x ≤ A r^k for all k force x = 0; ∫₀^∞ t^{k−1}e^{−tE} dt = (k−1)! E^{−k}. |
 | Six doublings and further certified tails | `YangMills.OrbitBoundSix.row11`, `YangMills.OrbitBoundSix.row12`, `YangMills.OrbitBoundSix.row13`, `YangMills.OrbitBoundSix.row16`, `YangMills.OrbitBoundSix.six_doublings`, `YangMills.OrbitBoundSix.orbit_datum_six`, `YangMills.OrbitBoundSix.no_contraction` | The rows reuse the binary powering of `OrbitBound` on the grid 2⁻⁹⁶ℤ; six applications of g(x) = (64x/(1−64x))² take 2336 to 930 (units 10⁻⁷), below the datum threshold, and `no_contraction` shows the map no longer contracts at 2370·10⁻⁷. |
 | Averaged sources past the star threshold | `YangMills.AveragedSource.m_closed`, `YangMills.AveragedSource.m_antitone`, `YangMills.AveragedSource.m_at_K0`, `YangMills.AveragedSource.avg_threshold`, `YangMills.AveragedSource.lam_mono`, `YangMills.AveragedSource.avg_gap` | The zonal variance bound m(s) = (7 − s)/(1 + s)² is antitone on [3, 15]; with θ₁ = 1 − 4e₀β²m and e₀ = 0.0193, θ₁λ(0.3612) ≤ 1 − 6·10⁻⁵, and the gap exceeds 6·10⁻⁹. |
+| Certified tails past the star threshold | `YangMills.AveragedTails.avgrow7`, `YangMills.AveragedTails.avgrow8`, `YangMills.AveragedTails.avgrow9`, `YangMills.AveragedTails.avgrow10`, `YangMills.AveragedTails.avgrow12` | The binary powering of `OrbitBound` with q = (1 − 1/r)/λ' and λ' = tλ(B), t = 1 − 4e₀B²(7 − s)/(1 + s)² for a rational s ≥ √(36B² + 9); `decide` checks q^r > 256 and q^r > P for each row. |
 | The free pressure on one box | `YangMills.FreePressure.omega_le`, `YangMills.FreePressure.gap_le`, `YangMills.FreePressure.mode_ge`, `YangMills.FreePressure.exp_pi_lt`, `YangMills.FreePressure.exp_neg_pi_gt`, `YangMills.FreePressure.free_pressure_ge`, `YangMills.FreePressure.free_pressure_gt`, `YangMills.FreePressure.singlet_pressure_gt`, `YangMills.FreePressure.free_violates`, `YangMills.FreePressure.singlet_violates` | The lowest mode energy 2 arsinh(sin(π/2T)) ≤ π/T, so 2T·E₁ ≤ 2π; each of the 36 lowest modes adds at least e^{−π} > 1/55 to the pressure, so X > 1/2 > 10⁴ x_*; the 78 colour-invariant two-mode states give X ≥ log(1 + 78e^{−2π}) > 1/50 > 500 x_*. |
 | The box certificate on the star range | `YangMills.StarCert.ratio_le`, `YangMills.StarCert.q_admissible_third`, `YangMills.StarCert.starBound_third`, `YangMills.StarCert.starBound_seven_twentieths`, `YangMills.StarCert.xstar_lower`, `YangMills.StarCert.certificate_of_star`, `YangMills.StarCert.certificate_third`, `YangMills.StarCert.oneloop_step_lt_third` | The box certificate X(T_*; b) ≤ x_* holds on [0, 1/3] for T_* = 1012 (and on [0, 7/20] for T_* = 2860): x_* ≥ 1/28684, and the star bound 𝔅(1/3, 1012, 575769/500000) ≤ 1/28684 in exact rational arithmetic; the one-loop step c₁ log 2 is below 1/3. |
 
@@ -211,6 +213,7 @@ YangMills/
   TwoDoublings.lean         two doublings, lattice gap beyond one third, spectral criteria
   OrbitBoundSix.lean        six doublings (orbit constant 2e-4), further certified tails
   AveragedSource.lean       arithmetic of the averaged-source star threshold
+  AveragedTails.lean        certified tails past the star threshold
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
