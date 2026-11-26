@@ -141,3 +141,13 @@ elab "#audit_yang_mills" : command => do
 #print axioms YangMills.FreePressure.singlet_pressure_gt
 #print axioms YangMills.FreePressure.free_violates
 #print axioms YangMills.FreePressure.singlet_violates
+#print axioms YangMills.Tuning.side_of_rungs
+#print axioms YangMills.Tuning.scale_step
+#print axioms YangMills.Tuning.scale_iterate
+#print axioms YangMills.Tuning.scale_rungs
+#print axioms YangMills.Tuning.twoloop_lipschitz
+#print axioms YangMills.Tuning.log_incr_le
+#print axioms YangMills.Tuning.twoloop_lower_incr
+#print axioms YangMills.Tuning.twoloop_strictMono
+#print axioms YangMills.Tuning.twoloop_lower
+#print axioms YangMills.Tuning.su2_twoloop_endpoint
