@@ -1,4 +1,4 @@
-1331 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
+1337 theorems in the YangMills namespace checked: each depends at most on propext, Classical.choice and Quot.sound.
 'YangMills.nogo_no_gapped_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.limit_ratio_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.holleyStroock_poincare' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -113,3 +113,9 @@
 'YangMills.Tuning.twoloop_strictMono' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.Tuning.twoloop_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMills.Tuning.su2_twoloop_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Refinement.trace_log_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Refinement.small_pressure_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Refinement.pressure_forces' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Refinement.free_short' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Refinement.free_gap_short' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMills.Refinement.singlet_short' depends on axioms: [propext, Classical.choice, Quot.sound]
