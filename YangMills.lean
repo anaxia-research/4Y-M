@@ -45,3 +45,4 @@ import YangMills.DesignOrder
 import YangMills.TwistForms
 import YangMills.TwistComplete
 import YangMills.CentreTests
+import YangMills.FiniteProjected
