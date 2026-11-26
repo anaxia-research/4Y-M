@@ -46,3 +46,4 @@ import YangMills.TwistForms
 import YangMills.TwistComplete
 import YangMills.CentreTests
 import YangMills.FiniteProjected
+import YangMills.FixedBox
