@@ -41,3 +41,4 @@ import YangMills.AveragedSource
 import YangMills.AveragedTails
 import YangMills.CombinedFlow
 import YangMills.DatumTerms
+import YangMills.DesignOrder
