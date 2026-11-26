@@ -56,6 +56,7 @@ doi:[10.20944/preprints202611.1282.v2](https://doi.org/10.20944/preprints202611.
 | Certified tails of (R) past β⋆ from the averaged contraction λ' = tλ(B): rows (J, B) = (7, 0.361), (8, 0.3611), (9, 0.36115), (10, 0.36118), (12, 0.3612) | arithmetic proved (`AveragedTails.lean`); the averaging factor's analytic inputs are proved in the paper, not in Lean |
 | Combined flow and five neighbours: a divergence-free transport flow gives an oblique rate of order κ², and a Cramér–Rao bound over five neighbours gives Var ≥ β_W²V; the star condition, uniform cube condition and datum then hold up to β_W ≤ 0.3626 (gap above 2.1·10⁻⁸), with a third table of certified tails (J = 0, …, 9) | arithmetic proved (`CombinedFlow.lean`); the analytic inputs are proved in the paper, not in Lean |
 | Exact terms of the datum through β^{4T+4}: ψ_T = 48T³a^{4T}[1 + Tx + C(T,2)(3a₁ − 4a²)²] + O(β^{4T+6}), matching Münster's effective transfer matrix; the first cluster with a 6j symbol has amplitude 6a^{4T+6}a₁³ > 0; 2I is a spherical 11-design, so SU(2) and its icosahedral restriction agree through β^{4T+8} | algebra proved (`DatumTerms.lean`); the cluster enumeration is proved in the paper, not in Lean |
+| Bounded design order: a finite subgroup with an abelian normal subgroup of index m has design order at most m − 1 (so at most J(n) − 1, Jordan); for SU(2) it is at most 5, attained only by 2I, whose moments are (2·4^k + 24L_{2k} + 40)/120 = C_k for k ≤ 5 and C_6 + 1 at k = 6 | moments proved (`DesignOrder.lean`); the group-theoretic statement is proved in the paper, not in Lean |
 | A lattice gap beyond one third: for 1/3 < b ≤ 0.3449 every cube of side L ≥ 4048 has gap at least log(63/32)/2024, uniformly in L | proved (`TwoDoublings.lean`, with `OrbitBound.lean`) |
 | Spectral criteria for a gap: exponential decay at one rate, or inverse moments, exclude (0, m); polynomial decay does not | limit steps and the Gamma integral proved (`TwoDoublings.lean`); the spectral-theorem step is in the paper |
 | Removing the vacuum: Y = F + d with 0 ≤ d ≤ K·2⁻ⁱ, K < 4.17·10⁻¹¹, and the variation inequalities, so (B) implies (A) | proved (`OrbitBound.lean`) |
@@ -79,11 +80,11 @@ constant and threshold of the main theorems is proved here from its definition.
 
 | | |
 |---|---|
-| Modules | 51 |
-| Theorems and lemmas | 841 |
+| Modules | 52 |
+| Theorems and lemmas | 851 |
 | Definitions | 136 |
 | Lines | about 10,500 |
-| Theorems audited | 1,535 (all declarations in the `YangMills` namespace, including auxiliary ones) |
+| Theorems audited | 1,560 (all declarations in the `YangMills` namespace, including auxiliary ones) |
 | Axioms | `propext`, `Classical.choice`, `Quot.sound` only |
 | Toolchain | Lean 4.33.0, Mathlib `v4.33.0` |
 
@@ -168,6 +169,7 @@ Each row names a statement and the Lean theorems that prove it.
 | Certified tails past the star threshold | `YangMills.AveragedTails.avgrow7`, `YangMills.AveragedTails.avgrow8`, `YangMills.AveragedTails.avgrow9`, `YangMills.AveragedTails.avgrow10`, `YangMills.AveragedTails.avgrow12` | The binary powering of `OrbitBound` with q = (1 − 1/r)/λ' and λ' = tλ(B), t = 1 − 4e₀B²(7 − s)/(1 + s)² for a rational s ≥ √(36B² + 9); `decide` checks q^r > 256 and q^r > P for each row. |
 | Combined flow and five neighbours | `YangMills.CombinedFlow.combrow0`, `YangMills.CombinedFlow.combrow1`, `YangMills.CombinedFlow.combrow2`, `YangMills.CombinedFlow.combrow3`, `YangMills.CombinedFlow.combrow4`, `YangMills.CombinedFlow.combrow5`, `YangMills.CombinedFlow.combrow6`, `YangMills.CombinedFlow.combrow7`, `YangMills.CombinedFlow.combrow8`, `YangMills.CombinedFlow.combrow9`, `YangMills.CombinedFlow.ex_closed`, `YangMills.CombinedFlow.ex_at_K1`, `YangMills.CombinedFlow.ex_antitone`, `YangMills.CombinedFlow.ell_antitone`, `YangMills.CombinedFlow.g_sum`, `YangMills.CombinedFlow.V_zero`, `YangMills.CombinedFlow.V_at_b2`, `YangMills.CombinedFlow.comb_threshold`, `YangMills.CombinedFlow.comb_consts`, `YangMills.CombinedFlow.comb_gap` | θ₂ = 1 − 2gβ²V with g = e_z + 3e_x = 3/40, V(0) = 5/4 and V(0.3626) ≥ 0.4513; θ₂λ stays below 1 up to 0.3626; the ten rows use the binary powering of `OrbitBound` with λ'' = θ₂λ. |
 | Exact datum terms, 6j cluster, icosahedral design | `YangMills.DatumTerms.bracket_collect`, `YangMills.DatumTerms.bracket_in_u`, `YangMills.DatumTerms.a1_in_u`, `YangMills.DatumTerms.muenster_check`, `YangMills.DatumTerms.x_in_u`, `YangMills.DatumTerms.sixj_racah`, `YangMills.DatumTerms.sixj_amplitude`, `YangMills.DatumTerms.sixj_count`, `YangMills.DatumTerms.design_excess`, `YangMills.DatumTerms.chebU_sum_1`, `YangMills.DatumTerms.chebU_sum_2`, `YangMills.DatumTerms.chebU_sum_3`, `YangMills.DatumTerms.chebU_sum_4`, `YangMills.DatumTerms.chebU_sum_5`, `YangMills.DatumTerms.chebU_sum_6`, `YangMills.DatumTerms.chebU_sum_7`, `YangMills.DatumTerms.chebU_sum_8`, `YangMills.DatumTerms.chebU_sum_9`, `YangMills.DatumTerms.chebU_sum_10`, `YangMills.DatumTerms.chebU_sum_11`, `YangMills.DatumTerms.chebU_sum_12` | Polynomial identities for the bracket in a and u and the comparison with Münster's expansion; the Racah sum {1 1 1; 1/2 1/2 1/2} = −1/3 and the cluster amplitude and count; the 2I character sums Σ χ_n = 0 for n = 1, …, 11 and 120 for n = 12. |
+| Moments of the binary icosahedral group | `YangMills.DesignOrder.lucas_binet`, `YangMills.DesignOrder.moment_eq_lucas`, `YangMills.DesignOrder.lucas_values`, `YangMills.DesignOrder.catalan_values`, `YangMills.DesignOrder.moment_1`, `YangMills.DesignOrder.moment_2`, `YangMills.DesignOrder.moment_3`, `YangMills.DesignOrder.moment_4`, `YangMills.DesignOrder.moment_5`, `YangMills.DesignOrder.moment_6` | Binet form of the Lucas numbers; the k-th moment of 2I equals (2·4^k + 24L_{2k} + 40)/120; values for k = 1, …, 6 and comparison with the Catalan numbers. |
 | The free pressure on one box | `YangMills.FreePressure.omega_le`, `YangMills.FreePressure.gap_le`, `YangMills.FreePressure.mode_ge`, `YangMills.FreePressure.exp_pi_lt`, `YangMills.FreePressure.exp_neg_pi_gt`, `YangMills.FreePressure.free_pressure_ge`, `YangMills.FreePressure.free_pressure_gt`, `YangMills.FreePressure.singlet_pressure_gt`, `YangMills.FreePressure.free_violates`, `YangMills.FreePressure.singlet_violates` | The lowest mode energy 2 arsinh(sin(π/2T)) ≤ π/T, so 2T·E₁ ≤ 2π; each of the 36 lowest modes adds at least e^{−π} > 1/55 to the pressure, so X > 1/2 > 10⁴ x_*; the 78 colour-invariant two-mode states give X ≥ log(1 + 78e^{−2π}) > 1/50 > 500 x_*. |
 | The box certificate on the star range | `YangMills.StarCert.ratio_le`, `YangMills.StarCert.q_admissible_third`, `YangMills.StarCert.starBound_third`, `YangMills.StarCert.starBound_seven_twentieths`, `YangMills.StarCert.xstar_lower`, `YangMills.StarCert.certificate_of_star`, `YangMills.StarCert.certificate_third`, `YangMills.StarCert.oneloop_step_lt_third` | The box certificate X(T_*; b) ≤ x_* holds on [0, 1/3] for T_* = 1012 (and on [0, 7/20] for T_* = 2860): x_* ≥ 1/28684, and the star bound 𝔅(1/3, 1012, 575769/500000) ≤ 1/28684 in exact rational arithmetic; the one-loop step c₁ log 2 is below 1/3. |
 
@@ -220,6 +222,7 @@ YangMills/
   AveragedTails.lean        certified tails past the star threshold
   CombinedFlow.lean         combined flow, five neighbours, third table of tails
   DatumTerms.lean           exact datum terms, the first 6j cluster, the 2I design
+  DesignOrder.lean          moments of the binary icosahedral group
   StrongCoupling/
     Thresholds.lean         Dobrushin threshold at the sharp quarter
     ZonalBound.lean         zonal half of the sharp quarter
