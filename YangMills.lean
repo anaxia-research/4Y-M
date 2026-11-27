@@ -49,3 +49,4 @@ import YangMills.FiniteProjected
 import YangMills.FixedBox
 import YangMills.FixedExponent
 import YangMills.FractionalInstanton
+import YangMills.TwistedBox
