@@ -51,3 +51,4 @@ import YangMills.FixedExponent
 import YangMills.FractionalInstanton
 import YangMills.TwistedBox
 import YangMills.TwistAll
+import YangMills.LargerDisc
